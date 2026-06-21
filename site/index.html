@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Paper Collector · LLM 雷达</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="Paper Collector 首页"><span class="brand-mark">PC</span> PAPER COLLECTOR</a>
+      <p class="edition" id="edition">正在读取今日信号</p>
+      <a class="status" href="#method">评分方法 ↗</a>
+    </header>
+    <main id="top">
+      <section class="field-notes">
+        <p class="eyebrow">LLM TRAINING + INFERENCE / DAILY FIELD NOTES</p>
+        <div class="headline-row"><h1>今天，<em>值得打开</em>什么？</h1><p id="summary" class="summary">从论文信号中筛出可读的少数。</p></div>
+        <div class="filter-row" aria-label="论文筛选">
+          <label>主题 <select id="topic-filter"><option value="all">全部主题</option></select></label>
+          <label>排序 <select id="sort-filter"><option value="score">综合评分</option><option value="updated">最新更新</option></select></label>
+          <span id="paper-count" class="paper-count"></span>
+        </div>
+      </section>
+      <section id="papers" class="paper-grid" aria-live="polite"></section>
+      <section id="empty" class="empty-state" hidden>今天还没有入选论文。采集任务完成后，这里会出现一份新的阅读清单。</section>
+      <section id="method" class="method">
+        <p class="eyebrow">HOW THE SIGNAL IS FORMED</p>
+        <p>主题相关性是主信号；录用状态、可复现代码和已积累的影响力只作辅助。评分不是替你做决定，而是把最值得你判断的论文推到桌面上。</p>
+      </section>
+    </main>
+    <template id="paper-template">
+      <article class="paper-card">
+        <div class="card-top"><p class="topic"></p><p class="score"><span></span><small>/100</small></p></div>
+        <h2></h2><p class="authors"></p><p class="abstract"></p>
+        <div class="reasons"></div>
+        <div class="card-footer"><a class="paper-link" target="_blank" rel="noreferrer">打开论文 ↗</a><div class="feedback" aria-label="反馈"><button data-feedback="useful">有用</button><button data-feedback="later">稍后读</button><button data-feedback="skip">忽略</button></div></div>
+      </article>
+    </template>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

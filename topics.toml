@@ -1,0 +1,35 @@
+[collector]
+timezone = "Asia/Shanghai"
+daily_limit = 12
+candidate_limit = 180
+arxiv_categories = ["cs.CL", "cs.AI", "cs.LG", "cs.DC", "cs.SE"]
+
+[[topic]]
+slug = "pretraining"
+title = "预训练与优化"
+keywords = ["pretraining", "pre-training", "scaling law", "optimizer", "distributed training", "mixture of experts", "moe"]
+exclude = ["speech recognition"]
+
+[[topic]]
+slug = "post-training"
+title = "微调与对齐"
+keywords = ["instruction tuning", "fine-tuning", "post-training", "alignment", "reinforcement learning from human", "preference optimization"]
+exclude = []
+
+[[topic]]
+slug = "reasoning"
+title = "推理时扩展"
+keywords = ["test-time scaling", "test time compute", "reasoning", "chain of thought", "verifier", "search"]
+exclude = []
+
+[[topic]]
+slug = "serving"
+title = "推理系统"
+keywords = ["llm inference", "serving", "kv cache", "speculative decoding", "continuous batching", "prefix caching", "vllm"]
+exclude = []
+
+[[topic]]
+slug = "efficiency"
+title = "压缩与高效推理"
+keywords = ["quantization", "compression", "distillation", "low-rank", "sparsity", "memory-efficient"]
+exclude = []

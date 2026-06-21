@@ -1,0 +1,38 @@
+name: Collect daily papers
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      ARXIV_USER_AGENT: ${{ secrets.ARXIV_USER_AGENT }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+      OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Collect and rank papers
+        run: python scripts/collect.py
+      - name: Build dashboard data
+        run: python scripts/build_site.py
+      - name: Commit daily snapshot
+        run: |
+          git config user.name "paper-collector[bot]"
+          git config user.email "paper-collector[bot]@users.noreply.github.com"
+          git add data site/data
+          git diff --cached --quiet || git commit -m "data: collect daily papers"
+          git push
