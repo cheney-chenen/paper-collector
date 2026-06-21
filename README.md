@@ -1,6 +1,6 @@
 # Paper Collector
 
-一个面向 LLM 训练与推理的个人论文雷达：每日增量采集 arXiv、以可解释的多信号评分筛选候选、生成中文阅读卡片，并发布为受保护的静态仪表盘。
+一个面向 LLM 训练与推理的个人论文雷达：每日增量采集 arXiv、以可解释的多信号评分筛选候选、生成中文阅读卡片，并发布为静态仪表盘。
 
 ## 第一次运行
 
@@ -28,14 +28,13 @@ python3 scripts/build_site.py
 - `data/daily/YYYY-MM-DD.json`：每日入选论文和评分原因
 - `data/papers/index.json`：跨日报去重后的论文索引
 - `data/feedback/*.json`：网页写回的“有用 / 忽略 / 稍后读”反馈事件
-- `site/data/`：仪表盘读取的公开静态副本（部署时由 Cloudflare Access 保护）
+- `site/data/`：GitHub Pages 仪表盘读取的公开静态副本
 
-## 部署
+## 使用 GitHub Pages 部署
 
-1. 将仓库保持为私有仓库，并在 GitHub Secrets 配置 `ARXIV_USER_AGENT`。
+1. 将仓库保持为公开仓库，并在 GitHub Secrets 配置 `ARXIV_USER_AGENT`。
 2. 启用 `.github/workflows/daily.yml`；工作流每日抓取、构建并提交数据快照。
-3. 在 Cloudflare Pages 创建 `paper-collector` 项目并用 Cloudflare Access 限制访问者；将项目名作为 GitHub Actions Variable `CLOUDFLARE_PAGES_PROJECT` 保存。
-4. 在 `worker/` 配置仅可写入本仓库的 GitHub Fine-grained PAT 和 Cloudflare Access Audience；Worker 把反馈写进私有仓库，不让浏览器持有 GitHub 密钥。
-5. 将部署后的 Worker URL 填入 `site/config.js` 的 `PAPER_COLLECTOR_FEEDBACK_ENDPOINT`；该 URL 可公开，真正的访问控制由 Cloudflare Access JWT 完成。
+3. 在仓库 **Settings → Pages → Build and deployment** 中，将 Source 设为 **GitHub Actions**。
+4. 手动运行一次 **Collect daily papers**。成功后访问 `https://cheney-cen.github.io/paper-collector/`；以后每次日报任务都会同时更新该网页。
 
-部署前请阅读 `worker/README.md`，它列出了 Access JWT 校验所需的环境变量。
+GitHub Pages 是公开静态站点。页面上的“有用 / 稍后读 / 忽略”只保存在当前浏览器，不会上传到 GitHub。
