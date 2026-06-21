@@ -25,8 +25,8 @@ jobs:
       OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
       PYTHONPATH: src
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Run unit tests
@@ -43,9 +43,9 @@ jobs:
           git diff --cached --quiet || git commit -m "data: collect daily papers"
           git push
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload dashboard artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
 
@@ -58,4 +58,4 @@ jobs:
     steps:
       - name: Deploy dashboard to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
