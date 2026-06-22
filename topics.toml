@@ -2,9 +2,13 @@
 timezone = "Asia/Shanghai"
 daily_limit = 12
 candidate_limit = 180
-shortlist_limit = 40
-llm_assessment_limit = 20
+shortlist_limit = 70
+llm_assessment_limit = 70
 exploration_slots = 2
+keyword_gate = 0.30
+semantic_gate = 60.0
+relevance_floor = 30.0
+history_days = 14
 arxiv_categories = ["cs.CL", "cs.AI", "cs.LG", "cs.DC", "cs.SE"]
 anchor_terms = ["llm", "large language model", "language model", "foundation model", "transformer", "attention model"]
 

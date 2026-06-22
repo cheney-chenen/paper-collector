@@ -17,6 +17,10 @@ class Settings:
     arxiv_categories: list[str]
     anchor_terms: list[str]
     topics: list[Topic]
+    keyword_gate: float = 0.30
+    semantic_gate: float = 60.0
+    relevance_floor: float = 30.0
+    history_days: int = 14
 
 
 def load_settings(path: str | Path) -> Settings:
@@ -33,4 +37,8 @@ def load_settings(path: str | Path) -> Settings:
         arxiv_categories=list(collector["arxiv_categories"]),
         anchor_terms=list(collector.get("anchor_terms", ["llm", "language model"])),
         topics=topics,
+        keyword_gate=float(collector.get("keyword_gate", 0.30)),
+        semantic_gate=float(collector.get("semantic_gate", 60.0)),
+        relevance_floor=float(collector.get("relevance_floor", 30.0)),
+        history_days=int(collector.get("history_days", 14)),
     )
