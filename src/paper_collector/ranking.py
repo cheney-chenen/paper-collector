@@ -149,7 +149,7 @@ def classify_and_score(
         paper.score = 0.0
         paper.score_reasons = ["未达关键词或语义相关阈值"]
         return paper
-    if keyword_topics:
+    if keyword_path:
         paper.topic_scores = keyword_topics
         matched = [topic.title for topic in topics if topic.slug in keyword_topics]
         paper.score_reasons = [f"命中主题：{'、'.join(matched)}"]
