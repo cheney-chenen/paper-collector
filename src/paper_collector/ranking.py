@@ -71,8 +71,9 @@ def _credibility_score(paper: Paper) -> float:
     return _clamp(score)
 
 
-def _novelty_scores(papers: list[Paper]) -> dict[str, float]:
+def _novelty_scores(papers: list[Paper], history_papers: list[Paper] | None = None) -> dict[str, float]:
     token_sets = {paper.paper_id: _tokens(f"{paper.title} {paper.abstract}") for paper in papers}
+    history_tokens = [_tokens(f"{item.title} {item.abstract}") for item in (history_papers or [])]
     result: dict[str, float] = {}
     for paper in papers:
         own = token_sets[paper.paper_id]
@@ -81,6 +82,9 @@ def _novelty_scores(papers: list[Paper]) -> dict[str, float]:
             if other.paper_id == paper.paper_id:
                 continue
             theirs = token_sets[other.paper_id]
+            if own and theirs:
+                similarities.append(len(own & theirs) / len(own | theirs))
+        for theirs in history_tokens:
             if own and theirs:
                 similarities.append(len(own & theirs) / len(own | theirs))
         result[paper.paper_id] = round(_clamp(100 * (1 - 1.5 * max(similarities, default=0)), 25, 100), 1)
@@ -224,14 +228,31 @@ def select_diverse(papers: list[Paper], limit: int, exploration_slots: int = 2) 
     return selected[:limit]
 
 
-def rank(
-    papers: list[Paper], topics: list[Topic], limit: int, anchor_terms: list[str] | None = None,
-    shortlist_limit: int = 40, exploration_slots: int = 2,
+def prepare_candidates(
+    papers: list[Paper], topics: list[Topic], anchor_terms: list[str] | None = None,
+    keyword_gate: float = MIN_KEYWORD_RELEVANCE, semantic_gate: float = DEFAULT_SEMANTIC_GATE,
+    history_papers: list[Paper] | None = None,
 ) -> list[Paper]:
-    relevant = [paper for paper in papers if classify_and_score(paper, topics, anchor_terms).score > 0]
-    novelty = _novelty_scores(relevant)
+    """Gate, score, and add novelty (same-day + recent history). Returns relevant papers."""
+    relevant = [
+        paper for paper in papers
+        if classify_and_score(paper, topics, anchor_terms, keyword_gate, semantic_gate).score > 0
+    ]
+    novelty = _novelty_scores(relevant, history_papers)
     for paper in relevant:
         paper.score_breakdown["novelty"] = novelty[paper.paper_id]
     rescore(relevant)
-    shortlist = sorted(relevant, key=lambda item: item.score, reverse=True)[:shortlist_limit]
+    return relevant
+
+
+def rank(
+    papers: list[Paper], topics: list[Topic], limit: int, anchor_terms: list[str] | None = None,
+    shortlist_limit: int = 40, exploration_slots: int = 2,
+    keyword_gate: float = MIN_KEYWORD_RELEVANCE, semantic_gate: float = DEFAULT_SEMANTIC_GATE,
+    history_papers: list[Paper] | None = None,
+) -> list[Paper]:
+    pool = prepare_candidates(
+        papers, topics, anchor_terms, keyword_gate, semantic_gate, history_papers,
+    )
+    shortlist = sorted(pool, key=lambda item: item.score, reverse=True)[:shortlist_limit]
     return select_diverse(shortlist, limit, exploration_slots)

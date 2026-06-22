@@ -1,7 +1,7 @@
 import unittest
 
 from paper_collector.models import Paper, Topic
-from paper_collector.ranking import classify_and_score, rank, rescore
+from paper_collector.ranking import classify_and_score, prepare_candidates, rank, rescore
 
 
 def paper(**overrides):
@@ -111,3 +111,19 @@ class RankingTests(unittest.TestCase):
         # keyword_relevance = 63 (one title + one abstract hit); semantic = 90.
         # new blend = 0.35*63 + 0.65*90 = 80.55  (old 0.6/0.4 blend would be 73.8)
         self.assertAlmostEqual(candidate.score_breakdown["relevance"], 80.5, delta=1.0)
+
+    def test_history_reduces_novelty(self):
+        topic = Topic("serving", "推理系统", ["speculative decoding", "kv cache"])
+        twin = paper(paper_id="hist")
+        with_history = prepare_candidates([paper(paper_id="n1")], [topic], history_papers=[twin])
+        without_history = prepare_candidates([paper(paper_id="n2")], [topic])
+        self.assertLess(
+            with_history[0].score_breakdown["novelty"],
+            without_history[0].score_breakdown["novelty"],
+        )
+
+    def test_prepare_candidates_drops_irrelevant(self):
+        topic = Topic("serving", "推理系统", ["speculative decoding"])
+        off = paper(paper_id="off", title="Database indexing", abstract="B-tree storage.")
+        kept = prepare_candidates([paper(paper_id="on"), off], [topic])
+        self.assertEqual([p.paper_id for p in kept], ["on"])
