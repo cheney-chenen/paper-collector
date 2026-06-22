@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f4f1e9" />
     <title>Paper Collector · LLM 雷达</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -16,16 +20,26 @@
     <main id="top">
       <section class="field-notes">
         <p class="eyebrow">LLM TRAINING + INFERENCE / DAILY FIELD NOTES</p>
-        <div class="headline-row"><h1>今天，<em>值得打开</em>什么？</h1><p id="summary" class="summary">从论文信号中筛出可读的少数。</p></div>
-        <div class="filter-row" aria-label="论文筛选">
+        <div class="headline-row">
+          <h1>今天，<em>值得打开</em>什么？</h1>
+          <p id="summary" class="summary">从论文信号中筛出可读的少数。</p>
+        </div>
+      </section>
+      <div id="toolbar-sentinel" aria-hidden="true"></div>
+      <section class="toolbar" aria-label="论文筛选">
+        <div class="filter-row">
           <label>日期 <select id="date-filter" aria-label="日期"></select></label>
           <label>主题 <select id="topic-filter"><option value="all">全部主题</option></select></label>
           <label>排序 <select id="sort-filter"><option value="score">综合评分</option><option value="updated">最新更新</option></select></label>
-          <label class="search-label">搜索 <input id="search-input" type="search" placeholder="标题、作者或方法" autocomplete="off" /></label>
-          <span id="paper-count" class="paper-count"></span>
+          <label class="search-label">搜索
+            <input id="search-input" type="search" placeholder="标题、作者或方法" autocomplete="off" />
+            <button id="search-clear" type="button" aria-label="清除搜索" hidden>✕</button>
+          </label>
+          <button id="filter-reset" type="button" hidden>重置筛选</button>
+          <span id="paper-count" class="paper-count" aria-live="polite"></span>
         </div>
       </section>
-      <section id="papers" class="paper-grid" aria-live="polite"></section>
+      <section id="papers" class="paper-grid" aria-live="polite" aria-busy="true"></section>
       <section id="empty" class="empty-state" hidden>今天还没有入选论文。采集任务完成后，这里会出现一份新的阅读清单。</section>
       <section id="method" class="method">
         <p class="eyebrow">HOW THE SIGNAL IS FORMED</p>
@@ -34,10 +48,27 @@
     </main>
     <template id="paper-template">
       <article class="paper-card">
-        <div class="card-top"><p class="topic"></p><p class="score"><span></span><small>/100</small></p></div>
-        <h2></h2><p class="authors"></p><div class="breakdown"></div><p class="confidence"></p><p class="abstract"></p><p class="risk" hidden></p>
+        <div class="card-top">
+          <p class="topic"></p>
+          <p class="score"><span class="score-val"></span><small>/100</small></p>
+        </div>
+        <div class="score-meter" aria-hidden="true"><i data-w="0"></i></div>
+        <h2></h2>
+        <p class="authors"></p>
+        <ul class="meta" hidden></ul>
+        <p class="abstract"></p>
+        <div class="breakdown"></div>
+        <p class="confidence"></p>
+        <p class="risk" hidden></p>
         <div class="reasons"></div>
-        <div class="card-footer"><a class="paper-link" target="_blank" rel="noreferrer">打开论文 ↗</a><div class="feedback" aria-label="反馈"><button data-feedback="useful">有用</button><button data-feedback="later">稍后读</button><button data-feedback="skip">忽略</button></div></div>
+        <div class="card-footer">
+          <a class="paper-link" target="_blank" rel="noreferrer">打开论文 ↗</a>
+          <div class="feedback" role="group" aria-label="反馈">
+            <button type="button" data-feedback="useful">有用</button>
+            <button type="button" data-feedback="later">稍后读</button>
+            <button type="button" data-feedback="skip">忽略</button>
+          </div>
+        </div>
       </article>
     </template>
     <script src="app.js"></script>
