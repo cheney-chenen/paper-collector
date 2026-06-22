@@ -156,3 +156,18 @@ class RankingTests(unittest.TestCase):
         unassessed = paper(paper_id="u")  # no llm_scores at all
         kept = cull_off_topic([unassessed], relevance_floor=30.0, min_keep=1)
         self.assertEqual([p.paper_id for p in kept], ["u"])
+
+    def test_semantic_rescue_ignores_weak_below_gate_keyword_hit(self):
+        topic = Topic("serving", "推理系统", ["kv cache"])
+        # One incidental abstract mention of "kv cache" -> keyword score 0.18 (< 0.30 gate),
+        # so the keyword path does NOT fire. The semantic seed (0.75) must win.
+        candidate = paper(
+            title="Faster inference via recomputation",
+            abstract="We compare against a kv cache baseline.",
+            semantic_score=75.0,
+            topic_scores={"serving": 0.75},
+        )
+        scored = classify_and_score(candidate, [topic])
+        self.assertEqual(scored.topic_scores, {"serving": 0.75})
+        # relevance = 0.35*75 + 0.65*75 = 75.0 (NOT 0.35*18 + 0.65*75 = 55.05)
+        self.assertAlmostEqual(scored.score_breakdown["relevance"], 75.0, delta=1.0)
