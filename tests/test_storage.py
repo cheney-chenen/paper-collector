@@ -5,7 +5,14 @@ from datetime import date
 from pathlib import Path
 
 from paper_collector.models import Paper
-from paper_collector.storage import canonical_paper_id, load_daily_papers, save_daily, seen_before, update_index
+from paper_collector.storage import (
+    canonical_paper_id,
+    load_daily_papers,
+    load_recent_selected,
+    save_daily,
+    seen_before,
+    update_index,
+)
 
 
 def sample() -> Paper:
@@ -33,3 +40,15 @@ class StorageTests(unittest.TestCase):
             save_daily(root, date(2026, 1, 2), [newer])
             self.assertEqual(seen_before(root, date(2026, 1, 2)), {"2601.00001"})
             self.assertEqual(load_daily_papers(root, date(2026, 1, 2))[0].paper_id, "2601.00002v2")
+
+    def test_load_recent_selected_respects_window(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            old = sample()
+            old.paper_id = "old"
+            recent = sample()
+            recent.paper_id = "recent"
+            save_daily(root, date(2026, 1, 1), [old])     # 9 days before run date
+            save_daily(root, date(2026, 1, 8), [recent])  # 2 days before run date
+            loaded = load_recent_selected(root, date(2026, 1, 10), days=7)
+            self.assertEqual([p.paper_id for p in loaded], ["recent"])

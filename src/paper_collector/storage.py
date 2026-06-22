@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import fields
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from .models import Paper
@@ -25,6 +25,23 @@ def load_daily_papers(root: Path, run_date: date) -> list[Paper]:
     assert isinstance(payload, dict)
     allowed = {field.name for field in fields(Paper)}
     return [Paper(**{key: value for key, value in item.items() if key in allowed}) for item in payload.get("papers", [])]
+
+
+def load_recent_selected(root: Path, run_date: date, days: int) -> list[Paper]:
+    """Selected papers from daily files in [run_date - days, run_date), for novelty history."""
+    papers: list[Paper] = []
+    daily_root = root / "daily"
+    if not daily_root.exists() or days <= 0:
+        return papers
+    cutoff = run_date - timedelta(days=days)
+    for path in sorted(daily_root.glob("*.json")):
+        try:
+            file_date = date.fromisoformat(path.stem)
+        except ValueError:
+            continue
+        if cutoff <= file_date < run_date:
+            papers.extend(load_daily_papers(root, file_date))
+    return papers
 
 
 def seen_before(root: Path, run_date: date) -> set[str]:
