@@ -13,8 +13,15 @@ sys.path.insert(0, str(ROOT / "src"))
 from paper_collector.arxiv import fetch_recent
 from paper_collector.config import load_settings
 from paper_collector.llm import add_semantic_scores, assess_papers, summarize_in_chinese
-from paper_collector.ranking import rank, rescore, select_diverse
-from paper_collector.storage import canonical_paper_id, load_daily_papers, save_daily, seen_before, update_index
+from paper_collector.ranking import cull_off_topic, prepare_candidates, rescore, select_diverse
+from paper_collector.storage import (
+    canonical_paper_id,
+    load_daily_papers,
+    load_recent_selected,
+    save_daily,
+    seen_before,
+    update_index,
+)
 
 
 def main() -> None:
@@ -36,14 +43,17 @@ def main() -> None:
     # Keep the newest arXiv version while making same-day reruns idempotent.
     papers_by_id = {canonical_paper_id(paper.paper_id): paper for paper in candidates}
     papers = list(papers_by_id.values())
+    history = load_recent_selected(data_root, args.date, settings.history_days)
     add_semantic_scores(papers, settings.topics)
-    shortlist = rank(
-        papers, settings.topics, settings.shortlist_limit, settings.anchor_terms,
-        settings.shortlist_limit, exploration_slots=0,
+    pool = prepare_candidates(
+        papers, settings.topics, settings.anchor_terms,
+        settings.keyword_gate, settings.semantic_gate, history_papers=history,
     )
+    shortlist = sorted(pool, key=lambda item: item.score, reverse=True)[: settings.shortlist_limit]
     assess_papers(shortlist, settings.llm_assessment_limit)
     rescore(shortlist)
-    ranked = select_diverse(shortlist, settings.daily_limit, settings.exploration_slots)
+    kept = cull_off_topic(shortlist, settings.relevance_floor, settings.daily_limit)
+    ranked = select_diverse(kept, settings.daily_limit, settings.exploration_slots)
     summarize_in_chinese(ranked)
     save_daily(data_root, args.date, ranked, candidate_count=len(papers))
     update_index(data_root, ranked)
