@@ -277,5 +277,5 @@ def cull_off_topic(papers: list[Paper], relevance_floor: float, min_keep: int) -
         kept = [paper for paper in papers if id(paper) not in off_ids]
     for paper in papers:
         if id(paper) in off_ids:
-            paper.score_reasons = list(paper.score_reasons) + ["LLM 判定主题相关度过低"]
+            paper.score_reasons = paper.score_reasons + ["LLM 判定主题相关度过低"]
     return kept
