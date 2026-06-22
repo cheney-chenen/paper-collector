@@ -52,3 +52,23 @@ class StorageTests(unittest.TestCase):
             save_daily(root, date(2026, 1, 8), [recent])  # 2 days before run date
             loaded = load_recent_selected(root, date(2026, 1, 10), days=7)
             self.assertEqual([p.paper_id for p in loaded], ["recent"])
+
+    def test_load_recent_selected_includes_exact_cutoff(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            edge = sample()
+            edge.paper_id = "edge"
+            # run_date 2026-01-10, days=7 -> cutoff 2026-01-03, which must be INCLUDED (>=).
+            save_daily(root, date(2026, 1, 3), [edge])
+            loaded = load_recent_selected(root, date(2026, 1, 10), days=7)
+            self.assertEqual([p.paper_id for p in loaded], ["edge"])
+
+    def test_load_recent_selected_skips_non_date_files(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            real = sample()
+            real.paper_id = "real"
+            save_daily(root, date(2026, 1, 8), [real])
+            (root / "daily" / "summary.json").write_text("{}", encoding="utf-8")
+            loaded = load_recent_selected(root, date(2026, 1, 10), days=7)
+            self.assertEqual([p.paper_id for p in loaded], ["real"])
