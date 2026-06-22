@@ -49,9 +49,11 @@ def main() -> None:
         papers, settings.topics, settings.anchor_terms,
         settings.keyword_gate, settings.semantic_gate, history_papers=history,
     )
+    # Pure score order, no diversity caps — every hot-topic paper reaches the LLM filter.
     shortlist = sorted(pool, key=lambda item: item.score, reverse=True)[: settings.shortlist_limit]
     assess_papers(shortlist, settings.llm_assessment_limit)
     rescore(shortlist)
+    # daily_limit is the cull floor (keep at least this many), not a guarantee of exactly that count.
     kept = cull_off_topic(shortlist, settings.relevance_floor, settings.daily_limit)
     ranked = select_diverse(kept, settings.daily_limit, settings.exploration_slots)
     summarize_in_chinese(ranked)
