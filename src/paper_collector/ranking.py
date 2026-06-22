@@ -257,3 +257,25 @@ def rank(
     )
     shortlist = sorted(pool, key=lambda item: item.score, reverse=True)[:shortlist_limit]
     return select_diverse(shortlist, limit, exploration_slots)
+
+
+def cull_off_topic(papers: list[Paper], relevance_floor: float, min_keep: int) -> list[Paper]:
+    """Drop LLM-judged off-topic papers, preserving order and never going below min_keep.
+
+    Only papers that actually received an LLM relevance score are eligible to be culled.
+    If too few survive, the highest-scored culled papers are added back to reach min_keep.
+    """
+    off_ids = {
+        id(paper) for paper in papers
+        if "relevance" in paper.llm_scores and paper.llm_scores["relevance"] < relevance_floor
+    }
+    kept = [paper for paper in papers if id(paper) not in off_ids]
+    if len(kept) < min_keep and off_ids:
+        culled = sorted((p for p in papers if id(p) in off_ids), key=lambda p: p.score, reverse=True)
+        addback_ids = {id(p) for p in culled[: min_keep - len(kept)]}
+        off_ids -= addback_ids
+        kept = [paper for paper in papers if id(paper) not in off_ids]
+    for paper in papers:
+        if id(paper) in off_ids:
+            paper.score_reasons = list(paper.score_reasons) + ["LLM 判定主题相关度过低"]
+    return kept

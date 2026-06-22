@@ -1,7 +1,7 @@
 import unittest
 
 from paper_collector.models import Paper, Topic
-from paper_collector.ranking import classify_and_score, prepare_candidates, rank, rescore
+from paper_collector.ranking import classify_and_score, cull_off_topic, prepare_candidates, rank, rescore
 
 
 def paper(**overrides):
@@ -126,3 +126,28 @@ class RankingTests(unittest.TestCase):
         off = paper(paper_id="off", title="Database indexing", abstract="B-tree storage.")
         kept = prepare_candidates([paper(paper_id="on"), off], [topic])
         self.assertEqual([p.paper_id for p in kept], ["on"])
+
+    def test_cull_drops_assessed_off_topic_paper(self):
+        keep = paper(paper_id="keep")
+        keep.llm_scores = {"relevance": 80.0}
+        keep.score = 80.0
+        drop = paper(paper_id="drop")
+        drop.llm_scores = {"relevance": 10.0}
+        drop.score = 70.0
+        kept = cull_off_topic([keep, drop], relevance_floor=30.0, min_keep=1)
+        self.assertEqual([p.paper_id for p in kept], ["keep"])
+
+    def test_cull_never_drops_below_min_keep(self):
+        high = paper(paper_id="high")
+        high.llm_scores = {"relevance": 10.0}
+        high.score = 90.0
+        low = paper(paper_id="low")
+        low.llm_scores = {"relevance": 5.0}
+        low.score = 80.0
+        kept = cull_off_topic([high, low], relevance_floor=30.0, min_keep=2)
+        self.assertEqual({p.paper_id for p in kept}, {"high", "low"})
+
+    def test_cull_keeps_unassessed_papers(self):
+        unassessed = paper(paper_id="u")  # no llm_scores at all
+        kept = cull_off_topic([unassessed], relevance_floor=30.0, min_keep=1)
+        self.assertEqual([p.paper_id for p in kept], ["u"])
