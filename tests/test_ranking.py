@@ -91,6 +91,19 @@ class RankingTests(unittest.TestCase):
         )
         self.assertEqual(classify_and_score(candidate, [topic]).score, 0.0)
 
+    def test_exclude_is_global_across_topics(self):
+        topics = [
+            Topic("pretraining", "预训练", ["pretraining"], ["speech recognition"]),
+            Topic("serving", "推理系统", ["speculative decoding"]),
+        ]
+        # Matches the serving keyword and has the LLM anchor, but the abstract contains
+        # pretraining's exclude term — global exclusion must drop it anyway.
+        candidate = paper(
+            title="Speculative decoding for LLM inference",
+            abstract="We speed up speech recognition pipelines.",
+        )
+        self.assertEqual(classify_and_score(candidate, topics).score, 0.0)
+
     def test_semantic_score_dominates_relevance(self):
         topic = Topic("serving", "推理系统", ["speculative decoding", "kv cache"])
         candidate = paper(semantic_score=90.0)

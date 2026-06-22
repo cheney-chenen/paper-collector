@@ -18,6 +18,8 @@ COMMON_TOKENS = {"the", "and", "for", "with", "from", "that", "this", "language"
 
 
 def _excluded(text: str, topics: list[Topic]) -> bool:
+    """Any topic's exclude term blocks the paper globally — off-domain noise is dropped
+    regardless of other topic matches. This is intentional, not per-topic filtering."""
     return any(term.casefold() in text for topic in topics for term in topic.exclude)
 
 
