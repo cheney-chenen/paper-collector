@@ -136,6 +136,8 @@ class RankingTests(unittest.TestCase):
         drop.score = 70.0
         kept = cull_off_topic([keep, drop], relevance_floor=30.0, min_keep=1)
         self.assertEqual([p.paper_id for p in kept], ["keep"])
+        self.assertIn("LLM 判定主题相关度过低", drop.score_reasons)
+        self.assertNotIn("LLM 判定主题相关度过低", keep.score_reasons)
 
     def test_cull_never_drops_below_min_keep(self):
         high = paper(paper_id="high")
@@ -146,6 +148,9 @@ class RankingTests(unittest.TestCase):
         low.score = 80.0
         kept = cull_off_topic([high, low], relevance_floor=30.0, min_keep=2)
         self.assertEqual({p.paper_id for p in kept}, {"high", "low"})
+        # Both are added back to satisfy min_keep, so neither is annotated as dropped.
+        self.assertNotIn("LLM 判定主题相关度过低", high.score_reasons)
+        self.assertNotIn("LLM 判定主题相关度过低", low.score_reasons)
 
     def test_cull_keeps_unassessed_papers(self):
         unassessed = paper(paper_id="u")  # no llm_scores at all
