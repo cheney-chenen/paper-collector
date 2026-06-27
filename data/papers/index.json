@@ -3359,5 +3359,458 @@
       "优势：新颖 89、质量 51"
     ],
     "summary_zh": null
+  },
+  "2606.27242v1": {
+    "paper_id": "2606.27242v1",
+    "title": "The Geometry of Updates: Fisher Alignment at Vocabulary Scale",
+    "abstract": "Training-free source selection for LLM families with shared vocabularies arises in scientific string domains such as SMILES, protein, and genomic sequences, where candidate corpora share a tokenizer but differ in prediction targets. This creates an activation-dark regime: representation-similarity metrics can be uninformative without assumptions about label-conditioned error geometry, while classical update-geometry metrics are computationally prohibitive at vocabulary scale. We show that, in a shared-output head setting, representation metrics (e.g., CKA) are non-identifiable for transfer; models can share identical representations yet have orthogonal head updates. The key identity is that head Fisher alignment is exactly a cosine between kernel mean embeddings in the joint activation-error space, exposing activation, error, and coupling factors rather than requiring a materialized Fisher matrix. FisherSketch estimates this cosine directly in a single streaming pass, making K=128,256 head Fisher alignment practical with a 16 KB task signature (m=4096) and a 192 KB per-task streaming state, small enough to store next to a model hash, but encoding transfer-relevant update structure. Beyond source selection, the same signatures and marginals provide a diagnostic instrument for studying whether LLM task similarity is driven by activations, errors, or their coupling; shared-parameter and internal-layer validations, together with Llama-3.1-8B verbalizer-shift experiments, show that FisherSketch remains informative when activation similarity cannot distinguish tasks.",
+    "authors": [
+      "John Sweeney"
+    ],
+    "published": "2026-06-25T16:30:27Z",
+    "updated": "2026-06-25T16:30:27Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "stat.ML"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.27242v1",
+    "abs_url": "http://arxiv.org/abs/2606.27242v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 63,
+      "novelty": 88.6,
+      "practical": 18,
+      "credibility": 28
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 89、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2606.26794v1": {
+    "paper_id": "2606.26794v1",
+    "title": "ReasonCLIP-58M: Visually Grounded Commonsense Reasoning Supervision for CLIP",
+    "abstract": "CLIP and its variants are widely adopted visual backbones in multimodal systems, but their pretraining remains dominated by descriptive image-text alignment. As downstream applications increasingly demand visually grounded commonsense inference and compositional reasoning, it remains unclear whether CLIP-style encoders can support such reasoning without architectural changes. To address this, we present ReasonCLIP-58M, a continual pretraining framework that integrates large-scale reasoning supervision into CLIP-style models through our two-stage strategy, which progressively integrates reasoning signals while preserving descriptive alignment, followed by category-structured reasoning supervision. To support this framework, we construct two complementary datasets and a benchmark: ReasonLite-42M, with open-form, visually verifiable reasoning captions; ReasonPro-16M, with category-specific reasoning supervision; and RCLIP-Bench for diagnostic evaluation of visually grounded reasoning. We train a family of ReasonCLIP that improves visually grounded commonsense and compositional reasoning while also enhancing zero-shot retrieval performance. As a drop-in visual encoder for multimodal large language models such as LLaVA-NeXT, ReasonCLIP delivers consistent gains without additional inference cost, demonstrating that structured reasoning supervision enhances the expressive capacity of CLIP-style visual representations. All datasets, models, and training code are available at https://github.com/RISys-Lab/ReasonCLIP.",
+    "authors": [
+      "Sicheng Zhang",
+      "Muzammal Naseer",
+      "Binzhu Xie",
+      "Naufal Suryanto",
+      "Shi Qiu",
+      "Jamal Bentahar",
+      "Naveed Akhtar",
+      "Mubarak Shah"
+    ],
+    "published": "2026-06-25T09:27:54Z",
+    "updated": "2026-06-25T09:27:54Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.26794v1",
+    "abs_url": "http://arxiv.org/abs/2606.26794v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.18,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 56,
+      "novelty": 83.3,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.6,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、推理时扩展",
+      "优势：新颖 83、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2606.27023v1": {
+    "paper_id": "2606.27023v1",
+    "title": "Just how sure are you? Improving Verbalized Uncertainty Calibration in Medical VQA",
+    "abstract": "Multimodal large language models (MLLMs) applied to Medical Visual Question Answering (VQA) tend to produce overconfident outputs regardless of actual correctness, and existing verbalized confidence calibration methods, developed primarily for text only LLMs, do not account for the multimodal nature of medical image understanding. This work proposes a training based framework that finetunes MLLMs to improve their calibration using a composite loss function combining a Brier style calibration term, an anchor regularizer that prevents confidence collapse toward extreme values, a contrastive image text alignment term, and a KL based model stabilization term. The alignment signal is derived from a $2 \\times 2$ factorial perturbation design that crosses image presence with text integrity, probing the reliance of the model on visual modality input versus language priors. Finally, a top K KL divergence regularizer is used to protect the answering ability of the model during finetuning. Across three Medical VQA benchmarks and two architectures (MedGemma 4B IT and Qwen2 VL 7B Instruct), our method reduces calibration error by 60% or more, and improves discrimination by 26% or more, while preserving predictive accuracy. On average across benchmarks, the technique outperforms prompting based, sampling based, and training based approaches, and ablation experiments confirm that each component of the loss function is indeed necessary for improving the calibration. All code for the experiments is publicly available.",
+    "authors": [
+      "Eren Senoglu",
+      "Federico Toschi",
+      "Nicolo Brunello",
+      "Andrea Sassella",
+      "Mark James Carman"
+    ],
+    "published": "2026-06-25T13:33:58Z",
+    "updated": "2026-06-25T13:33:58Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.27023v1",
+    "abs_url": "http://arxiv.org/abs/2606.27023v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 90,
+      "novelty": 85.7,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.0,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：质量 90、新颖 86"
+    ],
+    "summary_zh": null
+  },
+  "2606.26875v1": {
+    "paper_id": "2606.26875v1",
+    "title": "Information-Aware KV Cache Compression for Long Reasoning",
+    "abstract": "Reasoning capability has advanced rapidly in large language models (LLMs), leading to an increasing size of key-value (KV) cache in both prefilling and decoding stages. Existing KV cache compression methods mainly rely on attention weights to estimate token importance. While attention effectively captures contextual relevance, it overlooks complementary information-theoretic signals related to predictive uncertainty and token informativeness. In this paper, we revisit token importance from a forward-looking perspective and introduce \\textit{Forward Influence}, a metric that measures how compressed tokens affect future contexts. Our analysis reveals that tokens selected by attention scores mainly influence nearby contexts, whereas tokens associated with high predictive uncertainty exhibit substantially stronger influence on distant future contexts. Based on the observation, we propose \\textbf{InfoKV}, an entropy-aware KV cache compression framework that incorporates information-theoretic signals. It combines token-level predictive uncertainty with layer-wise representation evolution and integrates the resulting entropy scores with attention scores during reasoning. Experiments on long-context reasoning benchmarks with Llama-3.1, Llama-3.2, and DeepSeek-R1 demonstrate that InfoKV consistently outperforms existing attention-based KV compression methods in both long prefilling and decoding scenarios.",
+    "authors": [
+      "Jushi Kai",
+      "Zhuiri Xiao",
+      "Alexandra Birch",
+      "Zhouhan Lin"
+    ],
+    "published": "2026-06-25T11:03:37Z",
+    "updated": "2026-06-25T11:03:37Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.26875v1",
+    "abs_url": "http://arxiv.org/abs/2606.26875v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "serving": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 57,
+      "novelty": 82.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 56.8,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统、压缩与高效推理",
+      "优势：新颖 82、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2606.27025v1": {
+    "paper_id": "2606.27025v1",
+    "title": "Improving General Role-Playing Agents via Psychology-Grounded Reasoning and Role-Aware Policy Optimization",
+    "abstract": "Building general-purpose role-playing agents that faithfully portray any character from a natural-language profile remains challenging. The dominant paradigm -- supervised fine-tuning -- encourages behavioral mimicry without deep, human-like internal thought processes, resulting in poor out-of-distribution generalization. Therefore, we propose \\textbf{Psy-CoT}, a psychology-grounded chain-of-thought framework that decomposes pre-response reasoning into three role-specific steps -- \\emph{Interaction Perception}, \\emph{Psychological Empathy}, and \\emph{Logical Construction} -- so that the model \\emph{thinks dynamically} from the profile rather than merely mimicking surface patterns. While structured reasoning provides a foundation, it alone is insufficient; reinforcement learning is essential to further align the model with character fidelity. However, we observe that under LLM-based reward models, both generic phrases that hack the reward model and genuinely role-specific phrases receive identical gradient signals -- this hacking accumulates over training, misleading the model into treating both as equally optimal choices. To address this, we propose \\textbf{Role-Aware Policy Optimization (RAPO)}, which uses profile--token mutual information to weight gradients asymmetrically -- amplifying role-specific tokens under positive advantage while attenuating them under negative advantage. Experiments on CoSER, CharacterBench, and CharacterEval demonstrate that Psy-CoT outperforms existing role-playing CoT methods, and RAPO consistently surpasses GRPO across multiple model scales.",
+    "authors": [
+      "Zhenhua Xu",
+      "Dongsheng Chen",
+      "Jian Li",
+      "Yitong Lin",
+      "Zhebo Wang",
+      "Jiafu Wu",
+      "Yizhang Jin",
+      "Chengjie Wang",
+      "Meng Han",
+      "Yabiao Wang"
+    ],
+    "published": "2026-06-25T13:34:47Z",
+    "updated": "2026-06-25T13:34:47Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.27025v1",
+    "abs_url": "http://arxiv.org/abs/2606.27025v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 52,
+      "novelty": 81.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 81、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2606.27321v1": {
+    "paper_id": "2606.27321v1",
+    "title": "Beyond the Hard Budget: Sparsity Regularizers for More Interpretable Top-k Sparse Autoencoders",
+    "abstract": "Sparse autoencoders (SAEs) have become a leading tool for interpreting the representations of vision foundation models, decomposing their polysemantic activations into a larger set of sparse, more monosemantic features. The Top-$k$ SAE, a now-standard variant, enforces sparsity architecturally through its activation function, retaining only the $k$ most active latents per input. Because it was designed precisely to avoid the $\\ell_1$ penalty used by earlier SAEs and its known drawbacks, it has not been combined with an explicit sparsity regularizer, despite retaining limitations of its own, such as a budget $k$ that is fixed regardless of input complexity and a tendency to overfit to the training value of $k$. We introduce two sparsity regularizers compatible with the Top-$k$ architecture, both acting on the activations before the Top-$k$ selection: an $\\ell_1$ penalty on the unselected (off-support) units, and a scale-invariant $\\ell_1/\\ell_2$-ratio penalty that concentrates the code onto fewer effective units. Both penalties are applied only to the batch-active units, those selected by the Top-$k$ operator at least once within the batch. Across two datasets, three vision foundation models, and a range of $k$, both regularizers consistently improve monosemanticity at no cost to reconstruction quality. The $\\ell_1/\\ell_2$ penalty further concentrates information into fewer latents, making reconstruction more robust to the inference-time choice of $k$ and improving small-budget linear probing. Our central finding is that hard architectural sparsity and soft sparsity regularization are complementary rather than mutually exclusive.",
+    "authors": [
+      "Nathanaël Jacquier",
+      "Maria Vakalopoulou",
+      "Mahdi S. Hosseini"
+    ],
+    "published": "2026-06-25T17:34:39Z",
+    "updated": "2026-06-25T17:34:39Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.27321v1",
+    "abs_url": "http://arxiv.org/abs/2606.27321v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 43,
+      "novelty": 87.2,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.8,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2606.27210v1": {
+    "paper_id": "2606.27210v1",
+    "title": "Paved with True Intents: Intent-Aware Training Improves LLM Safety Classification Across Training Regimes",
+    "abstract": "We argue that safety classifiers should model user intent as an explicit signal between the prompt and the final label. To study this, we introduce AIMS, a human-annotated dataset of 1,724 difficult safety prompts, each paired with an intent description and harm label. We use AIMS to evaluate intent-aware training across supervised fine-tuning, preference learning, reasoning distillation, and reinforcement learning. Despite its size, AIMS enables competitive safety classifiers across training regimes: DPO from model-generated intent errors improves over SFT, and intent-conditioned distillation outperforms reasoning-only distillation in most teacher-student pairs. Most notably, directly rewarding intent faithfulness with GRPO yields the strongest average performance across five external safety benchmarks, while our intent-aware models form the inference latency-F1 Pareto frontier. These results show that faithful intent modeling is a compact, high-quality supervision signal for more robust safety classifiers.",
+    "authors": [
+      "Jeremias Ferrao",
+      "Niclas Müller-Hof",
+      "Iustin Sîrbu",
+      "Traian Rebedea",
+      "Yftah Ziser"
+    ],
+    "published": "2026-06-25T16:03:57Z",
+    "updated": "2026-06-25T16:03:57Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.27210v1",
+    "abs_url": "http://arxiv.org/abs/2606.27210v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 66,
+      "novelty": 85.6,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 50.7,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 86、质量 66"
+    ],
+    "summary_zh": null
+  },
+  "2606.26857v1": {
+    "paper_id": "2606.26857v1",
+    "title": "LCAi: Life Cycle Assessment with big data fusion and retrieval-augmented generation-assisted interpretation",
+    "abstract": "The interpretation phase of life cycle assessment often lacks structured mechanisms for translating quantified improvement opportunities addressing environmental hotspots into actionable strategic pathways under technological, social, and policy uncertainty. To overcome this limitation, this study introduces a perspective-conditioned retrieval-augmented generation framework for LCA interpretation, where a multi-perspective retrieval and controlled synthesis is incorporated in the artificial intelligence (AI)-assisted LCA. To operationalise large language models in LCA interpretation, a perspective fusion RAG architecture was developed, covering academic, industry, public discourse, and European union (EU) funding datasets. Our approach comprises three steps: (1) a scenario anchor defining system boundaries and decarbonization targets, (2) a set of perspective-specific micro-queries with constrained retrieval, and (3) a neutral synthesis step integrating only ledger-stored outputs without further retrieval. The framework is demonstrated through a hydrogen-enabled diesel reduction use case in an Italian apple production facility using GPT-5 nano as the reasoning model. Overall, the structured retrieval and constrained synthesis are designed to mitigate the risk of hallucination while preserving cross-domain diversity. The approach presented can support more disciplined translation of impact results into strategic pathways and opens up new avenues for the use of advanced AI tools in LCA studies, particularly those focused on technologies that could be deployed at scale. This proof-of-concept demonstrates how AI-assisted, evidence-grounded interpretation can support implementation-oriented decision-making beyond conventional LCA studies.",
+    "authors": [
+      "Georgios Tsironis",
+      "Juan D. Medrano-Garcia",
+      "Gonzalo Guillen-Gosalbez"
+    ],
+    "published": "2026-06-25T10:41:48Z",
+    "updated": "2026-06-25T10:41:48Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.26857v1",
+    "abs_url": "http://arxiv.org/abs/2606.26857v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 47,
+      "novelty": 89.0,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 46.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 89、质量 47"
+    ],
+    "summary_zh": null
+  },
+  "2606.26917v1": {
+    "paper_id": "2606.26917v1",
+    "title": "GEOALIGN: Geometric Rollout Curation for Robust LLM Reinforcement Learning",
+    "abstract": "Online reinforcement learning is widely used to align large language models (LLMs) with reward signals, yet training can be unstable under noisy or misspecified rewards. We identify a failure mode we call directional inconsistency: within a batch, a small set of high-reward rollouts induces representation-space preference directions that sharply disagree with the batch majority, resulting in high-variance and destabilizing updates. We propose geoalign, a lightweight plug-in for rollout curation in iterative policy optimization. Geoalign (i) forms within-prompt preference pairs, (ii) learns an online projector on per-rollout hidden states to concentrate reward-ordered displacement directions, and (iii) detects directionally inconsistent rollouts via their angular deviation from a batch consensus prototype and rectifies them with within-prompt stable alternatives. Geoalign is forward-pass only and adds negligible overhead. Across dialogue alignment with a learned reward model and mathematical reasoning with binary verified rewards, Geoalign improves final performance and reduces training oscillation, outperforming PF-PPO, PAR, PODS, and Seed-GRPO. These results suggest latent directional consensus as an effective reliability signal for online LLM RL.",
+    "authors": [
+      "Ting Zhou",
+      "Zhenqing Ling",
+      "Yiyang Zhao",
+      "Ying Shen",
+      "Daoyuan Chen"
+    ],
+    "published": "2026-06-25T11:53:37Z",
+    "updated": "2026-06-25T11:53:37Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.26917v1",
+    "abs_url": "http://arxiv.org/abs/2606.26917v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 31,
+      "novelty": 86.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 40.6,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 86、匹配 36"
+    ],
+    "summary_zh": null
+  },
+  "2606.27359v1": {
+    "paper_id": "2606.27359v1",
+    "title": "When are likely answers right? On Sequence Probability and Correctness in LLMs",
+    "abstract": "Many decoding methods for large language models can be understood as shifting probability mass toward outputs that are more likely under the model, either locally at the token level or globally at the sequence level. Therefore, their success depends on a fundamental question: when does sequence probability, that is, the conditional probability of a continuation given a prompt, actually align with correctness? In this paper, we set out to quantify this relationship across decoding methods, models, and benchmarks at four levels: across decoding methods, across hyperparameters within a method, across prompt-answer pairs within a dataset, and across repeated responses to the same prompt. We find that higher sequence probability is often predictive of correctness across prompt-answer pairs within a fixed dataset. However, this relationship does not generally transfer to decoding decisions: increasing sequence probability by changing hyperparameters or methods does not reliably improve accuracy. Further, sequence probability is not a good indicator of correctness for responses to the same prompt. These findings clarify when decoding can and cannot be expected to improve correctness, and provide practical guidance for decoding, self-consistency, and verifier-free self-improvement.",
+    "authors": [
+      "Johannes Zenn",
+      "Jonas Geiping"
+    ],
+    "published": "2026-06-25T17:58:02Z",
+    "updated": "2026-06-25T17:58:02Z",
+    "categories": [
+      "stat.ML",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2606.27359v1",
+    "abs_url": "http://arxiv.org/abs/2606.27359v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 40,
+      "novelty": 85.6,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 42.9,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 86、质量 40"
+    ],
+    "summary_zh": null
   }
 }
