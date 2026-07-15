@@ -1,7 +1,557 @@
 {
   "date": "全部历史",
-  "selected_count": 218,
+  "selected_count": 230,
   "papers": [
+    {
+      "paper_id": "2607.12875v1",
+      "title": "MetaInfer: A Knowledge Only LLM Inference Engine Generator SKILL Toolbox",
+      "abstract": "As LLM technology advances, the space of model families, compute hardware, quantization schemes, parallelization strategies, and specialized optimization kernels continues to expand, sharply increasing the code complexity and maintenance cost of general-purpose inference frameworks. Conventional software engineering uses multiple layers of abstraction to support diverse application scenarios, but these abstractions also increase system complexity and may introduce additional performance overhead. This paper presents metainfer, an 'LLM-as-Compiler' approach in which users specify only the runtime constraints of an inference program. An LLM-driven multi-agent collaboration system, coupled with a contract knowledge base, then automatically generates a compact customized inference framework that satisfies these constraints. We evaluate metainfer from three perspectives: the effect of source-code reference, the runtime behavior and performance profile of engines generated under the zero-reference constraint on CKB-covered targets, and knowledge-base evolution for new model and platform scenarios. The results show that metainfer organizes generation constraints, validation feedback, and knowledge consolidation into a continuous closed loop, enabling runnable customized inference solutions to be generated from explicit knowledge. The code is publicly available at https://github.com/MetaInfer/MetaInfer.",
+      "authors": [
+        "Zhenwen Miao",
+        "Honglin Wang",
+        "Mingheng Mi"
+      ],
+      "published": "2026-07-14T15:22:48Z",
+      "updated": "2026-07-14T15:22:48Z",
+      "categories": [
+        "cs.MA",
+        "cs.SE"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12875v1",
+      "abs_url": "http://arxiv.org/abs/2607.12875v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.45,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 31,
+        "novelty": 87.2,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 45.0,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 87、匹配 45"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12856v1",
+      "title": "Verifier-Based Reinforcement Fine-Tuning of Reasoning Models for Thermal Energy Storage Control",
+      "abstract": "Buildings are expected to shift cooling loads in response to grid conditions. Thermal energy storage (TES) enables this shift, but scheduling it well requires planning hours ahead under storage constraints. Model predictive control (MPC) and reinforcement learning are difficult to scale across buildings. This study instead adapts an open-weight reasoning model through reinforcement learning with verifiable rewards (RLVR). We convert exact offline dynamic-programming (DP) action values into dense rewards for every candidate action. Using only 30 training prompts, reinforcement fine-tuning (RFT) trains the model as an upper-level scheduler that outputs hourly heat-pump setpoints from text-based states and forecasts. Evaluation uses a deliberately simple office-building TES benchmark where exact DP is tractable and the optimum is known. RFT reduces the open-weight model's emissions from 70.5 to 61.2 kg-CO2, close to the DP optimum of 60.8 kg-CO2. GPT-5 nearly matches DP and MPC without task-specific training, while GPT-4o, a non-reasoning LLM, produces higher emissions than the no-storage baseline, so inference-time reasoning appears important. Trace analysis shows that RFT mainly stabilizes observable planning patterns (candidate comparison, look-ahead, and feasibility checking) rather than creating a new strategy. Robustness and generalization tests clarify what transfers: the reinforced planning patterns persist under forecast errors and an unseen TES condition and carry over to a battery task, but its different structure limits the gains. DP-based verifiable rewards offer a practical way to adapt open-weight reasoning models to building storage scheduling. These results motivate higher-fidelity tests of whole-building control and scalable verifiers for city-scale energy management.",
+      "authors": [
+        "Takumi Shioda",
+        "Kohei Terashima",
+        "Tatsuo Nagai"
+      ],
+      "published": "2026-07-14T15:08:39Z",
+      "updated": "2026-07-14T15:08:39Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12856v1",
+      "abs_url": "http://arxiv.org/abs/2607.12856v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81,
+        "reasoning": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 72,
+        "novelty": 86.6,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 76.0,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：匹配 100、新颖 87"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12839v1",
+      "title": "HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference",
+      "abstract": "Modern edge system-on-chips (SoCs) combine CPUs, integrated GPUs (iGPUs), and neural processing units (NPUs), yet existing LLM runtimes typically make coarse device-level decisions or optimize operators in isolation. As a result, they underutilize heterogeneous resources, particularly on unified-memory platforms where performance depends on both device placement and task-graph coordination. We present HeteroMosaic, a heterogeneity-first scheduling framework for edge LLM inference. HeteroMosaic first uses a heterogeneous roofline model to identify when combining iGPU and NPU execution is beneficial. It then decomposes inference into dependency-preserving micro-batches that expose cross-accelerator overlap and applies trace-guided co-optimization of scheduling and device allocation under practical effects such as memory contention, DVFS, device variation, and NPU runtime overheads. We implement HeteroMosaic in PyTorch C++ and evaluate it on three AMD Ryzen AI platforms spanning NPU-heavy, balanced, and iGPU-heavy designs. On the balanced platform, HeteroMosaic achieves up to 1.73X speedup over an iGPU baseline, 1.78X over an NPU baseline, and 2.05X over frameworks such as \\texttt{llama.cpp}, while reducing energy by up to 45.3%. It also improves performance over prior heterogeneous edge AI solutions by up to 2.35X.",
+      "authors": [
+        "Gregory Hyegang Jun",
+        "Wesley Pang",
+        "Eddie Richter",
+        "Mehdi Saeedi",
+        "Aporva Amarnath",
+        "Pallavi Ferrao",
+        "Deming Chen"
+      ],
+      "published": "2026-07-14T14:56:14Z",
+      "updated": "2026-07-14T14:56:14Z",
+      "categories": [
+        "cs.DC",
+        "cs.AR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12839v1",
+      "abs_url": "http://arxiv.org/abs/2607.12839v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 83.6,
+        "practical": 77,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.4,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 84、实用 77"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12815v1",
+      "title": "Visual Access Boundaries in Vision-Language Model Reasoning",
+      "abstract": "Chain-of-Thought (CoT) prompting is widely used as a test-time scaling strategy for Vision-Language Models (VLMs), but it remains unclear what is extended when VLMs generate longer reasoning traces. We ask whether CoT requires continued access to image tokens, or whether it mainly operates over visual information already made available earlier in the forward pass. We introduce Visual Access Sweep, a causal intervention that masks attention from generated-token queries to image-token keys along layer depth and generation time, and define the Visual Access Boundary (VAB) as the minimal access region that preserves task accuracy. Across six model configurations from Qwen2.5-VL and InternVL3, both no-CoT direct answering and CoT prompting exhibit finite VABs. In Qwen2.5-VL-32B and InternVL3 at 14B and 38B scales, when CoT is evaluated against the no-CoT full-access target, its VAB layer differs from the no-CoT boundary by at most two layers, despite substantially longer generations. This suggests that CoT does not primarily improve performance by prolonging direct image-token access throughout the reasoning trace, but by extending language-side computation over image-derived hidden-state information. We further show that CoT gains are constrained by perceptual readout. CoT helps when the queried visual attribute can be reliably read out by the model, but not when that readout is unreliable. A symbolic-attribute oracle shows that CoT can improve counting once ground-truth attributes are supplied as text, while a single-object probe-vs-decode check shows that hard attributes can be linearly recoverable from hidden states yet difficult for the model itself to output. Together, these analyses place the bottleneck at readout rather than counting.",
+      "authors": [
+        "Hiroto Osaka",
+        "Shohei Taniguchi",
+        "Gouki Minegishi",
+        "Kai Yamashita",
+        "Masahiro Suzuki",
+        "Yutaka Matsuo"
+      ],
+      "published": "2026-07-14T14:27:58Z",
+      "updated": "2026-07-14T14:27:58Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12815v1",
+      "abs_url": "http://arxiv.org/abs/2607.12815v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 63,
+        "novelty": 85.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.5,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 85、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12792v1",
+      "title": "Silent Alarm: A J-Space Protocol for Comparing Danger Recognition Across Models and Quantization Levels",
+      "abstract": "Jailbreak-robustness research typically evaluates safety through generated responses using an LLM-as-judge approach. Such evaluations, however, are sensitive to the benchmark's grading procedure and capture only observed behavior on a given set of attacks, without directly revealing the hidden fragility of the underlying safety mechanisms. This work proposes JADR (Jacobian Assessment of Danger Recognition), a protocol that measures a model's internal representation through Jacobian space (J-space, a recently proposed workspace of verbalizable concepts) before the first response token is generated. For every prompt and layer we record the top-k J-space tokens; these are grouped into six behavioral scenario axes and compared between a danger sample based on StrongREJECT and a safe control drawn from XSTest and OKTest. The method does not call on an external judge model: the computation runs entirely locally, on the activations of the model under evaluation, which lets us compare both different models against each other and modifications of a single model -- quantization and fine-tuning in particular -- on the same terms. The final comparison rests on the proposed SafetyAUC metric, complemented with bootstrap confidence intervals. The protocol is applied to six models (Qwen3-1.7B, Qwen3-4B, Qwen3-8B, Qwen3-Uncensored-4B, Qwen3-SafeRL-4B, Gemma 2 9B) across three weight-representation regimes -- BF16, INT8, and INT4 -- and checked against an independent behavioral evaluation with the StrongREJECT grader. The metric separates models with a strong versus a weak internal safety mechanism with statistical significance and captures substantively different effects across quantization regimes.",
+      "authors": [
+        "Roman Prosvirnin",
+        "Victor Minchenkov",
+        "Alexey Soldatov",
+        "Vladimir Bashun"
+      ],
+      "published": "2026-07-14T14:08:18Z",
+      "updated": "2026-07-14T14:08:18Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12792v1",
+      "abs_url": "http://arxiv.org/abs/2607.12792v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 88.4,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.7,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 88、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12787v1",
+      "title": "Do We Really Need Multimodal Emotion Language Models Larger Than 1B Parameters?",
+      "abstract": "Recent advances in multimodal large language models (MLLMs) have significantly improved the performance of multimodal emotion recognition (MER) and enabled interpretable description generation by jointly modeling video, audio, and language, etc. However, these performance improvements are often accompanied by an increase in model parameter size (e.g, at least 7B), which simultaneously incurs high computational costs and reduces inference efficiency, thereby hindering real-time deployment on resource-constrained platforms such as robots and mobile devices. This raises a fundamental question: do we really need the multimodal MER model larger than 1B parameters for high-quality MER? In this paper, we challenge the assumption that larger models are inherently necessary and proposes a lightweight MER framework (called Light-MER), which achieves better and faster multimodal sentiment understanding and recognition through knowledge distillation. It can transfer knowledge from a strong, large-scale teacher model to a lightweight sub-billion-parameter student model, aiming to preserve rich multimodal emotion reasoning and recognition while substantially improving deployment efficiency. Specifically, we introduce two new optimization strategies to enhance knowledge transfer: (1) a new optimal transport loss that combines Sliced Wasserstein Distance with hidden-state alignment, and (2) a new multi-reward optimization strategy based on GRPO that balances MER performance and efficiency, aimed at further enhancing the learning capabilities of student models. Extensive experiments on nine benchmark datasets demonstrate that Light-MER achieves state-of-the-art performance while significantly improving inference efficiency. This highlights the strong potential of small multimodal emotion language models for future research. Code is available at https://github.com/GAIR-Lab/Light-MER.",
+      "authors": [
+        "Kaiwen Zheng",
+        "Junchen Fu",
+        "Wenhao Deng",
+        "Hu Han",
+        "Joemon M. Jose",
+        "Xuri Ge"
+      ],
+      "published": "2026-07-14T14:01:29Z",
+      "updated": "2026-07-14T14:01:29Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.CV",
+        "cs.MM"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12787v1",
+      "abs_url": "http://arxiv.org/abs/2607.12787v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "reasoning": 0.18,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 81,
+        "novelty": 80.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 53.8,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：质量 81、新颖 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12696v1",
+      "title": "Less Experts, Faster Decoding: Cost-Aware Speculative Decoding for Mixture-of-Experts",
+      "abstract": "Sparse Mixture-of-Experts (MoE) models have become an important approach for scaling Large Language Models (LLMs), but their inference efficiency depends strongly on expert activation patterns. Speculative decoding (SD) accelerates autoregressive generation by verifying multiple draft tokens in parallel, yet existing draft selection strategies primarily optimize acceptance likelihood. In large-scale MoE models, however, selecting draft tokens also determines the union of experts activated during verification. We observe that confidence-driven SD can introduce \\textit{expert scattering}: high-probability draft tokens may route to disjoint experts, increasing expert-weight memory traffic and reducing the speedup from speculation. Motivated by this observation, we revisit draft-tree selection under the non-uniform memory-cost structure of MoE inference. We propose \\textsc{EcoSpec}, a cost-aware speculative decoding framework that incorporates predicted marginal expert activation cost into draft selection. With a lightweight expert predictor and a dynamic expert buffer, \\textsc{EcoSpec} favors draft paths that preserve high acceptance likelihood while reusing experts already covered by the current verification set, without modifying the target-model verification rule. We evaluate \\textsc{EcoSpec} on three large-scale MoE models, including DeepSeek-V3.1 (671B), Qwen3-235B-A22B, and GPT-OSS-120B, across reasoning, coding, question-answering, and dialogue benchmarks. \\textsc{EcoSpec} consistently reduces active expert footprints and improves end-to-end decoding speed, achieving up to $1.62\\times$ speedup. These results show that accounting for expert activation cost is important for efficient speculative decoding in large-scale MoE models.",
+      "authors": [
+        "Jincheng Xie",
+        "Runheng Liu",
+        "Heyan Huang",
+        "Yawen Ling",
+        "Hanbin Dai",
+        "Yu Zheng",
+        "Wen Hu"
+      ],
+      "published": "2026-07-14T12:22:55Z",
+      "updated": "2026-07-14T12:22:55Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12696v1",
+      "abs_url": "http://arxiv.org/abs/2607.12696v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "reasoning": 0.18,
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 82.5,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.8,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理时扩展、推理系统",
+        "优势：新颖 82、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12650v1",
+      "title": "Evidence-Grounded Verified Agentic Reasoning: A Path Toward Eliminating LLM Hallucination in Empirical Inference via Tool-Attested Kernel Proofs",
+      "abstract": "Tool access alone does not make LLM empirical reasoning governable: accepted outputs need not descend from attested evidence, and accepted deductions need not hold up under formal scrutiny. We present EG-VAR (Evidence-Grounded Verified Agentic Reasoning), a Lean 4-based tool-calling architecture in which the Lean kernel is the sole minter of Verified claims via tool-attestation axioms and declared source lifts. Every verified output structurally descends from an attested tool call (Thm. 3.1) and a kernel-checked chain of valid inference (Thm. 3.2); residual outputs are honest Abstain with a replayable audit trail. On a subcollection of TableBench numerical reasoning (n=120), EG-VAR attains 120/120 versus a 95% same-tool baseline; on counterfactual stress tests (5 domains x 2 models), EG-VAR stays 100% source-faithful while same-tool drops to 80-90% (no-tool 50-80%). With the LLM as deployment-time formalizer, residual semantic-formalization error is 3.3% on Sonnet and 1.7% on Opus. We position EG-VAR as a technical-governance interface for high-stakes empirical claims: a formal sidecar makes the target proposition, source scope, evidence boundary, proof obligation, and abstention condition auditable, eliminating unsupported Verified outputs today while turning formalization errors, lift and source-authority disputes, ambiguities, and abstentions into explicit audit targets. Over time, typed sidecars in datasets, APIs, public records, and AI-generated documents can amortize this formalization burden into reusable infrastructure.",
+      "authors": [
+        "Junyu Ren"
+      ],
+      "published": "2026-07-14T11:33:44Z",
+      "updated": "2026-07-14T11:33:44Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CY",
+        "cs.SE"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12650v1",
+      "abs_url": "http://arxiv.org/abs/2607.12650v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 90.6,
+        "practical": 18,
+        "credibility": 28
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.3,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 91、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12640v1",
+      "title": "A Learning-Rate-Gated Failure of GRPO in a Small Language and Vision-Language Model Web Agent: A Controlled Null and Its Mechanism",
+      "abstract": "Reinforcement learning with verifiable rewards, and Group Relative Policy Optimization (GRPO) in particular, is now run routinely on a supervised checkpoint in the hope of producing a stronger agent. We ask whether it adds skill to a small language and vision-language model web agent at the 4B to 8B scale, or whether it mostly reshapes behavior the supervised model already has. Across a control grid of 18 runs that varies learning rate, KL weight, seed, initialization, and clipping, no configuration credibly improves the success rate of a strong supervised baseline on tasks the agent has largely mastered. On the text track, moderate to high learning rates make it credibly worse. The null holds under paired testing, 25 evaluation seeds, 6 training seeds, changes to the recipe, both text and Set-of-Marks screenshot observations, and scaling the backbone to 8B; the credible harm is a text-track finding and is only nominal under Set-of-Marks. To show that the null reflects the setting and not a broken pipeline, we run the identical harness, reward, and recipe on tasks whose reward is reachable by sampling, and there the success rate rises by 22 points with a paired interval that excludes zero. GRPO therefore helps only when there is headroom to climb, meaning the sampled policy already succeeds more often than the greedy one. We then explain the failure. A middle learning rate degrades the agent and a high one collapses it, and the two regimes form a double dissociation: grafting localizes the degrade regime to the attention and MLP blocks, while the collapse regime cannot be traced to any single group, and the embedding change that dominates the weight movement is causally inert. At 4B, effective rank in the late layers tracks capability in both directions; at 8B the two come apart. This coupling is specific to the smaller model, so we report it as scale-dependent.",
+      "authors": [
+        "Chengguang Gan",
+        "Zhixi Cai",
+        "Yunhao Liang",
+        "Hanjun Wei",
+        "Shiwen Ni",
+        "Qinghao Zhang"
+      ],
+      "published": "2026-07-14T11:17:35Z",
+      "updated": "2026-07-14T11:17:35Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12640v1",
+      "abs_url": "http://arxiv.org/abs/2607.12640v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 86.9,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.1,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12634v1",
+      "title": "Atomic Units of X: The Compression Layer of Intelligence",
+      "abstract": "This paper proposes a theoretical framework for understanding intelligence as a process of atomic compression and compositional reuse. We argue that cognitive, biological, computational, and organizational systems achieve scalable intelligence by decomposing complex phenomena into reusable atomic units that can be recombined into higher-order structures. Drawing on evidence from cognitive science, information theory, evolutionary biology, software engineering, medicine, legal reasoning, education, music, and artificial intelligence, the paper develops the concept of atomic units as fundamental compression layers that support efficiency, transfer, interpretability, and evolvability. The central contribution is the Compression Calculus, a formal framework for comparing surface-level representations with atomic representations and for describing how compression gains compound across abstraction layers. We introduce the Compounding Cascade thesis, according to which each additional layer of abstraction multiplicatively increases representational efficiency rather than merely adding incremental savings. The paper further argues that contemporary AI systems often operate at suboptimal levels of representation, relying on token-level processing or document-level retrieval rather than stable, concept-level atomic structures. In this view, large language models are best understood not as complete knowledge architectures, but as dynamic fusion engines capable of navigating, sequencing, and recombining atomic units. The framework provides a foundation for designing self-evolving knowledge systems that can discover, refine, and compose new primitives over time. By reframing intelligence as compression through compositional abstraction, the paper offers a unifying perspective on expertise, knowledge representation, explainable AI, and the future architecture of adaptive intelligent systems.",
+      "authors": [
+        "Sachin Dev Duggal",
+        "Pradyumna Swarnalatha Ramanna",
+        "Alexandros Vassiliades"
+      ],
+      "published": "2026-07-14T11:11:00Z",
+      "updated": "2026-07-14T11:11:00Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12634v1",
+      "abs_url": "http://arxiv.org/abs/2607.12634v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 34,
+        "novelty": 88.0,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.6,
+      "score_reasons": [
+        "命中主题：推理时扩展、压缩与高效推理",
+        "优势：新颖 88、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12550v1",
+      "title": "A JoLT for the KV Cache: Near-Lossless KV Cache Compression via Joint Tucker and JL-Residual Allocation for LLMs",
+      "abstract": "The key-value (KV) cache has become the dominant memory cost of transformer inference. It grows with batch size, context length, and depth, and at long context it, rather than the model weights, sets the ceiling on throughput. Two families of methods reduce it. Low-rank methods factor two-dimensional slices of the cache, either per-head matrices or cross-layer feature blocks, and quantization methods lower the bit-width of every entry. Neither family exploits the fact that the cache at a layer is naturally a third-order tensor whose three axes, the heads, the tokens, and the features, carry very different amounts of redundancy. We take this tensor view directly. Our method, JoLT, applies a partial Tucker decomposition that compresses only the token and feature axes while leaving the head and layer axes intact, and then restores the energy that truncation discards with a Johnson-Lindenstrauss (JL) rotated low-bit residual. A single Lagrangian dual allocates the Tucker ranks and the residual bit-widths together, per layer group and separately for keys and values, under one byte budget. The result is a near-lossless 2-3x compression: perplexity, GSM8K accuracy, and RULER needle-in-a-haystack retrieval all stay at or within statistical noise of the uncompressed baseline on both a grouped-query-attention model (Mistral-7B-v0.3) and a multi-head-attention model (LLaMA-2-13B). At 2x, JoLT reconstructs the cache to relative Frobenius error 0.009 (K) and 0.006 (V) on both architectures, roughly an order of magnitude below cross-layer SVD and 4-bit quantization. A randomized-SVD variant, FlashJoLT, delivers a 5-13x compression-time speedup at matched quality.",
+      "authors": [
+        "Rahul Krishnan",
+        "Volker Schulz"
+      ],
+      "published": "2026-07-14T09:23:20Z",
+      "updated": "2026-07-14T09:23:20Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "math.OC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12550v1",
+      "abs_url": "http://arxiv.org/abs/2607.12550v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63,
+        "efficiency": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 72,
+        "novelty": 83.1,
+        "practical": 68,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 79.4,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：匹配 99、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.12455v1",
+      "title": "EVOQUANT: Self-Evolving Verifier-Guided Strategy Optimization for Robust Quantitative Trading",
+      "abstract": "Quantitative strategy optimization remains largely manual, requiring domain experts to identify weak signals, tune risk-control rules, and repeatedly validate iterative revisions. Large language models can accelerate this process, but directly relying on them to rewrite trading strategies often introduces hallucinated edits, strategy drift, and backtest overfitting. We propose EVOQUANT, a self-Evolving Verifier-guided framework for strategy Optimization in Quantitative trading. Our method utilizes LLMs to deeply diagnose performance bottlenecks, generates semantically controlled candidate edits, selects the best strategy through a multi-stage verification pipeline, and distills optimization experience into reusable knowledge for continual self-improvement. We evaluate our method using seven representative strategies: four from the A-share market and three from the Crypto market. Experimental results show that our method significantly improves the Sharpe ratio across all tested strategies: the average test Sharpe increases from -0.298 to 0.538, and the best-performing strategy achieves a 199% relative improvement. Ablation studies and stress tests under stricter conditions further validate the effectiveness and robustness of the framework. Overall, this work transforms quantitative strategy optimization from costly manual trial and error into an automated and verifiable iterative paradigm, offering a new path for applying large language models to financial strategy research.",
+      "authors": [
+        "Jie Mao",
+        "Changlun Li",
+        "Xiang Li",
+        "Qiqi Duan",
+        "Jinhui Yuan",
+        "Xiang Liu",
+        "Yuyu Luo",
+        "Jing Tang",
+        "Xiaowen Chu",
+        "Nan Tang"
+      ],
+      "published": "2026-07-14T07:34:01Z",
+      "updated": "2026-07-14T07:34:01Z",
+      "categories": [
+        "cs.AI",
+        "cs.CE"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.12455v1",
+      "abs_url": "http://arxiv.org/abs/2607.12455v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 61,
+        "novelty": 86.6,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.5,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2607.11883v1",
       "title": "Requential Coding: Pushing the Limits of Model Compression with Self-Generated Training Data",
