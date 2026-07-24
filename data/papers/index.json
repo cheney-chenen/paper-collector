@@ -13950,5 +13950,532 @@
       "优势：新颖 86、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2607.20981v1": {
+    "paper_id": "2607.20981v1",
+    "title": "Beyond Independent Optimization: Compression, MoE Routing, and Quantization Interactions in Multimodal Edge Intelligence",
+    "abstract": "Efficient multimodal inference is increasingly constrained not only by model quality or FLOP count, but also by the cost of preserving, moving, routing, caching, and quantizing multimodal representations under latency, memory, and energy constraints. This paper reviews recent advances in efficient vision-language and multimodal large language models, covering visual token compression, video token management, KV-cache optimization, Mixture-of-Experts (MoE) routing, low-bit quantization, edge deployment, and hardware-aware benchmarking. We argue that these techniques cannot be treated as independent optimizations. Visual token compression alters downstream feature distributions and MoE routing decisions, routing behavior affects expert utilization and quantization sensitivity, quantized router logits influence expert assignment, KV-cache policies determine retained multimodal evidence, and hardware constraints often transform computational savings into memory and communication bottlenecks. We organize the literature around these interactions and identify key design trade-offs, including accuracy versus token budget, static versus adaptive compression, sparse routing efficiency versus expert collapse, and low-bit inference versus modality-specific degradation. Finally, we introduce Temporal Routing Consistency as a diagnostic for video MoE models and highlight open research directions in routing-aware compression, cross-modal cache management, hardware-aware co-design, and unified benchmarking for multimodal edge intelligence.",
+    "authors": [
+      "Jay Gor",
+      "Karm Dave",
+      "Akshita Abrol",
+      "Rajesh Gupta",
+      "Sudeep Tanwar",
+      "Zhengkui Wang"
+    ],
+    "published": "2026-07-23T07:03:33Z",
+    "updated": "2026-07-23T07:03:33Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.20981v1",
+    "abs_url": "http://arxiv.org/abs/2607.20981v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63,
+      "efficiency": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 43,
+      "novelty": 86.6,
+      "practical": 63,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 72.1,
+    "score_reasons": [
+      "命中主题：预训练与优化、压缩与高效推理",
+      "优势：匹配 100、新颖 87"
+    ],
+    "summary_zh": null
+  },
+  "2607.21401v1": {
+    "paper_id": "2607.21401v1",
+    "title": "When Are Reasoning-Based Guardrails Not Efficient? ResponseGuard: A Fast Vision-Language Guard for Real-Time Moderation",
+    "abstract": "A vision-language AI assistant returns its answer as a stream of generated tokens. Therefore, a safety guard that watches that answer has to keep up with the stream and stop a harmful reply before a user reads it. Recent vision-language guardrails instead generate a chain of thought before they issue a verdict. They believe that step-by-step reasoning yields a safer guard. This design makes the guard heavy and slow, since the model must decode many tokens for harmfulness detection. We pose the question of whether a vision-language guard really needs to reason in order to screen a response. We answer with a guard that has no chain. ResponseGuard reads a harmful verdict from a single pooled representation of the request, the response, and the image in one forward pass. Across a standard multimodal guardrail benchmark, our 2B ResponseGuard outperforms a recent 3B reasoning-based vision-language guard on response harmfulness detection, without any reasoning and at about 150 times lower time cost. On request harmfulness the reasoning guard retains an overall lead, and the remaining gap on both tracks sits on the image-only cells. We observe that the gap may stem from the frozen vision encoders that both designs use rather than from the missing chain. We have also found the reasoning guard directs almost none of its verdict attention to the image. Based on a single-pass detection, ResponseGuard can screen an answer sentence by sentence as it streams and stop a harmful answer before it finishes. For guarding the response of a vision-language model, a calibrated single-pass label may provide a sufficient safety signal. We fully release all source code, trained models, and datasets at https://github.com/ndb796/ResponseGuard.",
+    "authors": [
+      "Dongbin Na"
+    ],
+    "published": "2026-07-23T15:02:24Z",
+    "updated": "2026-07-23T15:02:24Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21401v1",
+    "abs_url": "http://arxiv.org/abs/2607.21401v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 73,
+      "novelty": 86.9,
+      "practical": 36,
+      "credibility": 28
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 69.5,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2607.21453v1": {
+    "paper_id": "2607.21453v1",
+    "title": "Test-Time Scaling via Error Localization",
+    "abstract": "Scaling inference-time computation has emerged as a reliable method to improve the performance of large language models on complex reasoning and programming tasks. However, standard approaches such as independent sampling and sequential multi-turn refinement operate without token-level credit assignment, resulting in computational inefficiency, since valid reasoning prefixes are frequently discarded. In this work, we introduce Test-Time Scaling via Error Localization (TTEL), an inference-time algorithm that utilizes fixed or environment feedback to perform token-level error localization. By comparing conditional probabilities under informed feedback against a null-context baseline, TTEL isolates the step at which an error occurred. The algorithm then truncates the trajectory and branches a new generation, maximally reusing the valid prefix. Extensive evaluations demonstrate that TTEL establishes strictly dominating Pareto frontiers across sequential reasoning domains, measured by pass-at-k vs. generated-token cost. With Qwen3-8B on LiveCodeBench, TTEL attains a pass@64 of 71.0% while generating approximately half as many tokens as independent sampling (360.4k vs. 735.0k). Generalizing to math benchmarks AIME-2025 and HMMT-2025, TTEL cleanly outperforms competing test-time baselines across both Qwen3-8B and Qwen3-4B-Thinking-2507.",
+    "authors": [
+      "Rajiv Shailesh Chitale",
+      "Rahul Madhavan",
+      "Taneesh Gupta",
+      "Deepanway Ghosal",
+      "Aravindan Raghuveer"
+    ],
+    "published": "2026-07-23T15:55:29Z",
+    "updated": "2026-07-23T15:55:29Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21453v1",
+    "abs_url": "http://arxiv.org/abs/2607.21453v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 69,
+      "novelty": 85.3,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 68.0,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 85、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2607.21356v1": {
+    "paper_id": "2607.21356v1",
+    "title": "Emergent Misalignment Recruits a Pre-existing Persona Subspace",
+    "abstract": "Fine-tuning an aligned language model on a narrow stream of bad advice can make it broadly misaligned on questions unrelated to the training data, a phenomenon called emergent misalignment. We ask why the narrow lesson generalizes at all, and we find that narrow fine-tuning recruits a persona structure that is present in the model before the fine-tune exists. From a frozen instruction-tuned model (Qwen2.5-14B-Instruct) we extract per-domain persona subspaces by contrastive teacher forcing and find that 4 unrelated domains share one low-rank core at 657x a random-subspace null, with 82% of that core lying outside a style core built at matched diversity. The literal first optimizer step of fine-tuning on insecure code climbs a broad-misalignment margin harder than the same code framed as educational, and forecasts realized margin movement out to 375 steps. Projecting the subspace out of the residual stream throughout fine-tuning prevents broad misalignment (27.7% to 0.0% of judged generations) while a matched-rank random subspace changes nothing; injecting it into the never-fine-tuned model induces misalignment that grows with dose to 45.4%, past the fine-tuned model it is measured against. The same projection applied to the weight gradient is inert, and three post-hoc weight edits leave the disposition in place: the sharpest edit suppresses the behavior rather than removing it, and the ablated structure re-forms inside the subspace the edit cleared. Spreading a fixed budget of bad data across 4 domains produces more broad misalignment than mechanical weight superposition and matched diversity jointly account for. All measurements come from one model at 14B; the extraction is from an aligned instruction-tuned checkpoint, which leaves the structure's provenance open; and the intervention that prevents misalignment also abolishes the narrow trained behavior.",
+    "authors": [
+      "Mohammed Suhail B Nadaf"
+    ],
+    "published": "2026-07-23T14:19:28Z",
+    "updated": "2026-07-23T14:19:28Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21356v1",
+    "abs_url": "http://arxiv.org/abs/2607.21356v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.81,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 54,
+      "novelty": 88.9,
+      "practical": 32,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 64.4,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、压缩与高效推理",
+      "优势：新颖 89、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2607.21384v1": {
+    "paper_id": "2607.21384v1",
+    "title": "Multimodal Pretraining for Generalizable EEG Representation Learning",
+    "abstract": "Electroencephalography (EEG) models used for epilepsy are often limited to specific datasets and tasks. This limited approach can make it challenging to apply these models across different datasets or in various situations. However, recent studies in foundation models and self-supervised learning suggest that an adaptable EEG backbone could support a range of EEG related tasks. In this study, we have developed a multimodal EEG foundation model that combines a raw signal encoder based on the Mamba architecture, a Vision Transformer (ViT)-style encoder for time-frequency data, and a lightweight encoder for text, all within a shared embedding space. The pretraining process relies on several innovative techniques, such as masked modeling, cross-view contrastive alignment, and temporal consistency losses. These methods are designed to create rich, seizure-relevant representations without requiring labeled data. To assess the efficacy and generalization of our pretrained model, we fine-tuned it on the canonical CHB-MIT seizure detection benchmark and additional seizure detection datasets, and conducted extensive experiments comparing different model variants. On the standard CHB-MIT split, our best single model achieved an AUROC of 0.874, and an ensemble variant reached 0.878 AUROC, representing state-of-the-art performance on this benchmark. In addition to standard train-test splits, we evaluated performance under a leave-one-subject-out (LOSO) protocol, which is rarely reported in prior EEG seizure modeling work and highlights the difficulty of patient-independent seizure detection, with a mean LOSO balanced accuracy of 0.558 across 19 subjects. Across datasets and evaluation settings, our multimodal foundation model enabled robust seizure detection and straightforward adaptation to new seizure detection scenarios, while also supporting interpretable seizure localization.",
+    "authors": [
+      "Targol Bakhtiarvand",
+      "Jugal Kalita",
+      "Adham Atyabi"
+    ],
+    "published": "2026-07-23T14:47:00Z",
+    "updated": "2026-07-23T14:47:00Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21384v1",
+    "abs_url": "http://arxiv.org/abs/2607.21384v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63,
+      "post-training": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 74,
+      "novelty": 83.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.4,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐",
+      "优势：新颖 83、质量 74"
+    ],
+    "summary_zh": null
+  },
+  "2607.21446v1": {
+    "paper_id": "2607.21446v1",
+    "title": "KroQuant: Kronecker-Structured Block Transforms for Efficient Post-Training Quantization of Diffusion Transformers",
+    "abstract": "Post-training quantization (PTQ) of diffusion transformers (DiTs) to W4A4 severely degrades output quality, because activations entering each linear layer contain outliers that 4-bit formats cannot represent. The standard fix applies an invertible linear transform to the activations and its inverse to the weights before quantizing both. Normalization layers between blocks force this transform to run online at every denoising step, making its inference computation cost the binding design constraint. Existing options trade quantization quality for inference cost: per-channel scaling (SmoothQuant) is computationally cheap but impacts the magnitude of the channels, which can harm quantization accuracy; fixed Hadamard transforms yield better quantization accuracy but require large block sizes that incur a high online cost; learned full-$d$ invertible transforms calibrate best but entail a prohibitive dense $d \\times d$ matrix multiplication (GEMM) per layer per step. We propose KroQuant, a PTQ method that applies a learned Kronecker-structured invertible transform to each 32-element block of the activation, storing less than half the parameters of per-channel scaling. The block-local structure runs as small tensor-core GEMMs, and on an MI350 GPU the KroQuant quantizer kernel is up to $14\\%$ faster than the SmoothQuant kernel. Offline LoRaQ weight calibration then absorbs the residual per-weight quantization error. On PixArt-$Σ$, SANA, and FLUX.1-schnell at W4A4 (MXFP4e2), KroQuant produces outputs closer to the FP reference than SVDQuant and LoRaQ on MJHQ-30K and SDCI, while preserving or improving image quality.",
+    "authors": [
+      "Yann Bouquet",
+      "Alireza Khodamoradi",
+      "Kristof Denolf",
+      "Mathieu Salzmann"
+    ],
+    "published": "2026-07-23T15:52:20Z",
+    "updated": "2026-07-23T15:52:20Z",
+    "categories": [
+      "cs.LG",
+      "cs.CV"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21446v1",
+    "abs_url": "http://arxiv.org/abs/2607.21446v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 50,
+      "novelty": 86.3,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.4,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.21273v1": {
+    "paper_id": "2607.21273v1",
+    "title": "The Dark Room in the Reward Channel: Dense Prediction Rewards Collapse GRPO-Trained LLM Agents -- and What Actually Works",
+    "abstract": "Dense per-step supervision is an appealing remedy for sparse-reward, long-horizon LLM agents: reward the agent for predicting its next observation, and memory should follow. We show that under group-normalized RL (GRPO), this recipe does not merely fail -- it destroys the policy. Across Qwen3-1.7B/4B/8B on ALFWorld, a potential-based prediction reward drives every run into a degenerate absorbing state (prediction accuracy -> 1.0, task success -> 0,episode length pinned at the horizon): the \"dark room\" pathology, built automatically by the optimizer. A single-factor ablation localizes the cause -- removing only GRPO's std normalization turns the same reward from catastrophic (0%) into baseline parity -- and a two-line proposition explains why: in all-fail groups the z-scored advantage is invariant to the shaping coefficient, so bounded rewards become unbounded pressure and annealing cannot help. Our central insight generalizes this: what z-scoring amplifies is a dense signal's within-group variance while all-fail groups dominate, so signals whose variance decays by mastery are structurally amplifier-safe.This variance-profile criterion retrodicts our collapses, carries preregistered predictions for arms that had not yet run, and is consistent with published reward-channel successes (a compatibility check, not an independent test). Finally, a controlled signal-delivery matrix (identical signal, varying only the consumption mechanism) shows the reward channel is at best neutral while the auxiliary-loss channel gains ~20 points -- and a shuffled-gold placebo matches the true-gold arm, so the gap survives without correct labels. Endpoints are single-seed; seed replication and group-size controls are preregistered and in progress.",
+    "authors": [
+      "Yu Wang"
+    ],
+    "published": "2026-07-23T12:50:18Z",
+    "updated": "2026-07-23T12:50:18Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21273v1",
+    "abs_url": "http://arxiv.org/abs/2607.21273v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 86.6,
+      "practical": 36,
+      "credibility": 28
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.4,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.20952v1": {
+    "paper_id": "2607.20952v1",
+    "title": "The Weight of Silence: A Causal Case for Weights Over the Scratchpad in Latent Chess Reasoning",
+    "abstract": "Latent, or silent, reasoning lets language models carry out intermediate computation in continuous vector space instead of words, and is widely assumed to function as an internal scratchpad the model actively consults during inference. Whether that assumption survives reinforcement learning has not been tested directly: existing causal analyses of latent reasoning are confined to math and logic tasks, and compare a model's reliance on its thoughts within a single checkpoint, never before and after an RL stage. We train a chess-playing model through a staged latent-reasoning curriculum followed by reinforcement learning, and find legality climbs monotonically to 61% (from a 48% pre-RL baseline) while checkmate confabulation is eliminated entirely. To locate this gain, we run a six-condition causal intervention suite on the same model before and after RL: substituting or adding matched noise to the latent thought vectors leaves performance unchanged, ablating them causes only mild degradation, and only exact-zero vectors cause collapse. This robustness gap is itself the finding: under exact-zero corruption, legality collapses to 1% pre-RL versus 9% post-RL, a gap that survives correction for testing across the full battery; milder conditions trend similarly without independently reaching significance. RL appears to add robustness to disruption, not reliance on thought content. These results push back against the field's default assumption that latent thoughts function as an actively consulted inference-time scratchpad, and instead indicate latent reasoning's principal effect here is shaping the model's parameters during training. We also demonstrate a working RL gain in chess, a domain outside the math and logic settings where multiple groups report the same latent-reasoning-plus-RL recipe failing to improve accuracy over SFT.",
+    "authors": [
+      "Ishan S. Kshirsagar"
+    ],
+    "published": "2026-07-23T06:18:43Z",
+    "updated": "2026-07-23T06:18:43Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.20952v1",
+    "abs_url": "http://arxiv.org/abs/2607.20952v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 59,
+      "novelty": 86.5,
+      "practical": 18,
+      "credibility": 28
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.21535v1": {
+    "paper_id": "2607.21535v1",
+    "title": "Windowed-MTP: Removing the Full-Context Draft-KV Tax at Million-Token Context",
+    "abstract": "Speculative decoding accelerates autoregressive generation by having a cheap draft propose tokens that a target verifies in parallel. Frontier models increasingly ship a built-in Multi-Token-Prediction (MTP/NEXTN) draft head under the assumption that the draft is negligibly cheap. At million-token context this breaks: an MTP draft head typically runs full attention over the entire KV cache at every draft step, so its read grows linearly with context and comes to dominate the draft cost -- precisely where speculation is most valuable. The effect compounds with draft length (a deep native draft can turn net-negative, slower than no speculation) and sharpens under hybrid/linear-attention targets, where cheaper verification leaves the draft's full-attention read exposed. We apply a StreamingLLM-style sliding window plus attention sink to the draft's attention only (Windowed-MTP), leaving full-attention verification intact. It is training-free, drop-in, and lossless by construction: the full-attention target still decides every accepted token, so windowing changes only which tokens are proposed, never which are accepted. It bounds the draft's KV working set to a constant, dropping ~99% of KV entries at 1M. Across three architecture families (Qwen GDN-MoE 35B/122B and a Mamba2-hybrid NoPE 120B) at 1M context on a single GPU in SGLang, windowing cuts the per-decode-step cost over the shipping native MTP draft by +28% to +44%, an input-invariant margin that widens with context. Since per-token latency is this cost divided by acceptance length, at matched acceptance end-to-end decode latency improves by the same amount, and more where windowing also lifts acceptance, while preserving the target's verified output distribution. Finally, the unread draft KV -- 7.7-11% of total KV at 1M -- is reclaimed via a compact ring buffer at no acceptance or quality cost.",
+    "authors": [
+      "Alagappan Valliappan"
+    ],
+    "published": "2026-07-23T17:21:44Z",
+    "updated": "2026-07-23T17:21:44Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.PF"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21535v1",
+    "abs_url": "http://arxiv.org/abs/2607.21535v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "serving": 0.54
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 54.0,
+      "quality": 54,
+      "novelty": 81.7,
+      "practical": 54,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.6,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理系统",
+      "优势：新颖 82、匹配 54"
+    ],
+    "summary_zh": null
+  },
+  "2607.21291v1": {
+    "paper_id": "2607.21291v1",
+    "title": "Adaptive Depth Sparse Framework: Similarity-Driven Resource Allocation for Pre-Trained LLMs",
+    "abstract": "Large language models (LLMs) achieve strong generation and reasoning performance, but the Transformer architecture incurs high inference cost. Existing acceleration methods often rely on task-specific fine-tuning or training from scratch, increasing adaptation cost and limiting cross-task usability. We present an Adaptive Depth Sparse Framework (AdaDSF) that converts off-the-shelf pre-trained LLMs into depth-sparse models without full retraining. Our key insight is that layers contribute unequally to representation transformation, characterized by the cosine similarity between layer input and output hidden states. Based on this, AdaDSF assigns layer-wise token retention ratios from similarity statistics, uses a lightweight router to select informative tokens at each layer, and introduces a feature-preserving alignment objective to match intermediate and final representations between sparse and dense models. On GPT-NeoX and Qwen2.5 over language modeling and commonsense reasoning, AdaDSF substantially reduces inference FLOPs while preserving performance close to dense counterparts. Under comparable sparsity, AdaDSF consistently yields smaller accuracy degradation than strong baselines including MoD, D-LLM, and DLO.",
+    "authors": [
+      "Yidu Wu",
+      "Xiang Wang",
+      "Kejie Zhao",
+      "Zhangchi Wang",
+      "Qinghai Guo",
+      "Xiaoying Tang"
+    ],
+    "published": "2026-07-23T13:13:04Z",
+    "updated": "2026-07-23T13:13:04Z",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21291v1",
+    "abs_url": "http://arxiv.org/abs/2607.21291v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 47,
+      "novelty": 85.1,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 46.5,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 85、质量 47"
+    ],
+    "summary_zh": null
+  },
+  "2607.21075v1": {
+    "paper_id": "2607.21075v1",
+    "title": "VibeVoice-ASR-BitNet Technical Report",
+    "abstract": "We present VibeVoice-ASR-BitNet, a compressed variant of VibeVoice-ASR optimized for real-time inference on edge CPUs. We apply heterogeneous quantization tailored to the computational characteristics of each stage: the VAE acoustic tokenizer uses full-pipeline INT8 quantization (I8_S) with kernel fusion and SIMD optimization, while the autoregressive language model adopts BitNet-style ternary weights (I2_S). To preserve accuracy under aggressive compression, we employ a progressive quantization-aware training strategy. For inference, we implement custom SIMD kernels and fused operators within the ggml framework targeting both ARM and x86 platforms, achieving real-time recognition with RTF < 1 using as few as 3 CPU threads. VibeVoice-ASR-BitNet is 1.6-2.3x faster than Whisper.cpp at comparable model sizes (~1.6 GB), with only modest accuracy degradation compared to the FP16 baseline.",
+    "authors": [
+      "Songchen Xu",
+      "Ting Song",
+      "Shaohan Huang",
+      "Zhiliang Peng",
+      "Yan Xia",
+      "Yujie Tu",
+      "Xin Huang",
+      "Jianwei Yu",
+      "Li Dong",
+      "Furu Wei"
+    ],
+    "published": "2026-07-23T09:08:04Z",
+    "updated": "2026-07-23T09:08:04Z",
+    "categories": [
+      "cs.SD",
+      "cs.CL",
+      "eess.AS"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21075v1",
+    "abs_url": "http://arxiv.org/abs/2607.21075v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 63,
+      "novelty": 86.8,
+      "practical": 32,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 50.6,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 87、质量 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.21412v1": {
+    "paper_id": "2607.21412v1",
+    "title": "Euclid-MCP: A Model Context Protocol Server for Deterministic Logical Reasoning via Prolog",
+    "abstract": "Large Language Models (LLMs) excel at natural language understanding and generation but remain unreliable for multi-step logical reasoning, especially in safety-critical or compliance-sensitive domains. Recent neuro-symbolic approaches address this gap by coupling neural models with external symbolic engines, yet most integrations are bespoke and lack a standardized interface for tool-augmented agents. This paper presents Euclid-MCP, an open-source MCP server that provides deterministic logical reasoning via SWI-Prolog. Euclid-MCP introduces Euclid-IR, an engine-agnostic intermediate representation for Horn-clause logic that is human-readable, easy for LLMs to generate, and straightforward to compile into Prolog or alternative backends. The server exposes a compact tool interface that supports a translate-run-inspect-repair loop, enabling LLM clients to delegate inference while retaining full access to proof traces and derivation logs. We evaluate Euclid-MCP on a realistic IT security and compliance use case. Results show that while LLMs alone are sufficient on small knowledge bases, they hallucinate systematically on larger problems, whereas Euclid-MCP delivers exact answers with lower latency and more compact outputs. We argue that semantic RAG is fundamentally unsuited for rule enforcement, and that Euclid-MCP can serve as a stable, shared reasoning substrate for both RAG-based assistants and agentic systems.",
+    "authors": [
+      "Bartolomeo Bogliolo"
+    ],
+    "published": "2026-07-23T15:15:37Z",
+    "updated": "2026-07-23T15:15:37Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.SE"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.21412v1",
+    "abs_url": "http://arxiv.org/abs/2607.21412v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 31,
+      "novelty": 88.5,
+      "practical": 27,
+      "credibility": 28
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 51.1,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
