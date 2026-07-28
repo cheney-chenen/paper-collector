@@ -1,7 +1,548 @@
 {
   "date": "全部历史",
-  "selected_count": 316,
+  "selected_count": 328,
   "papers": [
+    {
+      "paper_id": "2607.24720v1",
+      "title": "The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-training via Single- and Multi-Teacher On-Policy Agentic Distillation",
+      "abstract": "Multi-turn long-horizon planning is critical for foundation model agents, yet how to fundamentally improve it remains unclear. Existing models are trained on uncontrollable and opaque Internet data, making it difficult to identify how planning ability is acquired, shaped, and integrated. To address this challenge, we introduce a unified and controlled multi-turn environment that enables precise control. It allows systematically study long-horizon planning across three stages. (1) Planning ability acquisition during pre-training. We study data format, distribution, and quality. Explicit world model construction through CoT state transition modeling yields stronger long-horizon generalization. Atomic skills alone are insufficient for compositional generalization, whereas a litte long-horizon data works. Moreover, suboptimal trajectories severely impair performance because errors amplify over long horizons. (2) Planning ability shaping via GRPO and OPD post-training. Through mutual information, we distinguish general planning patterns from task-specific planning knowledge. For planning patterns, we identify three application regions of post-training: unnecessary, effective, and unsupported. OPD has a broader effective region than GRPO under low-quality and long-horizon settings, as it provides more consistent update directions. For planning knowledge, distilling unseen procedures from a teacher with different knowledge may impair student's prior world modeling without fully establishing new knowledge. (3) Planning ability integration through MOPD post-training. We show that multi-teacher on-policy distillation (MOPD) integrates capabilities by converging to shared planning-pattern across environments. Compatible patterns enable cross-environment generalization, partially shared patterns support continual learning, while completely conflicting patterns cause severe interference.",
+      "authors": [
+        "Tianyi Men",
+        "Zhuoran Jin",
+        "Kang Liu",
+        "Jun Zhao"
+      ],
+      "published": "2026-07-27T17:55:03Z",
+      "updated": "2026-07-27T17:55:03Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24720v1",
+      "abs_url": "http://arxiv.org/abs/2607.24720v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "post-training": 0.81,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 46,
+        "novelty": 85.6,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.0,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、压缩与高效推理",
+        "优势：新颖 86、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24717v1",
+      "title": "DataOrchestra: Learning to Orchestrate Per-Example Curation of Pretraining Data",
+      "abstract": "Pretraining data processing is critical to the downstream performance of Large Language Models (LLMs). However, many existing approaches define a fixed processing strategy at the corpus or domain level and apply it uniformly to many examples, without adapting to the needs of each example. We propose DataOrchestra, a framework that unifies different processing operations and orchestrates an example-specific pipeline for each example. Given a chunk of pretraining data, an orchestrator decides whether to drop, untouch, or clean it. For a chunk to be cleaned, it selects one or more downstream operations, ranging from programmatic editing to different forms of LLM-based rewriting. For each rewriting step, it further generates a concrete instruction, which is executed by the corresponding downstream tool model. We pretrain models from 0.5B to 7B from scratch on web data processed by DataOrchestra and observe stable average gains over individual data-processing methods across 11 benchmarks. DataOrchestra is also effective for math continued pretraining and outperforms stronger processing baselines, while reducing processing compute by skipping unnecessary downstream operations.",
+      "authors": [
+        "Zhen Huang",
+        "Yikun Wang",
+        "Shijie Xia",
+        "Pengfei Liu"
+      ],
+      "published": "2026-07-27T17:54:12Z",
+      "updated": "2026-07-27T17:54:12Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24717v1",
+      "abs_url": "http://arxiv.org/abs/2607.24717v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 61,
+        "novelty": 84.4,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.2,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24665v1",
+      "title": "MMOE: Modernizing Diffusion Transformers with Efficient Expert Design",
+      "abstract": "Modern large language models scale successfully by pairing capacity growth with efficiency, keeping per-token and deployment costs under control as capacity grows. AIGC Foundation Models (AFMs), especially diffusion-transformer backbones, have begun to adopt sparse experts, but recent efforts mostly enlarge total parameter counts and sparsity ratios without importing the efficiency mechanisms that made LLM scaling practical, so generation quality is seldom balanced against training and deployment cost. This raises a natural question: can the architectural principles behind efficient LLM scaling be adapted to AFMs in a more balanced way? We introduce ModernMOE (MMOE), a modernization of SiT-style diffusion transformers that systematically adapts routed experts, shared and lightweight experts, gate-residual routing, and attention-residual information reuse to AIGC generation. Rather than treating MoE as a single plug-in replacement, MMOE studies how different modern expert components affect convergence, efficiency, and generation quality when composed inside a diffusion transformer. Every experiment in this paper is trained on a single eight-GPU H100 node with batch size 256 for 400k steps, an accessible single-machine budget. Under matched training and sampling protocols and at this budget, MMOE reaches lower FID at every recorded checkpoint, that is, it converges faster per training step, than dense and intermediate sparse-expert baselines, and among the sparse variants it attains the best quality-cost balance. Routing analysis further shows stable expert specialization across depth, substantial use of lightweight routes, and modest step-to-step routing changes during denoising. These results suggest that AFMs can follow the balanced scaling path of LLMs by importing proven efficiency designs, rather than by simply increasing total parameters and sparsity ratios.",
+      "authors": [
+        "Yanhao Jia",
+        "Jiepeng Wang",
+        "Haibin Huang",
+        "Chi Zhang",
+        "Erik Cambria",
+        "Xuelong Li"
+      ],
+      "published": "2026-07-27T17:05:04Z",
+      "updated": "2026-07-27T17:05:04Z",
+      "categories": [
+        "cs.CV",
+        "cs.GR",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24665v1",
+      "abs_url": "http://arxiv.org/abs/2607.24665v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 56,
+        "novelty": 86.8,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.1,
+      "score_reasons": [
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24555v1",
+      "title": "LOCKS: Page-Local Compact Key Summaries for Efficient Long-Context Decoding",
+      "abstract": "Serving large language models at long context is bottlenecked by the key-value (KV) cache, which is read in full at every decode step. Attention keys are locally low-rank though globally high-rank: shared low-rank bases discard page-specific directions that a page's own compact basis retains. LOCKS gives every page its own spectral summary (resident, about a tenth the cache's size), reconstructs within-page logits, estimates each page's attention mass by log-sum-exp, and attends only the top pages; selection itself reads no candidate keys or values. Selecting on this summary alone stays within about a point of the full cache on long-document QA (LongBench-v1), tracks the read-every-key oracle on retrieval-dense RULER down to the smallest budgets, and shows its largest margins on long-form reasoning (AIME26, MATH-500), where baseline selectors collapse. At its shipped $2048$-token budget LOCKS matches FullKV aggregate quality at $100$K$+$ context while attending about $2\\%$ of the tokens, and halves per-token decode latency ($2.0\\times$ at $1$M tokens) against dense attention. LOCKS ships as a drop-in plugin for unmodified vLLM, with batched decode running in full CUDA graphs.",
+      "authors": [
+        "Junsung Hwang"
+      ],
+      "published": "2026-07-27T15:28:52Z",
+      "updated": "2026-07-27T15:28:52Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24555v1",
+      "abs_url": "http://arxiv.org/abs/2607.24555v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "serving": 0.36,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 51,
+        "novelty": 86.0,
+        "practical": 45,
+        "credibility": 28
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 47.9,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统、压缩与高效推理",
+        "优势：新颖 86、质量 51"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24542v1",
+      "title": "From transcription to semantic corpus analysis: unsupervised learning of sentence representations for ancient languages",
+      "abstract": "Automatic Text Recognition (ATR) now supplies digital humanities with large volumes of unstructured, heterogeneous, and often noisy text in ancient languages. Downstream semantic analysestext reuse identification, alignment, and semantic search-rely on sentence embeddings, yet existing methods transfer poorly to ancient languages: generic multilingual encoders underperform, specialized language models yield anisotropic representation spaces, and labeled similarity data is unavailable. We study two fully unsupervised strategies - TSDAE and contrastive sentence embedding (CSE) - that adapt a specialized token-level language model into a corpus-specific sentence encoder using only raw sentences. On the philologically central case of biblical reuse in patristic literature (2,935 expert-verified parallels in Latin and Ancient Greek, from Augustine, Jerome, and Athanasius), we decompose reuse identification into two separately evaluated tasks-binary detection and correspondence retrieval-and benchmark the adapted encoders against multilingual, specialized, distilled, and supervised fine-tuned baselines, as well as on artificially noised data simulating HTR artifacts and scribal abbreviations. The adapted encoders outperform all baselines on both tasks, with complementary profiles: TSDAE leads detection given a large in-domain corpus, while CSE leads retrieval, reaches its optimum with as few as 4-8k raw in-domain sentences-a few tens of seconds of training on a laptop GPU-and transfers across works and authors, including to noisy post-ATR text when retrained directly on it. UMAP atlases relate the geometric effect of each strategy to the measured gains, and the full pipeline-segmentation, fine-tuning, cross-corpus semantic search-is made available to non-specialists through the online tool Paraphrasis.",
+      "authors": [
+        "Th{é}otime de la Selle"
+      ],
+      "published": "2026-07-27T15:20:13Z",
+      "updated": "2026-07-27T15:20:13Z",
+      "categories": [
+        "cs.CL",
+        "cs.DL",
+        "cs.IR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24542v1",
+      "abs_url": "http://arxiv.org/abs/2607.24542v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 82,
+        "novelty": 86.3,
+        "practical": 27,
+        "credibility": 28
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.3,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 86、质量 82"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24434v1",
+      "title": "DraftExpert: Expansion-Aware Self-Speculative Decoding for End-Device MoE Inference",
+      "abstract": "Large Mixture-of-Experts (MoE) language models are attractive for end-device deployment because only a small subset of experts is active per token, but their routed expert weights often exceed accelerator memory. We target latency-critical single-user settings where routed experts are staged on demand from CPU memory to a GPU or from Flash to a mobile NPU. In this setting, self-speculative decoding faces a new bottleneck: increasing the draft expert set improves accuracy but triggers extra expert loading, while cheap small-footprint drafts have low acceptance; moreover, verifying a multi-token block activates the union of target experts and is no longer close to one target step. We propose DraftExpert, an expansion-aware self-speculative decoding framework for expert-offloaded MoE inference. DraftExpert trains one lightweight accelerator-resident draft expert per layer by self-distilling residual, logit/token, and router-agreement signals from the frozen target MoE. At inference time, it uses a fixed-footprint shared+top-1+draft-expert drafter together with confidence--expansion truncation and target-expert prefetching, while final tokens are still exactly verified by the target model. On DeepSeek-V2-Lite and Moonlight-16B-A3B across CPU-GPU and Flash-NPU offload, DraftExpert improves decode throughput by 1.45x on average, raises draft acceptance to 84~87%, and achieves 86~88% prefetch hit rates.",
+      "authors": [
+        "Dengke Han"
+      ],
+      "published": "2026-07-27T13:44:42Z",
+      "updated": "2026-07-27T13:44:42Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24434v1",
+      "abs_url": "http://arxiv.org/abs/2607.24434v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "serving": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 42,
+        "novelty": 83.3,
+        "practical": 68,
+        "credibility": 28
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.2,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 83、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24354v1",
+      "title": "Are Prompt Optimizers Blind? Cross-Modal Visual Feedback for Automatic Prompt Optimization",
+      "abstract": "Automatic prompt optimization (APO) has been widely adopted to adapt vision-language models (VLMs) to downstream tasks without weight updates, yielding promising results. However, on multimodal tasks, the effectiveness of APO is fundamentally bottlenecked by a blind feedback channel: the optimizer reads the question, the prediction, and the gold answer, but never the input image on which the model failed, and therefore cannot diagnose visually grounded errors. As a remedy, we introduce Cross-Modal Visual Feedback (CMVF). CMVF incorporates (1) a failure-conditioned visual diagnosis stage, in which a stronger optimizer VLM inspects each failed image without access to predictions or labels, and (2) an error-aware aggregation stage that compresses these observations into reusable, task-level visual blind-spot patterns that drive the prompt rewrite. Crucially, the image is consumed only during optimization; the deployed artifact is an ordinary text prompt that runs at the same inference cost as any text-only baseline. Extensive results across 12 VQA datasets and 4 target VLMs demonstrate that CMVF consistently ranks first, improving over the strongest baseline on every target by 2.4 points on average, with gains of up to 6.5 points on individual benchmarks. Moreover, the optimizer self-organizes into expert-style visual checklists that transfer across models without re-optimization.",
+      "authors": [
+        "Haoyue Liu",
+        "Xiaoyu Ma",
+        "Ye Chen",
+        "Yuexian Zou",
+        "Xiaoying Tang"
+      ],
+      "published": "2026-07-27T12:31:58Z",
+      "updated": "2026-07-27T12:31:58Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24354v1",
+      "abs_url": "http://arxiv.org/abs/2607.24354v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 85.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.4,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 86、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24341v1",
+      "title": "Simulating Tenant Responses to Energy Policy Interventions with Transaction-Cost-Aware LLM Age",
+      "abstract": "Recent studies use Large language models (LLMs) to simulate human opinions and decisions by prompting models with demographic, attitudinal, or persona-based descriptions. Yet such simulations rarely model the practical, cognitive, or social frictions that shape how people respond to policy interventions. Perceived transaction cost (PTC) provides a useful lens for modeling the practical frictions that shape policy responses, such as information burden, administrative effort, coordination demands, and perceived uncertainty. We use this lens to develop a friction-aware persona modeling approach for LLM-based simulation. In the context of energy-efficient renovation (EER), tenants are represented not only by who they are demographically, but by how they perceive the costs, benefits, barriers, and uncertainties associated with proposed renovation plans. Using survey data collected from 1,068 citizens in the Netherlands, comprising approximately 40,548 survey question and answer pairs, we compare prompt-only and fine-tuned settings across GPT-3.5-turbo, Ministral-8B-Instruct, and Llama-3.1-8B-Instruct, and evaluate supervised fine-tuning (SFT) and Group Relative Policy Optimization (GRPO) for local open-weight models. Results show that incorporating PTC-based personas and reasoning consistently improves model performance across both prompt-only and fine-tuned settings, suggesting that PTC-based persona design provides a useful bridge between institutional policy theory and interpretable LLM-based policy simulation. Code is available at https://github.com/xiaweijie1996/socialagent.",
+      "authors": [
+        "Weijie Xia",
+        "Stefanie Horian",
+        "Hanyue Huang",
+        "Queena K. Qian",
+        "Jie Yang",
+        "Pedro P. Vergara Barrios"
+      ],
+      "published": "2026-07-27T12:18:59Z",
+      "updated": "2026-07-27T12:18:59Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24341v1",
+      "abs_url": "http://arxiv.org/abs/2607.24341v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 51,
+        "novelty": 84.9,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 47.6,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 85、质量 51"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24280v1",
+      "title": "From Proprietary to Open-Source: Bridging the Distribution Gap via Multi-Agent Protocol Distillation in Agentic Search",
+      "abstract": "Agentic search enables large language models to solve knowledge-intensive tasks by interleaving multi-step reasoning with retrieval, yet optimizing this with outcome-based reinforcement learning (RL) provides only sparse supervision. Knowledge distillation can supply denser guidance, and advanced proprietary models with their strong reasoning capabilities are promising teachers. While distilling from proprietary models can densify this supervisory signal, conventional logit-matching is precluded by hidden logits and mismatched tokenizers, whereas raw natural language trajectory imitation transfers superficial stylistic artifacts rather than core reasoning competence. To address the heterogeneous distillation problem and bridge the distribution gap, we propose Multi-Agent Protocol Distillation (MAPD), a joint distillation and RL framework uses a structured, style-normalized protocol as an intermediate representation. An offline multi-agent system (MAS) decomposes each query, retrieves supporting evidence, repairs failed searches, and converts the resulting exploration trace into a JSON protocol containing the task type, reasoning plan, and extractive grounding facts. During training, the protocol is provided only to a privileged branch of the student policy, whose token distributions furnish a dense distillation signal alongside the sparse RL objective. Extensive evaluations across seven QA benchmarks demonstrate that MAPD consistently outperforms competitive distillation and RL, achieving average success rates of 39.4\\% on Qwen3-1.7B and 44.4\\% on Qwen3-4B. Crucially, the framework generalizes robustly across diverse proprietary teachers while effectively mitigating the student policy from style drift and verbosity degeneration.",
+      "authors": [
+        "Junlin Liu",
+        "Jiangwang Chen",
+        "Zixin Song",
+        "Shuaiyu Zhou",
+        "Chunji Lv",
+        "Hank Wu",
+        "Kailin Jiang",
+        "Jinyang Wu",
+        "Bohan Yu",
+        "Chenxi Zhou"
+      ],
+      "published": "2026-07-27T11:27:38Z",
+      "updated": "2026-07-27T11:27:38Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24280v1",
+      "abs_url": "http://arxiv.org/abs/2607.24280v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 68,
+        "novelty": 82.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.6,
+      "score_reasons": [
+        "命中主题：推理时扩展、压缩与高效推理",
+        "优势：新颖 82、质量 68"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24192v1",
+      "title": "LLM-based Source Code Compression via Thresholded Symbol Ranking",
+      "abstract": "We study the problem of lossless compression of source code, motivated by the storage demands of large-scale software archives, such as Software Heritage (https://www.softwareheritage.org/). General-purpose compressors (e.g., zstd, bzip2) offer a good trade-off between compression ratio and speed, but fail to exploit all special regularities inherent in source code. Recent approaches leverage Large Language Models (LLMs) within Shannon's symbol-ranking framework, relying on a scheme in which the predicted rank can grow arbitrarily. While effective at reducing space, this setting incurs significant throughput degradation, and leaves open the question whether it is necessary to explicitly encode all ranks. In this work, we introduce LLM-based compressors deploying two novel symbol-ranking variants that bound predictions to the top-$T$ ranks ($T=1$ or $63$), with out-of-threshold symbols stored as exceptions and compressed jointly with the rank stream via general-purpose compressors. We conduct the first large-scale evaluation of LLM-based source code compression across 30 LLMs, including general-domain, code-specialized, and quantized models. Our $T$-bounded approach outperforms prior LLM-based compressors both in compression ratio (up to 37% relative improvement) and compression throughput (40% faster). Compared to general-purpose compressors (e.g., zstd, bzip2), we obtain up to 82% relative compression gain but at a lower speed, thus offering a new trade-off point in the compression-speed spectrum. We also show that these gains are stronger on source code than on natural language, suggesting an interesting indication, namely that source code exposes regularities captured by LLMs but missed by general-purpose exact-match-based compressors. We conclude by commenting on open problems that offer theoretical and practical avenues of research.",
+      "authors": [
+        "Angelo Nardone",
+        "Paolo Ferragina"
+      ],
+      "published": "2026-07-27T09:12:00Z",
+      "updated": "2026-07-27T09:12:00Z",
+      "categories": [
+        "cs.IT",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24192v1",
+      "abs_url": "http://arxiv.org/abs/2607.24192v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 87.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.1,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 88、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24148v1",
+      "title": "A Motion-Aware Vector Quantization Framework with Centroid Reuse for Efficient VLA Inference",
+      "abstract": "Vision-Language-Action (VLA) models have demonstrated strong potential for embodied AI, yet their high inference latency on GPUs limits real-time deployment. Existing accelerators, such as Dadu-Corki, improve efficiency but treat VLA models as full-precision workloads, leaving substantial redundancy in both memory and computation underexploited. In this paper, we propose VQVLA, an algorithm-hardware co-design framework that accelerates VLA inference by exploiting weight similarity and execution dynamics. We first introduce MotionVQ, a motion-aware vector quantization scheme that dynamically adjusts quantization precision based on the robot's execution state, reducing memory access while preserving task success rate. We then propose a merged-centroid vectorized GEMM paradigm that operates on the codebook-index representation, eliminating redundant multiplications through spatial aggregation and temporal reuse of centroids. To realize these optimizations, we design an accelerator that efficiently supports dynamic precision selection and centroid-reuse computation. Experimental results show that VQVLA achieves 6.5x, 2.8x, 1.9x, 3.3x, and 4.3x speedup over the A100 GPU, Dadu-Corki, LUT-DLA, CodeGEMM, and ShiftAddLLM, respectively, with negligible accuracy degradation.",
+      "authors": [
+        "Zhuoran Song",
+        "Haozhe Jiang",
+        "Chunyu Qi",
+        "Minnan Pei",
+        "Gang Li",
+        "Xiaoyao Liang",
+        "Haibing Guan"
+      ],
+      "published": "2026-07-27T08:29:05Z",
+      "updated": "2026-07-27T08:29:05Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24148v1",
+      "abs_url": "http://arxiv.org/abs/2607.24148v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 60,
+        "novelty": 84.6,
+        "practical": 86,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.1,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：实用 86、新颖 85"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2607.24064v1",
+      "title": "MarineEVT: Advancing Event-Centric Marine Video Understanding via Visual Tool Reasoning",
+      "abstract": "Recent Vision-Language Models (VLMs) have achieved remarkable success in visual understanding, driven by the growing availability of high-quality image-text pairs. However, the performance of VLMs often degrades in the video domain due to the essential need for temporal understanding and the scarcity of large-scale annotated video data. In this work, we focus on marine video understanding, which brings further challenges: first, it requires substantial domain expertise; and video VLMs usually struggle with localizing and interpreting critical information from marine videos, as the informative events are typically sparse, unpredictable, and unevenly distributed. To address these challenges, we carefully curate the first event-centric marine video understanding dataset called MarineEVT, which features 20K multi-task, video-level visual question-answering pairs spanning multiple dimensions of marine understanding and analysis. Meanwhile, based on MarineEVT, we decompose marine video understanding as an Event-centric Visual Tool-integrated Reasoning process EVT-R1 for short, where we leverage powerful visual tools to drive the model to localize and interpret critical information aligned with visual questions and human intent. To demonstrate its effectiveness, we compare EVT-R1 against 11 SOTA VLMs in different settings. EVT-R1 outperforms the top open-source and top commercial models by 5.22 and 11.09, respectively. MarineEVT and EVT-R1 lay the foundation for ecological discovery and marine education, fostering the development of VLMs capable of interpreting marine dynamics, reasoning about ecological interactions, and supporting sustainable ocean video understanding and analysis.",
+      "authors": [
+        "Tuan-An To",
+        "Yuk-Kwan Wong",
+        "Tuan-Anh Vu",
+        "Ziqiang Zheng",
+        "Sai-Kit Yeung"
+      ],
+      "published": "2026-07-27T07:06:14Z",
+      "updated": "2026-07-27T07:06:14Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2607.24064v1",
+      "abs_url": "http://arxiv.org/abs/2607.24064v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 52,
+        "novelty": 87.8,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.3,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 88、匹配 63"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2607.21558v1",
       "title": "Beyond Sycophancy: Structured Resistance and Compliance in LLM Moral Reasoning",
