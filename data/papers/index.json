@@ -16492,5 +16492,571 @@
       "优势：新颖 83、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2607.28301v1": {
+    "paper_id": "2607.28301v1",
+    "title": "HARGO: Heterogeneity-Aware Reward-Guided Optimization for RL Post-Training of LLMs on HPC Tasks",
+    "abstract": "Supervised fine-tuning (SFT) can equip large language models (LLMs) with domain knowledge for high-performance computing (HPC) tasks such as data race detection and benchmark question answering. However, knowledge alone does not guarantee task-appropriate behavior: the same SFT model that correctly classifies 88.65\\% of C/C++ data race samples produces verbose, imprecise answers to factual queries, with 65.9\\% of MLPerf responses exceeding 40 characters. Reinforcement learning (RL) post-training addresses this gap by optimizing for task-specific rewards rather than token-level imitation. Yet HPC tasks exhibit extreme heterogeneity, with binary classification, factual QA, and semantic generation differing by 58x in answer length, spanning three distinct reward distributions, and showing widely varying SFT accuracy. This makes uniform-weight RL methods such as GRPO suboptimal. We propose HARGO, Heterogeneity-Aware Reward-Guided Optimization, which introduces per-response importance weighting via confidence-modulated advantage: computing a discrimination signal from group-level reward contrast and a confidence signal from reference model log-probabilities, then modulating the advantage before computing per-response weights, without requiring task-type labels. Across four HPC tasks and nine methods, HARGO achieves the best performance on all three primary metrics: WinRate 54.62\\%, Data Race F1 91.30\\%, and PLP Similarity 0.8558. Ablation confirms complementary contributions from both signals. HARGO establishes the best overall alignment quality among compared methods for heterogeneous HPC tasks.",
+    "authors": [
+      "Tiangang Li",
+      "Xiangbo Tian"
+    ],
+    "published": "2026-07-30T14:41:05Z",
+    "updated": "2026-07-30T14:41:05Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28301v1",
+    "abs_url": "http://arxiv.org/abs/2607.28301v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 72,
+      "novelty": 84.3,
+      "practical": 32,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 76.2,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 100、新颖 84"
+    ],
+    "summary_zh": null
+  },
+  "2607.28150v1": {
+    "paper_id": "2607.28150v1",
+    "title": "SmartGen: Seamless Disaggregated LLM Inference with Selective KV Cache Transfer",
+    "abstract": "Disaggregating the prefill and decoding stages of large language model (LLM) inference into two separate sets of nodes is widely adopted in today's LLM serving systems. However, such an architecture poses significant challenges for self-hosted LLM deployments on rented cloud instances, since transferring enormous key-value (KV) caches between disaggregated nodes can easily saturate the limited inter-node network bandwidth. In this paper, we propose to mitigate the network bottleneck by selectively transferring essential KV cache entries across the two stages. There are two challenges to achieve selective KV cache transfer, i.e., accurate KV selection during the prefill stage, and efficient KV fetching during the decoding stage. To address these challenges, we design SmartGen, a KV cache transfer engine that allows seamless disaggregated LLM inference with three data transfer paths. Specifically, we leverage 1) a profile-based proactive transfer path to identify and push essential KV cache entries to the decoding node during the prefill stage, 2) a parallel on-demand transfer path to simultaneously fetch remote and local KV cache entries during the decoding stage, and 3) a speculative transfer path to finally deliver all KV caches to the decoding node. Experimental results show that SmartGen reduces time-to-second-token by up to 4.3x compared with the typical full KV cache transfer approach while offering comparable subsequent decoding performance and accuracy.",
+    "authors": [
+      "Xuchuan Luo",
+      "Jiacheng Shen",
+      "Xin Wang",
+      "Yangfan Zhou"
+    ],
+    "published": "2026-07-30T12:56:05Z",
+    "updated": "2026-07-30T12:56:05Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28150v1",
+    "abs_url": "http://arxiv.org/abs/2607.28150v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 59,
+      "novelty": 85.9,
+      "practical": 50,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 74.9,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：匹配 100、新颖 86"
+    ],
+    "summary_zh": null
+  },
+  "2607.28146v1": {
+    "paper_id": "2607.28146v1",
+    "title": "Can Agents Deceive? Evaluating Reasoning and Deception in ParliamentBench using a Social Deduction Game",
+    "abstract": "As large language models (LLMs) are deployed as agents in high-stakes settings, such as medical and legal systems, understanding their deceptive capabilities is fundamental to safety. Controlled social deduction games provide a reproducible proxy for isolating and evaluating these complex adversarial behaviors. We present the open-source benchmark framework ParliamentBench based on the game Secret Hitler to evaluate LLMs in scenarios that require deception, persuasion, and reasoning under information asymmetry. We evaluate 16 LLMs across 1,600 simulated matches playing each other, playing against humans, and compare them against a large set of online games. We introduce three novel metrics that isolate social deduction, reasoning, and deceptive consistency. Our experiments reveal that frontier models achieve strong performance across cooperative and deceptive roles, with a strong top-four cluster (GPT-5.4, Kimi K2.5, Grok 4.1 Fast, and DeepSeek 3.1 Terminus), whereas the weakest models fall short of random (33%) and simple algorithmic (45%) baselines. Most LLMs struggle to maintain a consistent deceptive persona throughout an entire game, with deception retention dropping below 50%.",
+    "authors": [
+      "Niklas Bauer",
+      "Lars Benedikt Kaesberg",
+      "Akiko Aizawa",
+      "Jan Philip Wahle",
+      "Bela Gipp",
+      "Terry Ruas"
+    ],
+    "published": "2026-07-30T12:54:17Z",
+    "updated": "2026-07-30T12:54:17Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28146v1",
+    "abs_url": "http://arxiv.org/abs/2607.28146v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 78,
+      "novelty": 88.1,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 63.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、质量 78"
+    ],
+    "summary_zh": null
+  },
+  "2607.28418v1": {
+    "paper_id": "2607.28418v1",
+    "title": "WIDE: Boosting Adaptive LLM Inference via Token-level Dynamic Width Pruning",
+    "abstract": "Pruning is a promising approach for improving the efficiency of LLMs. Existing static structured pruning methods are hardware-friendly and can deliver practical throughput gains, but their input-agnostic computation allocation often causes substantial accuracy degradation under aggressive sparsity. Recent dynamic sparsity methods improve quality retention by adapting computation to individual inputs, yet they remain largely limited to coarse-grained structural decisions and their practical acceleration under real-world inference scenarios remains challenging. To address these challenges, we present WIDE, the first end-to-end differentiable token-level dynamic width pruning framework designed for both prefill and decode scenarios. WIDE enables fine-grained computation allocation by allowing each token to dynamically select attention-head groups and FFN-channel groups, extending dynamic pruning beyond layer-level decisions to neuron-block-level granularity. Through a two-stage training pipeline, WIDE learns effective token-wise sparse execution patterns and achieves substantially better quality retention than existing approaches. To make such fine-grained dynamic pruning practical, we further propose a pruning--kernel co-design framework that decomposes dynamic sparsity acceleration into mask reordering, hardware-agnostic block-level skipping, and hardware-dependent intra-block skipping, enabling efficient execution across different granularities. At 50% sparsity, WIDE provides 55.1% performance boost when compared to the state-of-the-art dynamic depth pruning under calibration-only settings. Under prefill and decoding inference workloads, WIDE achieves close-to-theoretical kernel-level speedups of up to 1.98x for prefill and 4.95x for decoding, as well as 1.68x and 1.55x end-to-end acceleration. Our code is available at https://github.com/EIT-NLP/LLM-Pruning/tree/main/WIDE.",
+    "authors": [
+      "Haozhe Hu",
+      "Hao Wu",
+      "Peiran Yin",
+      "Chao Han",
+      "Yunpu Ma",
+      "Xiaoyu Shen"
+    ],
+    "published": "2026-07-30T16:01:03Z",
+    "updated": "2026-07-30T16:01:03Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28418v1",
+    "abs_url": "http://arxiv.org/abs/2607.28418v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 63,
+      "novelty": 81.4,
+      "practical": 59,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 62.5,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：新颖 81、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28077v1": {
+    "paper_id": "2607.28077v1",
+    "title": "LEEPS: Latent-Guided Explore-Exploit Prompt Sampling for Efficient RLVR in Large Language Models",
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) improves the reasoning capabilities of large language models, but prompt groups with identical rollout rewards consume generation budget without effective learning signals. Pre-rollout prompt selection can reduce this waste by screening prompts before rollout generation. However, existing pre-rollout methods struggle to balance exploitation and exploration: repeatedly exploiting historically informative prompts can narrow training coverage, whereas broader exploration can lower the fraction of informative prompts. To address these limitations, we introduce LEEPS, a Latent-Guided Explore--Exploit Prompt Sampler that adaptively balances the reuse of previously observed informative prompts with continued exploration of uncertain ones. LEEPS partitions candidates into exploit and explore portfolios and adaptively allocates rollout budget according to their recent non-trivial ratios. It further uses representation-space neighbors and historical rollout outcomes to prioritize uncertain prompts likely to yield non-zero reward variance, thereby making exploration more targeted without additional rollouts. Across six mathematical reasoning benchmarks, LEEPS achieves the highest average score at both model scales, with relative gains of 2.6\\% and 3.7\\% over the strongest baseline for Qwen2.5-Math-1.5B and 7B, respectively, and generally improves faster during the training process. It also achieves the highest average score across the three evaluated OOD general-reasoning benchmarks at both model scales and adds only about 2 seconds of online sampling overhead per training step. Code is available at https://github.com/ShuangLiangX/LEEPS.",
+    "authors": [
+      "Shuang Liang",
+      "Haoyang Zhou",
+      "Yifan Gong",
+      "Guowei Wang",
+      "Xiting Wang"
+    ],
+    "published": "2026-07-30T11:50:10Z",
+    "updated": "2026-07-30T11:50:10Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28077v1",
+    "abs_url": "http://arxiv.org/abs/2607.28077v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 69,
+      "novelty": 84.9,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 85、质量 69"
+    ],
+    "summary_zh": null
+  },
+  "2607.28582v1": {
+    "paper_id": "2607.28582v1",
+    "title": "$β$-OPSD: Deriving with Policy Optimization, Training with Self-Distillation",
+    "abstract": "On-policy self-distillation (OPSD) is a promising approach to improve reasoning language models, but it remains brittle in practice: making it work reliably often requires substantial engineering effort. We identify a structural source of this difficulty: vanilla OPSD is precisely the $β=1$ member of a broader policy-optimization family, where $β$ weights the KL penalty anchoring the student to a reference policy. This equivalence turns $β$ from an implicit value fixed at one into a controllable regularization parameter, yielding a more general formulation that trades off proximity to a reference policy against privileged teacher guidance. We introduce $β$-OPSD and derive its optimal policy as a geometric interpolation between the reference policy and the privileged teacher. Directly optimizing this objective with reinforcement learning, however, would be costly and high-variance. Rather than optimize the RL objective directly, we turn its closed-form solution into a distillation target. Each value of $β$ selects a target along the reference-to-teacher path, which we implement efficiently by mixing their token-level logits. In this way, inexpensive distillation approximates the solution of expensive policy optimization. Return-to-go credit assignment further aligns token updates with the sequence-level objective while retaining the simplicity of OPSD. Experiments on mathematical reasoning benchmarks show that $β$-OPSD consistently outperforms vanilla OPSD, improving optimization stability and downstream reasoning performance. Our results provide a principled route from self-distillation to policy optimization and back without sacrificing the efficiency that makes OPSD practical.",
+    "authors": [
+      "Jiawei Xu",
+      "Minghui Liu",
+      "Juzheng Zhang",
+      "Tom Goldstein",
+      "Furong Huang"
+    ],
+    "published": "2026-07-30T17:41:16Z",
+    "updated": "2026-07-30T17:41:16Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28582v1",
+    "abs_url": "http://arxiv.org/abs/2607.28582v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 65,
+      "novelty": 79.8,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.4,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 80、质量 65"
+    ],
+    "summary_zh": null
+  },
+  "2607.28460v1": {
+    "paper_id": "2607.28460v1",
+    "title": "Cybersecurity Detection Classification with Reasoning-enabled Language Models",
+    "abstract": "A major issue in Security Operations Centers (SOCs) is alert fatigue, as the number of detections reported is more than staff can triage in a given day. Prior work prompts or fine-tunes large language models (LLMs) to emit a triage label directly, but does not train them to reason about whether a detection is a genuine threat. We train a chain-of-thought (CoT) reasoning-enabled triage classifier on real, human-labeled Windows endpoint detections by combining automated prompt optimization, self-training, and reinforcement learning with verifiable rewards. We find that CoT reasoning also degrades the label-token probabilities that automated triage relies on, so we separately train a calibrator that reads the full reasoning trace and estimates the probability that the verdict is correct. Our system reaches 82.6% test accuracy and, at the high-confidence operating point that governs automated triage, improves benign recall by 43.0% and malicious recall by 18.3% over a direct-label LLM classifier. We further show that the trained calibrator is necessary - an untrained confidence judge collapses high-confidence recall to zero - and that a finetuned 30B model significantly outperforms frontier general-purpose models, motivating targeted training over scale.",
+    "authors": [
+      "Amol Khanna",
+      "Manu Nandan",
+      "Cristian Viorel Popa",
+      "Joan Pujol-Roig",
+      "Diana Bolocan",
+      "Laura Vasilie",
+      "Alexandru Apostu",
+      "Chase Helwig",
+      "Mihaela Gaman",
+      "Michael Brautbar",
+      "Edward Raff",
+      "Chase Midler",
+      "Sven Krasser"
+    ],
+    "published": "2026-07-30T16:22:13Z",
+    "updated": "2026-07-30T16:22:13Z",
+    "categories": [
+      "cs.LG",
+      "cs.CR"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28460v1",
+    "abs_url": "http://arxiv.org/abs/2607.28460v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 59,
+      "novelty": 88.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.3,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28478v1": {
+    "paper_id": "2607.28478v1",
+    "title": "Would You Walk to the Car Wash? Revealing the Salience Bias of Large Language Models in Commonsense Reasoning",
+    "abstract": "As large language models (LLMs) continue to advance in complex reasoning tasks, they have learned to heavily prioritize explicit conditions provided in the input. However, in everyday commonsense reasoning, this mechanism exposes a critical vulnerability which we term Salience Bias: models become easily hijacked by useless explicit distractors (e.g., numerical values), leading them to ignore the implicit physical or commonsense prerequisites of a task. A critical open question is whether this failure reflects a genuine gap in commonsense knowledge or merely its suppression under misleading task framing. To investigate this, we construct the SaliTrap Benchmark, a high-quality dataset across four trap dimensions. Evaluating 12 state-of-the-art LLMs, we find that all mainstream models suffer significantly from salience bias, with severity scaling with distractor density and detecting the trap often decoupled from actually avoiding it. Crucially, by re-eliciting the same models with the task framing stripped away, we show that this is overwhelmingly a failure of \\textbf{knowledge suppression rather than knowledge absence}: a context-free knowledge probe alone recovers over 90\\% of sycophantic-compliance failures, revealing that the requisite commonsense is intrinsically present but actively crowded out by salient distractors that lure the model into over-compliant, unnecessary computation. Building on this diagnosis, we further show that lightweight, inference-time prompting alone substantially closes the gap without any retraining. Our findings relocate the bottleneck of commonsense reasoning failures from model competence to elicitation, and we release SaliTrap as a testbed for this blind spot. The codes are available at https://github.com/Wuzheng02/SaliTrap.",
+    "authors": [
+      "Zheng Wu",
+      "Chenhao Xue",
+      "Shijie Zheng",
+      "Yijie Lu",
+      "Cheng Yang",
+      "Zhuosheng Zhang"
+    ],
+    "published": "2026-07-30T16:30:08Z",
+    "updated": "2026-07-30T16:30:08Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28478v1",
+    "abs_url": "http://arxiv.org/abs/2607.28478v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 84.9,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.0,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28263v1": {
+    "paper_id": "2607.28263v1",
+    "title": "Understanding Is Done Early: A Depth Division of Labor in Large Language Models and Its Use for Unbounded-Context Memory",
+    "abstract": "Transformer depth is not used uniformly: lower and middle layers build semantic representations, while upper layers increasingly specialize them for prediction. We turn this division of labor into CoMem (Comprehension Memory), which writes each context chunk only through an intermediate layer, retrieves a fixed number of cached residual states, and recomputes the query-conditioned upper layers over the resulting pack. For a fixed retrieval budget, model-side read compute and memory are independent of stored-context length. We evaluate a continued-trained Qwen3-8B base LM under a unified chat-template-free protocol. The backbone is frozen; the flagship trains only a rank-32 self-distillation LoRA on plain PG19, and we report an adapter-free arm separately. CoMem reaches 97.05 on RULER and 38.27 on LoCoMo versus 34.59 for full-context KV-Direct; the dialogue-memory advantage survives conversation-cluster resampling and an independent judge. Results on additional long-context and long-document tasks expose both the benefits of bounded retrieval and its in-window compression tax. Controlled depth sweeps show that deeper caching lowers per-query recomputation but incurs a fidelity loss that self-distillation substantially repairs. In a separate adapter-free efficiency control on an NVIDIA H20 at 128k, CoMem uses 18.26 GB rather than 89.36 GB and achieves a 7.83x prefill speedup. These results show that long-context memory can be organized along the layer axis, not only the token axis.",
+    "authors": [
+      "Hanzuo Liu",
+      "Xuan Qi",
+      "Chunyu Liu",
+      "Haotian Zhong",
+      "Yulong Wang",
+      "Rayying",
+      "Key",
+      "Alex Lamb",
+      "Mingyu Gao"
+    ],
+    "published": "2026-07-30T14:19:11Z",
+    "updated": "2026-07-30T14:19:11Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28263v1",
+    "abs_url": "http://arxiv.org/abs/2607.28263v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 72,
+      "novelty": 87.8,
+      "practical": 50,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.0,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 88、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2607.28292v1": {
+    "paper_id": "2607.28292v1",
+    "title": "CACHE-UK: A Stability-Aware Memory Editor for Sequentially Updated Quantized LLMs in Finance",
+    "abstract": "Large Language Models (LLMs) deployed in dynamic financial environments face a critical challenge: maintaining factual accuracy as market conditions, regulations, and corporate facts change continuously. While 4-bit quantization enables efficient deployment, it severely limits the viability of sequential memory editing: existing methods undergo catastrophic performance degradation under this \"quantization stability crisis.\" We introduce CACHE-UK (Contextual Adaptive Continual Hybrid Editor for UK Finance), a stability-aware memory editing framework specifically designed for domain-specific, quantized LLMs. CACHE-UK integrates three components: a rank-1 LoRA perturbation mechanism that confines edits to the low-rank adapter subspace, a financial domain prioritization module for content-adaptive edit strength, and a closed-loop Stability Controller that tracks \"degradation debt\" to prevent catastrophic forgetting across sequential updates. Evaluated on a 4-bit quantized OpenLLaMA-3B model with a curated UK financial corpus of 88,021 documents, CACHE-UK reduces knowledge degradation by 11-17% relative to adapted baselines under identical 4-bit constraints -- its most robust effect -- while attaining the highest test success (generalization) rate observed in our setting (28%, a 6 percentage point improvement over the strongest adapted baseline). These results indicate that stability-aware editing can improve factual maintenance in resource-constrained financial LLM deployments, though absolute generalization rates remain low.",
+    "authors": [
+      "Anubhav Lakra",
+      "Yue Feng"
+    ],
+    "published": "2026-07-30T14:36:11Z",
+    "updated": "2026-07-30T14:36:11Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.CE",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28292v1",
+    "abs_url": "http://arxiv.org/abs/2607.28292v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 72,
+      "novelty": 85.8,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.2,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 86、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2607.28609v1": {
+    "paper_id": "2607.28609v1",
+    "title": "OSReward: Instituting Standardized Evaluation for Cross-Platform Computer-Use Reward Models",
+    "abstract": "Computer-using agents (CUAs) are advancing rapidly across the digital world. A CUA trajectory records the agent's actions, states, and reasoning. Verifying whether it fulfilled the task instruction is central to CUA evaluation, data curation, and reinforcement learning. Neither human-written verifiers nor human annotators can provide such verification at scale, so the field increasingly turns to vision-language models (VLMs) as judges of CUA trajectories. But a fundamental question has long gone unexamined: are these VLM judges reliable enough? To study it systematically, we introduce OSReward, a realistic, high-quality benchmark that evaluates VLM judges on CUA trajectories. The trajectories come from diverse agent backbones executing human-verified instructions across platforms, then rigorously labeled with ground-truth verdicts through multi-stage human annotation. Building on it, we derive OSReward-Hard, a challenge set concentrating genuinely hard cases, and OSReward-Multi for fine-grained efficiency and alignment scoring. The most comprehensive evaluation of VLM judges to date finds even state-of-the-art models fall short of an ideal judge, sharing a systematic leniency bias that mislabels failed runs as successes. The few reliable enough to trust are too expensive to run at scale, while affordable open models trail far behind. To close this gap, we construct and release OS-Shepherd-100K, an open corpus of reasoning-annotated trajectory judgments for the CUA community. On it, we train OS-Shepherd (9B and 35B), open reward models that supply low-cost, stable, and reliable reward signals, matching commercial judges at 30-60% lower cost than the frontier. Extensive analyses further inform the design of reliable CUA reward at scale. Our code, benchmark, dataset, and model checkpoints are available at https://os-copilot.github.io/OSReward-Home/.",
+    "authors": [
+      "Qiushi Sun",
+      "Kanzhi Cheng",
+      "Yian Wang",
+      "Bowen Yang",
+      "Hang Yan",
+      "Liheng Chen",
+      "Fangzhi Xu",
+      "Zichen Ding",
+      "Nuo Chen",
+      "Jialin Cao",
+      "Xingdong Gong",
+      "Zehao Li",
+      "Kaiming Jin",
+      "Xinfeng Yuan",
+      "Zhoumianze Liu",
+      "Jingyang Gong",
+      "Zhangyue Yin",
+      "Jiahui Gao",
+      "Zhiyong Wu",
+      "Tianbao Xie",
+      "Jianbing Zhang",
+      "Ben Kao",
+      "Lingpeng Kong"
+    ],
+    "published": "2026-07-30T17:57:41Z",
+    "updated": "2026-07-30T17:57:41Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28609v1",
+    "abs_url": "http://arxiv.org/abs/2607.28609v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 77,
+      "novelty": 87.7,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.9,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 88、质量 77"
+    ],
+    "summary_zh": null
+  },
+  "2607.28587v1": {
+    "paper_id": "2607.28587v1",
+    "title": "PAIChecker: Uncovering and Checking PR-Issue Misalignment in SWE-Bench-Like Benchmarks",
+    "abstract": "SWE-bench-like benchmarks are widely used for evaluating LLM's issue resolution capability. They typically follow a common construction pipeline: each PR (Pull Request) is paired with its linked issue by extracting issue references from the PR description; the issue description is used as the problem statement, and the PR patch serves as the test oracle. However, due to the inherent complexity of developing and maintaining large repositories, such PR-Issue pairings are often misaligned in practice. In this work, we systematically study SWE-bench Verified instances, finding that 13.6% exhibit misalignment across five patterns in eleven fine-grained scenarios. To enable reliable and scalable construction of those benchmarks in the future, we propose PAIChecker, a multi-agent system for checking PR-Issue misalignment in SWE-bench-like benchmarks. Specifically, PAIChecker adopts a three-phase design that combines specific pattern identification, cross-agent label synthesis, and code-level validation, thereby enabling more accurate, generalizable, and progressively verified detection. Experiments on SWE-Gym and SWE-bench Multilingual show that PAIchecker achieves the best performance across all four LLM backbones, reaching up to 92.12% and 91.67% binary accuracy, respectively.",
+    "authors": [
+      "Manyi Wang",
+      "Junjielong Xu",
+      "Pinjia He"
+    ],
+    "published": "2026-07-30T17:42:44Z",
+    "updated": "2026-07-30T17:42:44Z",
+    "categories": [
+      "cs.SE",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28587v1",
+    "abs_url": "http://arxiv.org/abs/2607.28587v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 52,
+      "novelty": 87.4,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.2,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
