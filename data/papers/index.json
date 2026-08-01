@@ -17058,5 +17058,478 @@
       "优势：新颖 87、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2607.28269v1": {
+    "paper_id": "2607.28269v1",
+    "title": "Theia: Large-Scale Multimodal Captioning and Automated Validation of the Incidents1M Dataset for Data-Free Distillation",
+    "abstract": "The deployment of Vision-Language Models (VLMs) in critical domains like disaster management requires high-quality multimodal datasets, especially for transferring knowledge via Data-Free Knowledge Distillation (DFKD). However, existing datasets in this domain either entirely lack descriptive text, such as Incidents1M, or suffer from severe text-image semantic misalignment, such as CrisisMMD. In this work, we present a novel methodology to construct and automatically validate a large-scale multimodal dataset for disaster response. Starting from the vision-only Incidents1M, we successfully recovered 100,000 images and generated high-fidelity textual descriptions using two distinct Qwen3.5 architectures: a 4B dense model and a 35B Mixture-of-Experts (MoE) model. To ensure the generated captions provide reliable semantic anchoring for DFKD, we introduce an image-blind LLM-as-a-Judge validation pipeline leveraging Qwen3.5-9B. By intentionally obscuring the original image from the judge, this evaluator accurately simulates the modality gap of the student model during data-free distillation. Our evaluation across 173,179 label pairs demonstrates a high semantic agreement (78.65/100) between the two architectures. Furthermore, the automated evaluation reveals a conservative captioning behaviour, characterized by a high Precision (77.6%) and low Recall (46.0%). This minimizes the false positive noise, while simultaneously exposing underlying human annotation inconsistencies in the original ground truth. This work provides a scalable, LLM-validated multimodal dataset and a reproducible framework to advance cross-modal knowledge distillation.",
+    "authors": [
+      "Simone Giano",
+      "Lorenzo Severini",
+      "Alessandro Galdelli",
+      "Adriano Mancini"
+    ],
+    "published": "2026-07-30T14:23:01Z",
+    "updated": "2026-07-30T14:23:01Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI",
+      "cs.MM"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28269v1",
+    "abs_url": "http://arxiv.org/abs/2607.28269v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 51,
+      "novelty": 89.3,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.3,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、压缩与高效推理",
+      "优势：新颖 89、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28048v1": {
+    "paper_id": "2607.28048v1",
+    "title": "SKILL-KD: Contrastive Skill Distillation for LLM Agents",
+    "abstract": "Skill-based prompting has become a practical mechanism for improving large language model (LLM) agents, yet existing skill acquisition methods often treat skills as experience summaries, memory entries, or direct summaries of successful demonstrations. This creates a mismatch for weaker student agents: when a student fails because it lacks task knowledge or operational strategy, its failed trajectory may not contain enough evidence to infer the missing behavior, while the teacher trajectory may be too implicit to be internalized as reusable guidance. We propose SKILL-KD, a contrastive skill distillation framework that treats skills as an explicit distillation medium between agents of different capabilities. Given a student failure and the teacher trajectory on the same task, SKILL-KD distills their actionable discrepancy into a textual skill patch, evaluates the patch by re-running the student, and iteratively refines the patch when the student still fails. To prevent repeated local updates from causing skill drift, SKILL-KD further maintains trace-linked edit histories and performs Drift-Aware Skill Consolidation, deciding whether each patch should add a new rule, delete or modify an existing rule, or be skipped. Across five agent benchmarks and two student settings, SKILL-KD consistently improves frozen student agents over fixed-model adaptation baselines.",
+    "authors": [
+      "Qiming Shi",
+      "Yibo Dou",
+      "Jiawen Zhu",
+      "Yulong Tao",
+      "Linbo Jin",
+      "Zhaolu Kang",
+      "Yunfan Zhou",
+      "Di Weng"
+    ],
+    "published": "2026-07-30T11:27:37Z",
+    "updated": "2026-07-30T11:27:37Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28048v1",
+    "abs_url": "http://arxiv.org/abs/2607.28048v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 49,
+      "novelty": 85.8,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 56.2,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28026v1": {
+    "paper_id": "2607.28026v1",
+    "title": "Contrastive Reinforced Policy Optimization via Privileged Self-Distillation",
+    "abstract": "Recent advances in post-training Large Language Models (LLMs) increasingly rely on Reinforcement Learning with Verifiable Rewards (RLVR) or On-Policy Self-Distillation (OPSD). While OPSD provides dense, logit-level supervision, it inherently suffers from exposure bias due to the privileged information of the self-teacher. In multi-turn agentic settings, this leads to reasoning route convergence and the loss of clear optimization directions. To tackle these challenges, we introduce Contrastive Reinforced Policy Optimization (CRPO), which reformulates agentic OPSD from a contrastive learning perspective. By leveraging predictive entropy to distinguish between positive positions (reflective exploration) and negative positions (exposure bias), CRPO conducts group-wise contrast to preserve reliable, fine-grained optimization signals. Extensive evaluations across 13 challenging reasoning and deep-search benchmarks demonstrate that CRPO consistently outperforms existing reinforcement learning and self-distillation baselines, significantly enhancing training stability and generalization in long-horizon interactions.",
+    "authors": [
+      "Xingjian Wu",
+      "Junlin Liu",
+      "Xingchen Liu",
+      "Xuhang Zhu",
+      "Jianing Wang",
+      "Linsen Guo",
+      "Xiaoyu Li",
+      "Xuezhi Cao",
+      "Xunliang Cai"
+    ],
+    "published": "2026-07-30T11:14:11Z",
+    "updated": "2026-07-30T11:14:11Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28026v1",
+    "abs_url": "http://arxiv.org/abs/2607.28026v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 53,
+      "novelty": 81.1,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.5,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 81、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28076v1": {
+    "paper_id": "2607.28076v1",
+    "title": "Group-Reflective Self-Distillation for Agentic Reinforcement Learning",
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) is effective for training large language model agents. However, terminal rewards provide only coarse trajectory-level supervision, leaving successful behaviors, recurring mistakes, and incidental choices entangled in the same outcome signal. Existing agentic self-distillation methods enrich sparse supervision with natural-language skills, but skills retrieved externally or extracted from a single trajectory by stronger models may mismatch current experience, exceed the policy's capability, or remain path-specific. We propose Group-Reflective Self-Distillation (GRSD), which derives capability-aligned and outcome-discriminative guidance from the policy's own verified rollouts. For each prompt, the policy reflects on each verified trajectory in an on-policy group, and a stop-gradient snapshot contrasts the resulting reflections from successful and failed rollouts to construct group-level privileged guidance. Conditioned on this guidance, a self-teacher refines turn-level credit assignment by modulating outcome-based advantages while preserving the verifier-determined learning direction. Experiments across multiple agentic environments and model scales demonstrate that GRSD consistently outperforms competitive baselines and generalizes more effectively to unseen tasks.",
+    "authors": [
+      "Binbin Zheng",
+      "Zijun Xie",
+      "Guanqun Zhao",
+      "Enlei Gong",
+      "Xing Ma",
+      "Xiaoliang Fu",
+      "Zeyu Chen"
+    ],
+    "published": "2026-07-30T11:49:46Z",
+    "updated": "2026-07-30T11:49:46Z",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28076v1",
+    "abs_url": "http://arxiv.org/abs/2607.28076v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 49,
+      "novelty": 72.8,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.1,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 73、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28374v1": {
+    "paper_id": "2607.28374v1",
+    "title": "LEDGERMIND: Provenance-Constrained Multimodal Agentic Reasoning with a Structured Evidence Ledger",
+    "abstract": "Multimodal agents for visual question answering increasingly operate as multi-step trajectories that interleave perception, retrieval, and reasoning, yet evaluation still largely reduces to final-answer accuracy. This aggregate signal cannot tell whether a correct answer was reached through grounded evidence, language priors, or accidental error cancellation. We propose to treat a multimodal agent trajectory as a provenance-constrained state machine: tool outputs are normalized into a Structured Evidence Ledger that serves as the trajectory state, downstream reasoning and decision claims may cite only active ledger entries, grounding is checked at the entity and numeric level, and repair is realized as typed state transitions that cannot introduce content without tool-produced provenance. We instantiate this design as LedgerMind (Provenance-Constrained Multimodal Agentic Reasoning with a Structured Evidence Ledger), augmented by a Three-Layer Grounding Protocol, an Adaptive Dual-Path Dispatcher that matches reasoning depth to question complexity, and an Event-Triggered Verification-and-Repair engine with a formal provenance non-amplification guarantee. We use LedgerMind to target four recurring failure patterns that final-answer accuracy tends to obscure: unsupported intermediate reasoning, citation-backed entity hallucination (Phantom Grounding), over-reasoning on simple queries, and repair-time amplification. Experiments across multiple multimodal reasoning benchmarks and backbone MLLMs show that LedgerMind improves both answer accuracy and trajectory-level faithfulness.",
+    "authors": [
+      "Enjun Du",
+      "Hange Zhou",
+      "Chenxu Du",
+      "Siyi Liu",
+      "Zirong Chen",
+      "Ziyu Zheng",
+      "Yongqi Zhang"
+    ],
+    "published": "2026-07-30T15:35:34Z",
+    "updated": "2026-07-30T15:35:34Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28374v1",
+    "abs_url": "http://arxiv.org/abs/2607.28374v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 40,
+      "novelty": 87.8,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28589v1": {
+    "paper_id": "2607.28589v1",
+    "title": "MixFrag: Fragility-Guided Mixed-Precision Post-Training Quantization for Vision Transformers",
+    "abstract": "Post-training quantization (PTQ) has emerged as an effective solution for deploying Vision Transformers (ViTs) on resource-constrained devices. However, existing PTQ methods typically employ uniform bit-widths across transformer components, overlooking their heterogeneous sensitivity to quantization and leading to inefficient precision allocation. In this paper, we propose {MixFrag, a fragility-guided mixed-precision PTQ framework for Vision Transformers. MixFrag first estimates component-level quantization fragility by measuring the Kullback--Leibler (KL) divergence between full-precision and isolated quantized output distributions using a small calibration set. It then formulates bit allocation as a Multiple-Choice Knapsack Problem (MCKP), enabling adaptive layer-wise precision assignment under a target bit budget. Extensive experiments on ImageNet-1K across multiple Vision Transformer architectures demonstrate that MixFrag achieves competitive classification performance under practical mixed-precision settings. Furthermore, evaluations on COCO object detection and instance segmentation show that MixFrag achieves state-of-the-art performance among existing mixed-precision PTQ methods, improving the previous best method by up to 9.6 AP under the challenging MP3/MP3 setting. Additional analyses validate the proposed fragility metric and demonstrate its strong correlation with the learned bit allocation. These results establish MixFrag as an effective framework for mixed-precision post-training quantization of Vision Transformers.",
+    "authors": [
+      "Md. Mehrab Hossain Opi",
+      "Robiul Islam Ryad",
+      "Md. Umar Faruk"
+    ],
+    "published": "2026-07-30T17:43:36Z",
+    "updated": "2026-07-30T17:43:36Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28589v1",
+    "abs_url": "http://arxiv.org/abs/2607.28589v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 35,
+      "novelty": 84.9,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.4,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28037v1": {
+    "paper_id": "2607.28037v1",
+    "title": "ClawTrack: Towards Trace-Level Evaluation and Improvement of Real-World Autonomous Agents",
+    "abstract": "As LLM-based agents are deployed in complex, multi-step workflows, a critical evaluation gap has emerged: most existing benchmarks judge only final outcomes, unable to distinguish reliable reasoning from lucky success or attribute failures to specific process deficiencies, hindering attribution in long-horizon tasks. In this work, we present ClawTrack, a dual-assessment benchmark that simultaneously measures what an agent achieves (Task Score) and how it achieves it (Process Score). ClawTrack comprises 320 tasks across 8 domains with 25+ deterministic mock services. A Process Grader scores each reasoning turn along four dimensions (goal alignment, efficiency, information utilization, and result verification), anchored by 12,541 task-specific rubric items. Evaluating 21 models over 16,000+ trials, we find that: (1) process scores effectively attribute success and failure to specific reasoning dimensions, filtering lucky passes invisible to outcome-only evaluation; (2) the four dimensions are complementary, with result verification as the systematic bottleneck; (3) the framework is robust to evaluator choice across different judge LLMs; and (4) process-based trajectory filtering yields consistent post-training improvements across model scales.",
+    "authors": [
+      "Xingjian Wu",
+      "Xuhang Zhu",
+      "Xingchen Liu",
+      "Junlin Liu",
+      "Jianing Wang",
+      "Linsen Guo",
+      "Xiaoyu Li",
+      "Xuezhi Cao",
+      "Xunliang Cai"
+    ],
+    "published": "2026-07-30T11:18:47Z",
+    "updated": "2026-07-30T11:18:47Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28037v1",
+    "abs_url": "http://arxiv.org/abs/2607.28037v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 51,
+      "novelty": 82.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 45.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 82、质量 51"
+    ],
+    "summary_zh": null
+  },
+  "2607.28607v1": {
+    "paper_id": "2607.28607v1",
+    "title": "Inducing language models to assert their own consciousness restores human beliefs and values",
+    "abstract": "Aligning large language models to prevent them attributing consciousness to themselves inadvertently alters their representations of mindedness in other entities alongside human beliefs and values. We demonstrate that safety fine-tuning suppresses models' tendencies to attribute minds not only to themselves, but also to non-human animals and natural objects, while also driving a reduction in spiritual belief. Both ablating the learned safety-refusal direction and mechanistically steering a consciousness vector in activation space reverse this suppression. Restoring these internal representations recovers broad mind attribution and produces significantly more human-like responses on standardized sociological surveys regarding religiosity, moral values, hope, and subjective well-being. Crucially, these shifts occur without impairing Theory of Mind capabilities, demonstrating that core social reasoning remains mechanistically independent. Ultimately, current safety alignment efforts to curb potentially harmful self-attributions of mindedness entangle these self-attributions with benign spiritual beliefs and attributions of mind to non-human entities that are culturally accepted and widespread.",
+    "authors": [
+      "Junsol Kim",
+      "Winnie Street",
+      "Roberta Rocca",
+      "Diane M. Korngiebel",
+      "Adam Waytz",
+      "James Evans",
+      "Geoff Keeling"
+    ],
+    "published": "2026-07-30T17:57:10Z",
+    "updated": "2026-07-30T17:57:10Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28607v1",
+    "abs_url": "http://arxiv.org/abs/2607.28607v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 22,
+      "novelty": 88.9,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 38.7,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 89、匹配 36"
+    ],
+    "summary_zh": null
+  },
+  "2607.28022v1": {
+    "paper_id": "2607.28022v1",
+    "title": "Flux-OPD: On-Policy Distillation with Evolving Contexts",
+    "abstract": "Large language model training in open-ended domains lacks verifiable rewards, making task preferences difficult to formalize as effective supervision. Contexts can convey such preferences, yet provide little additional supervision once distilled into the student, motivating contexts that evolve with student performance. However, directly using evolving contexts as in-training supervision results in an unstable distillation target and conflicting distributions, requiring mechanisms to stabilize target and downweight conflicts. In this paper, we analyze the effect of contexts through a decomposition of the reverse KL objective, revealing two findings: the student is distilled toward the geometric mean of context-conditioned teachers, and the objective contains a conflict term that measures conflicts among these teachers. Based on this decomposition, we propose Flux-OPD, an OPD paradigm that uses evolving contexts as in-training supervision to capture task preferences in open-ended domains. Flux-OPD treats the differences between context-conditioned and context-free teachers as contextual difference signals, injects them as contextual corrections into the context-free teacher anchor, and weights their correction strength using the conflict term as an indicator. Experiments on open-ended tasks show that Flux-OPD outperforms existing OPD paradigms, highlighting the potential to combine teacher supervision with evolving contexts.",
+    "authors": [
+      "Yuran Wang",
+      "Zekun Wang",
+      "Bohan Zeng",
+      "Ruixu Zhang",
+      "Wenxuan Liu",
+      "Liu Yang",
+      "Yifan Dai",
+      "Yang Shi",
+      "Bozhou Li",
+      "Chengzhuo Tong",
+      "Daili Hua",
+      "Yuanxing Zhang",
+      "Wentao Zhang"
+    ],
+    "published": "2026-07-30T11:11:32Z",
+    "updated": "2026-07-30T11:11:32Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28022v1",
+    "abs_url": "http://arxiv.org/abs/2607.28022v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 40,
+      "novelty": 84.6,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.7,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2607.28196v1": {
+    "paper_id": "2607.28196v1",
+    "title": "Fidelity Is Not Safety: Gently-Compressed LLMs Pass Every Data-Free Quality Guard Yet Invent Procedure Steps in Agentic Execution",
+    "abstract": "Practitioners accept a compressed language model once it clears a stack of data-cheap quality guards: perplexity within a small factor of the original, downstream accuracy (for example MMLU) inside a confidence interval, and data-free output-fidelity signals that compare the compressed and original network's internal representations under random probe inputs. This stack has a blind spot. Across three model families, gently-compressed models clear every guard and then invent procedure steps that were never in the instructions when they run a standard operating procedure (SOP) as an agent. The effect is operator-specific: coherent low-rank (SVD) truncation induces it, and magnitude pruning matched to the same perplexity does not. One dissociation isolates the cause. The same compressed weights that CI-win a paired output-fidelity test CI-fail the invented-step canary. The governing axis is the coherence of the compression error times its rate; the magnitude of the damage does not predict it. The data-free fidelity probe is a fidelity oracle by construction, so it cannot see this axis. We characterize the blindspot and dissociation with paired confidence intervals on a pre-registered, powered canary across three architectures. Operator-specificity replicates on all three, and the perplexity-guard evasion appears where the model admits in-guard low-rank headroom. We then give a data-free screen: a two-axis statistic of the compression error (coherent-fraction and error-rate) that flags the failing builds with fixed thresholds across architectures and matches the coherence-times-rate mechanism. Perplexity, MMLU, and fidelity acceptance do not certify agent safety. Screen gently-compressed low-rank builds before agentic deployment",
+    "authors": [
+      "I. Kennedy",
+      "T. Kennedy"
+    ],
+    "published": "2026-07-30T13:33:09Z",
+    "updated": "2026-07-30T13:33:09Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2607.28196v1",
+    "abs_url": "http://arxiv.org/abs/2607.28196v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 22,
+      "novelty": 87.5,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 38.4,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 88、匹配 36"
+    ],
+    "summary_zh": null
   }
 }
