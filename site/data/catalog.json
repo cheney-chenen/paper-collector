@@ -1,7 +1,556 @@
 {
   "date": "全部历史",
-  "selected_count": 386,
+  "selected_count": 398,
   "papers": [
+    {
+      "paper_id": "2608.02585v1",
+      "title": "GradCuit: Credit-Assigned Gradient Flow Enables Robust and Interpretable Test-Time Latent Reasoning",
+      "abstract": "Optimization-based latent reasoning improves large language model outputs by optimizing instance-specific continuous states at test time while keeping model parameters frozen. Existing methods, however, typically connect these states to the reasoning trajectory through decoded tokens, making sequence-level credit assignment indirect and obscuring how latent updates shape subsequent reasoning. We introduce GradCuit (gradient through circuit), which inserts optimizable latent states at a selected Transformer layer between the hidden representations of the prompt and the generated continuation. Causal self-attention provides every continuation-token log-probability with a differentiable path to every preceding latent state through the remaining Transformer blocks, enabling reward-weighted gradients from the entire continuation to be assigned directly to the latents. Across five instruction-tuned backbones, three reasoning benchmarks, and two answer formats, GradCuit achieves an average accuracy of 64.5%, outperforming chain-of-thought prompting by 6.6 percentage points and the strongest competing method by 2.4 points. GradCuit also demonstrates greater robustness: across seven learning-rate settings, it consistently outperforms LatentSeek while reducing the standard deviation of accuracy from 1.53 to 0.82, and even its random-walk variant remains competitive with LatentSeek. For interpretability, token-level gradient attribution reveals that latent influence concentrates on reasoning-connector tokens, while layer analysis identifies early-to-middle Transformer layers as the most effective optimization space. By directly optimizing internal reasoning from outcome feedback, GradCuit opens a new axis of robust and interpretable test-time scaling, where LLMs adapt how they reason rather than merely regenerate, sample, or rerank outputs.",
+      "authors": [
+        "Zhaoxin Yu",
+        "Qi Shen",
+        "Hengli Li",
+        "Zhaowei Zhang",
+        "Song-Chun Zhu",
+        "Chi Zhang",
+        "Zilong Zheng"
+      ],
+      "published": "2026-08-03T17:55:24Z",
+      "updated": "2026-08-03T17:55:24Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02585v1",
+      "abs_url": "http://arxiv.org/abs/2608.02585v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 72,
+        "novelty": 85.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 67.9,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 86、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02515v1",
+      "title": "LiveMem: Maintaining Memory State Continuity in Long-Running LLM Inference",
+      "abstract": "Long-running assistants and agents consume interaction streams that eventually outgrow the context. Existing context retention, summarization, and retrieval preserve access to selected history, but do not provide a persistent state over the full lifecycle when working context changes. We formulate this missing inference capability as \\emph{state continuity under context turnover}: carrying computation forward through a fixed-capacity memory state whose lifetime is independent of the active context. We introduce an intrinsic memory method, \\textbf{LiveMem}, which augments a pretrained full-attention LLM with a memory state that preserves the historical information over the whole lifecycle while the main attention path retains a bounded KV window. Context turnover and memory state maintaining, memory-oriented post-training, and state-aware serving jointly make this memory state load bearing after its originating tokens are released. Our experiments show that LiveMem achieves leading overall performance among evaluated systems and other intrinsic memory methods. Experiments on LongMemEval show that LiveMem is able to answer the question based on the memory state, even when the supporting evidence has been removed from the current context, and evidence-distance analysis shows that useful information persists beyond the active window. LiveMem thus establishes state continuity as a distinct and complementary abstraction for continual LLM inference.",
+      "authors": [
+        "Zhichen Liu",
+        "Ruihan Sun",
+        "Hengjie Yang",
+        "Zipeng Wu",
+        "Zhaohan Chen",
+        "Xiaofan Zhang",
+        "Yang Xu"
+      ],
+      "published": "2026-08-03T17:12:05Z",
+      "updated": "2026-08-03T17:12:05Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02515v1",
+      "abs_url": "http://arxiv.org/abs/2608.02515v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 40,
+        "novelty": 84.0,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.5,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理系统",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02442v1",
+      "title": "Right Answer, Wrong Method: Shortcut Hacking Misleads the Evaluation of LLM Reasoning on Frontier Science Benchmarks",
+      "abstract": "Scientific reasoning benchmarks typically evaluate large language models (LLMs) using final-answer accuracy. However, a correct answer does not necessarily demonstrate the reasoning capability targeted by the problem. We identify Solution Hacking, a failure mode in which an LLM reaches the correct answer through invalid shortcuts, such as numerical search, enumeration, guessing, or answer-first verification, without providing a valid task-targeted derivation. We systematically analyze this phenomenon across difficulty levels, scientific domains, and frontier models. Solution hacking increases sharply with benchmark difficulty, from 2.2\\% on common problems to 28.3\\% on Olympiad-level problems and 37.4\\% on HLE. Moreover, 8.2\\%-44.1\\% of answers credited as correct across frontier models are identified as hacked solutions. We further develop expert-inspired anti-hacking strategies, including an automatic judge and a test-time instruction. The results show that suppressing shortcut behavior substantially reduces reported accuracy while having a smaller effect on correct and non-hacked accuracy. These findings reveal that answer-only evaluation can overestimate the scientific reasoning capabilities of frontier LLMs.",
+      "authors": [
+        "Xuan Ren",
+        "Weiqi Zhai",
+        "Tianle Pu",
+        "Yihua Zhu",
+        "Yihua Zhu",
+        "Hu Wei",
+        "Bing Zhao"
+      ],
+      "published": "2026-08-03T16:21:56Z",
+      "updated": "2026-08-03T16:21:56Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02442v1",
+      "abs_url": "http://arxiv.org/abs/2608.02442v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 60,
+        "novelty": 86.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.2,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02391v1",
+      "title": "Cooperative Coevolution for Resource-Constrained Agentic LLM Post-Training",
+      "abstract": "Tool-using large language model (LLM) agents produce long, multi-turn trajectories, making gradient-based post-training memory-intensive. Evolution strategies (ES) enable memory-efficient full-parameter post-training without backpropagation and can eventually match the performance of gradient-based reinforcement learning (RL). However, resource-constrained settings typically offer only a few GPUs, so the high GPU-hour requirements of ES translate into prohibitively long training times. To address this, we introduce Cooperative Parameter-subspace Evolution Strategy (CoPES), a cooperative coevolutionary method that decomposes the full parameter space into lower-dimensional subspaces and searches over them cooperatively to improve optimization efficiency. We post-train a Qwen3.5-4B tool-using agent for the math task and evaluate it on five benchmarks of varying difficulty. Under the GPU-hour budget of full-parameter GRPO's best validation checkpoint, CoPES recovers 92% of GRPO's validation-accuracy gain, versus 67% for standard ES, while its theoretical GPU memory requirement is less than one-eighth that of full-parameter GRPO. It consistently outperforms standard ES and LoRA-based GRPO on all evaluated pass@k metrics across the five benchmarks. Additional experiments further show the advantage of CoPES on the question-answering task. These results demonstrate an improved trade-off between memory requirements and training time for agentic LLM post-training under resource constraints. The code is open-sourced in https://github.com/MetaronWang/CoPES",
+      "authors": [
+        "Zhiyuan Wang",
+        "Shengcai Liu",
+        "Jiahao Wu",
+        "Ning Lu",
+        "Hui Ouyang",
+        "Shaofeng Zhang",
+        "Haoze Lv",
+        "Ke Tang"
+      ],
+      "published": "2026-08-03T15:34:45Z",
+      "updated": "2026-08-03T15:34:45Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02391v1",
+      "abs_url": "http://arxiv.org/abs/2608.02391v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 86,
+        "novelty": 83.3,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 75.0,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：质量 86、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02252v1",
+      "title": "HarMoE: Multi-Source Chest Radiograph Pretraining with Dataset-Disentangled Experts",
+      "abstract": "Recent vision-language models for chest X-ray understanding are largely built on image-report alignment and therefore rely heavily on MIMIC-CXR as the dominant pretraining source. While effective at scale, this paradigm underexplores an important alternative source of supervision: a range of existing multi-label classification datasets, which provide cleaner and more explicit disease signals than free-text reports, and can offer broader pathology coverage when combined across sources. However, learning from such heterogeneous datasets is nontrivial, as differences in label ontologies, annotation protocols, acquisition pipelines, and report styles can cause models to entangle clinical semantics with dataset identity, leading to poor transfer despite increased scale. In this work, we revisit radiology VLM construction from the perspective of harmonized multi-source learning. We propose HarMoE, a dataset-aware mixture-of-experts framework that learns shared cross-dataset medical semantics while confining source-specific variation to lightweight residual experts in deeper decoder layers. To further exploit clean supervision from labeled datasets, we train in a unified disease vocabulary with masked multi-dataset supervision, enabling the model to leverage complementary annotations without introducing false negatives. Experiments on large-scale chest X-ray benchmarks show that HarMoE consistently improves zero-shot classification, out-of-distribution transfer, and grounding over strong baselines. Our results suggest that building robust radiology VLMs requires moving beyond single-source image-report alignment toward structured knowledge construction from heterogeneous datasets with cleaner supervision and broader coverage. Code and the 873k harmonized dataset will be released at https://github.com/Roypic/harmoe.",
+      "authors": [
+        "Haozhe Luo",
+        "Ziyu Zhou",
+        "Shelley Zixin Shu",
+        "Mauricio Reyes"
+      ],
+      "published": "2026-08-03T14:00:16Z",
+      "updated": "2026-08-03T14:00:16Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02252v1",
+      "abs_url": "http://arxiv.org/abs/2608.02252v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 1.0,
+        "post-training": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 70,
+        "novelty": 83.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 73.9,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：匹配 100、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02244v1",
+      "title": "Efficiency and Cost Alignment in Batched LLM Serving via Resource-Fair Scheduling",
+      "abstract": "This paper studies a resource-allocation inefficiency in batched large language model (LLM) serving: heterogeneous requests that share a decode batch impose max-driven computational costs on one another. Because the wall-clock cost of a batch step is largely governed by the largest active KV-cache footprint, a short request co-batched with a long request can experience latency and GPU-resource consumption disproportionate to its own token workload. We formalize this phenomenon as a resource-fair scheduling problem. We develop a mathematical scheduling model that connects within-batch resource fairness to system throughput. The proposed fairness constraint bounds the disparity in decode progress, equivalently KV-cache footprint, among co-batched requests. Based on this model, we design the Insert-Short-Jobs-with-Limit (ISJL) algorithm, a parameterized hybrid batching policy. We prove that ISJL achieves a global competitive-ratio lower bound of $3/4$. We further examine the profit implications of resource-fair scheduling under the token-metered pricing convention used by commercial LLM APIs. Numerical experiments show that ISJL occupies a favorable middle ground between FCFS, which has large batching externalities, and LJF, which is cost-aligned but sacrifices batching flexibility. Thus, ISJL provides a bi-criterion scheduling policy: it maintains high throughput while aligning max-driven batch cost with token-metered revenue.",
+      "authors": [
+        "Dayi Yao",
+        "Zijie Zhou"
+      ],
+      "published": "2026-08-03T13:55:20Z",
+      "updated": "2026-08-03T13:55:20Z",
+      "categories": [
+        "cs.DC",
+        "eess.SY"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02244v1",
+      "abs_url": "http://arxiv.org/abs/2608.02244v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.45,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 39,
+        "novelty": 88.3,
+        "practical": 63,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 51.1,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理系统",
+        "优势：新颖 88、实用 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02149v1",
+      "title": "Beyond the Mean: Multi-Moment Policy Optimization for LLM Reasoning",
+      "abstract": "Reinforcement learning has become a central paradigm for improving the reasoning capabilities of large language models. Existing methods generally aim to reduce the failure probabilities induced across problems. In this paper, we introduce a moment-based perspective on policy optimization for LLM reasoning by treating the failure probability of a randomly sampled problem as a random variable and characterizing optimization objectives through its moments. Under this perspective, many existing methods optimize only a single moment of the failure-probability distribution, leaving its broader distributional structure largely uncharacterized. We propose \\textbf{M}ulti-\\textbf{M}oment \\textbf{P}olicy \\textbf{O}ptimization (MMPO), a novel policy optimization framework that jointly minimizes multiple moments of the failure-probability distribution. MMPO admits a direct operational interpretation as minimizing the expected truncated time required to obtain the first successful response. Beyond MMPO, we further develop a general moment-transformation framework that systematically induces different moment profiles and provides a unified view of a broader family of policy optimization objectives. Experiments across five mathematical reasoning benchmarks and models of different scales demonstrate that MMPO consistently outperforms strong baselines. We hope this moment-based perspective offers new insights into the design of policy optimization objectives for LLM reasoning.",
+      "authors": [
+        "Yijun Zhang",
+        "Yule Xie",
+        "Jiaxin Ding",
+        "Xin Ding",
+        "Fan Xu",
+        "Haoxiang Zhang",
+        "Luoyi Fu"
+      ],
+      "published": "2026-08-03T12:34:04Z",
+      "updated": "2026-08-03T12:34:04Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02149v1",
+      "abs_url": "http://arxiv.org/abs/2608.02149v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 58,
+        "novelty": 82.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 57.0,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 82、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02123v1",
+      "title": "From Chains to Trees: Parent-Conditioned Drafting for Semi-Autoregressive Speculative Decoding",
+      "abstract": "Speculative decoding accelerates LLM inference only when drafted continuations survive target-model verification. Semi-autoregressive drafters such as DSpark predict an entire token block with one backbone forward and refine it with a lightweight Markov head. However, DSpark decodes this block as a single chain, so an early mismatch invalidates the remaining suffix and limits the benefit of large draft blocks. We show that the conditional structure already learned by DSpark can support multiple parent-consistent continuations without retraining or additional backbone passes. We introduce Parent-Conditioned Drafting Tree (PCTree), which uses the pretrained Markov head to score alternative children separately for each concrete parent and allocates a fixed verification budget to the most probable paths. This converts DSpark's linear draft into a tree while preserving its one-pass parallel backbone. Across Qwen3-{4B,8B,14B} and nine benchmarks, at $B{=}7$, measured speedup gains over autoregressive (AR) decoding, relative to matched DSpark, range from $3.1\\%$ to $29.5\\%$. On Qwen3-4B GSM8K at $B{=}16$, PCTree increases mean acceptance length from $9.41$ to $11.16$ and three-run mean AR speedup from $6.14{\\times}$ to $6.60{\\times}$. These show that parent-conditioned branching can turn conditional capacity already present in a semi-autoregressive drafter into end-to-end inference gains through an inference-only change.",
+      "authors": [
+        "Zixian Li",
+        "Tong Li",
+        "Chi Xie",
+        "Xiaohui Song",
+        "Haonan Lu"
+      ],
+      "published": "2026-08-03T12:15:26Z",
+      "updated": "2026-08-03T12:15:26Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02123v1",
+      "abs_url": "http://arxiv.org/abs/2608.02123v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 72,
+        "novelty": 82.9,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.4,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 83、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02089v1",
+      "title": "How Much Does a Reasoning Summary Reveal? An Observability Ladder for Large Language Models",
+      "abstract": "Large language models often show users a final response and a short reasoning summary while the full reasoning trace stays hidden. We introduce an observability ladder that holds each completed run fixed and varies only what a reader inspects to judge whether the answer is correct: the response, a self-summary the model writes from the trace, the trace itself, and internal signals, each with and without the prompt. Across three benchmarks and five open-weight Qwen3 and gpt-oss models, we train matched linear correctness predictors on each access level. Without the prompt, summaries carry most of the trace's ranking signal (mean AUROC 0.774 versus 0.813) and add +0.156 over the response alone. With the prompt visible, the summary's gain collapses to +0.019, while the trace still adds +0.041. Even at equal length, the trace's last words predict correctness as well as summaries, or slightly better, and carry denser and more discriminative uncertainty and self-correction cues. On MMLU-Pro questions with both correct and incorrect runs, linear summary readers are near chance and trace readers retain only modest signal, both with and without the prompt (prompt-withheld AUROC 0.503-0.545 versus 0.544-0.590). With the prompt withheld, a GPT-5-mini reader recovers substantially more signal from both summaries and traces on gpt-oss-20b, and even then the trace keeps a small +0.034 advantage. Much of the linear readers' trace signal is associated with length. In the common case where users already hold the prompt, summaries are less helpful than the full trace for monitoring correctness. Monitorability is thus a joint property of the display and the reader, so any monitorability claim, including for faithfulness, should specify both.",
+      "authors": [
+        "Andres Algaba",
+        "Francesca Carlon",
+        "Lynn Delcon",
+        "Marthe Ballon",
+        "Bert Verbruggen",
+        "Vincent Ginis"
+      ],
+      "published": "2026-08-03T11:48:39Z",
+      "updated": "2026-08-03T11:48:39Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02089v1",
+      "abs_url": "http://arxiv.org/abs/2608.02089v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 86.6,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.0,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02087v1",
+      "title": "Instruction-Conditioned Exploration with Asymmetric Reinforcement Learning and Self-Distillation",
+      "abstract": "Post-training Large Language Models (LLMs) with Reinforcement Learning (RL) has become an important tool for improving model capabilities, but the LLM action-space structure introduces challenges distinct from classical RL, with implications for inducing exploration. New methods are required that leverage the broad knowledge and flexibility of pre-trained LLMs to deliberately generate diverse experience at training time. We propose Instruction-Conditioned Exploration (ICE), which supplements task prompts during training with one of several distinct instructions, increasing the coverage of behaviours attempted. To facilitate ICE, we propose Asymmetric-RL/SD, a combined Reinforcement Learning and Self-Distillation training objective, to transfer explored behaviours to the unconditioned test-time policy. ICE with the Asymmetric-RL/SD objective improves Qwen3-1.7B held-out pass@1 performance at $4$K response length on mathematical reasoning tasks by $5.0\\%$ relative to training with DAPO, with improvement persisting at a longer 8K context.",
+      "authors": [
+        "Jim Dilkes",
+        "Vahid Yazdanpanah",
+        "Sebastian Stein"
+      ],
+      "published": "2026-08-03T11:47:52Z",
+      "updated": "2026-08-03T11:47:52Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02087v1",
+      "abs_url": "http://arxiv.org/abs/2608.02087v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 50,
+        "novelty": 83.2,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.0,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02070v1",
+      "title": "STEAM:ASpatio-TEmporal Alignment Mixture-of-Experts Model with Hierarchical Pre-training for EEG Decoding",
+      "abstract": "Brain-computer interfaces (BCIs) have been widely used in motor rehabilitation, disease diagnosis, and other neural engineering scenarios. However, conventional neural signal decoding algorithms often suffer from limited generalizability and high adaptation costs, motivating recent interest in BCI foundation models. Existing approaches still struggle to jointly achieve general transferability, accurate decoding, and efficient downstream adaptation. We present STEAM, a hierarchical transfer framework that reconciles general-purpose representation learning with paradigm-specific specialization in EEG foundation models. The framework is instantiated as a dual-branch spatio-temporal encoder in which a shared soft mixture-of-experts (SSMoE) module aligns the spatial and temporal branches, allowing complementary representations to exchange information through a compact set of soft slots. Across seven downstream datasets and fourteen evaluation settings, STEAM attains the best average rank among the compared methods at a competitive inference cost measured in FLOPs. Building upon the Stage-I general initialization, the hierarchical pre-training strategy further specializes the model to a target paradigm without retraining from scratch, yielding consistent gains in paradigm-specific decoding accuracy.",
+      "authors": [
+        "Zhu Chen",
+        "Dingkun Liu",
+        "Yuheng Chen",
+        "Dongrui Wu"
+      ],
+      "published": "2026-08-03T11:15:22Z",
+      "updated": "2026-08-03T11:15:22Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02070v1",
+      "abs_url": "http://arxiv.org/abs/2608.02070v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.81,
+        "post-training": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 43,
+        "novelty": 82.6,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 83、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.02031v1",
+      "title": "Learning-Based Collaborative MEC for LLM Inference with Soft-Deadline Awareness via Transformer-Enhanced PPO",
+      "abstract": "This paper investigates collaborative mobile edge computing (MEC) servers for large language model (LLM) inference under soft deadline constraints. In this system, to improve the quality of service, computations are expected to be completed within their deadlines. However, due to dependencies among tasks or subtasks, any missed deadline can lead to catastrophic consequences for the entire request. In this context, this work proposes an extended deadline mechanism with constrained flexibility. The main challenges lie in handling large-scale computations under strict latency constraints while limiting the number of allowable deadline extensions, especially in the presence of task dependencies within each request. To tackle these challenges, we develop a transformer-enhanced proximal policy optimization (PPO) framework that enables efficient collaboration among MEC servers. The proposed approach aims to maximize the number of tasks completed within their deadlines while minimizing the use of deadline extensions. By capturing temporal dependencies and cross-server interactions, the transformer improves decision-making for task migration. Simulation results demonstrate that the proposed method significantly outperforms conventional PPO and heuristic-based approaches in terms of task completion rate and overall system efficiency.",
+      "authors": [
+        "Ngoc Hung Nguyen",
+        "Bjorn Landfeldt"
+      ],
+      "published": "2026-08-03T10:27:25Z",
+      "updated": "2026-08-03T10:27:25Z",
+      "categories": [
+        "cs.DC",
+        "cs.LG",
+        "cs.NI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.02031v1",
+      "abs_url": "http://arxiv.org/abs/2608.02031v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 31,
+        "novelty": 86.5,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 45.9,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 86、匹配 45"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2607.29637v1",
       "title": "CodeShrink: Adaptive Visual Compression for Efficient Multimodal Code Understanding",
