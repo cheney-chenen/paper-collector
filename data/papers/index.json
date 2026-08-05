@@ -18643,5 +18643,565 @@
       "优势：新颖 84、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2608.03952v1": {
+    "paper_id": "2608.03952v1",
+    "title": "TACT: Taxonomy-Aligned Post-Training for Pedagogically Adaptive English Tutoring",
+    "abstract": "Large language models (LLMs) are increasingly used to provide conversational practice for English-as-a-second-language (ESL) learners. Effective ESL tutoring, however, requires more than fluent response generation: a tutor must select an appropriate pedagogical action based on learner behavior and dialogue context. Human-tutoring research offers principles for adaptive support, but they are often task-specific and remain insufficiently integrated into LLM-based ESL tutor training and evaluation. We present TACT (Taxonomy-Aligned Conversational Tutor), a human-grounded framework for post-training and evaluating pedagogically adaptive ESL tutors. Drawing on established literature, we develop two complementary taxonomies: the Tutor-Strategy Taxonomy with 13 tutor response strategies and the Student-Move Taxonomy characterizing learner behavior by move type and status. Using these taxonomies, we construct TACTCorpus, which enriches 260 authentic teacher-student conversations with 32,379 annotations and quality-controlled augmented training data. We then post-train Qwen3.5-4B through supervised fine-tuning followed by taxonomy-aligned Group Relative Policy Optimization, producing TACTutor and optimizing it for scaffolding quality rather than reference imitation alone. On TACTBench, a strategy-balanced diagnostic benchmark comprising 78 authentic tutoring contexts, TACTutor improves over its backbone by 20.30% and outperforms all evaluated proprietary baselines under the same protocol, while maintaining backbone performance on established external educational benchmarks; in a blinded study with 50 learners, it also receives the highest overall mean rating among the evaluated tutors. We release the data, benchmark, and model weights, providing an open foundation for developing pedagogically adaptive ESL tutors.",
+    "authors": [
+      "Dongjie Yang",
+      "Siyan Lin",
+      "Leixian Shen",
+      "Rui Sheng",
+      "Huamin Qu",
+      "Zixin Chen"
+    ],
+    "published": "2026-08-04T17:16:14Z",
+    "updated": "2026-08-04T17:16:14Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03952v1",
+    "abs_url": "http://arxiv.org/abs/2608.03952v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 90,
+      "novelty": 83.5,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 72.3,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：质量 90、新颖 84"
+    ],
+    "summary_zh": null
+  },
+  "2608.03605v1": {
+    "paper_id": "2608.03605v1",
+    "title": "FraQ: Efficient Coordinate-Space Recompression for Federated Low-Rank Adaptation",
+    "abstract": "Federated fine-tuning with Low-Rank Adaptation (LoRA) enables efficient collaborative adaptation of Large Language Models (LLMs) without centralizing private data. However, LoRA's two-factor parameterization creates an aggregation mismatch across clients: naively averaging the factors does not recover the average of their induced updates. This mismatch can be avoided by forming the exact aggregate in the full weight space and then recompressing it, but decomposing the resulting dense matrix is computationally expensive and memory-intensive. We propose FraQ, an efficient coordinate-space recompression method for federated LoRA. Starting from stacked factors that exactly represent the aggregate, FraQ factorizes it into an orthonormal basis and a compact coordinate matrix. It then recovers the singular spectrum from a small Gram matrix, selects the smallest rank satisfying a prescribed energy threshold, and maps the selected coordinate subspace back through the basis to construct the global adapter. Experiments on text classification and commonsense reasoning benchmarks show that FraQ achieves accuracy close to uncompressed baselines while substantially reducing downlink communication with low server-side recompression overhead.",
+    "authors": [
+      "Shenghui Li",
+      "Thiemo Voigt"
+    ],
+    "published": "2026-08-04T12:57:08Z",
+    "updated": "2026-08-04T12:57:08Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03605v1",
+    "abs_url": "http://arxiv.org/abs/2608.03605v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.18,
+      "efficiency": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 49,
+      "novelty": 86.6,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 70.9,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：匹配 100、新颖 87"
+    ],
+    "summary_zh": null
+  },
+  "2608.03741v1": {
+    "paper_id": "2608.03741v1",
+    "title": "When Does Disaggregation Pay? Simulating Prefill--Decode--Attention--FFN Specialization for Agentic LLM Inference",
+    "abstract": "Agentic inference now dominates the LLM inference landscape, requiring LLMs to actively engage in multi-turn interactions with tool-calling capabilities. This introduces a more complex workload for the underlying inference system: serving stages such as prefill and decode exhibit substantially different behaviors and demand distinct compute and memory-bandwidth capabilities. As a result, a single homogeneous GPU system now struggles to support agentic inference, motivating an industry shift toward heterogeneous systems with disaggregated serving capabilities, such as the emerging Vera-Rubin platform with GPUs and Groq LPUs. However, the question of what the optimal hardware should look like for each component in a heterogeneous system remains underexplored. To this end, we propose a novel simulation framework for disaggregated serving, termed \\textbf{HeteroPanacea}, that enables system-level simulation across three dimensions: 1) disaggregated quantization, 2) automated intra- and inter-device parallelization scheduling, and 3) PDAF (prefill-decode-attention-FFN) NPU architectural heterogeneity. By combining these three axes, we provide a cross-stack simulation framework for future heterogeneous agentic serving systems. We confirm the benefit of Prefill Decode disaggregation, simulating increased serving throughput by up to 75\\% compared to traditional serving with current GPUs and demonstrate 4 way Prefill Decode Attention FFN disaggregation is the most consistent for increasing throughput across different models, assuming custom NPUs. We also investigate the relationship between model architecture and gain from disaggregation by running a set of ablation studies.",
+    "authors": [
+      "Przemyslaw Forys",
+      "Haoran Wu",
+      "Can Xiao",
+      "Jiayi Nie",
+      "Tony Liu",
+      "Rika Antonova",
+      "Timothy Jones",
+      "Robert Mullins",
+      "Wayne Luk",
+      "Aaron Zhao",
+      "George A. Constantinides"
+    ],
+    "published": "2026-08-04T14:35:25Z",
+    "updated": "2026-08-04T14:35:25Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03741v1",
+    "abs_url": "http://arxiv.org/abs/2608.03741v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.81,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 63,
+      "novelty": 88.7,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 69.8,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：新颖 89、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2608.03660v1": {
+    "paper_id": "2608.03660v1",
+    "title": "Taming the Implicit: Dual-Channel Risk-Aware Reinforcement Fine-Tuning for Continual Multimodal Post-Training",
+    "abstract": "Reinforcement fine-tuning (RFT) is widely believed to inherently resist catastrophic forgetting in continual post-training of multimodal large language models. Under pronounced task distributional shifts, however, forgetting across representative RFT algorithms escalates sharply. This stems from the implicit reward-variance regularization inherent to RFT, which proves incapable of suppressing uncontrolled optimization risk. We propose Risk-Aware Policy Optimization (RAPO), the first dual-channel framework for explicit risk governance in continual RFT. On the policy channel, Risk-Aware Policy Scaling adaptively calibrates per-sample update magnitude via rollout reliability and Fisher-inspired local predictive sensitivity; on the data channel, Risk-Aware Dynamic Bucket Sampling reorganizes training batches through dynamic risk stratification, steering optimization toward informative yet stable samples. As a plug-and-play strategy requiring no cross-task memory, RAPO generalizes to any RFT algorithm without modification. On the public MLLM-CL benchmark, RAPO reduces final forgetting by 79.8% relative to its RLOO backbone while retaining new-task competitiveness.",
+    "authors": [
+      "Yibei Liu",
+      "Jiajun Chen",
+      "Qianle Zhang",
+      "Tangyue Jin",
+      "Mengying Zhu",
+      "Meng Xi",
+      "Yangyang Wu"
+    ],
+    "published": "2026-08-04T13:40:03Z",
+    "updated": "2026-08-04T13:40:03Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03660v1",
+    "abs_url": "http://arxiv.org/abs/2608.03660v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 47,
+      "novelty": 88.0,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 69.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 100、新颖 88"
+    ],
+    "summary_zh": null
+  },
+  "2608.03506v1": {
+    "paper_id": "2608.03506v1",
+    "title": "When Many Answers Are Valid, Voting Fails: Symbolic Verification for Best-of-K Causal Reasoning in LLMs",
+    "abstract": "Self-consistency assumes the most frequent answer among sampled reasoning traces is the most reliable, but this can fail in causal reasoning: samples often repeat the same confounding error, and votes fragment across multiple valid answers, letting an invalid answer win despite a valid minority trace. We introduce CALVER (Causal Axiom-Level VERification), a training-free symbolic verifier that scores structured traces against Pearl's causal criteria, including -separation, backdoor adjustment, and intervention, and selects the highest-scoring candidate without consulting a reference answer. On CLEAR find-one-valid queries that admit multiple graph-valid answers, CALVER reaches 42.1% where plurality, a reward model, an LLM judge, and model confidence remain near 30% on identical frozen pools. Scaling the judge to 72B does not close the gap. In an audited clean-core subset, 11 of 21 graph-valid CALVER selections differ from the benchmark's listed answer while still satisfying the requested predicate. The advantage widens with the sampling budget and reproduces across ten published Bayesian networks, a second model family, and settings where the model must build the graph from text. CALVER also improves thresholded average-treatment-effect decisions against exact ground truth, generalizes to logic under a truth-table checker, and scores each candidate in milliseconds on CPU. CALVER needs only a causal structure, supplied outright or built from the text; wherever that holds, selection can aggregate via causal validity.",
+    "authors": [
+      "Omatharv Bharat Vaidya",
+      "Connor Thomas Jerzak",
+      "Zayne Rea Sprague",
+      "Fangcong Yin",
+      "Nhat Ho"
+    ],
+    "published": "2026-08-04T11:45:46Z",
+    "updated": "2026-08-04T11:45:46Z",
+    "categories": [
+      "cs.AI",
+      "stat.ML"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03506v1",
+    "abs_url": "http://arxiv.org/abs/2608.03506v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.99
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 99.0,
+      "quality": 51,
+      "novelty": 83.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 68.6,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：匹配 99、新颖 83"
+    ],
+    "summary_zh": null
+  },
+  "2608.04001v1": {
+    "paper_id": "2608.04001v1",
+    "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+    "abstract": "Large language models can solve substantially harder reasoning problems with more inference-time compute. The term \"test-time scaling,\" however, now covers diverse inference algorithms that extend deliberation along a single trajectory, sample completed candidates and aggregate them through voting or verification, or search over unfinished partial states. These algorithms differ in their statistical structure, compute accounting, and failure modes. Treating these procedures as interchangeable under a single scalar \"budget,\" or reporting accuracy without the inference protocol that produced it, makes results difficult to compare across studies. We develop a systematic account of test-time scaling along three axes. First, we formalize test-time scaling as budgeted inference over the implicit prefix tree of an autoregressive model and distinguish three structural regimes: single-trajectory sequential scaling, leaf-level scaling with terminal reduction, and prefix-level scaling. Second, we treat the evaluated object as the entire inference system and develop evaluation principles that separate end-to-end system performance from candidate-bank diagnostics. We introduce an evaluation profile whose coordinates and simple functionals recover or bound common repeated-sampling metrics, and prescribe protocol-matched reporting of compute and uncertainty. Third, we specify reproducibility requirements for inference protocols, distinguishing exact replay from distributional reproducibility and identifying the artifacts needed to support each. We also organize the open-weight reasoning ecosystem by model-side and interface mechanisms, apply these principles to broad-knowledge, symbolic-reasoning, and competition-mathematics benchmarks, and assemble over 2 billion full reasoning traces for release with progressively richer verifier and token-level signals.",
+    "authors": [
+      "Mohsen Hariri",
+      "Weicong Chen",
+      "Nahal Shahini",
+      "Vikash Singh",
+      "Kai Ye",
+      "Amirhossein Samandar",
+      "Debargha Ganguly",
+      "Sreehari Sankar",
+      "Yanyan Zhang",
+      "Shouren Wang",
+      "Jerry Peng",
+      "Biyao Zhang",
+      "Michael Hinczewski",
+      "Vipin Chaudhary"
+    ],
+    "published": "2026-08-04T17:57:20Z",
+    "updated": "2026-08-04T17:57:20Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.04001v1",
+    "abs_url": "http://arxiv.org/abs/2608.04001v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 44,
+      "novelty": 86.6,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 67.7,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：匹配 100、新颖 87"
+    ],
+    "summary_zh": null
+  },
+  "2608.03961v1": {
+    "paper_id": "2608.03961v1",
+    "title": "Interpretable Adaptive Sampling for LLM Test-Time Scaling",
+    "abstract": "Test-time scaling improves LLM reasoning by generating and aggregating multiple candidate answers, yet many pipelines use fixed per-query budgets that spend the same compute on easy and difficult prompts. These fixed budgets are also difficult to inspect because they do not explain why a given prompt receives a particular number of samples. We propose adaptive} test-time scaling with a lightweight fuzzy controller that maps interpretable signals, including estimated prompt complexity and model confidence, to a per-query sampling budget. The controller assigns fewer samples to easier or more confident prompts and more samples to harder or less certain prompts, making inference-time compute inspectable rather than fixed or opaque. We evaluate under a fair-alignment protocol with matched decoding settings and controlled answer selection, and compare against best-of-$N$, compute-aware scaling, and self-certainty-based baselines on question-answering and mathematical reasoning tasks. Across models and datasets, adaptive fuzzy control improves over several standard baselines and remains close to a selector-matched full-budget control while reducing the average number of samples. These findings suggest that interpretable adaptive sampling is a practical direction for more efficient test-time reasoning in large language models.",
+    "authors": [
+      "Mobina Kashaniyan",
+      "Ali Jannesari"
+    ],
+    "published": "2026-08-04T17:27:21Z",
+    "updated": "2026-08-04T17:27:21Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03961v1",
+    "abs_url": "http://arxiv.org/abs/2608.03961v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 61,
+      "novelty": 83.4,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.6,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 83、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2608.03887v1": {
+    "paper_id": "2608.03887v1",
+    "title": "Omega-S: A Functional Resilience Index for LLM Fine-Tuning",
+    "abstract": "Fine-tuning a large language model on new data degrades what it previously learned. We present Omega-S, a drop-in penalty computed from the weight matrix alone: it needs no previous-task data, no Fisher matrix and no stored copy of the old weights. It is three lines in an existing training loop and adds under 4% to the cost of a step. Retention. On Llama-3-8B with LoRA, fine-tuned from code to prose and measured by HumanEval over ten seeds, Omega-S retains more of the original capability than no regularisation on 9 of 10 seeds (0.173 -> 0.238 absolute pass@1; sign test one-sided p=0.011, Wilcoxon p=0.006), as a retention ratio, 62.9% -> 84.1%. It also beats tuned weight decay on 10 of 10 seeds (p=0.002) and tuned EWC on 8 of 10 (p=0.014), every arm re-measured in the same session. Mechanism, measured rather than asserted. Omega-S is topological by construction, its objective built from Tr(A^3), but we measured which of its four factors actually moves and three do not: their elasticity with respect to the weights is at or below 1e-4, against 9e-3 for the degree-variance term. As implemented, the composite reduces to a penalty on the variance of node degrees, which means row magnitude in square modules and directional alignment in non-square ones. We report this because a method whose name promises one thing and whose gradient does another should say so. We also enumerate the open design choices, including a contrast-preserving construction that does what it was designed to do and makes retention worse on all ten seeds. Repeating an identical configuration, same seed and same hardware, gives a standard deviation of 0.104 in retention ratio. We have not found this quantified for low-rank fine-tuning of language models, and it bounds every seed-paired comparison in this literature, ours included. Code, per-seed results and the full record of negative results are available.",
+    "authors": [
+      "Alberto Acedo"
+    ],
+    "published": "2026-08-04T16:22:30Z",
+    "updated": "2026-08-04T16:22:30Z",
+    "categories": [
+      "cs.LG",
+      "cs.NE",
+      "q-bio.MN"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03887v1",
+    "abs_url": "http://arxiv.org/abs/2608.03887v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 54,
+      "novelty": 87.2,
+      "practical": 36,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 64.6,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 87、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2608.03676v1": {
+    "paper_id": "2608.03676v1",
+    "title": "TAOT: Topology-Aware Optimal Transport for Dynamic Expert Replica Placement in MoE Training",
+    "abstract": "Mixture-of-Experts (MoE) has become a key architecture for scaling large language models (LLMs), yet its dynamic routing causes severe load imbalance in expert-parallel training. Existing dynamic-replica methods copy hot experts onto idle ranks to share computation, but they optimize load balance alone and ignore the cost of moving expert weights across a multi-node topology, so the resulting cross-node communication can outweigh the balancing gain and inflate training cost. We present TAOT, a topology-aware optimal transport method for dynamic expert-replica placement. TAOT models the overload on hot ranks and the spare capacity on lightly loaded ranks as a balanced entropy-regularized optimal transport problem with a communication-cost matrix, solves it with Sinkhorn-Knopp iterations to produce rank-level flow hints, and combines integer replica matching with token assignment into an executable schedule. At the system level, it overlaps guest-weight transfer with home-expert computation to hide the communication overhead. Experiments show TAOT achieves a 1.43x end-to-end MoE training speedup, reaches balance quality competitive with or better than existing state-of-the-art methods, and attains the lowest weighted expert-communication cost across all configurations, with up to a 74% reduction.",
+    "authors": [
+      "Lingyun Zhang",
+      "Henghua Zhang",
+      "Shilei Gu",
+      "Kai Mo",
+      "Shuai Han",
+      "Shiyong Li",
+      "Yanpeng Wang",
+      "Dou Shen"
+    ],
+    "published": "2026-08-04T13:50:22Z",
+    "updated": "2026-08-04T13:50:22Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03676v1",
+    "abs_url": "http://arxiv.org/abs/2608.03676v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 86.5,
+      "practical": 50,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.6,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.03579v1": {
+    "paper_id": "2608.03579v1",
+    "title": "Pin Once, Swap Light: Subspace-Aligned Centroid-Residual Training for Efficient Ultra-LoRA Serving",
+    "abstract": "Modern multi-tenant Low-Rank Adapters (LoRAs) serving systems concurrently host tens to hundreds of LoRA adapters. Though powerful, this introduces a critical system dilemma between serving efficiency and task performance: higher-rank adapters generally achieve better downstream task performance, but their GPU VRAM footprint and Host-to-Device PCIe swapping overhead severely constrain scalability. Conversely, ultra-low-rank adapters ($r \\le 2$) minimize both VRAM footprint and PCIe transfer overhead, but suffer from downstream task performance degradation. To solve this problem, we propose Subspace-Aligned LoRA Training (SALT), a serving efficiency-aware hierarchical fine-tuning framework. Our solution operates in three phases. First, a provider jointly trains high-capacity domain centroids on public data within the domain using a novel alignment regularizer that coheres in-domain task subspaces into a unified basis. Next, users fine-tune ultra-low-rank task residual adapters on private data atop those frozen centroids. Finally, during inference, the provider pins the centroid in GPU VRAM and dynamically swaps in each user's task residual on demand. Across LLMs of varying scales, SALT recovers high-rank accuracy using $r \\le 2$ residuals, achieving up to 18.5% absolute accuracy gains over state-of-the-art compression baselines and reducing per-adapter memory by up to 16x. When integrated into vLLM, SALT improves serving throughput by up to 51% under PCIe bandwidth pressure and 28% under GPU VRAM constraints for Llama-3.2-3B.",
+    "authors": [
+      "Xiang Li",
+      "Pengcheng Wang",
+      "Huazheng Wang",
+      "Saurabh Bagchi"
+    ],
+    "published": "2026-08-04T12:34:35Z",
+    "updated": "2026-08-04T12:34:35Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03579v1",
+    "abs_url": "http://arxiv.org/abs/2608.03579v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "serving": 0.36,
+      "efficiency": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 51,
+      "novelty": 84.9,
+      "practical": 86,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.8,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理系统、压缩与高效推理",
+      "优势：实用 86、新颖 85"
+    ],
+    "summary_zh": null
+  },
+  "2608.03796v1": {
+    "paper_id": "2608.03796v1",
+    "title": "Efficient Knowledge Distillation for LLMs: Offline Top-K Logits and a Fused Chunked KL Loss",
+    "abstract": "Small language models are often the only option for deployment under tight latency, cost, and on-premises constraints, but they are rarely trained from scratch: a compressed model is usually recovered through knowledge distillation (KD). This recovery step largely decides the final quality, yet it is expensive. We present a practitioner's study of how to make distillation training efficient, organised around two systems contributions. First, we show that offline KD (caching the teacher's top-$K$ logits once and training the student against the cache) matches online distillation at near-identical training loss while removing the teacher from memory, running about 29\\% faster per iteration, and reaching up to 41\\% higher throughput on a single H200 GPU. Second, we introduce a \\emph{fused, chunked KL loss} that never materialises the full vocabulary-sized logit tensor, making peak memory linear in the sequence length. This removes the memory spike that otherwise caps context length and lets us train at four times the context (32{,}768 tokens) on a single GPU. A separate output-head-only toy benchmark isolates the loss kernel and confirms its memory and iteration-rate scaling from 4K to 256K tokens. Together these make large-scale healing and hundreds of ablations affordable. We also report supporting ablations on loss design and sequence packing. We release our chunked-loss implementation: https://github.com/CompactifAI/Full-Chunked-KL-Loss.",
+    "authors": [
+      "Bakbergen Ryskulov",
+      "Iker García-Ferrero",
+      "David Montero",
+      "David Jansen",
+      "Ali Hashemi",
+      "Jezabel R. Garcia",
+      "Antonio Tiene",
+      "Román Orús"
+    ],
+    "published": "2026-08-04T15:11:45Z",
+    "updated": "2026-08-04T15:11:45Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03796v1",
+    "abs_url": "http://arxiv.org/abs/2608.03796v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 56,
+      "novelty": 85.1,
+      "practical": 72,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 62.6,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：新颖 85、实用 72"
+    ],
+    "summary_zh": null
+  },
+  "2608.03893v1": {
+    "paper_id": "2608.03893v1",
+    "title": "Cross-Model KV Cache Transfer in LLM Families: A Closed-Form Linear Mapping for Prefill Reuse",
+    "abstract": "Production deployments often swap between different-sized models in a family for cost-quality cascading, mid-conversation switching, and routing, and each swap forces the receiver to repay the prefill from scratch. We propose cross-model KV cache transfer, where the receiver reuses the source's KV cache, skipping prefill. We find that cross-model KV has substantial linear structure across matched-KV pairs, where source and target share KV head count and per-head dimension. On Qwen3 14B->32B, one source layer explains 56% of variance in the target's keys and 32% in values, rising to 79% and 65% with multiple source layers. Building on this, we design a closed-form ridge mapper that operates per head and proceeds in three steps. First, for each target layer we select the top-k most predictive source layers and concatenate their KV as input. Second, we strip RoPE from the keys before mapping, so the fit is position-free and reusable across context lengths. Third, we fit ridge regression on a small calibration set of 500 FineWeb-Edu sequences of 1,024 tokens each. Surprisingly, across six pairs in three families, this linear mapper retains 73-98% of the receiver's standalone-prefill accuracy on four pairs, while two degrade sharply. A nonlinear MLP recovers up to +37 pp HellaSwag retention on the failures. The mapper runs 2.7-25x faster than re-prefill and remains stable across multi-turn handoff, making cross-model KV cache transfer practical.",
+    "authors": [
+      "Taekyung Heo",
+      "Rasoul Shafipour",
+      "Ritchie Zhao",
+      "Maximilian Golub",
+      "Mohammad Mahdi Kamani",
+      "Ritika Borkar",
+      "Makesh Tarun Chandran",
+      "Pantea Zardoshti",
+      "Bita Darvish Rouhani"
+    ],
+    "published": "2026-08-04T16:26:47Z",
+    "updated": "2026-08-04T16:26:47Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.03893v1",
+    "abs_url": "http://arxiv.org/abs/2608.03893v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 54,
+      "novelty": 88.4,
+      "practical": 41,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.4,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
