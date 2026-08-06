@@ -1,7 +1,548 @@
 {
   "date": "全部历史",
-  "selected_count": 410,
+  "selected_count": 422,
   "papers": [
+    {
+      "paper_id": "2608.05045v1",
+      "title": "Gradient Immunity: Null-Space Resistance to Malicious Fine-Tuning",
+      "abstract": "Released aligned large language models remain vulnerable to malicious downstream finetuning. Existing defenses are largely designed for the fine-tuning-as-a-service (FTaaS) paradigm or rely on downstream users to follow additional safety procedures, and therefore do not directly address the setting we study: a provider controlled partially protected open-weight (PPOW) release setting in which most weights remain trainable while a small safety-critical component is preserved at release. We propose a Unidirectional Safety Gate (USG), instantiated as a Null Space Cubic Layer together with an Inverse Adapter inserted after the final Transformer layer. During downstream fine-tuning, the cubic layer suppresses or blocks gradients from harmful samples whose hidden states fall in a calibrated protected region, while the Inverse Adapter restores the base model's forward behavior. In practice, we calibrate a threshold using defender-held harmful data, allowing protection to generalize to nearby in-distribution harmful samples. Across six evaluated model-dataset settings, USG keeps post-finetuning attack success rate close to the pre-release level under a fixed release threshold, while maintaining high safe-pass rates on easier settings and exhibiting a clearer safety-utility trade-off on unsafe samples from BeaverTails. These results suggest that release-time representation-space blocking can raise the cost of malicious downstream adaptation without requiring downstream cooperation. The code is available at https://github.com/OpenCausaLab/Gradient-Immunity.",
+      "authors": [
+        "Yuxuan Huang",
+        "Xingyu Zeng",
+        "Tianhang Zheng",
+        "Chaochao Lu"
+      ],
+      "published": "2026-08-05T16:55:59Z",
+      "updated": "2026-08-05T16:55:59Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.05045v1",
+      "abs_url": "http://arxiv.org/abs/2608.05045v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 40,
+        "novelty": 86.6,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.6,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.05033v1",
+      "title": "SparseDitto: Customizing GPU Kernels for Different Sparsity Patterns with LLM-Based Agentic System",
+      "abstract": "Sparse matrix kernels are fundamental to scientific computing, graph analytics, and machine learning. Their GPU performance depends strongly on the input sparsity pattern and execution strategy. For the same SpMM on the same matrix, cuSPARSE exhibits a 350x performance gap between CSR and Blocked-ELL. Our study of multiple data formats, specialized systems, and sparse compilers shows that no single implementation consistently dominates across sparsity patterns and operators. This motivates a system that can adapt its representation, execution strategy, and hardware mapping to each workload and target GPU. We present SparseDitto, an LLM-based system that constructs a GPU kernel for each matrix, operator, and target GPU. SparseDitto supports SpMV, SpMM, and SpGEMM within a unified design framework. A lightweight additive model ranks established strategies using structural features of the input matrix. An architecture-aware planner then proposes several candidate designs. Coding and verification agents implement and refine them using measurements from the target GPU. Across three sparse operators and a diverse set of matrices, SparseDitto achieves a geometric-mean speedup of 2.68x over cuSPARSE on an NVIDIA RTX PRO 6000 GPU, with a maximum of 146.61x. On an NVIDIA H200 GPU, it achieves 2.79x, with a maximum of 78.5x. Its generated SpMM kernels also accelerate full-batch GCN training by up to 3.39x.",
+      "authors": [
+        "Shiyang Li",
+        "Guangyan Sun",
+        "Jinwei Tang",
+        "Yanzhi Wang",
+        "Mingyi Hong",
+        "Caiwen Ding"
+      ],
+      "published": "2026-08-05T16:41:03Z",
+      "updated": "2026-08-05T16:41:03Z",
+      "categories": [
+        "cs.DC",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.05033v1",
+      "abs_url": "http://arxiv.org/abs/2608.05033v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 51,
+        "novelty": 87.1,
+        "practical": 50,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.3,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.05000v1",
+      "title": "Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes",
+      "abstract": "Vision offers a critical axis for advancing foundation models, driving a shift towards natively unified multimodal pretraining. Despite this momentum, the design space and the fundamental mechanisms of how modalities interact during unified training remain underexplored. We provide empirical clarity through a systematic exploration of multimodal pretraining. Our controlled experiments on both synthetic and large-scale real-world datasets yield four key insights into the physics of multimodal pretraining: (i) Knowledge Flow: We disentangle how language, visual understanding, and visual generation transfer knowledge across modalities, revealing distinct patterns of influence and asymmetry; (ii) Synergy vs. Competition: We show that data \"complexity\" largely determines whether modalities are synergistic, identify architectural choices that promote synergy: such as shared attention and normalization with modality-specific feed-forward layers, and find that these behaviors generalize across different visual tokenizer designs; (iii) Early Unification: Unifying modalities from the very early stages and training them jointly is shown to be more effective than late alignment or sequential training. This process uncovers a vision laziness phenomenon, where delayed integration leads models to rely on language priors; (iv) Recipes: We derive efficient pretraining recipes that achieve strong generative performance using only 5% of the compute budget. These core findings are subsequently validated at scale by training multiple 13.5B MoE models on 2T tokens. We hope this study provides a principled foundation for understanding and scaling multimodal pretraining.",
+      "authors": [
+        "Junlin Han",
+        "Shengbang Tong",
+        "David Fan",
+        "Minghao Chen",
+        "Philip Torr",
+        "Filippos Kokkinos",
+        "Mike Lewis"
+      ],
+      "published": "2026-08-05T16:09:25Z",
+      "updated": "2026-08-05T16:09:25Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.MM"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.05000v1",
+      "abs_url": "http://arxiv.org/abs/2608.05000v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.81,
+        "post-training": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 60,
+        "novelty": 85.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 86、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04999v1",
+      "title": "ORACLE: A Multi-Objective Reinforcement Learning-Based Analog Circuit Design Optimizer with Large Language Models-Guided Exploration",
+      "abstract": "Analog circuit design automation using reinforcement learning (RL) has emerged as a promising approach for reducing manual effort. However, many existing RL-based methods focus on single-objective optimization. Even methods designed for multi-objective (MO) problems often reduce multiple design specifications to a single scalar reward. This simplification limits the ability to capture the true Pareto trade-off among competing objectives and often leads to suboptimal designs. Moreover, requiring the model to be retrained from scratch whenever the desired MO specifications change remains a key limitation. To address these challenges, we present ORACLE, an open-source RL-based framework for MO analog circuit design optimization that replaces scalar reward optimization with vector-valued learning and preference-aware conditioning. ORACLE represents a true MO analog circuit design optimizer that uses a preference vector to specify the relative weights of multiple objectives, enabling a single trained model to generate designs across diverse trade-off settings without retraining. We further propose two preference-guidance strategies, namely normalized-weight guidance and cosine-aligned guidance, to improve convergence. In addition, we incorporate a large language model (LLM)-guided action selection mechanism to filter actions that are likely to lead to suboptimal designs or increased runtime. Our results show that, on multiple circuit topologies with 2,000 test cases, ORACLE reduces runtime by 20.4x - 104.4x compared to state-of-the-art approaches. It also meets 99.9% of the 2,000 target specifications, and achieves 5.1x - 318.6x better figure of merit in the resulting output specs.",
+      "authors": [
+        "Osei Brempong",
+        "Mohammed Ayman Habib",
+        "Vivan Poddar",
+        "Morteza Fayazi"
+      ],
+      "published": "2026-08-05T16:09:12Z",
+      "updated": "2026-08-05T16:09:12Z",
+      "categories": [
+        "eess.SY",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04999v1",
+      "abs_url": "http://arxiv.org/abs/2608.04999v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 54,
+        "novelty": 84.5,
+        "practical": 32,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 57.8,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04991v1",
+      "title": "RAC: Reference-Aware Activation Compression for Communication-Efficient Split LLM Inference",
+      "abstract": "Large language model (LLM) agents repeatedly process long, privacy-sensitive contexts, while cloud-only deployment exposes user data beyond the trusted endpoint and fully local deployment often requires costly hardware. Split inference offers a middle ground by executing the model head, tail, and tools locally and the middle layers in the cloud, but its local-cloud-local path transfers boundary hidden states at every invocation and creates a critical communication bottleneck. We present \\system, a reference-aware codec that retrieves exact-token historical spans for prefill uplinks, reuses the reconstructed uplink state for same-round prefill downlinks, and generates boundary-specific decode references with lightweight causal predictors. RAC applies grouped affine alignment and calibrated residual quantization with optional prefill outliers, while sender-side wire-format reconstruction synchronizes subsequent references and offline calibration accounts for quality and packed representation costs. Across three models and nine evaluated model-link pairs, Raw-to-RAC mean time to first token (TTFT) and time per output token (TPOT) ratios are 1.24-2.72$\\times$ and 1.01-2.79$\\times$, while the 12 non-perplexity task-score changes range from $-0.40$ to $+2.50$ points.",
+      "authors": [
+        "Guotao Yang",
+        "Mingxi Zhao",
+        "Haopeng Li",
+        "Zhengchao Wang",
+        "Sheng Chen",
+        "Yitao Hu",
+        "Keqiu Li"
+      ],
+      "published": "2026-08-05T16:01:23Z",
+      "updated": "2026-08-05T16:01:23Z",
+      "categories": [
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04991v1",
+      "abs_url": "http://arxiv.org/abs/2608.04991v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "serving": 0.45,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 51,
+        "novelty": 89.3,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.2,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理系统、压缩与高效推理",
+        "优势：新颖 89、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04980v1",
+      "title": "Protoreasoning in Tiny Transformers",
+      "abstract": "We show that tiny transformers can profitably employ a simple form of Chain of Thought, which we call protoreasoning, allowing us to study step-by-step reasoning on ~1M-parameter models and opening up opportunities for much more detailed experimentation and analysis than is feasible for larger models. Current Large Language Models exhibit impressive step-by-step reasoning, but we have yet to understand its generality, i.e., when and how LLMs learn genuinely general algorithms rather than \"bags of heuristics.\" Such questions are hard to settle on compute-intensive frontier models trained on opaque data. To work at model scales far below the threshold for natural-language competence, we define reasoning-friendly tasks on Dyck languages (sentences of correctly nested brackets). We find that protoreasoning traces substantially close the out-of-distribution generalization gap, and ablations confirm that the trace's content, not merely its extra tokens, drives the gain.",
+      "authors": [
+        "Eduardo Valle",
+        "Fergal Reid"
+      ],
+      "published": "2026-08-05T15:51:36Z",
+      "updated": "2026-08-05T15:51:36Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04980v1",
+      "abs_url": "http://arxiv.org/abs/2608.04980v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 56,
+        "novelty": 87.6,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.0,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 88、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04962v1",
+      "title": "SpecRoll: Fast-Slow Verifier-Feedback Adaptation for Speculative Reinforcement Learning Rollouts",
+      "abstract": "Reinforcement learning (RL) post-training improves the reasoning capabilities of large language models, but autoregressive rollout generation remains a major efficiency bottleneck. Speculative decoding can accelerate generation, yet applying it during RL is difficult because the target policy continually evolves: static proposers become stale, while frequent drafter updates add substantial overhead. We introduce SpecRoll, a speculative rollout engine that preserves the target model's sampling distribution while adapting at two timescales. Lightweight future-token heads generate parallel proposals, while our proposed Reflex module uses delayed verifier feedback to perform bounded, trajectory-local hidden-state corrections without backpropagation. A complementary slow path updates the head parameters only when sustained degradation is detected. SpecRoll combines these mechanisms with concurrency-aware sparse-tree verification and exact target verification, leaving the target rollout distribution and GRPO objective unchanged. Across five models ranging from 1.5B to 14B and three mathematical reasoning datasets, SpecRoll achieves 1.26-2.15x generation speedup and 1.21-2.04x end-to-end speedup over vanilla GRPO. It also outperforms FastGRPO in both generation and end-to-end time across all 15 matched settings, with an average pairwise end-to-end gain of 1.18x. Controlled ablations show that the fast and slow adaptation paths provide complementary benefits. Our source code is available at https://anonymous.4open.science/r/SpecRoll-26062006.",
+      "authors": [
+        "Nhat Minh Pham",
+        "Duy Tung Doan",
+        "Thi Duyen Ngo",
+        "Vinh Van Nguyen",
+        "Khac-Hoai Nam Bui"
+      ],
+      "published": "2026-08-05T15:32:27Z",
+      "updated": "2026-08-05T15:32:27Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04962v1",
+      "abs_url": "http://arxiv.org/abs/2608.04962v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "reasoning": 0.81,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 78,
+        "novelty": 81.6,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 71.3,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、推理系统",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04893v1",
+      "title": "When Does Latent Communication Pay? A Causal Audit of Relayed KV Caches in Multi-Agent LLMs",
+      "abstract": "Multi-agent LLM systems relay key--value caches instead of text and credit their gains to exchanged ``latent thoughts''. That credit is a claim about \\emph{which} example's cache is relayed, not merely that one is. We audit it causally in released systems. The cache is replaced with deranged (mismatched-example), zeroed, and moment-matched random counterparts, under two regimes defined by whether the receiver needs the sender's private information. Where it does, the battery reads ceiling: 100\\% against 23--25\\% for answer-irrelevant relays on the primary backbone, a contrast replicated across three families, five checkpoints, and a prose document-QA surface. Where it does not, a pre-registered five-seed protocol establishes equivalence within 2.8 points, a margin anchored to the audited system's reported gain, under Holm-corrected TOST on GSM8K and ARC-Challenge across three Qwen3 scales and on MedQA at 8B (one cell shows a small detected advantage inside the margin); a second family shows no detected advantage. A large cache effect need not be a pairing effect. In one natural cell, zeroing the relay costs 14.7 points; a mismatched cache, 0.4. Nor is need sufficient: under the same test, delivered channels span ceiling (LatentMAS's native relay), partial (KVComm's layer subset), and no detected example-specific transfer (C2C's released projector). Benchmark deltas do not by themselves establish latent-thought transmission; establishing it takes a mismatched-cache audit, which we release.",
+      "authors": [
+        "Jiaming Cheng",
+        "Subhransu Das",
+        "Rajiv Ramnath"
+      ],
+      "published": "2026-08-05T14:18:42Z",
+      "updated": "2026-08-05T14:18:42Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04893v1",
+      "abs_url": "http://arxiv.org/abs/2608.04893v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 51,
+        "novelty": 88.4,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 50.5,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 88、质量 51"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04698v1",
+      "title": "Teaching MLLMs to Say No: Generalized Referring Expression Comprehension via Refusal Calibrated GRPO",
+      "abstract": "We tackle the challenging yet underexplored task of Generalized Referring Expression Comprehension (GREC), which requires a model to localize the object described by a textual expression when it exists (positive sample) and to refuse output when it does not (negative sample). Although Multimodal Large Language Models (MLLMs) excel at localizing existing objects, they often fail to reject nonexistent ones due to the absence of negative samples during training, producing hallucinated bounding boxes. Existing post-training approaches such as supervised fine-tuning (SFT) and reinforcement learning (RL) enhance refusal behavior but usually degrade localization accuracy on positive samples, undermining the model's core competence. To address this, we propose Refusal-Calibrated Group Relative Policy Optimization (RC-GRPO), a calibrated RL strategy that strengthens the refusal ability of MLLMs while preserving localization performance. It enforces \"None\" outputs in rollouts for valid advantage estimation on negative samples and applies a penalty to prevent over-refusal on positives, achieving a balanced trade-off between accuracy and reliability. A second-stage reasoning reinforcement further consolidates causal understanding and interpretability. Experiments on three GREC benchmarks demonstrate that RC-GRPO attains superior localization accuracy while maintaining strong refusal capability.",
+      "authors": [
+        "Xuzheng Yang",
+        "Jun Ling",
+        "Tao Huang",
+        "Caiyan Qin",
+        "Peng Wang"
+      ],
+      "published": "2026-08-05T11:07:22Z",
+      "updated": "2026-08-05T11:07:22Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04698v1",
+      "abs_url": "http://arxiv.org/abs/2608.04698v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.99,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 40,
+        "novelty": 84.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.9,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：匹配 99、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04646v1",
+      "title": "Evaluating Theory of Mind in Reasoning Models: Robustness over Reasoning",
+      "abstract": "Large language models (LLMs) have recently shown strong performance on Theory of Mind (ToM) tests, prompting debate about the nature and validity of the underlying capabilities. At the same time, reasoning-oriented LLMs trained via reinforcement learning with verifiable rewards have demonstrated notable improvements across a range of benchmarks. In this work, we examine the behavior of such reasoning models in ToM tasks using novel adaptations of machine psychological experiments together with results from established benchmarks. We observe that reasoning models consistently exhibit increased robustness to prompt variations and task perturbations. Our analysis suggests these gains come at least partly from models being more robust at reaching the correct answer under prompt and task variation. We read this as evidence for a robustness-based account rather than for a new ToM-specific ability.",
+      "authors": [
+        "Ian B. de Haan",
+        "Peter van der Putten",
+        "Max van Duijn"
+      ],
+      "published": "2026-08-05T10:05:53Z",
+      "updated": "2026-08-05T10:05:53Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04646v1",
+      "abs_url": "http://arxiv.org/abs/2608.04646v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 52,
+        "novelty": 82.9,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.2,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：匹配 100、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04519v1",
+      "title": "Leak-Resistant Unlearning: A New Benchmark for Evaluating Multi-Hop Reasoning Consistency and Recovery Robustness",
+      "abstract": "Benchmarking machine unlearning methods is critical to understand whether sensitive knowledge is removed from large language models (LLMs) or not. Current unlearning benchmarks include mainly single-hop questions and a narrow set of multi-hop questions. Although effective, they still face two challenges. (1) Knowledge is not isolated, whereby diverse multi-hop reasoning paths can potentially induce knowledge leakage than normal queries. (2) Unlearning may be fragile: unlearned knowledge can be partially recovered through recovery attacks such as lightweight post-unlearning adaptation, making static evaluation insufficient. Therefore, in this paper, we introduce \\unlearning as a novel benchmark to understand robust LLM knowledge removal across diverse reasoning paths and recovery attacks. We experiment with this benchmark on 3 models, 6 unlearning methods, and 2 carefully curated datasets. Results show that existing methods are vulnerable to multi-hop reasoning paths and recovery attacks. We further explore the trade-off among forget quality, robustness, and model utility for LLM unlearning.",
+      "authors": [
+        "Haoting Qian",
+        "Qingjie Zhang",
+        "Zhicong Huang",
+        "Cheng Hong",
+        "Han Qiu"
+      ],
+      "published": "2026-08-05T06:53:20Z",
+      "updated": "2026-08-05T06:53:20Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04519v1",
+      "abs_url": "http://arxiv.org/abs/2608.04519v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 87.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.9,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.04488v1",
+      "title": "Energy- and Memory-Efficient PEFT Methods for Personalized On-Device SLMs on Consumer GPUs",
+      "abstract": "Despite rapid advances in large language models (LLMs), deploying and personalizing them on resource-constrained devices remains impractical due to high VRAM, time, and energy costs. Parameter-Efficient Fine-Tuning (PEFT) of Small Language Models (SLMs) offers a promising alternative, yet few studies compare PEFT methods across architectures using both general and personalization benchmarks while accounting for energy consumption. We compare five fine-tuning approaches (Full Fine-Tuning, LoRA, LoRA+, QLoRA, and BitFit) on four SLMs from two families (Transformer-based: TinyLlama-1.1B, Qwen3-1.7B; SSM-based: Mamba-1.4B, Mamba-2-1.3B) across three GLUE tasks (SST-2, QNLI, STS-B) and three LaMP personalization tasks (LaMP-1, LaMP-2, LaMP-3). Each configuration is evaluated with the energy-focused NetScore-E and the memory-focused NetScore-M, the two variants that reflect the constraints binding on-device deployment. Methods are selected with a strict energy-first rule (highest NetScore-E, ties broken by NetScore#). LoRA+ achieves the highest NetScore-E in 19 of 24 configurations and the highest NetScore-M in 13 of 24, and is the selected method in 18 of 24. QLoRA, available only for the Transformer models, cuts peak finetuning VRAM by up to 3.9x relative to LoRA and therefore takes the best NetScore-M in 5 of the 12 Transformer configurations, although its de-quantization overhead leaves it selected in only one of them once energy decides. BitFit and full fine-tuning are almost never competitive on either variant, and TinyLlama-1.1B leads the energy-focused NetScore-E on five of the six benchmarks and the memory-focused NetScore-M on four. These results show that compact SLMs paired with PEFT provide a practical, energy-aware path to personalized on-device deployment, with the optimal method set by the dominant constraint: LoRA+ for energy and QLoRA for memory.",
+      "authors": [
+        "Kuanysh Akhmetzhanov",
+        "Jurn-Gyu Park"
+      ],
+      "published": "2026-08-05T06:20:57Z",
+      "updated": "2026-08-05T06:20:57Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.04488v1",
+      "abs_url": "http://arxiv.org/abs/2608.04488v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 85.8,
+        "practical": 68,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.5,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 86、质量 72"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2608.04001v1",
       "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
