@@ -19744,5 +19744,552 @@
       "优势：新颖 84、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2608.05926v1": {
+    "paper_id": "2608.05926v1",
+    "title": "BALANCE: Hybrid Autoregressive-Speculative LLM Inference in Wireless Edge Networks",
+    "abstract": "Edge inference is a promising paradigm to provide large language model (LLM) inference services in next-generation mobile networks. LLM inference mainly relies on two approaches: Autoregressive decoding (AD) generates output tokens sequentially, resulting in long latency; Speculative decoding (SD) accelerates inference by using a small language model (SLM) to generate multiple draft tokens for LLM verification, but incurs extra memory costs. Due to this latency-memory tradeoff, neither approach alone can efficiently serve users with heterogeneous demands under limited edge computing resources. To address this challenge, we propose a hybrid autoregressive-speculative inference (BALANCE) framework for edge LLM inference. In BALANCE, an edge server hosts both an SLM and an LLM, assigns each user to AD or SD, and performs the two modes simultaneously. To maximize the number of served users, we formulate a task throughput maximization problem to jointly determine user scheduling and computing resource allocation between AD and SD under user latency requirements and server memory constraints. Since the problem is NP-hard, we develop a polynomial-time algorithm that transforms the original problem into two sub-problems and obtains a sub-optimal solution with a constant approximation guarantee. Experiments demonstrate that BALANCE consistently outperforms conventional AD and SD and significantly improves task throughput.",
+    "authors": [
+      "Guanqiao Qu",
+      "Shuo Chen",
+      "Qian Chen",
+      "Kin K. Leung",
+      "Xianhao Chen"
+    ],
+    "published": "2026-08-06T11:57:36Z",
+    "updated": "2026-08-06T11:57:36Z",
+    "categories": [
+      "cs.NI",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.05926v1",
+    "abs_url": "http://arxiv.org/abs/2608.05926v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.99
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 99.0,
+      "quality": 40,
+      "novelty": 82.5,
+      "practical": 63,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 70.3,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：匹配 99、新颖 82"
+    ],
+    "summary_zh": null
+  },
+  "2608.06135v1": {
+    "paper_id": "2608.06135v1",
+    "title": "LLM Inference Under Bursty Workload Distribution: Modifying the WAIT Algorithm",
+    "abstract": "Large Language Models (LLMs) such as ChatGPT and Claude are widely used for information retrieval and problem-solving. Recent work has focused on improving scheduling algorithms to boost throughput while maintaining low latency. However, these approaches often assume Poisson request arrivals with constant rates - an assumption that fails to reflect the inherently bursty and dynamic nature of real-world traffic. We propose a lightweight extension to the state-of-the-art WAIT algorithm [1], which adapts to time-varying arrival rates without prior traffic knowledge. The proposed algorithm performs online estimation of request intensity based on observed interarrival times. Using Markov Modulated Poisson Process (MMPP)-based synthetic workloads with diverse request types, we conduct a simulation-based evaluation demonstrating that the proposed method achieves higher throughput than Sarathi-Serve [2], ORCA [3], and vLLM [4] in the evaluated low arrival-rate shift scenarios while maintaining comparable latency.",
+    "authors": [
+      "Anjali Gangadhar Katageria",
+      "Shobha Rani",
+      "Raghu Nandan Sengupta"
+    ],
+    "published": "2026-08-06T15:07:43Z",
+    "updated": "2026-08-06T15:07:43Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06135v1",
+    "abs_url": "http://arxiv.org/abs/2608.06135v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 59,
+      "novelty": 86.2,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 66.5,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 86、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2608.06243v1": {
+    "paper_id": "2608.06243v1",
+    "title": "DASH: Divergence-Adaptive Supervision Horizons for On-Policy Self-Distillation of Reasoning Models",
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) improves the reasoning capabilities of large language models using automatically verifiable outcome signals, but these signals are typically sparse and at the sequence-level. On-policy self-distillation (OPSD) mitigates this sparsity by querying a privileged teacher at student-visited prefixes and providing dense token-level distributional supervision. Although this dense supervision alleviates signal sparsity, we find that standard OPSD still underexploits the temporal structure of the rollout. It assigns every local divergence the same coefficient, regardless of its position or the divergence sequence in which it occurs. In on-policy autoregressive generation, the same divergence magnitude can follow different discrepancy histories, reflecting different evolutions of the mismatch between the teacher and student. Since the local scalar alone cannot distinguish these temporal contexts, standard OPSD cannot adapt its token-level weights to the realized discrepancy sequence. To address this limitation, we propose Divergence-Adaptive Supervision Horizons (DASH). DASH maps the gap between each local distillation signal and the sequence-level mean to an adaptive propagation gate and then uses these gates to control backward multi-step aggregation. By doing so, DASH adjusts token-level supervision weights according to how local divergences evolve during generation. Experiments on three mathematical reasoning benchmarks across three model scales show that DASH improves over our matched vanilla OPSD reruns on every benchmark at all three scales. DASH reuses the teacher and student distributions that OPSD already computes, so the gains require no additional teacher or student forward pass. Code: https://github.com/DBtxy/DASH-OPSD",
+    "authors": [
+      "ZhiYan Hou",
+      "Xinyu Tang",
+      "Hongyan An",
+      "Jianjin Zhang",
+      "Weizhen Wang",
+      "Yunyun Han",
+      "Gengsheng Li",
+      "Xiangzhao Hao",
+      "Haiyun Guo",
+      "Wenbin Hu",
+      "Jinqiao Wang",
+      "Yafeng Deng"
+    ],
+    "published": "2026-08-06T16:29:24Z",
+    "updated": "2026-08-06T16:29:24Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06243v1",
+    "abs_url": "http://arxiv.org/abs/2608.06243v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 1.0,
+      "efficiency": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 40,
+      "novelty": 78.7,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 66.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：匹配 100、新颖 79"
+    ],
+    "summary_zh": null
+  },
+  "2608.06122v1": {
+    "paper_id": "2608.06122v1",
+    "title": "Is Self-Pretraining really useful to improve diagnosis in medical Time Series?",
+    "abstract": "Inspired by recent evidence that transformer architectures benefit from Self-PreTraining (SPT) on long-context benchmarks, we investigate whether similar gains extend to multimodal, multivariate, and even simple univariate medical time series. Our objective is to assess the impact of SPT on the performance and scalability of transformer-based models across diverse medical applications, particularly under limited data conditions. We evaluate transformer architectures on three representative medical time-series tasks: rehabilitation robotics (Camargo dataset), stress detection (Non-EEG Stress), and Parkinson's disease detection (Gait Parkinson's Disease). Models are trained either from scratch or through SPT using four masking-based objectives designed to promote temporal and cross-modal representation learning, and we systematically vary model depth to examine how capacity interacts with pre-training benefits. Across datasets and configurations, SPT consistently improves classification accuracy by 0-6 percentage points depending on masking strategy, dataset and architecture, with gains observed not only in multivariate settings but also when models are restricted to simple univariate inputs. The improvements increase for deeper models that can better exploit the enriched temporal representations learned during pre-training. These findings indicate that SPT is a simple and general strategy that enhances transformer performance on medical time-series tasks without requiring task-specific architectural changes, supporting its potential to improve robustness and accuracy in data-limited clinical settings.",
+    "authors": [
+      "Omar Coser",
+      "Antonio Orvieto",
+      "Paolo Soda",
+      "Loredana Zollo"
+    ],
+    "published": "2026-08-06T14:53:23Z",
+    "updated": "2026-08-06T14:53:23Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06122v1",
+    "abs_url": "http://arxiv.org/abs/2608.06122v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 57,
+      "novelty": 86.5,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.0,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 86、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2608.06107v1": {
+    "paper_id": "2608.06107v1",
+    "title": "Kastor: An efficient fine-tuning strategy for generative emulation of PDE simulations",
+    "abstract": "Machine learning offers a promising avenue to accelerate physical simulations by replacing computationally expensive traditional Partial Differential Equation (PDE) solvers with fast, differentiable surrogate models. However, standard auto-regressive ML emulators often suffer from error accumulation over long horizons and struggle to capture the stochasticity of complex physical systems. In this paper, we propose Kastor, a comprehensive methodology to adapt a deterministic physics foundation model into a highly efficient and accurate generative surrogate. First, we introduce a two-stage inference scheme that combines a large-stride causal auto-regressive model with a non-causal temporal super-resolution network, significantly reducing error accumulation while minimizing computational cost. Second, we present Mean prediction regularization (MPR), a novel training objective that constrains the generative model to predict the deterministic distribution mean under null noise conditioning. This regularization dramatically improves the performance and stability of both Functional Generative Networks (FGN) and diffusion-based emulators. Finally, we demonstrate that incorporating spatial gradient matching improves the accuracy and physical fidelity of the simulations as measured by power spectrum density. Extensive evaluations on diverse simulation datasets of the benchmark The Well show that with these components, our model outperforms competing methods in forecasting accuracy, spectral consistency, and computational efficiency. Our model achieves a 42.9% average reduction in forecasting compared to our reference based on the Walrus finetuning methodology, and outperforms Walrus for 8 out of 10 datasets on variance-normalized RMSE (VRMSE).",
+    "authors": [
+      "Guillaume Couairon",
+      "Alexis Jacq",
+      "Yu-Han Wu",
+      "Renu Singh",
+      "Yana Hasson",
+      "Quentin Berthet",
+      "Romuald Elie"
+    ],
+    "published": "2026-08-06T14:41:11Z",
+    "updated": "2026-08-06T14:41:11Z",
+    "categories": [
+      "cs.LG",
+      "math.NA"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06107v1",
+    "abs_url": "http://arxiv.org/abs/2608.06107v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 73,
+      "novelty": 87.1,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 63.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、质量 73"
+    ],
+    "summary_zh": null
+  },
+  "2608.06246v1": {
+    "paper_id": "2608.06246v1",
+    "title": "A Six-Dimensional Taxonomy of Post-Training Adaptation Techniques with Applications in AI Governance",
+    "abstract": "Post-training adaptation has become central to modern machine learning practice and includes techniques such as retraining, fine-tuning, parameter-efficient adaptation, alignment, retrieval augmentation, model editing, unlearning, calibration, and Multimodal Instruction Tuning. However, the literature remains fragmented across technique families, model classes, and deployment contexts, making it difficult to compare methods or describe how a trained model has been modified. This survey synthesizes the post-training adaptation literature and introduces a six-dimensional taxonomy organized by mechanism, goal, data requirement, persistence, structural scope, and model type. The taxonomy distinguishes commonly conflated terms such as fine-tuning, retrieval augmentation, and prompting, and shows how adaptation strategies evolve from traditional machine learning through deep learning, foundation models, large language models, and multimodal large language models. It also maps relationships among techniques, including inheritance, supersession, hybridization, and layered deployment stacks. The resulting vocabulary can support technical documentation, model-change tracking, and governance analysis. The survey concludes by identifying open challenges in evaluation, reproducibility, persistent inference-time adaptation, unlearning, multimodal adaptation, and governance-aware post-training workflows.",
+    "authors": [
+      "Fardin Afdideh",
+      "Fernando Seoane",
+      "Farhad Abtahi"
+    ],
+    "published": "2026-08-06T16:32:26Z",
+    "updated": "2026-08-06T16:32:26Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06246v1",
+    "abs_url": "http://arxiv.org/abs/2608.06246v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 22,
+      "novelty": 88.7,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 63.2,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 100、新颖 89"
+    ],
+    "summary_zh": null
+  },
+  "2608.06296v1": {
+    "paper_id": "2608.06296v1",
+    "title": "On-Policy Self-Distillation without Any Supervision",
+    "abstract": "On-policy (Self-)Distillation (OPD / OPSD) has shown strong potential for post-training large language models (LLMs). However, existing methods still rely heavily on external supervision, including ground-truth signals, environmental feedback, or guidance from larger models, and therefore fall short of genuine \"self\"-distillation. In this study, we show that on-policy self-distillation can be achieved using only a model's own generations via internal consistency. We propose Unsupervised On-Policy Self-Distillation (U-OPSD). U-OPSD first samples multiple rollouts and constructs a pseudo-solution by majority vote under a self-consistency threshold. It then conditions a teacher distribution on the shortest pseudo-solution and distills it into prefixes of the model's longest incorrect completion, allowing the model to correct itself precisely where it is confidently wrong. Across diverse benchmarks, base models, and training settings, U-OPSD consistently improves over the base models and matches or surpasses supervised methods with ground truth (GT), such as OPSD and GRPO. On AIME24, AIME25, HMMT25, MATH500, and AMC23, U-OPSD improves over the base model by 8.5% and 10.7% on Qwen3 non-thinking mode at the 4B and 8B scales, respectively, and outperforms OPSD by an average of 3.2% and 2.3%. In thinking mode, U-OPSD remains on par with OPSD, outperforming it by 0.9% at 4B and matching it at 8B, while surpassing GRPO by 0.7% and 1.1%, respectively.",
+    "authors": [
+      "Yijiang Li",
+      "Bingyang Wang",
+      "Yijun Liang",
+      "Yunjie Tian",
+      "Di Fu",
+      "Nuno Vasconcelos"
+    ],
+    "published": "2026-08-06T17:18:23Z",
+    "updated": "2026-08-06T17:18:23Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06296v1",
+    "abs_url": "http://arxiv.org/abs/2608.06296v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 84.0,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.8,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 84、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.06347v1": {
+    "paper_id": "2608.06347v1",
+    "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
+    "abstract": "Multilingual reasoning transfer is crucial for extending reasoning capabilities of large language models (LLMs) beyond high-resource languages. On-policy self-distillation (OPSD) and its variants have emerged as a promising paradigm, providing dense token-level supervision on student-generated rollouts, yet their objectives do not explicitly prioritize reasoning signals most critical to cross-lingual transfer. We characterize that target-language reasoning comprises the generation of both surface text and reasoning pivots, which are decisions that advance or redirect the reasoning process and shape subsequent inference. This motivates concentrating privileged distillation around such pivots. We therefore propose RP-OPSD, Reasoning-Pivot-guided On-Policy Self-Distillation, using the distributional shift between matched teacher views with and without an English reference solution as an operational proxy to guide privileged distillation and reference anchoring. Experiments on mathematical reasoning benchmarks covering 17 languages and multiple difficulty levels show that our method outperforms strong multilingual reasoning baselines and OPSD variants. Further analysis reveals that RP-OPSD concentrates privileged distillation on reasoning-control and problem-condistioned state-update tokens, while downweighting it for tokens that mainly support surface realization. Our code is available at https://github.com/NJUNLP/RP-OPSD.",
+    "authors": [
+      "Xinye Wang",
+      "Junxiao Liu",
+      "Shujian Huang"
+    ],
+    "published": "2026-08-06T17:52:06Z",
+    "updated": "2026-08-06T17:52:06Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06347v1",
+    "abs_url": "http://arxiv.org/abs/2608.06347v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 62,
+      "novelty": 78.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.5,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 79、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.06146v1": {
+    "paper_id": "2608.06146v1",
+    "title": "PaDoc: Layout-Grounded Parallel Decoding for Document Parsing",
+    "abstract": "End-to-end document parsers provide a unified interface, but serialize page layouts and regional contents into one autoregressive sequence. This formulation forces independent regions onto a decoding path whose length grows with the total content, whereas crop-based two-stage parsers expose region-level parallelism at the cost of repeated visual prefills and fragmented page context. To retain full-page context while removing dependencies, we propose PaDoc, a layout-grounded parser that treats the predicted layout as a branching structure over a shared page representation. Under a region-sufficiency assumption, we derive a prefix-conditioned factorization in which the layout stream and regional content branches advance concurrently, reducing the decoding depth to the longest layout-content path. We realize this factorization within a single MLLM: packed variable-length ancestor attention preserves the visibility under standard next-token training, while masked parallel decoding creates branches that the evaluated vLLM backend serves as concurrent requests with cache-resident shared-prefix reuse. On OmniDocBench Full, PaDoc attains an Overall layout F1 of 91.1 and, among end-to-end parsers, a top-tier Overall score of 94.24 together with the best Text Edit (0.038) and Formula CDM (95.59). On a 384-page subset and one A800 GPU, it is the fastest end-to-end parser at five concurrency levels, improving valid-page throughput by 67.4-118% and reducing P95 latency by 39.2-54.9% relative to a same-backbone Sequential SFT baseline. Code is available at https://github.com/Longin-Yu/Padoc",
+    "authors": [
+      "Hao Yu",
+      "Jiabo Zhan",
+      "Kang Liu",
+      "Linnan Zhao",
+      "Dongxu Yue",
+      "Rui Chen",
+      "Jinglin Wang",
+      "Chong Sun",
+      "Chen Li",
+      "Jing Lyu",
+      "Chun Yuan"
+    ],
+    "published": "2026-08-06T15:16:18Z",
+    "updated": "2026-08-06T15:16:18Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06146v1",
+    "abs_url": "http://arxiv.org/abs/2608.06146v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 72,
+      "novelty": 83.7,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.8,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 84、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2608.05810v1": {
+    "paper_id": "2608.05810v1",
+    "title": "When Self-Evolution Backfires: Pre-Commit Gating against Skill Contamination in LLM Agents",
+    "abstract": "Self-evolving agents accumulate capability by distilling reusable skills from their execution trajectories, but we find this process is not monotonic: past a critical pool size, newly added skills degrade performance instead of improving it. We formalize this capability-contamination phase transition and trace it to a structural cause: once a defective skill enters the decision context, it becomes reference material for distilling later skills, forming cross-round contamination chains. We further show the contamination is structurally irreversible: removing a source skill after the fact cannot erase the flawed reasoning its descendants have already inherited, so post-hoc rollback recovers only a small fraction of the lost performance. This makes skill admission a pre-commit necessity rather than a post-hoc fix, and motivates Verifier-as-Gatekeeper (VaG): a progressive trust hierarchy whose three heterogeneous critics - structural validity, behavioral harmlessness, and semantic consistency - filter each skill individually, coupled with a marginal-gain subset selection that removes combinatorial contamination at the top tier before skills reach the runtime context. On Terminal-Bench 2, unconditional accumulation rises to a peak and then degrades, giving back most of its gains as the pool keeps growing, and post-hoc removal of the culprit skills recovers only a small part of the drop - the empirical signature of irreversibility. In contrast, VaG improves every round, reaching 72% pass@1 with a pool roughly 5x smaller, and its frozen skill pool transfers positively to four other backbones and a second benchmark without re-evolution. Ablations confirm the three critics are complementary and mutually non-substitutable, each intercepting a largely disjoint class of harmful skills.",
+    "authors": [
+      "Linfang Shang",
+      "Ming Xu",
+      "Yiding Sun",
+      "Tianle Xia",
+      "Lingxiang Hu",
+      "Lan Xu",
+      "Ning Zheng"
+    ],
+    "published": "2026-08-06T09:43:04Z",
+    "updated": "2026-08-06T09:43:04Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.05810v1",
+    "abs_url": "http://arxiv.org/abs/2608.05810v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 68,
+      "novelty": 89.8,
+      "practical": 32,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.4,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 90、质量 68"
+    ],
+    "summary_zh": null
+  },
+  "2608.06188v1": {
+    "paper_id": "2608.06188v1",
+    "title": "Routing LLM Inference to the Cleanest Grid in Real Time",
+    "abstract": "Large-language-model inference is a fast-growing electricity load whose marginal carbon intensity varies by more than an order of magnitude across grid regions and across the day, making request placement an attractive lever: no retraining, no hardware change. We report a live validation of carbon-aware inference routing on multi-region GPU testbeds driven by marginal operating emissions rate (MOER) signals, with three properties uncommon in prior work: a blind baseline that is an actual production pressure-based router rather than uniform placement; per-request energy attributed from GPU telemetry (NVIDIA DCGM) via measured concurrency curves rather than nameplate TDP; and carbon settlement of every request against historical MOER, not only the forecast that drove the decision. The central live result is feasibility: a MOER signal steered inference across regions with no observed dispatch failures, as a strict and reversible overlay on the production router. To size the effect, we replay a year of hourly MOER across a grid-diverse CONUS fleet. In the primary modeled configuration, carbon-aware placement reduces modeled GPU-attributable operational emissions by 50.9% versus round-robin (95% block-bootstrap CI 48.5-53.3%). Because the replay dispatches against historical MOER rather than a forecast, this is an upper bound under that configuration; forecast error would reduce operationally realized savings. Before session pinning, hourly lowest-MOER routing contributes about 22.4 percentage points, roughly 40% of the 54.0% placement reduction, beyond a static annual-mean-MOER policy. These are modeled results for one fleet and historical year, not a universal estimate. We also record a practical observation: when comparing regions, rank by absolute MOER rather than the percentile signal-index, which is normalized within each region and answers a temporal, not a spatial, question.",
+    "authors": [
+      "Aleks Bernhard",
+      "Arif Baran Yardimci"
+    ],
+    "published": "2026-08-06T15:46:18Z",
+    "updated": "2026-08-06T15:46:18Z",
+    "categories": [
+      "cs.DC",
+      "cs.PF"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06188v1",
+    "abs_url": "http://arxiv.org/abs/2608.06188v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "serving": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 63,
+      "novelty": 87.5,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.5,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理系统",
+      "优势：新颖 88、质量 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.06179v1": {
+    "paper_id": "2608.06179v1",
+    "title": "SAGA: Score-Weighted Adaptive Generation Alignment for Low-Resource Nordic Language Models",
+    "abstract": "Preference optimisation has proven effective for improving large language models but typically relies on costly human preference annotations. Extending these methods to morphologically rich, low-resource languages remains challenging because such annotations are scarce. We present SAGA (Score-weighted Adaptive Generation Alignment), a parser-guided preference optimisation framework that replaces human labels with dependency-parser supervision. SAGA converts parser judgements into preference pairs for delta-DPO, combines parser quality with lexical diversity in a composite reward, filters low-information pairs using a reward-gap criterion, and monitors reward hacking to maintain reliable supervision. Across Danish, Icelandic, and Norwegian Bokmål using GPT-SW3-1.3B, SAGA consistently improves grammatical quality without requiring human preference labels. Danish parse success increases from 69.0% to 93.8%, Icelandic achieves a +4.5 percentage-point improvement on an independent Stanza evaluation (three-run mean +3.3 percentage points) while native speakers prefer SAGA outputs in 80% of pairwise comparisons, and Norwegian Bokmål improves by +28 percentage points. These results demonstrate that parser-derived supervision is a practical alternative to human preference annotation for grammatical alignment in low-resource languages where high-quality dependency parsers are available.",
+    "authors": [
+      "Hoda Fakharzadehjahromy",
+      "Emil Wiman",
+      "Andreas Bueff",
+      "Hafsteinn Einarsson",
+      "Fredrik Heintz"
+    ],
+    "published": "2026-08-06T15:41:02Z",
+    "updated": "2026-08-06T15:41:02Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.06179v1",
+    "abs_url": "http://arxiv.org/abs/2608.06179v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 42,
+      "novelty": 87.4,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
