@@ -1,7 +1,559 @@
 {
   "date": "全部历史",
-  "selected_count": 434,
+  "selected_count": 446,
   "papers": [
+    {
+      "paper_id": "2608.07460v1",
+      "title": "CreativeInstruct: Scalably Teaching LLMs to Balance Quality, Creativity, and Diversity",
+      "abstract": "While post-training improves the capabilities of large language models (LLMs), it generally lowers their output diversity and creativity, negatively impacting tasks that explicitly require creativity (e.g., story generation) as well as those that require it implicitly, e.g., reinforcement learning (RL). We instead propose CreativeInstruct, a scalable instruction-tuning method that teaches LLMs to balance creative, base-model-like generations with the quality of post-trained models, by learning to inject special [StartCreativity] spans that bias generation toward creativity. Furthermore, we introduce a structural diversity metric based on graph edit distance, which captures narrative level variation missed by purely lexical and semantic metrics. On narrative generation, CreativeInstruct matches or exceeds the diversity of both multi-model baselines and distilled variants of their outputs, without sacrificing quality or requiring multiple models at inference time. These results are mirrored in our human evaluation, where we find that annotators rate CreativeInstruct generations as more creative than the post-trained LLMs' generations in 70.3% of cases. We also show the benefits of creative models as a substrate for RL: GRPO applied to a CreativeInstruct checkpoint improves by ~4% on AMC and ~5% points on MATH over the same training applied to the post-trained checkpoint.",
+      "authors": [
+        "Ananya Sahu",
+        "Mohit Bansal",
+        "Elias Stengel-Eskin"
+      ],
+      "published": "2026-08-07T17:55:48Z",
+      "updated": "2026-08-07T17:55:48Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07460v1",
+      "abs_url": "http://arxiv.org/abs/2608.07460v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 55,
+        "novelty": 86.0,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 47.8,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 86、质量 55"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07417v1",
+      "title": "I Seek You in Videos: Identity-Conditioned Queries for Person-Centric Video Reasoning",
+      "abstract": "Real-world video reasoning often involves multimodal, multi-source inputs, whereas existing video reasoning tasks typically assume a simplified video-text setting, limiting identity matching and person-centric reasoning. To bridge this gap, we introduce the Identity-conditioned Queries (ICQ) task, in which models are required to jointly associate and interpret an input video and a reference image of a person, and leverage this conditioning to address identity grounding, behavior understanding, and temporal reasoning, among other challenges. Building on ICQ, we present ISYV (I Seek You in Videos), a systematic solution comprising three components: (1) ISYV-Bench, a challenging evaluation benchmark with 1,377 real-world complex videos and 1,377 question-answer pairs, organized into six difficulty levels spanning capabilities from identity recognition to causal reasoning; (2) ISYV-75K, a large-scale training set of 75K high-quality samples constructed via automated annotation, multi-stage verification, and manual review; and (3) ISYV-Framework, containing an ICQ-oriented model and training strategy for learning to exploit informative video shots without additional shot-level annotations. Extensive experiments show that both mainstream closed-source and open-source MLLMs struggle on ISYV-Bench, especially in cross-domain identity matching and long-horizon tracking. ISYV-Model outperforms strong baselines and in some aspects approaches closed-source performance. Overall, ISYV provides a unified task definition, scalable datasets/benchmarks, and modeling insights for person-centric video reasoning.",
+      "authors": [
+        "Shibo Gao",
+        "Chongxiao Wang",
+        "Chenglong Huang",
+        "Jie Ma",
+        "Haolin Shi",
+        "Fei Ding",
+        "Jing Li",
+        "Qiang Lyu",
+        "Yangyang Liu",
+        "Yang Liu",
+        "Jun Liu",
+        "Linlin Huang",
+        "Peipei Yang"
+      ],
+      "published": "2026-08-07T17:02:02Z",
+      "updated": "2026-08-07T17:02:02Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07417v1",
+      "abs_url": "http://arxiv.org/abs/2608.07417v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 87,
+        "novelty": 84.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 75,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.0,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：质量 87、新颖 85"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07367v1",
+      "title": "People Are Not Just Their Countries. Disentangling Social Determinants of LLM Value Alignment Across Europe",
+      "abstract": "As Large Language Models (LLMs) are increasingly used as a primary source of information and advice, understanding their alignment to humans in terms of values becomes a pressing concern. A growing literature has leveraged large scale surveys to investigate to what extent LLMs' and humans' stated values and opinions align. With limited exceptions, studied populations have been defined country borders or cultural bounds. Yet, this focus neglects the role that socio-demographic divides may play for value alignment disparities. Relying on the European Social Survey, we address this knowledge gap by considering value alignment displayed with respect to 10 prominent commercial LLMs in terms of 15 socio-demographic variables as well as country of residence. Our analyses reveal that LLMs are indeed unequally aligned to the values of different socio-demographic groups, notably those defined by education, income, occupation and religion. When examining alignment at the individual level, a respondent's country, taken as a stand-alone variable, explains a substantial amount of variation that is on par with the full set of considered socio-demographics. Further disentangling the respective role of country-level and socio-demographic factors, we find they are complementary in explaining value alignment patterns, with their relative weights varying across the subset of questions considered.",
+      "authors": [
+        "Maria-Louisa Wightman",
+        "Guillaume Bied",
+        "Tijl De Bie"
+      ],
+      "published": "2026-08-07T16:10:53Z",
+      "updated": "2026-08-07T16:10:53Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07367v1",
+      "abs_url": "http://arxiv.org/abs/2608.07367v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 30,
+        "novelty": 89.6,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 50.8,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 90、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07226v1",
+      "title": "Dual-Node NVIDIA DGX Spark over Tailscale: A Remote-Access Testbed for Distributed LLM Training and Cyber-Threat-Intelligence Fine-Tuning",
+      "abstract": "Compact AI systems make local language-model experimentation increasingly accessible, yet practical evidence for multi-node training on desktop-class accelerators remains limited. This report presents a proof-of-concept deployment of distributed NanoChat pretraining across two NVIDIA DGX Spark systems, each with a GB10 Grace Blackwell system-on-chip and 128 GB of unified memory, administered remotely over a Tailscale mesh VPN and connected for training by a dedicated 200 Gb/s QSFP56 direct fiber link. PyTorch torchrun, DDP, and NCCL were configured with one process per node, a depth-20 NanoChat model, a local batch size of 32 per node, and a 2,048-token context, giving a global batch of 131,072 tokens per step. The run sustained a step time of about 69.4 s (about 1,890 tokens/s), processing about 653 million tokens over four days. We document link configuration, container setup, interface binding, a step-zero evaluation bug that triggered NCCL timeouts, checkpointing, and troubleshooting lessons, as a reproducibility reference for small labs. We also built a cybersecurity fine-tuning dataset from 77 CISA advisories (338 training, 37 validation conversations) and ran a 17-question held-out evaluation comparing a baseline SFT checkpoint against a CTI-augmented checkpoint with an Ollama-hosted LLM judge. CTI-specific categories improved while general-knowledge categories regressed, for a small overall change from 2.06 to 2.29 on a 0-10 scale. The same cluster supports a 400-level AI course (CS 426) and a query engine for CompTIA Security+ POGIL activities in CBS 255, showing modest local infrastructure can serve both research and teaching. The study establishes feasibility rather than a scaling-efficiency claim, since single-node throughput used for comparison was estimated, not measured under matched conditions. Runbook and scripts are available (see Code Availability).",
+      "authors": [
+        "Vasanth Iyer"
+      ],
+      "published": "2026-08-07T13:41:57Z",
+      "updated": "2026-08-07T13:41:57Z",
+      "categories": [
+        "cs.AR",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07226v1",
+      "abs_url": "http://arxiv.org/abs/2608.07226v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.63,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 88.1,
+        "practical": 36,
+        "credibility": 28
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.2,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理系统",
+        "优势：新颖 88、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07176v1",
+      "title": "Representation-driven Endoscopic Visual Embedding Alignment for Latent Generation",
+      "abstract": "Developing foundation generative models for endoscopy is limited by the gap between natural and clinical images and the computational cost of training large Diffusion Transformers. Although representation alignment has improved efficiency in general computer vision, its role within the highly specialized endoscopic image space remains unclear. We introduce REVEAL (Representation-driven Endoscopic Visual Embedding Alignment), the largest generative foundation model for endoscopy to date, trained on GastroNet-5M (GN-5M), a multicenter dataset of 5 million endoscopic frames. Instead of depending on out-of-domain priors, REVEAL employs encoders pretrained directly on the endoscopic distribution to align diffusion latents with domain-specific visual features, preserving fine textures and intricate anatomical structures. Beyond image generation, REVEAL also serves as a powerful feature extractor; in multiple benchmarks, it delivers performance that is competitive with, and in several cases exceeds, endoscopic foundation models such as EndoViT and Endo-FM, specifically tuned for classification tasks, while demonstrating strong representation robustness under realistic imaging corruptions. REVEAL produces high-fidelity images and maintains robust structural coherence in latent-space edits such as inpainting and outpainting. This high-capacity backbone lowers the computational threshold for building specialized clinical tools, offering an open, versatile foundation for conditional synthesis, segmentation, and out-of-distribution detection in future intelligent gastroenterology systems.",
+      "authors": [
+        "Francisco Caetano",
+        "Tim J. M. Jaspers",
+        "Haiko Middeljans",
+        "Martijn R. Jong",
+        "Rixta A. H. van Eijck van Heslinga",
+        "Floor Slooter",
+        "Albert J. de Groof",
+        "Jacques J. Bergman",
+        "Peter H. N. De With",
+        "Fons van der Sommen"
+      ],
+      "published": "2026-08-07T12:47:36Z",
+      "updated": "2026-08-07T12:47:36Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07176v1",
+      "abs_url": "http://arxiv.org/abs/2608.07176v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 52,
+        "novelty": 87.6,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.2,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 88、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07169v1",
+      "title": "Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory",
+      "abstract": "Memory systems have shown promise for improving agent performance, but their potential remains largely unexplored for small language models, which struggle to generate sufficient successful trajectories on their own. We propose Agent Memory Distillation (AMD), a training-free framework that transfers structured knowledge from a large teacher agent to a small student agent through hierarchical memory. AMD constructs three complementary memory types from successful teacher trajectories: Workflow memory encodes task-level strategies, Subtask memory provides concrete behavioral examples at an intermediate granularity, and Function memory captures per-function calling conventions and common pitfalls. Workflow and Subtask memories are injected proactively at the start of each task, while Function memory is retrieved reactively upon tool-calling errors. We evaluate AMD on three tool-use benchmarks using four student models (4B-8B parameters) with GPT-5-mini as the teacher, achieving average accuracy gains of 27.2%p, 11.2%p, and 3.4%p on AppWorld, BFCL V3, and ToolSandbox, while consistently outperforming existing memory-based baselines. Further analysis shows that Subtask memory contributes the largest gains, teacher effectiveness depends on both teacher capability and student compatibility, and 4B-sized students benefit most from AMD.",
+      "authors": [
+        "Taeil Kim",
+        "Kangsan Kim",
+        "Sung Ju Hwang"
+      ],
+      "published": "2026-08-07T12:43:00Z",
+      "updated": "2026-08-07T12:43:00Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07169v1",
+      "abs_url": "http://arxiv.org/abs/2608.07169v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 78,
+        "novelty": 85.0,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.2,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 85、质量 78"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07077v1",
+      "title": "Transformers Struggle to Use Their Emergent World Models: Revisiting the Tower of Hanoi, and the Illusion of Thinking",
+      "abstract": "The Tower of Hanoi is a simple planning puzzle that in prior work has proven challenging for large reasoning models (LRMs). Current models solve the standard formulation of the puzzle, but still struggle with the flat-to-flat variant (where initial and goal states are not restricted to have all rings on a single peg). This paper presents an in-depth study of how both small, in-house Transformers and large, third-party LRMs solve this task. To understand the failures mechanistically, we first train small Transformers from scratch on precomputed solution traces. Using a variety of interpretability techniques, we show that these Transformers develop an emergent world model: a linearly decodable, geometrically faithful representation of the puzzle's state space (the Sierpinski triangle), that is causally involved in solving the puzzles. Second, we return to the large LLMs and apply our techniques to two frontier reasoning models, Qwen3.6-27B and DeepSeek-R1-Distill-Qwen-32B, that attempt to solve the task through extended chain-of-thought. Surprisingly, we find that both models encode the Sierpinski world model near-perfectly at the end of the prompt, and yet fail at the majority of tasks when there are more than 3 rings. We locate the source of this failure in the decaying representation of the world model. We probe for the representation at different stages during planning, and establish causality by showing that performance can be improved by injecting the prompt-time representation at inference. The failure of the models is thus one of maintenance of the required representations, not their absence, and performance is at least partially recoverable. These results thus reframe the reported collapse in performance from prior work: current Large Reasoning Models build a world model, and then lose it.",
+      "authors": [
+        "Devin Pereira",
+        "Willem Zuidema"
+      ],
+      "published": "2026-08-07T10:29:19Z",
+      "updated": "2026-08-07T10:29:19Z",
+      "categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07077v1",
+      "abs_url": "http://arxiv.org/abs/2608.07077v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 50,
+        "novelty": 83.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 45.2,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 83、质量 50"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07066v1",
+      "title": "PTQ4SNN: Membrane-Aware Post-Training Quantization for Spiking Neural Networks",
+      "abstract": "Spiking neural networks (SNNs) enable sparse and event-driven computation, but their low-bit deployment remains incomplete because recurrent membrane states are commonly retained in floating point even after weight quantization. Quantizing these states is challenging because their distributions differ across channels and from the preceding weights, while small perturbations near the firing threshold may alter spike decisions and accumulate over time. We propose PTQ4SNN, a membrane-aware post-training quantization framework that jointly quantizes weights and recurrent membrane states using only a small calibration set. First, a channel-wise Unified Scale Bridge constrains the membrane scale as s_mem,c = s_w,c * 2^k_c, adapting to membrane distributions while enabling shift-compatible scale conversion. Second, Mixed-Precision Bit Allocation assigns 2/4/8-bit precision to membrane channels according to firing activity and quantization sensitivity under an average-bit budget. The framework operates on reusable projection-LIF pairs and supports both convolutional SNNs and spike-driven Transformers without backbone retraining. Experiments on static and event-based classification and semantic segmentation show that PTQ4SNN effectively preserves model accuracy under W4 quantization and approximately 4-bit membrane precision.",
+      "authors": [
+        "Hui Xie",
+        "Tong Shi",
+        "Haotong Qin",
+        "Aishan Liu",
+        "Xiaode Liu",
+        "Jinyang Guo"
+      ],
+      "published": "2026-08-07T10:16:25Z",
+      "updated": "2026-08-07T10:16:25Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07066v1",
+      "abs_url": "http://arxiv.org/abs/2608.07066v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 51,
+        "novelty": 79.1,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.7,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 79、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07019v1",
+      "title": "ReQuant: Fixed-Grid Discrete Refinement for Post-Training Quantization",
+      "abstract": "Post-training quantization (PTQ) is widely used to reduce the memory and computational cost of large language models. Existing PTQ methods typically obtain an initial quantized model through heuristic rules or greedy optimization, and once quantization is completed the resulting integer assignments are usually treated as final. This observation motivates a complementary optimization stage within PTQ that keeps quantized weights improvable after an executable quantized model has been produced, while preserving the quantized format. We introduce ReQuant, a backpropagation-free fixed-grid refinement procedure for this stage. Agnostic to the PTQ initializer, ReQuant takes an existing quantized model as a feasible starting point and iteratively revisits its discrete weight assignments on the fixed quantization grid. Accepted updates strictly reduce the mean squared reconstruction error and remain on the original grid. In this way, ReQuant turns the initially fixed PTQ output into an iteratively optimizable discrete solution and serves as a plug-and-play post-processing stage for existing PTQ pipelines. Experiments across diverse model families, bit-widths, and downstream tasks show that ReQuant consistently improves quantized models from heterogeneous PTQ initializers, with especially large gains on simple initializers and lower bit-widths. Notably, ReQuant can refine a simple round-to-nearest initialization across multiple sweeps until it approaches or surpasses GPTAQ under the same quantization format. These results establish ReQuant as a practical complementary stage for further improving existing PTQ pipelines.",
+      "authors": [
+        "Yongge Ma",
+        "Guoan Wang",
+        "Feiyu Wang",
+        "Yaoming Li",
+        "Qian Zhang",
+        "Zihan Yan",
+        "Yinjun Han",
+        "Tong Yang"
+      ],
+      "published": "2026-08-07T09:27:14Z",
+      "updated": "2026-08-07T09:27:14Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07019v1",
+      "abs_url": "http://arxiv.org/abs/2608.07019v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 31,
+        "novelty": 83.1,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.9,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07009v1",
+      "title": "HiSparse: Scaling Sparse-Attention Decoding with Hierarchical KV Cache Management",
+      "abstract": "Top-k sparse attention makes long-context LLM decoding cheap to compute: each step reads only a few thousand selected KV entries rather than the full context. Serving systems, however, typically keep the entire KV cache in GPU HBM so that every position stays selectable, so a request's memory bill still grows with its full context length--decoding hits a capacity wall long before it runs out of compute, and a context whose KV cache exceeds HBM cannot be served at all. We present HiSparse, an exact, indexer-agnostic hierarchical KV cache for sparse-attention serving. HiSparse keeps each request's full KV history in host memory and bounds its decode footprint with a small, fixed-size GPU cache; a fused CUDA kernel resolves each layer's selections--hit detection, LRU replacement, and host-to-device fetches--inside the decode CUDA graph; and, for models that share selections across layers, exact layer-wise prefetching hides roughly half of the remaining miss overhead. Because only KV placement changes, model outputs are unchanged. HiSparse is merged into upstream SGLang and evaluated across three sparse-attention families (DSA, NSA, and Quest) on H200, B200, and GH200 platforms: it improves peak generation throughput by up to 4.7x on long-context workloads while preserving comparable per-token latency and reducing time-to-first-token at high load--and a no-IO oracle shows the resolution mechanism itself adds no measurable per-token cost, leaving host-device IO as the only price of bounded residency.",
+      "authors": [
+        "Zhiqiang Xie",
+        "Zhangheng Huang",
+        "Tingwei Huang",
+        "Ziyi Xu",
+        "Ruiyang Ma",
+        "Christos Kozyrakis"
+      ],
+      "published": "2026-08-07T09:22:17Z",
+      "updated": "2026-08-07T09:22:17Z",
+      "categories": [
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07009v1",
+      "abs_url": "http://arxiv.org/abs/2608.07009v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 47,
+        "novelty": 84.2,
+        "practical": 86,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 74.9,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：匹配 99、实用 86"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.07001v1",
+      "title": "Every Cache Entry Earns Its Place: Global Allocation of Resolution and Coverage for KV Cache Compression",
+      "abstract": "As large language models (LLMs) process increasingly long contexts, KV cache storage and repeated access have become a major bottleneck. Existing KV cache compression methods rely on predefined, fixed compression rules and are typically developed around either token eviction or merging. As a result, cache resources can neither flow freely across layers, heads, and context slots, nor be jointly allocated to balance local resolution and information coverage. Therefore, we propose GraceKV, a global approach for the allocation of resolution and coverage in KV cache compression, and formulate the compression process as a global resource allocation problem under a fixed cache budget. GraceKV treats each layer-KV head-slot combination as an atomic unit and builds a prototype tree. Leaf nodes correspond to token-level KV entries, while each internal node uses a single prototype to compress the KV space covered by its children. A set of non-overlapping nodes in the tree forms the representation of an atomic unit. Adding the root of a new tree expands information coverage, whereas splitting a selected node improves local resolution. All candidate actions compete globally for a shared cache budget. Finally, the nodes retained across all trees form the compressed KV cache. This process adaptively determines the allocation of cache resources among atomic units globally and the balance between resolution and coverage. GraceKV requires no additional training, and the entire compression and inference process is performed on the GPU. Systematic experiments across diverse long-context tasks and compression ratios show that GraceKV ranks first in 24 of 32 settings and remains robust up to 128-fold compression. These results validate the effectiveness of global budget allocation in coordinating information coverage and local resolution.",
+      "authors": [
+        "Haolin Tian",
+        "Yuzhe Liu",
+        "Tonghan Wang"
+      ],
+      "published": "2026-08-07T09:18:42Z",
+      "updated": "2026-08-07T09:18:42Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.07001v1",
+      "abs_url": "http://arxiv.org/abs/2608.07001v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 43,
+        "novelty": 85.1,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.5,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 85、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.06938v1",
+      "title": "Debias in Text, Believe Your Eyes: Text-Anchored Cross-Modal Transfer for Visual Counter-Commonsense Reasoning",
+      "abstract": "The visual reasoning ability of multimodal large language models (MLLMs) is crucial for downstream applications, particularly counter-commonsense reasoning, which requires models to reason beyond common assumptions. Recent studies mainly improve visual counter-commonsense reasoning by enhancing visual inputs, following the assumption that failures originate from insufficient visual grounding. However, our empirical analysis reveals that the bottleneck is not visual perception. MLLMs already capture the relevant visual evidence, and the correct answer exists in their decoding space. Instead, the shared language decoder resolves prior--evidence conflicts by favoring dominant language priors, especially for low-frequency factual scenarios. Motivated by this, we first propose a text-anchored data construction pipeline, whose core component, Fact-Frequency Distillation (FFD), estimates the prior strength of commonsense facts and distills verified counter-commonsense scenarios into a high-quality text corpus. Building upon this corpus, we introduce TACT, a text-anchored post-training framework that debiases the shared language decoder without requiring any visual training data. TACT routes evidence-following and prior-driven reasoning trajectories into different optimization stages, enabling the decoder to resolve prior--evidence conflicts. Across counter-commonsense visual benchmarks, TACT substantially improves visual reasoning while preserving general capabilities, demonstrating effective text-to-vision cross-modal transfer.",
+      "authors": [
+        "Chen Ling",
+        "Hanqian Li",
+        "Dongnan Liu",
+        "Keyu Qian",
+        "Jungang Li",
+        "Xinglong liu",
+        "Shiyi Wang",
+        "Xin Dong",
+        "Pengcheng Zhu",
+        "Wei Zhou",
+        "Linjian Mo",
+        "Nai Ding"
+      ],
+      "published": "2026-08-07T08:10:31Z",
+      "updated": "2026-08-07T08:10:31Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.06938v1",
+      "abs_url": "http://arxiv.org/abs/2608.06938v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 31,
+        "novelty": 86.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 51.6,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2608.06347v1",
       "title": "RP-OPSD: Reasoning-Pivot-Guided On-Policy Self-Distillation for Multilingual Reasoning Transfer",
