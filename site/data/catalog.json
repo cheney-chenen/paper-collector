@@ -1,7 +1,557 @@
 {
   "date": "全部历史",
-  "selected_count": 458,
+  "selected_count": 470,
   "papers": [
+    {
+      "paper_id": "2608.11191v1",
+      "title": "Test-Time Self-Evolving GUI Visual Grounding via Reflection-Guided On-Policy Self-Distillation",
+      "abstract": "GUI Visual Grounding is a fundamental capability for GUI agents. Existing models typically freeze their parameters after deployment, limiting their ability to adapt to unseen interfaces. Although recent methods attempt to adapt models via test-time reinforcement learning, they cannot reflect upon failed exploration. To overcome this, we propose a Test-Time Self-Evolving framework that enables models to improve after deployment without human-annotated ground truth. It constructs a closed-loop of Exploration, Evaluation, Reflection, and Internalization. Specifically, the agent first explores unseen interfaces by predicting grounding coordinates for given instructions. To evaluate these explorations, we introduce an MLLM-based Reflector to assess the generated results and provide the corresponding reasoning reflections. To internalize reflection knowledge into the model weights, we propose Reflection-Guided On-Policy Self-Distillation, which translates high-level reasoning into dense token-level supervision via a conditioned self-teacher. Furthermore, we design a Contrastive Calibration method to prevent incorrect auto-regressive prefixes from corrupting the supervisory signals during failed explorations. Extensive experiments across six benchmarks demonstrate our framework's effectiveness, achieving an average accuracy improvement of 7.4% over the base model. To the best of our knowledge, this is the first work to successfully exploit on-policy self-distillation for test-time adaptation in GUI visual grounding. By filling the gap in post-deployment adaptation, our framework completes the self-evolving capability of GUI agents. The code will be released.",
+      "authors": [
+        "Shiyu Xuan",
+        "Zechao Li"
+      ],
+      "published": "2026-08-11T17:50:25Z",
+      "updated": "2026-08-11T17:50:25Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.11191v1",
+      "abs_url": "http://arxiv.org/abs/2608.11191v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 53,
+        "novelty": 83.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.8,
+      "score_reasons": [
+        "命中主题：推理时扩展、压缩与高效推理",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.11152v1",
+      "title": "Scheduling Mixed RL Rollouts Beyond Prefix Locality",
+      "abstract": "Modern reinforcement learning (RL) post-training pipelines for large language models (LLMs) increasingly combine rollout workloads across multiple domains and feedback paradigms. Prefix-aware routing improves inference efficiency through cache reuse and load balancing, but it does not control how heterogeneous rollout sessions compete for KV-cache capacity. When reinforcement learning with verifiable rewards (RLVR), reinforcement learning from human feedback (RLHF), and agentic rollouts share an asynchronous inference service, their distinct sequence structures, interaction patterns, and KV-residency times create substantially different serving demands. Rollout scheduling must account for this heterogeneity without distorting the workload mixture specified by the trainer. We present MISA-T, a routing-layer admission policy for mixed rollout serving. MISA-T combines adaptive session admission, workload-aware KV-capacity allocation, and residency-time-aware KV accounting. In rollout-only ablations on Step3.7 and Qwen3.6-35B-A3B, MISA-T improves rollout throughput over a sweep-tuned cache-aware vLLM Router by 53.3% and 43.6%, respectively, while maintaining high prefix-cache hit rates. In a matched 50-iteration Step3.7 experiment, it increases rollout throughput by 35.6% and reduces mean iteration time by 22.8%, while keeping the consumed workload mixture close to the trainer target and achieving comparable task scores.",
+      "authors": [
+        "Zetao Hong",
+        "Song Yuan",
+        "Yuanhao Ding",
+        "Yibo Zhu",
+        "Daxin Jiang",
+        "Zhibin Wang",
+        "Chen Tian"
+      ],
+      "published": "2026-08-11T17:10:50Z",
+      "updated": "2026-08-11T17:10:50Z",
+      "categories": [
+        "cs.DC",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.11152v1",
+      "abs_url": "http://arxiv.org/abs/2608.11152v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.72,
+        "serving": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 72.0,
+        "quality": 60,
+        "novelty": 86.9,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.5,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理系统",
+        "优势：新颖 87、匹配 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.11047v1",
+      "title": "V-FiLLM: Verified Financial LLM Reasoning Benchmark",
+      "abstract": "While existing benchmarks have made substantial progress in evaluating LLMs across STEM domains, financial reasoning over structured data remains comparatively less explored. We introduce V-FiLLM, a framework that generates financial reasoning benchmarks from executable computation trees grounded in real tables, yielding items whose answers are correct by construction. Trees are evaluated symbolically to obtain ground truth and rendered into natural-language questions, removing any model from the labeling loop, so items can be generated at arbitrary scale without annotation cost and without inheriting a generator's error rate. V-FiLLM exposes four independently controllable axes of difficulty including computation depth, expression breadth, financial concept complexity, and context size. By evaluating on open-source models, we find that accuracy falls up to 51% as reasoning depth increases, and up to 47% points under adversarial numerical perturbations, highlighting remaining challenges in robust financial reasoning over tables. We further show that lightweight LoRA fine-tuning on verified chain-of-thought traces improves accuracy from 81.1% to 85.6% on held-out problems and outperforms the base model by 5% points on FinQA (Chen et al., 2022a), s), suggesting that targeted, low-cost adaptation is a promising direction for compositional reasoning in financial QA.",
+      "authors": [
+        "Alicia Larsen",
+        "Victoire Laurent",
+        "Aulia Kharis Rakhamsari",
+        "Lara Turgut",
+        "Nino Antulov-Fantulin"
+      ],
+      "published": "2026-08-11T15:18:47Z",
+      "updated": "2026-08-11T15:18:47Z",
+      "categories": [
+        "cs.AI",
+        "cs.CE",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.11047v1",
+      "abs_url": "http://arxiv.org/abs/2608.11047v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 83.4,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.1,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 83、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.11025v1",
+      "title": "Data Attribution of Emergent Misalignment with Persona Features",
+      "abstract": "Emergent misalignment (EM) is the phenomenon where fine-tuning a language model on a narrow task leads to harmful behavior in unrelated domains. A leading mechanistic account attributes EM to persona features: latent directions acquired during pre-training that misaligned fine-tuning amplifies. We ask where these features come from: which pre-training documents activate them, and whether naturally occurring human-written text suffices to induce EM. Using Sparse Autoencoder (SAE) based model diffing across four open-weight models, we find that features related to jailbreak personas, sarcasm, deception, and manipulation are amplified by misalignment fine-tuning, while safety-relevant and assistant-identity features are suppressed. Steering individual features controls EM in both directions: it induces misalignment rates of up to 62% in aligned models -- exceeding the 35% reached by misalignment fine-tuning itself -- and re-aligns misaligned models to near-baseline misalignment rates. Attributing the causal features to a corpus of one million pre-training web documents retrieves semantically relevant narratives about villainous characters, domination, and harmful agency. However, fine-tuning on these human-written documents does not reliably induce EM, even after reformatting into assistant-style responses, whereas synthetic instruction-response pairs derived from the same content do -- and transfer across model families. Semantic relevance alone is therefore not sufficient: response structure or model-generated phrasing plays an important role in inducing EM.",
+      "authors": [
+        "Clemens Vetter",
+        "David Kaczér",
+        "Lucie Flek",
+        "Florian Mai"
+      ],
+      "published": "2026-08-11T15:05:24Z",
+      "updated": "2026-08-11T15:05:24Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.11025v1",
+      "abs_url": "http://arxiv.org/abs/2608.11025v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 39,
+        "novelty": 89.8,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.9,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 90、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10843v1",
+      "title": "Hypothesis Frontier: Verifier Guided LLM and Symbolic Search for First-Order Induction",
+      "abstract": "First-order concept synthesis asks a system to infer one formula that classifies labeled objects consistently across several finite relational structures. Every candidate can be evaluated exactly, but quantified first-order formulas form a vast search space, and LLM outputs are often semantically promising without being fully correct. We introduce Hypothesis Frontier, a verifier-guided neurosymbolic framework that evaluates each LLM formula on every training object, retains the strongest verified hypothesis across rounds, and uses its remaining errors to guide subsequent generation. Symbolic processing repairs invalid formulas while remaining anchored to the LLM-generated hypothesis, and simplifies train-valid formulas without changing any training prediction. Under matched models, problem sets, and LLM-round budgets, Hypothesis Frontier solves substantially more problems than repeated original-prompt generation. After the final formulas are selected, exact simplification shortens many train-valid formulas while preserving every training prediction. Exact symbolic reasoning therefore helps both to solve more induction problems and to compress many of the resulting formulas.",
+      "authors": [
+        "Serafim Batzoglou"
+      ],
+      "published": "2026-08-11T12:13:35Z",
+      "updated": "2026-08-11T12:13:35Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10843v1",
+      "abs_url": "http://arxiv.org/abs/2608.10843v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 43,
+        "novelty": 87.1,
+        "practical": 27,
+        "credibility": 28
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.7,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10823v1",
+      "title": "MoE Proxy Models for Low-Cost Failure Reproduction and Diagnosis in LLM RL Post-Training",
+      "abstract": "Reinforcement learning (RL) post-training of large language models (LLMs) is computationally intensive and involves complex system pipelines with substantial debugging overhead. In practice, factors such as framework adaptation, numerical precision, and operator implementation can cause failures, including gradient overflow and loss divergence. Reproducing such failures directly on large models requires considerable time and computational resources. This paper systematically analyzes failures encountered during large-scale RL training on the Huawei Ascend platform, summarizes representative failure types, and identifies three model-side factors relevant to fault reproduction. Based on these factors, we propose a proxy-model construction method for low-cost fault investigation and auxiliary diagnosis. It employs structure-preserving, clustering-based expert pruning to select representative experts while retaining the model's backbone architecture, routing mechanism, and basic task capabilities. Our experimental results show that the proxy models reduce accelerator requirements by 50%-87.5% and achieve up to a 33.3x reduction in per-step NPU-hour cost, while preserving major training dynamics and reproducing fault responses consistent with the original models. Overall, the proxy models can serve as low-cost surrogates for fault reproduction, targeted validation, and auxiliary diagnosis in RL post-training.",
+      "authors": [
+        "Yikai Wang",
+        "Chuansai Zhou",
+        "Yuhang Zhou",
+        "Weiqiang Wu",
+        "Cong Wu",
+        "Yue Deng",
+        "Ben Feng",
+        "Mingming Zhu",
+        "Beirong Zhou",
+        "Zhibin Wang",
+        "Sheng Zhong",
+        "Chen Tian",
+        "Wangze Zhang"
+      ],
+      "published": "2026-08-11T11:50:48Z",
+      "updated": "2026-08-11T11:50:48Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10823v1",
+      "abs_url": "http://arxiv.org/abs/2608.10823v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 43,
+        "novelty": 87.2,
+        "practical": 50,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 57.2,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10812v1",
+      "title": "Reference-Free Post-Training of Open Large Language Models for Multilingual Machine Translation",
+      "abstract": "We study reference-free post-training for multilingual machine translation with open large language models. Starting from the supervised-finetuned MiLMMT-46-v0.1 models, we apply Group Relative Policy Optimization (GRPO) with a reward that averages two reference-free quality estimation models and is gated by language identification. We then linearly interpolate the supervised fine-tuning (SFT) and reinforcement learning (RL) model checkpoints to obtain MiLMMT-46-v1.0. Across 46 languages, the resulting models consistently improve translation quality over their SFT counterparts, outperform strong recent open baselines, including Seed-X, HY-MT2, and TranslateGemma, and achieve leading reference-free scores against evaluated proprietary systems such as Google Translate, Gemini 3 Pro, and GPT-5. We further investigate on-policy distillation and find that it reaches, but does not surpass, the quality frontier achieved by RL with checkpoint interpolation. We release the models and code to facilitate future research.",
+      "authors": [
+        "Chris Han",
+        "Pengzhi Gao",
+        "Pei Fu",
+        "Jian Luan"
+      ],
+      "published": "2026-08-11T11:30:38Z",
+      "updated": "2026-08-11T11:30:38Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10812v1",
+      "abs_url": "http://arxiv.org/abs/2608.10812v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.99,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 69,
+        "novelty": 85.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 73.7,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：匹配 99、新颖 85"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10714v1",
+      "title": "Conversational Orchestration for Organic 6G",
+      "abstract": "The Organic 6G vision of a network of networks spanning an edge-cloud continuum complemented by non-terrestrial resources requires, to realize its promise, service provisioning that is simple to operate, scalable across independently administered domains, and agile under domain churn (i.e., domains dynamically joining and leaving). Despite advances in cross-domain orchestration, many proposals rely on heavy integration fabrics, multi-layer coordinators, and deep telemetry pipelines that hinder deployability and amplify coordination overhead. We propose a lightweight, decentralized conversational orchestration framework based on Large Language Model (LLM)-driven domain agents. Each domain remains autonomous: an agent observes local state via tools, reasons in a closed loop, and exchanges summaries with neighboring agents over an Agent-to-Agent (A2A) overlay aligned with data-plane coupling. Fast feasible placement is enabled by periodic, routing-like dissemination of reachability advertisements (latency, bottleneck bandwidth, and compute capacity), while safe re-optimization, scaling, and migration are handled through event-driven requests and negotiation. To meet real-time constraints, we deploy a compact reasoning model trained with verifier-based self-verification and periodically refined online via shadow updates. Simulations show manageable, near-linear control-plane overhead as domains scale and during domain joins, and robust decision quality, including recovery after objective changes. We close by outlining future research directions for principled, secure, and uncertainty-aware agentic orchestration in Organic 6G.",
+      "authors": [
+        "Masoud Shokrnezhad",
+        "Tarik Taleb"
+      ],
+      "published": "2026-08-11T09:32:52Z",
+      "updated": "2026-08-11T09:32:52Z",
+      "categories": [
+        "cs.NI",
+        "cs.AI",
+        "cs.DC",
+        "cs.ET",
+        "cs.MA"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10714v1",
+      "abs_url": "http://arxiv.org/abs/2608.10714v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.54
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 54.0,
+        "quality": 22,
+        "novelty": 89.1,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 47.2,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 89、匹配 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10665v1",
+      "title": "VERDICT: Training-Free Step-Wise Verification of Multimodal Reasoning via Disagreement-Aware Consensus",
+      "abstract": "Multimodal large language models often generate reasoning chains containing subtle errors that lead to incorrect answers. Current verification approaches have notable limitations. Existing approaches either require expensive labelled supervision with inconsistent cross-task performance or aggregate scores from multiple sources by simple aggregations, missing a key insight: when these scores disagree, that disagreement itself carries important information about whether a reasoning step is truly valid or not. We formalise this as a coupled scoring problem among disparate, frozen verifiers, interpretable as a coordination game with a unique closed-form equilibrium where agreement signals valid steps while disagreement reveals instability. Towards this end, we propose a training-free domain-agnostic step-wise verification approach we call VERDICT: VERification via Disagreement-Informed Coupled Thresholding. To our knowledge, VERDICT is the first training-free verifier that makes the structure of cross-modal disagreement explicit and actionable. It computes consensus scores through a closed-form solution, enabling both disagreement-aware filtering and stability-conscious ranking of reasoning steps. Evaluated across six benchmarks, \\method consistently improves over the base model by up to +5.95%, and performs competitively with domain-specific critics that demand extensive supervision, demonstrating that cross-modal agreement provides robust verification signals without task-specific adaptation and Training-Free Verification",
+      "authors": [
+        "Rohit Sinha",
+        "Kunal Tilaganji",
+        "Tanuja Ganu",
+        "Nagarajan Natarajan",
+        "Amit Sharma",
+        "Vineeth Balasubramanian"
+      ],
+      "published": "2026-08-11T08:46:38Z",
+      "updated": "2026-08-11T08:46:38Z",
+      "categories": [
+        "cs.AI",
+        "cs.CV",
+        "cs.GT"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10665v1",
+      "abs_url": "http://arxiv.org/abs/2608.10665v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 44,
+        "novelty": 86.6,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.7,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10605v1",
+      "title": "Compute-Optimal Is Not Cluster-Optimal: Systems-Aware Scaling for Sparse Mixture-of-Experts",
+      "abstract": "In large-scale pretraining, the algorithm, architecture, and systems decisions are conventionally made in disconnected stages. A scaling law stage selects an architecture and training recipe, optimizing loss under compute constraints, and a separate systems stage then optimizes the implementation for hardware efficiency. In this work, we develop MOSAIC, which formulates model architecture and systems co-design as an optimization problem. MOSAIC couples a predictive scaling law with a calibrated performance model that estimates Model FLOPs Utilization (MFU), communication cost, memory footprint, and the best parallel layout. We instantiate the framework for sparse Mixture-of-Experts (MoE) language models, where expert count, routing sparsity, and other MoE layer dimensions affect both the loss and systems efficiency. We fit a scaling law on sparse MoE models trained on text data, whose scaling dimensions include the sparsity factor, which is the fraction of model parameters inactive per token in a forward pass. The scaling law sweeps in our work span active parameters from $104$ million to $2.7$ billion and total model sizes reaching $79$ billion parameters. We show that, within the calibrated sparsity range, an efficiency-agnostic model-FLOPs budget admits no interior optimal sparsity. The fitted loss decreases monotonically with sparser models and the compute optimum lies at the upper boundary of the data support. An optimal sparsity in MoE models instead emerges under the cluster's systems constraints, as captured by MOSAIC. Our results argue for a shift towards unified architecture and systems co-design for frontier language model training.",
+      "authors": [
+        "Soumajyoti Sarkar",
+        "Yuxin Tang",
+        "Sheng Zha"
+      ],
+      "published": "2026-08-11T07:49:00Z",
+      "updated": "2026-08-11T07:49:00Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10605v1",
+      "abs_url": "http://arxiv.org/abs/2608.10605v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.54,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 54.0,
+        "quality": 34,
+        "novelty": 88.7,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 50.3,
+      "score_reasons": [
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 89、匹配 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10595v1",
+      "title": "DegradeQuery: Counterfactual Tuple Pretraining for Context-Aware PROTAC Degradation Prediction",
+      "abstract": "Proteolysis-targeting chimeras (PROTACs) induce protein degradation by recruiting a target protein to an E3 ubiquitin ligase, making degradation a joint outcome of the degrader molecule and its biological context. Although public databases contain thousands of structured molecule-target-E3 records, degradation measurements are available for only a small fraction of them. Existing supervised approaches therefore leave most recorded chemical-biological relationships unused. We introduce DegradeQuery, a context-aware prediction framework that converts these label-missing records into a pretraining signal. Its counterfactual tuple pretraining objective contrasts recorded tuples with alternatives formed by replacing the target, the E3 ligase, or both, enabling the model to learn contextual associations without assigning activity pseudo-labels. The resulting representation is then fine-tuned to predict degradation from the complete molecule-target-E3 context. On the official PROTAC-8K benchmark, DegradeQuery achieves an area under the receiver operating characteristic curve of 0.9065 and an accuracy of 0.8500, outperforming the compared methods. Controlled analyses further show that the improvement is primarily attributable to tuple-level pretraining, can be recovered using only label-missing records, and remains complementary to protein language model representations. These findings demonstrate that incompletely labeled PROTAC databases contain useful relational supervision and provide a practical route for learning context-aware degradation predictors from scarce experimental labels.",
+      "authors": [
+        "Dong Xu",
+        "Zhangfan Yang",
+        "Jiantao Wu",
+        "Zexuan Zhu",
+        "Jianqiang Li",
+        "Junkai Ji"
+      ],
+      "published": "2026-08-11T07:25:41Z",
+      "updated": "2026-08-11T07:25:41Z",
+      "categories": [
+        "q-bio.BM",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10595v1",
+      "abs_url": "http://arxiv.org/abs/2608.10595v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 87.8,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.8,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 88、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.10545v1",
+      "title": "ImpactHO: Importance-Aware KV Cache Transfer for Multi-User Edge LLM Handover",
+      "abstract": "Edge LLMs must preserve inference continuity when a user hands over between edge nodes, requiring key-value (KV) cache transfer to the target node. However, simultaneous handovers saturate the backhaul, preventing full cache delivery within the mobility-imposed transfer window. Rather than allocating bandwidth as if all cache entries were equally valuable, we order each user's KV cache by importance and transmit only its most informative fraction, turning token-level sparsity into communication savings. We cast the transfer as a multi-user backhaul allocation problem that maximizes average accuracy across users. Each user's partial-cache accuracy serves as its utility: a sigmoid that fits measurements on the RULER benchmark with $R^2>0.99$ across models and context lengths. Because importance ordering front-loads the high-value entries, the concave region of the accuracy curve spans nearly the entire cache. Our proposed allocator keeps served users within this region, making each per-slot allocation problem convex. The optimum is derived via a closed-form weighted water-filling solution that generalizes information-theoretic water-filling and enables online scheduling. The proposed allocator attains over 93.7% average accuracy in a 500ms transfer window, within 0.5pp of the full-cache ceiling, and reaches 98.2-99.5% of a clairvoyant upper bound.",
+      "authors": [
+        "Minwoo Kim",
+        "Soochang Song",
+        "Namyoon Lee",
+        "Bang Chul Jung",
+        "Yongjune Kim"
+      ],
+      "published": "2026-08-11T06:37:10Z",
+      "updated": "2026-08-11T06:37:10Z",
+      "categories": [
+        "cs.NI",
+        "cs.AI",
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.10545v1",
+      "abs_url": "http://arxiv.org/abs/2608.10545v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 87.9,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.2,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 88、匹配 63"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2608.09706v1",
       "title": "Test-Time Scaling for CAD Generation via Verifier-Free Consensus Selection",
