@@ -22509,5 +22509,660 @@
       "优势：新颖 84、质量 43"
     ],
     "summary_zh": null
+  },
+  "2608.13263v1": {
+    "paper_id": "2608.13263v1",
+    "title": "vToken: Token-Level Virtualization for Reclaimable KV Caches",
+    "abstract": "Large language model serving faces a critical memory bottleneck: the KV cache grows with sequence length and batch size. PagedAttention uses fixed-size memory blocks to reduce allocator-level fragmentation, but recent KV eviction algorithms operate at a token granularity finer than block-level management. This mismatch causes intra-block fragmentation, leaving a large fraction of allocated KV memory unreclaimable. We present vToken, a lightweight token-level virtualization layer that decouples logical token liveness from physical block placement. vToken maintains a stable logical token view through token-table indirection and realizes physical reclamation by repacking live tokens asynchronously. The design preserves PagedAttention kernels and CUDA Graph compatibility. We implement vToken in vLLM and evaluate it with H2O, Random, and Scissorhands across models. Compared with a paired Naive-Evict baseline, vToken reduces retained KV blocks per request by 27.2\\%--72.3\\% and improves SLA-constrained throughput by up to 1.37$\\times$. Under a constrained active-KV budget, it extends the maximum feasible concurrency by up to 2$\\times$, while reducing the per-policy integration footprint from 500+ lines to under 50.",
+    "authors": [
+      "Yuanhang Gao",
+      "Xiangrui Yang",
+      "Yuanfeng Chen",
+      "Hongjia Chen",
+      "Qianru Lv",
+      "Wenfei Wu",
+      "Dongsheng Li"
+    ],
+    "published": "2026-08-13T14:01:21Z",
+    "updated": "2026-08-13T14:01:21Z",
+    "categories": [
+      "cs.AI",
+      "cs.DC",
+      "cs.OS"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13263v1",
+    "abs_url": "http://arxiv.org/abs/2608.13263v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 72,
+      "novelty": 86.4,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 77.9,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：匹配 100、新颖 86"
+    ],
+    "summary_zh": null
+  },
+  "2608.13069v1": {
+    "paper_id": "2608.13069v1",
+    "title": "Behavioral Reprogramming of Open-Weights Models: Cognitive Plasticity and Alignment Bounds",
+    "abstract": "Large language models (LLMs) are predominantly aligned to function as passive, sycophantic assistants. We challenge this default paradigm by empirically evaluating the cognitive plasticity of open-weight architectures when subjected to rigorous behavioral reprogramming. Our objective is to induce a proactive, Socratic conversational framework, characterized by high-frequency question generation under strictly constrained high-performance computing (HPC) conditions. Through a massively parallelized hyperparameter sweep comprising 405 HPC jobs, we define precise mathematical bounds for parameter-efficient fine-tuning (PEFT). We identify an architectural threshold at LoRA rank $r=16$ and demonstrate via extensive epoch ablation that generalization capacity strictly reaches its optimal convergence within an optimized training window of $e \\in [2, 3]$ depending on dataset density (minimum validation loss of 0.919). Furthermore, scaling model capacity to 14B parameters yielded a lower localized evaluation perplexity (1.414). Subsequent Direct Preference Optimization (DPO) successfully decoupled the underlying assertive behavior from localized syntax, while rigorous cross-lingual stress testing reveals both the capabilities and the structural boundaries of zero-shot persona transfer, demonstrating robust alignment in closely related linguistic families alongside identifiable degradation pathways in morphologically distant targets. These findings establish a rigorous empirical framework for compute-efficient, cross-lingual behavioral modification.",
+    "authors": [
+      "Lucia Malíčková"
+    ],
+    "published": "2026-08-13T10:33:00Z",
+    "updated": "2026-08-13T10:33:00Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13069v1",
+    "abs_url": "http://arxiv.org/abs/2608.13069v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.99
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 99.0,
+      "quality": 60,
+      "novelty": 90.1,
+      "practical": 27,
+      "credibility": 28
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 72.3,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 99、新颖 90"
+    ],
+    "summary_zh": null
+  },
+  "2608.13141v1": {
+    "paper_id": "2608.13141v1",
+    "title": "MergeOver: Post-Training Token Merging for Recursive Vision Transformers",
+    "abstract": "Vision Transformers (ViTs) demonstrate exceptional performance in computer vision but suffer from large parameter counts and quadratic computational complexity, severely limiting their deployment on resource-constrained edge hardware. While recursive weight-sharing reduces parameter counts and token merging mitigates computational and memory bottlenecks, integrating these two paradigms without costly retraining is non-trivial, leaving this intersection largely unexplored. We propose MergeOver, a post-training approach that integrates Token Merging (ToMe) into the recursively weight-shared Sliced Recursive Transformer (SReT). Through an Unmerge tracking stack, constraint-safe merge-rate adjustment, and synchronised token-mass tracking across spatial permutations, MergeOver resolves the spatial and merging constraints of this integration. We further employ a stage-wise single-shot schedule that performs token reduction at the first block of each stage and maintains a fixed sequence length throughout its subsequent recursive iterations. Benchmarked on ImageNet-1K, our selected configuration reduces top-1 accuracy by 1.47 percentage points. On the GPU, it reduces peak activation memory by 37.3% and 38.4% at batch sizes 1 and 16, while throughput decreases by 21.7% at batch size 1 but increases by 21.7% at batch size 16. On a Raspberry Pi 5 (ARM CPU), it reduces latency by 2.4% and 17.6% at batch sizes 1 and 16. These results show that MergeOver can recover a meaningful part of the throughput and memory cost that recursive weight-sharing introduces, without retraining, and provides a baseline for combining token merging with hierarchical recursive transformers.",
+    "authors": [
+      "Junseo Kim",
+      "Uraz Odyurt",
+      "Amirreza Yousefzadeh"
+    ],
+    "published": "2026-08-13T12:15:10Z",
+    "updated": "2026-08-13T12:15:10Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13141v1",
+    "abs_url": "http://arxiv.org/abs/2608.13141v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "serving": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 85.4,
+      "practical": 63,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 62.8,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理系统",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.13315v1": {
+    "paper_id": "2608.13315v1",
+    "title": "Keep, Customize, or Exit: Default Design and Token Pricing in LLM Reasoning Services",
+    "abstract": "We study a large language model (LLM) service in which a provider chooses a per-token price and a default reasoning-token allocation, while a user may accept the default, customize the allocation, or exit. Larger allocations can improve accuracy but increase token cost and latency. We model this interaction as a Stackelberg game and derive the user's unique optimal customized allocation in closed form. For any price, the acceptable defaults form either an empty set or a compact interval. We characterize the provider's optimal default through a three-regime rule, reduce equilibrium computation to a one-dimensional price optimization, and prove the existence of the equilibrium. We further show that defaults affect the implemented reasoning allocation only when users value the convenience of avoiding customization; otherwise, every service-providing outcome implements the user's optimal customized allocation. Experiments with two compact open-weight reasoning models on five mathematics and science benchmarks support the accuracy-token model and show how model and task characteristics determine equilibrium prices, defaults, and reasoning allocations.",
+    "authors": [
+      "Ahmet Bugra Gundogan",
+      "Yigit Turkmen",
+      "Melih Bastopcu"
+    ],
+    "published": "2026-08-13T14:39:48Z",
+    "updated": "2026-08-13T14:39:48Z",
+    "categories": [
+      "cs.GT",
+      "cs.AI",
+      "cs.LG",
+      "eess.SY"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13315v1",
+    "abs_url": "http://arxiv.org/abs/2608.13315v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 40,
+      "novelty": 87.4,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.6,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2608.13517v1": {
+    "paper_id": "2608.13517v1",
+    "title": "DFM Mimir v1: An Open HRM Delivering Frontier Performance at 1B Parameters Using Only Permissible Post-Training Data",
+    "abstract": "Current large language model development relies on massive, often non-permissible datasets, creating a high barrier for researchers committed to open-source and ethically sourced data. We introduce Mimir v1, a 1-billion-parameter language model based on the Hierarchical Reasoning Model (HRM) architecture, that is trained from scratch and delivers highly competitive performance for English and sets a new state of the art for Danish using only permissible post-training data. Trained on a mixture of 161 datasets, Mimir v1 outperforms the original HRM-Text 1B and competes with larger frontier models like Qwen 3.5 4B and Gemma 4 E2B, tested across 20 benchmarks for English, Math & Code and Danish. The model is available on the Hugging Face Hub: https://huggingface.co/danish-foundation-models/DFM-Mimir",
+    "authors": [
+      "Peter Schneider-Kamp",
+      "Jacob Nielsen",
+      "Gianluca Barmina",
+      "Kenneth Enevoldsen",
+      "Lukas Galke Poech"
+    ],
+    "published": "2026-08-13T17:37:53Z",
+    "updated": "2026-08-13T17:37:53Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13517v1",
+    "abs_url": "http://arxiv.org/abs/2608.13517v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 69,
+      "novelty": 90.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.2,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 90、质量 69"
+    ],
+    "summary_zh": null
+  },
+  "2608.13076v1": {
+    "paper_id": "2608.13076v1",
+    "title": "SPADE: Speculative Decoding for Precise and Low Cost Distributed Edge Cloud Inference",
+    "abstract": "Large Language Models (LLMs) have achieved remarkable success in natural language understanding and generation, but their deployment is constrained by high computational demands. Deploying smaller LLMs directly on the edge can circumvent this, but with degraded accuracy. Deploying smaller cloud-based big LLMs preserves performance, but at the cost of expensive per-token computation. We present a distributed inference framework, \\our{}, that integrates speculative decoding (SD) across edge and cloud. A compact draft model deployed on the edge generates candidate tokens rapidly, and a large verifier model on the cloud validates these tokens in parallel. Accepted tokens are retained, while only rejections trigger verifier correction, substantially reducing the number of cloud queries. Our plug-and-play design shifts the bulk of computation to the edge, significantly lowers inference time and cloud cost, and preserves the accuracy of the big model without any retraining requirement. Our approach demonstrates a practical path toward scalable, cost-efficient, and accurate deployment of LLMs in real-world environments. Experimental results across multiple Natural Language Processing tasks using SpecBench and CNN/Dailymail datasets demonstrate that \\our{} reduces the cloud model calls by $76\\%$ with zero loss in accuracy as compared to the full model.",
+    "authors": [
+      "Divya Jyoti Bajpai",
+      "Kishan Kumar Upadhyay",
+      "Manjesh Kumar Hanawal"
+    ],
+    "published": "2026-08-13T10:43:57Z",
+    "updated": "2026-08-13T10:43:57Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13076v1",
+    "abs_url": "http://arxiv.org/abs/2608.13076v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 56,
+      "novelty": 83.1,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.5,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统",
+      "优势：新颖 83、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.13244v1": {
+    "paper_id": "2608.13244v1",
+    "title": "Localize, Then Reason: Visual Latent Structural Reasoning for Molecular Properties and Edits",
+    "abstract": "Local chemical perception and property reasoning are both essential for understanding how molecular structure determines properties. Current LLM-based chemical reasoning methods either receive SMILES/molecular images together with descriptions of local motifs, or reason directly from molecular images. Neither approach enables the model to focus on chemically meaningful regions before reasoning. To address this gap, we propose Visual Latent Structural Reasoning (VLSR), an end-to-end framework that jointly learns localization and reasoning from molecular images. Central to our approach is a localize-then-reason strategy. VLSR first learns to locate chemically meaningful regions in a molecular image. It then reasons about their property effects in a compact latent workspace before producing the final answer. Under the same inference setup, this design achieves 9.6X higher throughput than a comparable textual-reasoning baseline.",
+    "authors": [
+      "Xingqiao Lin",
+      "Junmei Wang",
+      "Haocheng Tang"
+    ],
+    "published": "2026-08-13T13:50:26Z",
+    "updated": "2026-08-13T13:50:26Z",
+    "categories": [
+      "cs.CL",
+      "cs.CE",
+      "q-bio.BM"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13244v1",
+    "abs_url": "http://arxiv.org/abs/2608.13244v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "serving": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 47,
+      "novelty": 86.0,
+      "practical": 41,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.2,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.13426v1": {
+    "paper_id": "2608.13426v1",
+    "title": "Reduced Matrix Multiplication: Input-Adaptive Matrix-Product Reduction for LLM Inference",
+    "abstract": "Transformer-based language models achieve strong performance but incur substantial inference cost due to repeated high-dimensional matrix multiplications. We propose Reduced Matrix Multiplication (RMM), a training-free, input-adaptive inference method that reduces Transformer matrix products by selecting informative slices along their contraction dimensions, without modifying model weights. Under a simple retention-ratio control, RMM provides a smooth and predictable accuracy-efficiency trade-off. Across language models ranging from 1B to 70B parameters, we find that reduction tolerance depends on the model family, task, component, and retention ratio, although it often improves with model scale. Under moderate reduction, RMM remains robust across the evaluated discriminative, autoregressive generation, and long-context settings. We further show that the same principle extends to multimodal vision-language inference. Mechanistic ablations reveal a structural asymmetry within Transformers: attention-side computations are substantially more reducible than MLP components. Finally, wall-clock benchmarks with custom kernels on an NVIDIA A100 show that these computational savings can translate into practical runtime gains, especially at longer sequence lengths. Together, these results position RMM as a scalable direction for input-adaptive inference-time optimization.",
+    "authors": [
+      "Zixuan Lan",
+      "Yanhong Li",
+      "Jiawei Zhou"
+    ],
+    "published": "2026-08-13T16:16:04Z",
+    "updated": "2026-08-13T16:16:04Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13426v1",
+    "abs_url": "http://arxiv.org/abs/2608.13426v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 69,
+      "novelty": 85.7,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.7,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 86、质量 69"
+    ],
+    "summary_zh": null
+  },
+  "2608.13387v1": {
+    "paper_id": "2608.13387v1",
+    "title": "CROP: Task Relevance via Counterfactuals for Selective On-Policy Distillation",
+    "abstract": "On-policy distillation (OPD) supervises a student language model on trajectories sampled from its current policy, but assigns equal credit to response tokens with unequal supervision value. Selective OPD addresses this limitation by allocating supervision non-uniformly across response tokens according to their estimated training value. Most existing criteria, however, focus primarily on optimization need, such as uncertainty or teacher-student disagreement, while task relevance, namely whether the supervision is tied to the semantic content of the current input, remains less directly characterized as a complementary dimension. To address this gap, we introduce Counterfactual Relevance for On-Policy Distillation (CROP), which operationalizes task relevance through a paraphrase-calibrated counterfactual sensitivity margin. For each source prompt, CROP constructs a validated original-paraphrase-counterfactual triplet, holds the student rollout fixed, and measures each response position by its sensitivity to a task-relevant condition change calibrated by its sensitivity to a meaning-preserving rewrite. Matched selection controls show that CROP identifies more useful supervision positions than random or lowest-relevance selection, while component comparisons confirm the value of both counterfactual sensitivity and paraphrase calibration. Across two teacher-student settings, CROP improves aggregate performance by 1.92 and 2.96 points over the strongest non-CROP selector. These results support task relevance as a complementary criterion for selective OPD and establish CROP as a model-internal, contrast-specific method for allocating token-level supervision.",
+    "authors": [
+      "Enhan Li",
+      "Junhao He",
+      "Hongyang Du"
+    ],
+    "published": "2026-08-13T15:48:16Z",
+    "updated": "2026-08-13T15:48:16Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13387v1",
+    "abs_url": "http://arxiv.org/abs/2608.13387v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 42,
+      "novelty": 82.5,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.8,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 82、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.13277v1": {
+    "paper_id": "2608.13277v1",
+    "title": "Mixture of Training: Recombining Small-Scale Scaffolded Pretraining Runs into a Larger Language Model",
+    "abstract": "We ask whether language-model pre-training can be decomposed into smaller, independently trainable jobs that can later be recomposed into a coherent larger model. We introduce Mixture of Training (MoT), a scaffolded modular pre-training procedure that partitions a target Transformer into contiguous layer blocks, trains each block inside a frozen pretrained aligner scaffold, and then recomposes the trained blocks with an optional short end-to-end adaptation pass. On a 1.3B-parameter Gemma-style model trained on C4, MoT provides a small-scale proof of mechanism: independently trained depth slices can be recomposed into a usable language model, and a quality-parity schedule reaches the same reported perplexity as the monolithic baseline. This parity setting processes more aggregate tokens and has a shorter idealized layer-equivalent critical path after aligner preparation; its effective compute advantage depends on reusing the aligner across runs. We therefore present MoT not as a general replacement for monolithic pre-training, but as a small-scale framework for studying whether scaffolded sub-runs can act as reusable training units.",
+    "authors": [
+      "Mohammed Sabry",
+      "Sean Augenstein",
+      "Keith Rush",
+      "Lucio Dery"
+    ],
+    "published": "2026-08-13T14:13:46Z",
+    "updated": "2026-08-13T14:13:46Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13277v1",
+    "abs_url": "http://arxiv.org/abs/2608.13277v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 35,
+      "novelty": 90.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.2,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 90、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2608.13499v1": {
+    "paper_id": "2608.13499v1",
+    "title": "OpScale: Operator-level Provisioning and Autoscaling for LLM Serving",
+    "abstract": "Achieving cost efficiency while meeting strict user-facing SLOs (e.g., time-to-first-token) remains a fundamental challenge for cloud GPU clusters serving large language models (LLMs). Autoscaling is the key mechanism for cluster resource management, yet a basic system design question is open for serving LLMs: what should be the unit of scaling? Existing approaches primarily treat the entire model as a monolithic scaling unit--simple but unable to capture the fine-grained dynamics of inference workloads. As a result, such coarse-grained scaling often leads to either SLO violations under bursty demand or significant GPU under-utilization. Our characterization reveals substantial operator heterogeneity, exposing operator-level elasticity as a viable scaling primitive. We present OpScale, a practical operator-level orchestration framework of profiling, provisioning, placement, and runtime serving. OpScale is designed to tackle the high complexity and the space explosion problem, arising from operating at this finer granularity. Evaluated with production traces on up to 40 A100s and 24 GB200s, OpScale attains SLOs with up to 36.3% fewer GPUs and 28% less power, or achieves 44% higher throughput under fixed cost budgets.",
+    "authors": [
+      "Xingqi Cui",
+      "Chieh-Jan Mike Liang",
+      "Ziang Tang",
+      "Jiarong Xing",
+      "Haoran Qiu"
+    ],
+    "published": "2026-08-13T17:28:54Z",
+    "updated": "2026-08-13T17:28:54Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13499v1",
+    "abs_url": "http://arxiv.org/abs/2608.13499v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 51,
+      "novelty": 84.9,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 49.5,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 85、实用 54"
+    ],
+    "summary_zh": null
+  },
+  "2608.13505v1": {
+    "paper_id": "2608.13505v1",
+    "title": "Intern-S2-Preview: Scientific Agentic Foundation Model",
+    "abstract": "Scientific discovery increasingly requires AI systems that can reason over scientific evidence of heterogeneous modalities, interact with scientific tools and environments, and sustain progress across long task horizons. We present Intern-S2-Preview, a series of scientific agentic foundation models designed to support multimodal scientific understanding, reasoning, generation, and long-horizon tasks. The training pipeline begins with scientific multimodal pre-training over rendered scientific documents, interleaved image-text data, and diverse scientific corpora. Starting from the pretrained checkpoint, we apply a unified post-training pipeline consisting of supervised fine-tuning, scalable multi-task reinforcement learning (RL), black- and white-box agentic RL, and on-policy distillation. This pipeline is supported by practical techniques that improve rollout and training stability and efficiency, including partial rollout with off-policy correction, adaptive length regularization, online speculative decoding, robust multi-task optimization, and trace-aware experience assembly for agentic tasks. At the architecture level, Intern-S2-Preview-397B extends time series modelling from efficient long-sequence understanding to numerical forecasting, while Memory Decoder is studied as a separate memory-augmented path for rapid scientific specialization without modifying the frozen 397B backbone. Evaluations across scientific, multimodal, agentic, and general-purpose benchmarks show that Intern-S2-Preview-397B achieves competitive or leading results in multiple settings. The time series modules improve scientific signal understanding and forecasting on SciTS, while the separate Intern-MemDec-4B extension improves the Biology-Instructions average score from 56.92 to 60.32 without modifying the frozen 397B backbone.",
+    "authors": [
+      "Lei Bai",
+      "Jiaqi Cao",
+      "Chiyu Chen",
+      "Guanzhou Chen",
+      "Kai Chen",
+      "Guangran Cheng",
+      "Erfei Cui",
+      "Xuanlang Dai",
+      "Shengyuan Ding",
+      "Shangheng Du",
+      "Yanhui Duan",
+      "Yue Fan",
+      "Youqing Fang",
+      "Quan Gan",
+      "Yuanyuan Gao",
+      "Jiaye Ge",
+      "Lixin Gu",
+      "Yuzhe Gu",
+      "Qipeng Guo",
+      "Junjun He",
+      "Xin Hong",
+      "Ming Hu",
+      "Zhouqi Hua",
+      "Haian Huang",
+      "Junhao Huang",
+      "Zixian Huang",
+      "Minxi Jin",
+      "Lingkai Kong",
+      "Alexander Lam",
+      "Zehao Li",
+      "Zonglin Li",
+      "Tianhao Liang",
+      "Dahua Lin",
+      "Junyao Lin",
+      "Tianyang Lin",
+      "Zhouhan Lin",
+      "Jiangning Liu",
+      "Jin Liu",
+      "Kuikun Liu",
+      "Wenran Liu",
+      "Yifei Liu",
+      "Yuhong Liu",
+      "Yuhong Liu",
+      "Zhoumianze Liu",
+      "Ziyan Liu",
+      "Ziyu Liu",
+      "Haijun Lv",
+      "Han Lv",
+      "Chengqi Lyu",
+      "Le Ma",
+      "Ningsheng Ma",
+      "Zerun Ma",
+      "Haoyang Peng",
+      "Runyu Peng",
+      "Jifei Shan",
+      "Zixin Shang",
+      "Kou Shi",
+      "Xiang Shi",
+      "Qisheng Su",
+      "Xuerui Su",
+      "Hao Sun",
+      "Xiao Sun",
+      "Yanan Sun",
+      "Yu Sun",
+      "Huanze Tang",
+      "Yinghao Tang",
+      "Wenhui Tian",
+      "Zhongbo Tian",
+      "Bingli Wang",
+      "Haomin Wang",
+      "Jiarui Wang",
+      "Jingzhi Wang",
+      "Rui Wang",
+      "Xiquan Wang",
+      "Yi Wang",
+      "Zhecan Wang",
+      "Ziyi Wang",
+      "Zun Wang",
+      "Rubin Wei",
+      "Lianyi Wu",
+      "Wen Wu",
+      "Yue Wu",
+      "Yuhan Wu",
+      "Zhenyu Wu",
+      "Zijian Wu",
+      "Shuhao Xing",
+      "Jun Xu",
+      "Xingle Xu",
+      "Xuenan Xu",
+      "Xiangchao Yan",
+      "Ziang Yan",
+      "Bowen Yang",
+      "Danni Yang",
+      "Lin Yang",
+      "Zhiqi Yang",
+      "Qian Yao",
+      "Haochen Ye",
+      "Peng Ye",
+      "Jinhui Yin",
+      "Jiashuo Yu",
+      "Dingbo Yuan",
+      "Fei Yuan",
+      "Yuhang Zang",
+      "Bo Zhang",
+      "Chao Zhang",
+      "Chen Zhang",
+      "Hongjie Zhang",
+      "Junming Zhang",
+      "Wenlong Zhang",
+      "Wenwei Zhang",
+      "Yiming Zhang",
+      "Zhuo Zhang",
+      "Ziyang Zhang",
+      "Haiteng Zhao",
+      "Penghao Zhao",
+      "Yibo Zhao",
+      "Zhonghan Zhao",
+      "Zhihang Zhong",
+      "Bowen Zhou",
+      "Peiheng Zhou",
+      "Xin Zhou",
+      "Xinyu Zhou",
+      "Yunhua Zhou",
+      "Dongsheng Zhu",
+      "Yicheng Zou"
+    ],
+    "published": "2026-08-13T17:31:28Z",
+    "updated": "2026-08-13T17:31:28Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.CV"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2608.13505v1",
+    "abs_url": "http://arxiv.org/abs/2608.13505v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.36,
+      "reasoning": 0.18,
+      "serving": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 51,
+      "novelty": 85.3,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.6,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、推理时扩展、推理系统、压缩与高效推理",
+      "优势：新颖 85、质量 51"
+    ],
+    "summary_zh": null
   }
 }
