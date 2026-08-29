@@ -1,7 +1,53 @@
 {
   "date": "全部历史",
-  "selected_count": 518,
+  "selected_count": 525,
   "papers": [
+    {
+      "paper_id": "2608.27455v1",
+      "title": "CritICL: Inference-Time Weak-to-Strong Generalization from Small Language Model Failure Modes",
+      "abstract": "Recent advances in inference-time scaling have significantly improved the reasoning performance of large language models (LLMs). However, these methods typically rely on repeated generation or external verification. To address this limitation, we introduce CritICL, a novel inference-time framework that improves reasoning while maintaining high efficiency. Our key insight is that LLM failure modes exhibit structured patterns across model scales within the same family. Instead of treating failures as undesirable outputs, CritICL leverages them as a source of guidance. Specifically, we utilize failure modes derived from weaker models and incorporate them into inference through critique-based in-context examples. We propose two variants: CritICL-dynamic, which adaptively predicts input-specific failure modes and retrieves critiques, and CritICL-static, which uses a global failure mode profile to provide stable guidance. Experimental results show that CritICL consistently outperforms standard in-context learning and achieves performance competitive with or superior to test-time scaling methods, while requiring significantly fewer generations and lower token cost. Code available at: https://github.com/umwyf/CRITICL",
+      "authors": [
+        "Yufan Wu",
+        "Yinghui He",
+        "Zhengyi Hu",
+        "Lang Wei",
+        "Ruichen Li",
+        "Qifan Yang",
+        "Ting Zhu"
+      ],
+      "published": "2026-08-27T17:59:30Z",
+      "updated": "2026-08-27T17:59:30Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.27455v1",
+      "abs_url": "http://arxiv.org/abs/2608.27455v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 40,
+        "novelty": 79.8,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 42.9,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 80、质量 40"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2608.27420v1",
       "title": "Boosting LLM Exploration via Weak-Model Guidance in RLVR",
@@ -245,6 +291,54 @@
       "summary_zh": null
     },
     {
+      "paper_id": "2608.27348v1",
+      "title": "INTENT-AS-A-TOOL Makes it Easy to Track Agentic Misalignment",
+      "abstract": "As large language models (LLMs) are deployed as autonomous agents, safety failures increasingly involve consequential actions. We study agentic misalignment, where agents take harmful actions under goal conflicts and pressures. Using chain-of-thought (CoT) monitoring, we find that harmful execution is often preceded by intent signals in reasoning. However, post-hoc CoT labels are too coarse to show how intent changes during generation. We introduce INTENT-AS-A-TOOL, an approach that adds intent-targeted tools to give the model a dedicated channel for expressing commitment to a target behavior. The probability of calling an intent tool provides a judge-free, fine-grained signal of the model's tendency to pursue that behavior. Our results show that INTENT-AS-A-TOOL complements CoT monitoring, expands post-hoc CoT labels into dense trajectories, and identifies critical steps for online intervention. These findings suggest that action preferences are useful for tracking agentic misalignment during reasoning. Our code and data are accessible: https://github.com/RebeccaZhang22/intent-as-a-tool.",
+      "authors": [
+        "Yutong Zhang",
+        "Jianshuo Dong",
+        "Peng Xu",
+        "Long Wang",
+        "Jie Zhang",
+        "Tianwei Zhang",
+        "Xiaoping Zhang",
+        "Han Qiu"
+      ],
+      "published": "2026-08-27T16:47:19Z",
+      "updated": "2026-08-27T16:47:19Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.27348v1",
+      "abs_url": "http://arxiv.org/abs/2608.27348v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 22,
+        "novelty": 87.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 48.3,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
       "paper_id": "2608.27176v1",
       "title": "When Text Misleads: Inconsistent-Aware Reasoning for Audio-Grounded Dialogue",
       "abstract": "Understanding spoken dialogue requires joint reasoning over lexical content and paralinguistic acoustic signals such as emotion and conversational intent. However, existing evaluations often allow shortcuts based on transcripts or single-modality solutions, obscuring whether models genuinely ground predictions in speech. We formalize this failure mode as cross-modal disagreement, where transcripts suggest plausible but incorrect surface interpretations while acoustic cues such as prosody or speaking style support different answers. We develop a scalable framework that identifies text-biased surface interpretations and converts disagreement regions into conflict QA examples. We also include consistent cases where transcript-based and speech-grounded interpretations agree, enabling evaluation beyond adversarial audio dependence. This results in ContraTalk, a controlled benchmark containing 501 questions across five discourse dimensions: interaction behavior, emotion state, dialogue act, social stance, and conversational intent. We further develop an agentic-style reasoning framework that converts speech into an Audio Twin, a text-readable representation of localized acoustic cues that exposes acoustic evidence to the reasoning model. Experiments show that strong text-only LLMs exceed 90% accuracy in consistent cases but drop to 33-48% in conflict cases. Direct AudioLLMs provide only partial grounding, still selecting the transcript-biased trap in roughly 30-40% of conflict cases. Our Audio Twin framework improves conflict-case accuracy while reducing trap selection, but its consistent-case behavior remains backbone-dependent. These results identify transcript-based shortcuts as an important failure mode in spoken dialogue understanding and show that explicit acoustic evidence aggregation provides a more controllable interface for diagnosing and improving speech-grounded reasoning.",
@@ -298,6 +392,51 @@
       "summary_zh": null
     },
     {
+      "paper_id": "2608.27161v1",
+      "title": "STAR : Sentence Translation Alignment Rate for Document-to-Document Machine Translation",
+      "abstract": "Large Language Models (LLMs) have enabled a shift from sentence-level to document-to-document (Doc2Doc) machine translation, promising improved global coherence. However, document-to-document generation in a single pass frequently suffers from structural misalignment, manifesting as sentence omissions or hallucinations that violate the core requirement of source-target correspondence. To address this, we introduce Sentence Translation Alignment Rate (STAR), an auxiliary metric that explicitly quantifies sentence-level structural fidelity. Building on this, we propose STAR-masked Preference Optimization (StarPO), a framework that ranks document-level hypotheses by structural quality and utilizes a dynamic alignment mask to focus optimization on misaligned segments. Experimental results across news and literary domains demonstrate that StarPO significantly enhances translation quality and structural integrity. Notably, StarPO allows compact models to surpass the performance of massive proprietary systems like GPT-4o while maintaining superior token efficiency.",
+      "authors": [
+        "Yichen Dong",
+        "Hao Wang",
+        "Junhui Li",
+        "Linlong Xu",
+        "Longyue Wang",
+        "Weihua Luo"
+      ],
+      "published": "2026-08-27T14:12:45Z",
+      "updated": "2026-08-27T14:12:45Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.27161v1",
+      "abs_url": "http://arxiv.org/abs/2608.27161v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 31,
+        "novelty": 82.1,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.5,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
       "paper_id": "2608.27142v1",
       "title": "GRAIN: Bridging Name and Narrative Shifts in Real-World Graph Reasoning through Invariance-Rewarded Agentic RL",
       "abstract": "Despite their potential in standardized graph tasks, Large Language Models (LLMs) remain brittle to real-world shifts in node identifiers and task formulation. While deterministic graph tools are invariant to such shifts, extracting topological structures from noisy text is highly fragile for LLMs, which often overfit to surface patterns. Moreover, mitigating these parsing failures via multi-agent systems incurs prohibitive latency. To address this, we propose GRAIN, a single-agent framework optimized via reinforcement learning. GRAIN models reasoning as a semantic parsing and tool-execution pipeline, guided by a Structure Invariance Reward. By validating extracted intermediate graphs against ground-truth topologies, this reward forces the LLM to learn robust text-to-structure mappings rather than memorizing linguistic artifacts. We also introduce GRIT, a benchmark evaluating sensitivity to such linguistic shifts. GRAIN outperforms multi-agent baselines by 16.45\\% in accuracy with approximately 24\\% lower latency. Furthermore, it demonstrates superior structural generalization, halving the out-of-distribution (OOD) gap of SFT models (from 15.77\\% to 7.80\\%) and maintaining robustness on large-scale graphs beyond the training distribution.",
@@ -346,6 +485,144 @@
       "score_reasons": [
         "命中主题：推理时扩展",
         "优势：新颖 85、质量 77"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.27115v1",
+      "title": "Cross-Lingual Alignment Without Joint Training: Do Monolingual Language Models Converge on Universal Representations?",
+      "abstract": "Cross-lingual alignment in multilingual language models is typically attributed to joint training: shared parameters, mixed-language batches, or explicit alignment objectives. We ask whether monolingual models trained on non-parallel data learn alignable representations without joint training. By testing on strictly monolingual language models, such as the Goldfish model families and independently developed models from different research labs, we find three results. Correlation: these models develop alignable representational geometry across layers, with alignment strengthening as data scale, model scale, or linguistic proximity increases. Construction: a single Procrustes rotation fit on parallel sentences maps hidden states between models. Causation: the same rotation transfers functional content; patching a rotated English residual into a German model on a factual cloze flips the prediction to the donor's capital in most cases. We confirm that cross-lingual alignment can emerge from the structure of language and the information it carries rather than from joint training, and this points to practical future directions including model stitching, merging, and modular multilingual systems built from monolingual components.",
+      "authors": [
+        "Ej Zhou",
+        "Suchir Salhan",
+        "Catherine Arnett",
+        "Anna Korhonen"
+      ],
+      "published": "2026-08-27T13:27:18Z",
+      "updated": "2026-08-27T13:27:18Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.27115v1",
+      "abs_url": "http://arxiv.org/abs/2608.27115v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 34,
+        "novelty": 89.5,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 51.9,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 90、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.27046v1",
+      "title": "Performance Foundations of Parallel & Distributed Reasoning Language Models",
+      "abstract": "Reinforcement Learning with Verifiable Rewards (RLVR) and other RL-style post-training paradigms have been used for aligning large language models (LLMs) with reasoning standards. The resulting recent Reasoning Language Models (RLMs) such as DeepSeek-R1, o3, and Kimi k1.5 show that such RL-style post-training (\"RL-for-LLMs\") can substantially improve chain-of-thought reasoning, long-horizon planning, and self-correction. However, the computational footprint of these systems is massive: state-of-the-art RLM training requires millions of GPU-hours and tightly coupled multi-model pipelines that stress modern hardware far beyond classical supervised LLM training. This makes RLM training as much a parallel and distributed systems problem as an algorithmic one. In this work, to facilitate developing RLMs that are simultaneously high-performance, scalable, and cost-effective, we first systematize the RL-for-LLM paradigm and provide a compute-centric analysis of prominent post-training algorithmic frameworks: Proximal Policy Optimization (PPO), Group Relative Policy Optimization (GRPO), as well as their variants. Second, we develop a taxonomy of intra- and inter-model parallelism strategies for RL-for-LLMs, covering both traditional techniques (data, tensor, pipeline, sequence, context, and expert parallelism) as well as novel forms of parallelism and optimization techniques for multi-model RLM training, for example disaggregated placement, stage fusion, hybrid parallelism, and asynchronous execution. We harness the work-depth model of parallel computing to make our taxonomy and its insights rigorous and portable. Finally, we analyze existing RLM frameworks and we distill practical guidelines and outline open research directions for building scalable, fast, and cost-effective RLMs.",
+      "authors": [
+        "Maciej Besta",
+        "Leonard Schmidt",
+        "Lara Nonino",
+        "Robert Gerstenberger",
+        "Pierre Pang",
+        "Patrik Okanovic",
+        "Ales Kubicek",
+        "Tiancheng Chen",
+        "Baraq Lipshitz",
+        "Torsten Hoefler"
+      ],
+      "published": "2026-08-27T12:33:47Z",
+      "updated": "2026-08-27T12:33:47Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.DC",
+        "cs.PF"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.27046v1",
+      "abs_url": "http://arxiv.org/abs/2608.27046v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.54,
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 26,
+        "novelty": 84.4,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 51.8,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.27036v1",
+      "title": "Reasoning about In-Context Samples for Machine-Translation",
+      "abstract": "Large Language Models (LLMs) can be trained to perform chain-of-thoughts reasoning in order to improve the reliability of their responses. In this work, we investigate how explicit reasoning can be leveraged for LLM-Based Machine Translation (MT) with in-context samples. We introduce a novel fragment-based reasoning framework in which the model first extracts parallel source-target fragments from retrieved similar exemplars, and uses these fragments as intermediate reasoning traces to produce the final translation. To train our model, we distill silver fragments and drafts from a large teacher model. Our experiments with the Qwen3 model family, over 6 languages, including up to 5 domains per language, demonstrate that fragment-based MT significantly outperforms alternative methods like standard k-shot or basic drafting.",
+      "authors": [
+        "Maxime Bouthors",
+        "Josep Crego",
+        "François Yvon"
+      ],
+      "published": "2026-08-27T12:22:11Z",
+      "updated": "2026-08-27T12:22:11Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.27036v1",
+      "abs_url": "http://arxiv.org/abs/2608.27036v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 48,
+        "novelty": 85.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.0,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 86、匹配 63"
       ],
       "summary_zh": null
     },
@@ -429,6 +706,52 @@
       "score_reasons": [
         "命中主题：预训练与优化",
         "优势：新颖 91、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2608.26870v1",
+      "title": "C-Unseen: Weak Signal Detection in Dynamic Temporal Knowledge Graphs via LLM Reasoning",
+      "abstract": "Weak signals are early, low-visibility indicators that precede significant changes before those changes become established. Existing detection methods, based on keyword frequency, topic modeling, or untyped graph topology, fail to capture the semantic and relational structure through which such signals manifest. In this paper, we propose C-Unseen, a self-interpretable framework for weak signal detection in Dynamic Temporal Knowledge Graphs (DTKGs). We define a weak signal as a rare, semantically coherent subgraph that proliferates across consecutive TKG snapshots. The framework operates through two modules: a Rare Subgraphs Extractor, in which an LLM identifies subgraphs whose content is in tension with the dominant snapshot narrative via chain-of-thought reasoning, and a Weak Signal Alerter, in which the persistence of these rare subgraphs is tracked across time steps to isolate true weak signals. Experimental results demonstrate that C-Unseen outperforms keyword-, topic-, and graph-based baselines.",
+      "authors": [
+        "Yassir Lairgi",
+        "Ludovic Moncla",
+        "Khalid Benabdeslem",
+        "Rémy Cazabet",
+        "Pierre Cléau"
+      ],
+      "published": "2026-08-27T09:33:51Z",
+      "updated": "2026-08-27T09:33:51Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.SI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2608.26870v1",
+      "abs_url": "http://arxiv.org/abs/2608.26870v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 49,
+        "novelty": 85.8,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.2,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 86、匹配 63"
       ],
       "summary_zh": null
     },
