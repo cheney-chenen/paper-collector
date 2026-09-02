@@ -25719,5 +25719,563 @@
       "优势：新颖 90、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2609.01087v1": {
+    "paper_id": "2609.01087v1",
+    "title": "Fine-Tuning Large Language Models to Classify Pull Request-Issue Alignments: Going Beyond Prompting",
+    "abstract": "Context: Accurate alignment between pull requests (PRs) and corresponding issues is crucial for efficient software development and maintaining code quality, as misalignments can reduce traceability, hinder defect localization, and decrease maintainability. Objective: This study aims to improve automated PR-issue alignment classification by leveraging fine-tuned large language models (LLMs) across multiple alignment categories, and conducts interpretability analysis to investigate the effects of PR-issue fields on the predictions of fine-tuned LLMs. Method: Our methodology consists of dataset preparation, LLM fine-tuning, and interpretability analysis. We first extended an existing dataset and applied data augmentation to address class imbalance. GPT-4o was then fine-tuned via instruction tuning, and open-source LLMs including CodeLlama-7B, CodeQwen1.5-7B, StableCode-3B, CodeGemma-7B, and Deepseek-Coder-6.7B were fine-tuned using classification-specific heads. Interpretability analysis using Shapley Additive Explanations (SHAP) was conducted to examine the influence of PR-issue fields on predictions for the best-performing open-source LLM. Results: Fine-tuned LLMs outperformed baseline models, achieving average improvements of 6.15% in accuracy and F1-micro, 14.69% in F1-macro, and 6.15% in recall. CodeLlama-7B emerged as the best-performing fine-tuned LLM overall, while interpretability analysis revealed that code diffs together with issue body and PR body contents exert the greatest influence on predictions. Conclusions: Fine-tuning substantially enhances PR-issue alignment classification, improving both accuracy and efficiency. Interpretability analysis provides actionable insights into the dataset features driving alignment decisions, deepening understanding of how LLMs reason over software artifacts.",
+    "authors": [
+      "Mustafa Yasir Altunhan",
+      "Hüseyin Özgür Kamalı",
+      "Eray Tüzün"
+    ],
+    "published": "2026-09-01T11:25:36Z",
+    "updated": "2026-09-01T11:25:36Z",
+    "categories": [
+      "cs.SE"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01087v1",
+    "abs_url": "http://arxiv.org/abs/2609.01087v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 69,
+      "novelty": 88.9,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 75.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 100、新颖 89"
+    ],
+    "summary_zh": null
+  },
+  "2609.01343v1": {
+    "paper_id": "2609.01343v1",
+    "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
+    "abstract": "Looped Transformers increase effective depth by iterating a shared block of layers, but most evaluations compare at fixed model size, conflating architectural advantage with extra FLOPs. We study looping on Mixture-of-Experts Transformers while closely matching per-token FLOPs, total non-embedding parameters, and KV cache. Through a series of ablations, we arrive at a recipe we call SMELT (Sparse MoE Transformer, middle layers Loop Twice), which loops the middle half of layers twice while matching the unlooped Baseline on all three budgets. We scale SMELT across four sizes up to 54B non-embedding parameters and fit a separate Chinchilla-style scaling law for each architecture. SMELT's loss drops faster with compute, saving 6.8--18.0\\% of training FLOPs on the compute-optimal frontier. The advantage transfers to downstream benchmarks beyond what validation loss predicts, is largest on Code, and grows with sample length and the number of in-context examples. Mechanistic analysis shows that the second visit reduces the attention sink and redirects mass toward content-relevant tokens, an inductive bias that may underlie the observed performance gains. These results show that looping can improve Transformers even under budget matching, offering a practical recipe that turns depth reuse into measurable gains.",
+    "authors": [
+      "Shaowen Wang",
+      "Ge Zhang",
+      "Kairong Luo",
+      "Yuhao Wu",
+      "Shaofan Liu",
+      "Jiaheng Liu",
+      "Wenhao Huang",
+      "Shen Yan",
+      "Jian Li"
+    ],
+    "published": "2026-09-01T14:52:57Z",
+    "updated": "2026-09-01T14:52:57Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01343v1",
+    "abs_url": "http://arxiv.org/abs/2609.01343v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 1.0,
+      "serving": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 61,
+      "novelty": 85.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 72.0,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理系统",
+      "优势：匹配 100、新颖 86"
+    ],
+    "summary_zh": null
+  },
+  "2609.01431v1": {
+    "paper_id": "2609.01431v1",
+    "title": "Efficiently Estimating Optimal Hyperparameter Scaling Laws through Power-Law Entropy Search",
+    "abstract": "Optimal hyperparameter scaling laws describe how the best hyperparameters for large language model (LLM) training change with model and data scale, enabling practitioners to predict optimal configurations at production scales without expensive large-scale tuning. However, estimating these scaling laws conventionally requires exhaustive grid searches over thousands of training runs, consuming enormous computational resources. We introduce Power-Law Entropy Search (PLES), a computational cost-aware acquisition function built on multi-fidelity Bayesian optimization that efficiently estimates optimal hyperparameter scaling laws through adaptive experimentation. A key innovation in PLES is that it searches for candidates that reduce the overall uncertainty of a scaling law estimate, instead of optimizing a single objective function. At each iteration, PLES selects the candidate configuration that maximally reduces the uncertainty of the scaling law estimates per unit computational cost, naturally favoring informative small-scale experiments. We evaluate PLES on synthetic benchmarks, surrogate models fitted to real LLM training data, and actual LLM pre-training runs. Across all settings, PLES converges to accurate optimal hyperparameter scaling laws using less than one-tenth of the computational budget required by conventional grid search and other baselines.",
+    "authors": [
+      "Zhiliang Chen",
+      "Sebastian Ament",
+      "David Eriksson",
+      "Maximilian Balandat",
+      "Eytan Bakshy",
+      "Jihao Andreas Lin"
+    ],
+    "published": "2026-09-01T15:41:59Z",
+    "updated": "2026-09-01T15:41:59Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01431v1",
+    "abs_url": "http://arxiv.org/abs/2609.01431v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 70,
+      "novelty": 89.6,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 69.9,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 90、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2609.01572v1": {
+    "paper_id": "2609.01572v1",
+    "title": "From Production Traffic to Post-Training: Building a Self-Hosted LLM That Covers the Corporate Request Mix",
+    "abstract": "Data-residency constraints force enterprises to self-host LLMs, but continuous adoption of newer models without decommissioning their predecessors expands the serving fleet, fragmenting a finite GPU pool. We consolidate traffic from over 200 internal applications onto a single model by closing quality gaps identified through production error analysis along three axes: instruction following, function-calling, and internal task distribution. Quality is tracked by offline benchmarks stratified to production traffic and scored by deterministic verifiers or calibrated LLM judges. Rather than optimising all objectives jointly, which introduces cross-domain reward interference, we train a separate GRPO expert per axis and merge them via two-stage SLERP. Each expert's reward exposes a distinct failure mode, namely semantic collapse, over-calling, and verbosity hacking, each requiring a domain-specific fix. In non-reasoning mode the recipe surpasses a ${\\sim}7\\times$ larger by total parameters baseline on the in-house Arena with 69.6 to 65.8, instruction following with 0.85 to 0.83, and function-calling with 0.79 to 0.77, while lifting general dialogue benchmarks. The model absorbs 50% of platform traffic, 116M requests per month, at a fraction of the serving cost.",
+    "authors": [
+      "Olga Tsymboi",
+      "Dmitrii Stoianov",
+      "Ramil Latypov",
+      "Danil Taranets",
+      "Daniil Dryabin",
+      "Mikhail Gashkov",
+      "Viktor Zelenkovskiy",
+      "Aleksandr Fida",
+      "Gleb Alektorov",
+      "Nikita Gulyakov",
+      "Arthur Babkin",
+      "Aleksandr Medvedev",
+      "Pavel Gein",
+      "Anatolii Potapov"
+    ],
+    "published": "2026-09-01T17:39:26Z",
+    "updated": "2026-09-01T17:39:26Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01572v1",
+    "abs_url": "http://arxiv.org/abs/2609.01572v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 88.2,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 64.5,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 88、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2609.01455v1": {
+    "paper_id": "2609.01455v1",
+    "title": "When Safety Routing Breaks: Understanding Alignment Fragility under Benign Fine-Tuning",
+    "abstract": "Benign fine-tuning severely weakens the safety alignment of large language models (LLMs), so we study why refusal behavior is so fragile. While prior work often attributes this failure to gradient conflict, we propose a fundamentally different Fisher-geometric explanation: safety Fisher is low-rank, and alignment makes the safety geometry flatter while preserving an output-routing pathway. After 100 benign fine-tuning examples, this pathway is selectively re-sharpened in output-side MLP modules, explaining the asymmetric fragility: safety can collapse to high attack success rates, while general utility degrades mildly. The routing view also explains why few safety examples can restore refusal behavior, indicating that internal safety-relevant representations are preserved. Finally, we show that LoRA and ASAM mitigate early collapse by suppressing output-side sharpness, but their protection weakens at larger fine-tuning scales. Overall, safety failure is best understood as a disruption of a low-rank output-routing mechanism",
+    "authors": [
+      "Yitong Guo",
+      "Xiaoyi Chen",
+      "Siyuan Zhang",
+      "Xiaofeng Wang",
+      "Haixu Tang"
+    ],
+    "published": "2026-09-01T15:59:32Z",
+    "updated": "2026-09-01T15:59:32Z",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01455v1",
+    "abs_url": "http://arxiv.org/abs/2609.01455v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 1.0,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 26,
+      "novelty": 87.8,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 64.1,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：匹配 100、新颖 88"
+    ],
+    "summary_zh": null
+  },
+  "2609.01532v1": {
+    "paper_id": "2609.01532v1",
+    "title": "Knowledge Distillation During Mid-Training Favors Reasoning over Factual Recall",
+    "abstract": "Logit-based knowledge distillation (KD) is used to train smaller language models (LMs) via supervision from stronger teachers, but whether its benefits are consistent across training stages remains unclear. Through controlled experiments, we find that forward Kullback-Leibler (KL) distillation--the standard KD formulation--with post-trained teachers behaves fundamentally differently during mid-training, an intermediate phase of self-supervised learning on curated corpora. Surprisingly, while forward KD simultaneously improves reasoning and factual recall during pre-training relative to standard next-token prediction (NTP), it instead slows factual recall acquisition during mid-training despite continued reasoning gains. We trace this stage dependence to an asymmetry in teacher confidence across data domains and the student's evolving knowledge state: teachers are more confident on procedural than knowledge-intensive data, while students acquire low-entropy factual knowledge earlier in training. To mitigate this imbalance, we propose Switch Distillation, a simple mid-training objective that distills on tokens where the teacher is confident, using teacher predictive entropy as a lightweight routing signal, and otherwise falls back to cross-entropy. Switch Distillation consistently outperforms existing distillation objectives across teacher sizes. Relative to standard NTP, it achieves 1.61-1.71x the reasoning performance and 1.13-1.19x the knowledge and commonsense performance while preserving 96.7-96.8% of factual recall. Crucially, these benefits persist after post-training: Switch Distillation closes the factual recall gap while maintaining 1.25-1.32x and 1.13-1.20x gains in reasoning and knowledge and commonsense, respectively.",
+    "authors": [
+      "Jacqueline He",
+      "Howard Yen",
+      "Shuyue Stella Li",
+      "Margaret Li",
+      "Hanqing Zeng",
+      "Yinglong Xia",
+      "Benyu Zhang",
+      "Zhuokai Zhao",
+      "Qiang Zhang",
+      "Pang Wei Koh",
+      "Luke Zettlemoyer",
+      "Wen-tau Yih"
+    ],
+    "published": "2026-09-01T17:00:30Z",
+    "updated": "2026-09-01T17:00:30Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01532v1",
+    "abs_url": "http://arxiv.org/abs/2609.01532v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.18,
+      "reasoning": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 84.4,
+      "practical": 41,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 63.5,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 84、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2609.01507v1": {
+    "paper_id": "2609.01507v1",
+    "title": "LatentPress: Context Compression Beyond Text and Vision",
+    "abstract": "Compressed context is usually carried as human-readable text or as rendered images that must be decoded, even when its consumer is a language model. We introduce LatentPress, which writes conversational histories and long documents into a third representation: continuous memory tokens that a frozen decoder reads directly through its input-embedding interface, with no text reconstruction at inference. A small reader-matched writer compresses $4$-$16\\times$ while training only an adapter (4.2M-26.2M parameters, $\\sim\\!0.1\\%$ of the decoder). On LongMemEval, LatentPress reaches $0.504$ accuracy at $7.70\\times$ compression versus $0.490$ for uncompressed evidence, outperforming text summaries (0.184) and OCR-based compression (0.426 to 0.312). On LongBench-QA, in-domain writers match or exceed raw-context reading at $4$-$8\\times$ compression, while $16\\times$ trails raw. Writing takes 43ms per conversation, roughly an order of magnitude faster than text summarization or OCR reconstruction, and reading is $5$-$9\\times$ faster than raw context or cached OCR. We validate the interface under two transfer settings, zero-shot from UltraChat to LongMemEval memory QA and from LongMemEval-derived QA to unseen LongBench document domains, establishing direct soft tokens as a practical machine-facing context interface beyond text and vision. The implementation of the experiments could be found at: https://github.com/xuyd16ai/context_softtoken_compress .",
+    "authors": [
+      "Zhengze Zhou",
+      "Hejian Sang"
+    ],
+    "published": "2026-09-01T16:38:15Z",
+    "updated": "2026-09-01T16:38:15Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01507v1",
+    "abs_url": "http://arxiv.org/abs/2609.01507v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 89.6,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 62.8,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 90、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2609.01422v1": {
+    "paper_id": "2609.01422v1",
+    "title": "From Rollouts to Recipes: Self-Contained Post-Training for LLMs",
+    "abstract": "Post-training large language models usually applies a single training recipe to all samples, even though the model's own rollouts reveal different sample-level learning states. We propose Self-Routing, a behavior-conditioned post-training framework that uses rollout correctness and confidence to decide how each sample should be optimized. Depending on its behavior state, a sample is routed to GRPO, on-policy self-distillation, regularization, or skipping, allowing training to adapt without external teachers, extra annotations, or additional sampling. Experiments on mathematical reasoning across Qwen3 and Qwen3.5 backbones show that Self-Routing consistently improves over uniform GRPO, uniform OPSD, fixed mixtures, and simpler routing baselines. Further analyses show that the routing distribution changes over training and reduces unnecessary updates on low-signal or already stable samples.",
+    "authors": [
+      "Yifei Li",
+      "Lingling Zhang",
+      "Muye Huang",
+      "Zihan Ma",
+      "Jiashuai Liu",
+      "Jun Liu"
+    ],
+    "published": "2026-09-01T15:36:26Z",
+    "updated": "2026-09-01T15:36:26Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01422v1",
+    "abs_url": "http://arxiv.org/abs/2609.01422v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81,
+      "reasoning": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 44,
+      "novelty": 85.8,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.5,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 86、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2609.01068v1": {
+    "paper_id": "2609.01068v1",
+    "title": "OUTLETS: Output-Length Prediction from Speculative Decoding Backbones",
+    "abstract": "The heavy-tailed distribution of output lengths in Large Language Model (LLM) serving poses major challenges for resource provisioning and cluster scheduling. Although output-length prediction can mitigate these issues, existing approaches have key drawbacks: external proxy models add substantial latency and often have limited fidelity, whereas internal state-based methods are efficient but rely on shallow probes of current model states. We identify a structural connection between speculative decoding (SD) and length prediction: latent representations produced by the draft decoder in advanced frameworks (e.g., EAGLE-3) encode signals that are predictive of generation length. Building on this insight, we introduce OUTLETS (Output-Length Prediction from Speculative Decoding Backbones), which repurposes the speculative backbone as a trajectory-aware length predictor. When its draft representations are already computed for speculative decoding, OUTLETS adds only a lightweight regression head and achieves lower MAE than the evaluated methods. Under saturated disaggregated serving, OUTLETS predictions enable standard scheduling policies to prioritize shorter requests and distribute requests more evenly across decoding instances, reducing short-request P99 latency by 34.8%.",
+    "authors": [
+      "Weihuang Wen",
+      "Yingying Liu",
+      "Yichuan Liu",
+      "Wenqi Zeng",
+      "Li Zhou",
+      "Chumin Sun",
+      "Jie Sun",
+      "Tianshu Yu"
+    ],
+    "published": "2026-09-01T11:00:39Z",
+    "updated": "2026-09-01T11:00:39Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01068v1",
+    "abs_url": "http://arxiv.org/abs/2609.01068v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 51,
+      "novelty": 85.6,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.6,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2609.01338v1": {
+    "paper_id": "2609.01338v1",
+    "title": "mzCache: On-Device LLM Memory Management under Multitasking",
+    "abstract": "On-device mobile Large Language Model (LLM) inference is gaining significant attention. However, mobile devices operate in highly dynamic multitasking environments where users frequently switch between applications. This creates memory pressure, forcing LLM memory (model weights and KV cache) to be evicted by the operating system. When a new inference request arrives, the inference system must restore the evicted memory through slow storage reads or recompute the entire KV cache, severely degrading responsiveness. To address this, we present mzCache, an on-device LLM inference system with specialized memory management for multitasking environments. Under unpredictable memory pressure, mzCache elastically evicts LLM memory and leverages the unified memory of mobile SoCs to enable zero-wait inference on the GPU with concurrent CPU-side restoration. mzCache realizes this through restoration-oriented memory management: LLM memory is partitioned into fine-grained shared buffers to enable partial eviction and restoration with concurrent cross-processor access, while hybrid swap and backward-out eviction policies ensure low-latency restoration from any eviction state. Implemented on llama.cpp and deployed as an Android application, mzCache achieves 2.1-5.5$\\times$ reduction in Time-to-First-Token compared to storage-backed partial offload and demonstrates its effectiveness in real multitasking scenarios.",
+    "authors": [
+      "Hongseung Yu",
+      "Minsung Kim",
+      "Jongseok Park",
+      "Kyunghan Lee"
+    ],
+    "published": "2026-09-01T14:49:20Z",
+    "updated": "2026-09-01T14:49:20Z",
+    "categories": [
+      "cs.OS",
+      "cs.DC",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01338v1",
+    "abs_url": "http://arxiv.org/abs/2609.01338v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.54
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 54.0,
+      "quality": 42,
+      "novelty": 91.6,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.8,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 92、匹配 54"
+    ],
+    "summary_zh": null
+  },
+  "2609.01587v1": {
+    "paper_id": "2609.01587v1",
+    "title": "The Structure of Quantization Damage in LLMs: Why the Next Bit Should Be Spent Globally",
+    "abstract": "Post-training quantization (PTQ) is widely used to reduce the cost of serving large language models (LLMs), but its accuracy cost is uneven and is often tuned per model. We study where quantization damage occurs and how to allocate a small additional precision budget. Using causal mixed-precision intervention as ground truth (raise each layer to 8-bit in turn and measure the accuracy it recovers) across 9 open-weight models in 4 architecture families, we test 3 intuitive hypotheses: that quantization damage lives in task circuits, where the model computes, or in weight statistics. None of them predicts which layers benefit from restored precision. Recovery is instead diffuse: for 8 of 9 models, recovering 75% of the gap takes roughly half the layers; the lone exception, Qwen3-8B, is sharply concentrated. At a matched precision budget, spending it globally on finer quantization granularity beats locally repairing the most recoverable layers for all 8 group-128-compatible models (all but OpenLLaMA, whose width rules out group-128), by 21-52 points, including the concentrated Qwen3-8B. We report 2 secondary findings: the residual is budget-limited (8-bit is near-lossless in our evaluation across RTN, GPTQ, and AWQ), and the location of peak recovery correlates with architecture within a family, though not across families. Within this budget setting, global granularity is a better default than selectively protecting critical layers. More broadly, cheap signals that correlate with quantization damage do not necessarily identify where restoring precision improves accuracy; this must be tested with causal intervention.",
+    "authors": [
+      "Jundong Hu",
+      "Shekar Ramachandran"
+    ],
+    "published": "2026-09-01T17:53:41Z",
+    "updated": "2026-09-01T17:53:41Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01587v1",
+    "abs_url": "http://arxiv.org/abs/2609.01587v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 54,
+      "novelty": 88.2,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.8,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2609.01111v1": {
+    "paper_id": "2609.01111v1",
+    "title": "ClinTraceBench: Source-Verifiable Longitudinal Clinical Reasoning over EHR-Derived Dialogues",
+    "abstract": "Clinical LLM assistants must reason over multi-visit patient trajectories, yet whether the compact history representations used to scale them---retrieval, structured timelines, LLM summaries, agentic memory---preserve the longitudinal signal clinical reasoning needs has not been measured. We introduce ClinTraceBench: 385 MIMIC-IV-derived verified dialogues with event-ID provenance, a nine-task taxonomy (T1--T9), and L0--L4 deterministic + L5 human-audit validation (98.92\\% agreement). We evaluate eight history representation strategies---a no-context floor, \\textit{last-visit-only}, \\textit{full-context}, BGE-M3 \\textit{dense-retrieval}, two compression schemes, and two agentic-memory systems (\\textit{Mem0}, \\textit{A-Mem})---across four backbones (DeepSeek-V3, GPT-4o-mini, Haiku~4.5, Sonnet~4.6) on 6{,}271 questions: 32 cells, 200{,}672 predictions. Four findings: (SP4) a controlled T3 injection probe isolates compression-induced \\textit{relation} loss---with the attribution sentence present \\textit{before} construction, \\textit{Mem0}, \\textit{A-Mem} and \\textit{llm-summary} still recover only 0--5.3\\% of the injected positives; (SP1) compressed strategies pay an aggregation tax on multi-visit trends and cross-patient comparisons; (SP2) the blind-to-full gap spans $+29.8$~pp (GPT-4o-mini) to $+62.7$~pp (Haiku); (SP3) abstention scales non-monotonically with context length. On the Pareto frontier Haiku dominates Sonnet under \\textit{full-context} (\\$25.76 vs.\\ \\$106.21), inverting the ``biggest backbone wins'' heuristic.",
+    "authors": [
+      "Huimin Wang",
+      "Zhengyi Zhao",
+      "Yutian Zhao"
+    ],
+    "published": "2026-09-01T11:51:37Z",
+    "updated": "2026-09-01T11:51:37Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.01111v1",
+    "abs_url": "http://arxiv.org/abs/2609.01111v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 51,
+      "novelty": 90.9,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.5,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 91、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
