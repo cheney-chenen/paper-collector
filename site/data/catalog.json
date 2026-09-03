@@ -1,7 +1,562 @@
 {
   "date": "全部历史",
-  "selected_count": 561,
+  "selected_count": 573,
   "papers": [
+    {
+      "paper_id": "2609.02849v1",
+      "title": "Post-Training Language Models for Gold-Medal Performance in Coding Competitions",
+      "abstract": "Competitive programming has become a key test of large language model reasoning, with international competitions such as IOI and ICPC representing its most challenging settings. We present an end-to-end specialization pipeline combining large-scale problem curation, synthetic reasoning traces, supervised fine-tuning (SFT), and reinforcement learning (RL). Using 22,000 curated problems, we train Nemotron-3-Nano-CC (30B-A3B) with SFT and RL and Nemotron-3-Ultra-CC (550B-A55B) with SFT alone. We further introduce GenCorrect, a feedback-driven test-time compute strategy that iteratively generates, evaluates, and refines diverse solutions. On IOI 2025, Nano-CC improves from 130 points to 291 after post-training and to 468 with GenCorrect, exceeding the gold threshold of 438.3 while Ultra-CC reaches 502. Guided by these results, we develop a competition-specific Ultra-CC system and evaluate it prospectively during IOI 2026. Under the same time, internet-access, and submission constraints as human contestants, it scores 535.4 out of 600, exceeding both the gold threshold of 361.12 and the top human score of 498.27. To our knowledge, this is the first AI system to outscore the highest-scoring human contestant on an IOI problem set.",
+      "authors": [
+        "Aleksander Ficek",
+        "Sean Narenthiran",
+        "Mehrzad Samadi",
+        "Somshubra Majumdar",
+        "Boris Ginsburg"
+      ],
+      "published": "2026-09-02T17:33:37Z",
+      "updated": "2026-09-02T17:33:37Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.MA",
+        "cs.SE"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02849v1",
+      "abs_url": "http://arxiv.org/abs/2609.02849v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 51,
+        "novelty": 87.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.6,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02846v1",
+      "title": "UE5M3 FP4 Block Scaling for Stable Language Model Pretraining",
+      "abstract": "Stable 4-bit floating-point (FP4) pretraining is difficult because the E2M1 payload represents only a narrow range of magnitudes. NVIDIA's Transformer Engine \\nv{} recipe addresses this with current-tensor scaling, a randomized Hadamard transform (RHT), and bfloat16 (BF16) final layers, adding work outside the FP4 matrix multiplications. We instead pair E2M1 payloads with unsigned E5M3 (\\ue{}) block scales. Their wider range permits periodic tensor scaling, while our recipe applies selective stochastic rounding to backward gradients, omits RHT, and uses FP4 in all eligible internal linears. We pretrain a Nemotron-H 8B model for nearly 190 billion tokens. Compared with Transformer Engine \\nv{}, the proposed block-16 recipe finishes with lower final-window training loss and, under their respective quantized-inference policies, lower validation loss measured as held-out negative log-likelihood. Its quantized-inference downstream point estimates are also higher on all three reported aggregates. A native \\nv{} execution ablation that jointly removes RHT and the BF16 final-block exemption increases measured model-body token throughput by 21.2\\%. These results demonstrate end-to-end software-emulated \\uefp{} pretraining with a simpler recipe and motivate native support for \\ue{} block scaling.",
+      "authors": [
+        "Robert Hu",
+        "Carlo Luschi",
+        "Paul Balanca"
+      ],
+      "published": "2026-09-02T17:32:07Z",
+      "updated": "2026-09-02T17:32:07Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02846v1",
+      "abs_url": "http://arxiv.org/abs/2609.02846v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 89.0,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.4,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 89、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02786v1",
+      "title": "SafeEvolve: Harness-Policy Co-Evolution from Agent Experience for Safety Alignment",
+      "abstract": "The performance of LLM-based agents is jointly shaped by the base model and the harness used when interacting with the environment. This exposes them to safety risks in both harmful final responses and multi-step execution trajectories. Existing safety alignment mechanisms often rely on either external harness updates or policy optimization, yet applying either paradigm in isolation fails to bridge runtime control with intrinsic safety. We propose SafeEvolve, an experience-driven self-evolving framework for agent safety alignment. SafeEvolve leverages safety experience from completed on-policy trajectories to drive a continual loop of harness-policy co-evolution. On the harness side, SafeEvolve converts trajectory-level safety evidence into bounded, component-level updates across safety prompt and hierarchical skills, yielding auditable and reversible harness artifacts. On the policy side, SafeEvolve follows a two-stage SFT-RL paradigm, where harness-use SFT bootstraps the policy to actively leverage evolved harness artifacts, and harness-augmented RL further shapes autonomous safety behaviors during multi-step exploration via verifier-decomposed rewards. Through harness-policy co-evolution, SafeEvolve converts safety experience into an evolved runtime harness and improved policy behavior. Experiments on agentic safety benchmarks show that SafeEvolve achieves a stronger safety-utility tradeoff than existing baselines. For Qwen3.5-4B, SafeEvolve achieves a $3\\times$ ASR reduction on AgentDojo while improving benign utility from 59.79% to 61.86%.",
+      "authors": [
+        "Qinghua Mao",
+        "Wanying Qu",
+        "Dadi Guo",
+        "Leitao Yuan",
+        "Qingyu Liu",
+        "Yu Li",
+        "Guanxu Chen",
+        "Yanwei Fu",
+        "Xi Lin",
+        "Xia Hu",
+        "Dongrui Liu"
+      ],
+      "published": "2026-09-02T16:19:54Z",
+      "updated": "2026-09-02T16:19:54Z",
+      "categories": [
+        "cs.AI",
+        "cs.CR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02786v1",
+      "abs_url": "http://arxiv.org/abs/2609.02786v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 82.5,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.1,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 82、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02702v1",
+      "title": "Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers",
+      "abstract": "Transformers process information causally, but long-context reasoning may depend on task state discovered only later. We formalize this mismatch through conditional state update tasks. For causal state update processors, providing the condition first can require exponentially less memory in the worst case than providing it last. Motivated by this principle, we introduce Trace as State. We use collected reasoning traces as a textual proxy for task state and place it before the long-context block on a fresh pass, allowing information derived previously to guide rereading. We conduct extensive experiments on Trace as State and Trace Append, a matched control that uses the same task state proxy but put it after the context. Across three models and three long-context datasets, Trace as State outperforms Trace Append in 26 of 27 reported combinations of model, task, and metric. On GraphWalks Parents, exact match lifts DeepSeek V4 Pro Preview from 29.2% on the initial pass and 43.0% with Trace Appendto 81.8% with Trace as State, and from 66.4% and 83.2% to 100.0% for GLM-5.2. These results show that placing traces before the context can improve long-context reasoning while retaining the causal transformer structure.",
+      "authors": [
+        "Xu Zou",
+        "Jie Tang"
+      ],
+      "published": "2026-09-02T15:06:46Z",
+      "updated": "2026-09-02T15:06:46Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02702v1",
+      "abs_url": "http://arxiv.org/abs/2609.02702v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 86.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.7,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02548v1",
+      "title": "Learn from Whoever Is Right: Answer-Verified Multi-Teacher Distillation for Multi-Domain LLMs",
+      "abstract": "Modern large language models (LLMs) rely on reinforcement learning to build strong capabilities in individual domains, but integrating those capabilities into a single deployable model remains challenging. By routing each sample to the teacher whose domain matches it, existing approaches let a domain label decide which teacher provides supervision. However, domain expertise holds only on average: the matched teacher is not always correct on a given sample, while a teacher from another domain sometimes is. The reliable teacher therefore has to be identified per sample, not per domain. In this paper, we introduce Multi-Teacher Self-Distillation Policy Optimization (MT-SDPO), an on-policy distillation method that unifies several frozen teachers into one student model. MT-SDPO consists of three components: (1) self-anchors, where a rollout is supervised by a correct rollout from its own group; (2) answer-verified eligibility, where a teacher may supervise a sample only if its own answer passes a verifier; and (3) privileged distillation, which merges the anchor and all verified feedback into one context that an exponential moving average self-teacher reads and the student does not, thereby keeping one policy at deployment. Across five students from three model families, MT-SDPO lifts the weakest domain of Qwen3-8B by 14.79 points and narrows its domain gap by 74.7%, a better balance than serving one matched teacher per domain. Verified reliability, not domain membership, should decide who teaches. Code is available at https://github.com/hexixiang/MT-SDPO.",
+      "authors": [
+        "Xixiang He",
+        "Xingming Li",
+        "Baiqi Wu",
+        "Qiyao Sun",
+        "Xuanyu Ji",
+        "Ao Cheng",
+        "Qingyong Hu"
+      ],
+      "published": "2026-09-02T13:00:45Z",
+      "updated": "2026-09-02T13:00:45Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02548v1",
+      "abs_url": "http://arxiv.org/abs/2609.02548v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 54,
+        "novelty": 85.2,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 57.4,
+      "score_reasons": [
+        "命中主题：推理时扩展、压缩与高效推理",
+        "优势：新颖 85、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02514v1",
+      "title": "AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference",
+      "abstract": "Deploying Large Language Models (LLMs) on edge devices typically relies on model compression or split inference. However, compression degrades reasoning capabilities, while split inference suffers from severe Wide Area Network (WAN) communication bottlenecks. Edge-cloud speculative decoding emerges as a promising alternative, leveraging an edge small model to draft tokens for cloud verification. Yet, over volatile WANs, inevitable prediction rejections trigger catastrophic pipeline stalls and network-wide rollbacks, neutralizing collaborative gains. To overcome this, we propose AceSpec, an asymmetric edge-cloud collaborative framework. AceSpec utilizes un-saturated edge compute to proactively construct a probabilistic state cache, effectively transforming network-wide pipeline flushes into $\\mathcal{O}(1)$ local memory lookups. To preserve bandwidth, it employs an asymmetric communication protocol that transmits minimal main-chain indices uplink and compact sparse distributions downlink. Furthermore, we introduce a network-aware, Lagrangian-optimized resource allocation strategy that dynamically maximizes the local cache hit rate. Evaluations demonstrate that AceSpec achieves up to a 3.52$\\times$ throughput speedup and exhibits exceptional bandwidth immunity, sustaining near-peak inference performance even under severely constrained 50 Kbps WAN conditions.",
+      "authors": [
+        "Yida Zhang",
+        "Zhiyong Gao",
+        "Shuaibing Yue",
+        "Jie Li",
+        "Rui Wang"
+      ],
+      "published": "2026-09-02T12:18:32Z",
+      "updated": "2026-09-02T12:18:32Z",
+      "categories": [
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02514v1",
+      "abs_url": "http://arxiv.org/abs/2609.02514v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "serving": 0.81,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 43,
+        "novelty": 85.6,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.0,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统、压缩与高效推理",
+        "优势：新颖 86、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02496v1",
+      "title": "Debias-SparseGPT: Bias-Aware Pruning for Large Language Models",
+      "abstract": "Model compression techniques such as pruning and quantization facilitate the efficient deployment and acceleration of Large Language Models (LLMs). However, recent studies show that weight sparsification methods, such as SparseGPT, can amplify existing biases in models, with outputs varying significantly depending on persona cues in the prompt. In this paper, we introduce Debias-SparseGPT, a post-training pruning method incorporating representational debiasing using a second-order term defined over demographically contrasting inputs. We perform empirical validation of our method over a wide range of generative LLMs. Across models and sparsity regimes (25%, 50%, and structured 2:4 sparsity), Debias-SparseGPT consistently reduces pruning-induced bias compared to SparseGPT while preserving model perplexity and zero-shot accuracy. Under the most restrictive 2:4 structured sparsity pattern, which most aggressively degrades model quality, augmenting the calibration set with long-context, content-rich examples further improves both downstream performance and fairness. Overall, Debias-SparseGPT advances the bias-performance trade-off while preserving the computational efficiency of sparse models.",
+      "authors": [
+        "Irina Proskurina",
+        "Guillaume Metzler",
+        "Antoine Gourru",
+        "Julien Velcin"
+      ],
+      "published": "2026-09-02T12:01:54Z",
+      "updated": "2026-09-02T12:01:54Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02496v1",
+      "abs_url": "http://arxiv.org/abs/2609.02496v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 0.54
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 54.0,
+        "quality": 54,
+        "novelty": 84.2,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.9,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 84、匹配 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02451v1",
+      "title": "Scalable Kronecker-Fisher Approximation: Efficient Hessian Analysis for Billion-Parameter Language Models Compression",
+      "abstract": "In this paper, we propose a scalable Kronecker-based approximation that captures cross-layer interactions without storing the entire Fisher matrix, enabling practical Hessian analysis for billion-parameter networks where full computation is infeasible. Our approach reveals consistent vulnerability patterns: value projection layers exhibit the highest sensitivity and strongest cross-layer correlations across multiple model families, while other components exhibit architecture-specific behaviors. Through extensive experiments on quantization, sparsification, inter-layer corruption, and post-corruption fine-tuning, we demonstrate that our approximation strongly correlates with both performance degradation and recovery. Our framework provides a practical, theoretically grounded tool for identifying fragile components in large models, opening new avenues for guided compression and optimization strategies, such as mixed-precision allocation, layer-wise sparsity, and adaptive low-rank decomposition across layers and even individual weight groups.",
+      "authors": [
+        "Viacheslav Yusupov",
+        "Daria Cherniuk",
+        "Evgeny Frolov"
+      ],
+      "published": "2026-09-02T11:17:52Z",
+      "updated": "2026-09-02T11:17:52Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02451v1",
+      "abs_url": "http://arxiv.org/abs/2609.02451v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 31,
+        "novelty": 85.6,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.0,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：匹配 100、新颖 86"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02293v1",
+      "title": "SEAL: Reinforcing Global Safety in Mixture-of-Experts through Shared Expert ALignment",
+      "abstract": "Mixture-of-Experts (MoE) is a scaling architecture for large language models that activates only a small subset of expert modules per token, enabling massive parameter growth with nearly constant computation. Recent Hybrid MoE architecture adds \\textit{shared experts} to capture consistently useful representations, further improving stability and generalization. MoE now powers many flagship open-source and commercial models, yet remains vulnerable to adversarial attacks. Specifically, sparse routing introduces a structural vulnerability: MoE safety hinges on which experts are activated, and adversaries can subvert this selection through jailbreak prompts, malicious fine-tuning, and weight-level pruning of safety-critical neurons. Existing defenses primarily focus on hardening the router, but an adversary may still manipulate or bypass the routing trajectory due to the routing process's nondeterministic nature, thereby collapsing the defense. To cope with this problem, we first identify theoretically and empirically that shared expert, an always-activated component containing a small proportion of safety-critical neurons, can overcome the uncertainty of sparsely activated routing path and serve as a router-independent anchor to enhance global safety alignment. Based on this insight, we propose SEAL, a training-time parameter-efficient defense that produces a plug-and-play adapter attached to shared expert, and SEAL++, a variant that adds an orthogonal constraint preserving pre-existing safety subspaces during training. We evaluate SEAL and SEAL++ across six attack scenarios that combine three adversarial inputs (harmful prompting, jailbreak, malicious fine-tuning) with and without neuron pruning. SEAL reduces attack success rate (ASR) by up to 60\\%, at a capability cost of at most 1.4\\% on a five-benchmark average. Additionally, SEAL can seamlessly integrate with router-level ......",
+      "authors": [
+        "Qingyu Meng",
+        "Yiwei Zha",
+        "Jiahuan Pei",
+        "Koen Hindriks",
+        "Herbert Bos",
+        "Min Chen"
+      ],
+      "published": "2026-09-02T08:40:19Z",
+      "updated": "2026-09-02T08:40:19Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02293v1",
+      "abs_url": "http://arxiv.org/abs/2609.02293v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 48,
+        "novelty": 87.5,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 88、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02292v1",
+      "title": "SCX Router: Streaming Zero-Shot Model Selection with a Decoder-KV Classifier and a Real-World Task Ontology",
+      "abstract": "The rapid proliferation of large language models (LLMs) and the growing diversity of their applications presents a unique optimization opportunity: selecting the right model for the task, while optimizing for speed, cost, and quality at a per-task level. However, inference endpoints can vary widely in quality, price, latency, context support, tool use, domain expertise, and reasoning behavior. This heterogeneity makes manual heuristics difficult to maintain and unlikely to achieve consistently favorable speed--cost--quality trade-offs on their own. We introduce \\router{}, a lightweight GLiClass-based router that assigns a suitability score to each inference-time model label without autoregressive generation. The released 0.6B-parameter checkpoint combines a Qwen3 decoder with a shallow bidirectional scorer. Its decoder-KV execution path preserves a text-only key--value cache across a session, encodes only new dialogue turns, and evaluates transient candidate-label tokens without adding them to the persistent cache. The same checkpoint also predicts task type, difficulty, reasoning mode, and expected output length, and supports custom zero-shot labels. For task generation, we construct a task ontology with 23 families, 115 task types, 345 routable subtypes, 1,173 synthetic examples, and an orthogonal axis of 30 domains. Using this structure, we generate 150,000 verifier-scored tasks and 15,000 open-ended tasks. We then train the Qwen3 decoder on these tasks, while explicitly separating learned request prediction from per-task policies for attributes such as eligibility, cost, cache reuse, safety, and sovereignty. Across six LiveBench subsets, the router outperforms the mean candidate; on the selected 1,000-task subset, it achieves an aggregate top-1 score of 0.707 versus 0.696 for the strongest fixed model, with benchmark-dependent gains.",
+      "authors": [
+        "Ihor Stepanov",
+        "Aleksandr Smechov",
+        "Mykhailo Shtopko",
+        "Dmytro Vodianytskyi",
+        "Oleksandr Lukashov"
+      ],
+      "published": "2026-09-02T08:40:07Z",
+      "updated": "2026-09-02T08:40:07Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02292v1",
+      "abs_url": "http://arxiv.org/abs/2609.02292v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 81,
+        "novelty": 87.9,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.9,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 88、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02273v1",
+      "title": "CoMerge: Conflict-Driven Preference Optimization for Multi-Task Model Merging",
+      "abstract": "Model merging provides an efficient paradigm for constructing multi-task large language models (LLMs) without full model retraining, yet it remains challenged by parameter interference. While existing methods aim to preserve the capabilities of individual expert models and mitigate interference, they generally do not directly learn from the potentially degraded behaviors exposed by naive merging. In this paper, we propose a conflict-driven preference optimization framework for model merging (CoMerge), which reformulates model merging as a preference optimization problem. The approach utilizes a self-supervised, conflict-driven strategy that leverages the defects of naive merging methods (e.g., task arithmetic) as hard negative samples to construct preference pairs without external annotations. By applying preference optimization to refine lightweight, tensor-wise merging coefficients, CoMerge enables the model to mitigate parameter-space conflicts while preserving task-specific capabilities. Extensive experiments show that CoMerge achieves an average normalized performance of 0.9968 on MergeBench, outperforming all evaluated data-free and data-driven model-merging baselines. Furthermore, on Llama-3.1-8B-Instruct, CoMerge yields marked improvements on conflict-sensitive tasks such as instruction following and safety, while remaining highly competitive with full-parameter fine-tuning despite optimizing only 1,445 scalar coefficients.",
+      "authors": [
+        "Mingjie Zheng",
+        "Zihao Chen",
+        "Wenqing Chen",
+        "Weile Yuan",
+        "Zhixuan Chu",
+        "Jianxing Yu",
+        "Zibin Zheng"
+      ],
+      "published": "2026-09-02T08:21:28Z",
+      "updated": "2026-09-02T08:21:28Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02273v1",
+      "abs_url": "http://arxiv.org/abs/2609.02273v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 78,
+        "novelty": 81.8,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 70.8,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.02253v1",
+      "title": "APEx: Distillation of Agent Procedural Experience for Adaptive Deep Research Question Answering",
+      "abstract": "Deep research agents augment large language models with external tools to answer complex, long-horizon questions through multi-turn reasoning. Learning from prior experience is crucial for continual improvement, yet existing methods either retrieve verbose task-specific traces that burden decision-making, or distill procedural skills that remain decoupled from downstream policy adaptation. We propose APEx, a hierarchical experience utilization framework that organizes interaction history into instance-level trajectory memories and category-level procedural skills, and couples them through a closed-loop architecture of Executor, Distiller, and Planner. The three modules are optimized via a three-stage alternating GRPO training paradigm, enabling reward-guided skill distillation rather than fixed-prompt generation. At test time, distilled skills serve as procedural priors for online Planner adaptation through skill-guided test-time reinforcement learning, allowing ground-truth-free self-improvement with skill-alignment regularization to prevent policy drift. Experiments on 7 benchmarks demonstrate that APEx achieves state-of-the-art performance, surpassing GPT-5.4 by 14.7 points and the strongest memory-augmented baseline by 3.0 points.",
+      "authors": [
+        "Jie Ding",
+        "Rui Sun",
+        "Xinyuan Zhang",
+        "Zeyu Zhang",
+        "Xin Liu"
+      ],
+      "published": "2026-09-02T08:00:41Z",
+      "updated": "2026-09-02T08:00:41Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.02253v1",
+      "abs_url": "http://arxiv.org/abs/2609.02253v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 77,
+        "novelty": 82.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.0,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：新颖 82、质量 77"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2609.01587v1",
       "title": "The Structure of Quantization Damage in LLMs: Why the Next Bit Should Be Spent Globally",
