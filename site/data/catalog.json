@@ -1,7 +1,559 @@
 {
   "date": "全部历史",
-  "selected_count": 592,
+  "selected_count": 604,
   "papers": [
+    {
+      "paper_id": "2609.05405v1",
+      "title": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data",
+      "abstract": "Recent advances in wearable sensing enable continuous monitoring of physiological and behavioral signals, yet existing benchmarks rarely evaluate whether AI systems can reason over a real user's longitudinal wearable record. We introduce WearableQA, a benchmark comprising 4,084 10-option multiple-choice questions constructed from the wearable time series, blood biomarkers, and demographics of 200 real users, each with up to 500 days of daily measurements. WearableQA preserves authentic wearable distributions that include device noise and inter-individual variability. To evaluate distinct reasoning capabilities, we introduce 16 question types organized along two complementary axes: data versus health reasoning, which distinguishes computation over longitudinal measurements from physiological interpretation; and single- versus cross-signal reasoning, which separates reasoning about individual signals from the integration of multiple signals. To construct reliable questions at scale, we adopt a dual-grounding framework that combines literature-grounded physiological findings with statistically validated population-grounded physiological patterns. This enables the capture of meaningful relationships observed in real-world wearable data. Evaluation of 14 proprietary and open-source LLMs demonstrates that WearableQA effectively differentiates model capabilities, with performance ranging from 19.6% to 72.9% against a 10% chance baseline. Moreover, WearableQA remains far from solved: most models achieve accuracies below 60%. Overall, WearableQA provides a realistic and diagnostic benchmark for evaluating LLM reasoning over real-world wearable data.",
+      "authors": [
+        "Ji Soo Lee",
+        "Xilun Chen",
+        "Pierce Chuang",
+        "Ashish Shenoy",
+        "Jason Wei",
+        "Dohwan Ko",
+        "Hyunwoo J. Kim",
+        "Benoit Corda"
+      ],
+      "published": "2026-09-04T17:52:37Z",
+      "updated": "2026-09-04T17:52:37Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05405v1",
+      "abs_url": "http://arxiv.org/abs/2609.05405v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 83.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.3,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 83、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05363v1",
+      "title": "Distill Globally, Adapt Locally: Reasoning Distillation and Product-Type Test-Time Training for Scalable Trade-Up Recommendation",
+      "abstract": "Trade-up recommendation identifies higher-quality alternatives that preserve a customer's purchase intent while offering upgraded benefits. Large language models (LLMs) can reason about such distinctions, but applying them directly to hundreds of millions of product pairs is operationally impractical. We introduce a two-level framework that distills LLM reasoning into an efficient non-generative student and adapts its decision boundary to product-type-specific trade-up criteria. At Level 1, a retrieval-augmented few-shot LLM teacher generates structured relation labels and natural-language rationales. These rationales supervise a compact embedding-pair classifier through alignment and contrastive objectives; at inference, the student uses only two precomputed 768-dimensional product embeddings, with no LLM calls or text generation. On a fixed human-annotated benchmark of 8,352 pairs, a 15.5M-parameter four-class reasoning-distilled student achieves AUC 0.924 (95% CI [0.918, 0.929]), compared with 0.912 for the four-class label-only student. At Level 2, product-type test-time training (PT-TTT) uses few-shot demonstrations to optimize lightweight category-specific adapters over the frozen student. PT-TTT improves AUC from 0.924 to 0.941 and average precision from 0.920 to 0.940. On a 100K-pair proxy catalog, the distilled student on a single eight-GPU machine is approximately 5,000x faster and 10,000x lower in estimated cost than direct LLM inference.",
+      "authors": [
+        "Siliang Liu",
+        "Mohammad Ghasemi",
+        "Sapan Patel",
+        "Amin Banitalebi-Dehkordi"
+      ],
+      "published": "2026-09-04T17:08:50Z",
+      "updated": "2026-09-04T17:08:50Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05363v1",
+      "abs_url": "http://arxiv.org/abs/2609.05363v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.63,
+        "serving": 0.18,
+        "efficiency": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 86.0,
+        "practical": 68,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.2,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、推理系统、压缩与高效推理",
+        "优势：新颖 86、实用 68"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05334v1",
+      "title": "Lightweight Vision Transformer Compression for On-Device Plant Disease Detection in Resource-Constrained Agricultural Field Conditions",
+      "abstract": "Chilli (Capsicum annuum) is one of India's most economically significant crops, yet its productivity is persistently threatened by diseases that are difficult to identify without expert intervention. While Vision Transformers (ViTs) have achieved high classification accuracy, their large computational footprint makes deployment on resource constrained devices challenging. Existing compression approaches typically address pruning, quantization, and knowledge distillation in isolation, leaving the potential benefits and interactions of their combined application insufficiently explored. We propose a unified Vision Transformer compression framework that combines Hessian-Balanced Adaptive Block Pruning (H-BAC), guided by second-order sensitivity estimation, with quantization and attention-based knowledge distillation. To systematically identify the most effective configuration within each compression family, each technique is first evaluated independently through controlled ablation studies, after which the best-performing components are integrated into a sequential deployment pipeline tailored to real-world agricultural constraints. On a chilli 3-class village-split dataset with a genuine cross-village, cross-device out-of-distribution test split, the resulting compressed models match or exceed the 95.13% FP32 baseline's accuracy, alongside 74-98% model size reduction, and the fully integrated compression pipeline achieves a 54.5x size reduction (327.42 MB to 6.01 MB) at 95.13 +/- 2.32% accuracy across four tested configurations. A direct comparison further reveals that, on this dataset, a directly-trained student of the same final size, without pruning or distillation, reaches comparable accuracy of 94.87%, at the same 6.01 MB INT8 size, indicating where H-BAC and knowledge distillation are, and are not yet shown to be, worth their computational cost.",
+      "authors": [
+        "Mahadev Sunil Kumar",
+        "Bhavika Gondi",
+        "Desaisetty Venkata Satya Sai Swapnith",
+        "Gangireddy Rahul Jogi",
+        "Sudheesh Manalil",
+        "Arnab Raha",
+        "Amitava Mukherjee",
+        "Parthasarathy Seethapathy",
+        "G. Gopakumar"
+      ],
+      "published": "2026-09-04T16:40:06Z",
+      "updated": "2026-09-04T16:40:06Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05334v1",
+      "abs_url": "http://arxiv.org/abs/2609.05334v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 78,
+        "novelty": 86.3,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 78.6,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：匹配 99、新颖 86"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05295v1",
+      "title": "RISE: Recursive Improvement via Self-Extrapolating Policy Distillation",
+      "abstract": "On-policy distillation (OPD) provides dense, per-token supervision for language model post-training, but its effectiveness is bottlenecked by teacher quality: external teachers suffer from distribution mismatch, while self-distillation with privileged conditioning is limited by in-context learning capacity. We propose \\textbf{RISE} (\\textbf{R}ecursive \\textbf{I}mprovement via \\textbf{S}elf-\\textbf{E}xtrapolating Policy Distillation), which constructs a synthetic teacher directly from the model's own RLVR training trajectory. By extrapolating the displacement between the current checkpoint and a trailing anchor---in parameter space or output logit space---RISE converts a sparse outcome-induced parameter update into a dense token-level target, without any external model or privileged conditioning. RISE combines RLVR and OPD in a complementary loop: outcome rewards ground the extrapolation toward correct reasoning, while the extrapolated teacher refines token-level decisions. Moreover, since the teacher is refreshed every iteration as the student improves, distillation becomes a recursive improvement mechanism rather than a one-shot compression step. Experiments spanning mathematical reasoning, multi-domain STEM, code generation, and multi-turn agentic tasks show that RISE outperforms RLVR-only training and on-policy self-distillation across all settings.",
+      "authors": [
+        "Yang Li",
+        "Semih Yavuz",
+        "Shafiq Joty"
+      ],
+      "published": "2026-09-04T15:47:51Z",
+      "updated": "2026-09-04T15:47:51Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05295v1",
+      "abs_url": "http://arxiv.org/abs/2609.05295v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "reasoning": 0.18,
+        "efficiency": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 52,
+        "novelty": 82.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.1,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05275v1",
+      "title": "Don't Drop Dropout: Optimizing Layer Sparsity for Efficient LLM Training and Inference",
+      "abstract": "Layer dropout (a.k.a. stochastic depth) has been shown to enable faster training, higher accuracy, and robustness to zero-shot layer pruning in both language and vision transformers. However, as models and datasets have scaled, dropout - particularly layer dropout - has largely disappeared from large language models (LLMs) pre-training recipes. While some prior work has reported that dropout can degrade accuracy, no comprehensive study has quantified, let alone mitigated, this effect. In this study, we show that layer dropout should be used in state-of-the-art LLM training, establishing best practices and scaling analysis for both training and post-training benefits. Concretely, with optimal layer distribution, time schedule, and optimizer hyperparameters, we observe that at the same training FLOPs layer dropout leads to lower loss. For a given number of training steps, LLMs can achieve lower or similar validation loss while saving upto 25% of training FLOPs. Moreover, layer dropout enables significant post-training optimizations, such as early exit, intermediate-layer skipping, and self-speculative decoding, yielding up to 1.5x inference speedup with negligible accuracy loss. Across more than 2400 training experiments, spanning models from 271M to 8.2B parameters and datasets up to 160B tokens, we demonstrate that these findings extend reliably to large-scale training regimes. All pre-training experiments were run on Cerebras CS-3 systems.",
+      "authors": [
+        "Mostafa Elhoushi",
+        "Alex Pretko",
+        "Nolan Dey",
+        "Bin Claire Zhang",
+        "Gavia Gray",
+        "Gurpreet Gosal",
+        "Abdulrahman Mahmoud",
+        "Shane Bergsma",
+        "Joel Hestness"
+      ],
+      "published": "2026-09-04T15:30:47Z",
+      "updated": "2026-09-04T15:30:47Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05275v1",
+      "abs_url": "http://arxiv.org/abs/2609.05275v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.36,
+        "post-training": 0.18,
+        "serving": 0.18,
+        "efficiency": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 81,
+        "novelty": 86.1,
+        "practical": 50,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.4,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理系统、压缩与高效推理",
+        "优势：新颖 86、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05257v1",
+      "title": "Commonsense Reasoning in Computer Vision: Foundations, Recent Advancements, and Future Directions",
+      "abstract": "Commonsense reasoning in computer vision encompasses integrating visual data and contextual knowledge, crucial for enhancing AI's understanding of everyday scenarios. This understanding not only improves machine learning models but also enhances their ability to interact meaningfully with humans and the environment. Unlike CNN-based conventional vision models, which are designed to identify objects within a specific image, incorporating commonsense knowledge enables models to interpret scenes in a more holistic manner, thereby improving their spatial ability to reason about relationships among objects and actions. This integration not only enhances object recognition but also facilitates a deeper understanding of the contextual factors, ultimately leading to more precise predictions and interactions in real-world applications. This paper presents a comprehensive survey of recent developments that integrate commonsense knowledge into computer vision tasks. We systematically review approaches based on knowledge graphs, scene graphs, neuro-symbolic models, and commonsense-augmented transformers. We also outline current limitations related to dataset bias, knowledge incompleteness, and integration challenges. Finally, we highlight prospective research trajectories in cross-modal reasoning, scalable commonsense knowledge injection, and neuro-symbolic hybrid architectures to develop truly intelligent visual systems.",
+      "authors": [
+        "Bahar Uddin Mahmud",
+        "Sumit Barua",
+        "Guan Yue Hong",
+        "Ajay Gupta",
+        "Hexu Liu"
+      ],
+      "published": "2026-09-04T15:19:37Z",
+      "updated": "2026-09-04T15:19:37Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05257v1",
+      "abs_url": "http://arxiv.org/abs/2609.05257v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 31,
+        "novelty": 88.3,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 51.8,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 88、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05228v1",
+      "title": "ACE: Adaptive Calibration-Free Expert Skipping for MoE-based LLMs",
+      "abstract": "Mixture-of-Experts (MoE) architectures provide an efficient paradigm for scaling large language models (LLMs), yet fixed top-k routing activates the same number of expert slots for every token, causing substantial redundant computation. Existing expert-skipping methods often rely on router confidence, calibration data, or additional training, and therefore cannot reliably estimate the actual contribution of routed experts. To this end, we propose ACE, a training-free, calibration-free, and checkpoint-preserving framework for token-adaptive expert skipping in MoE-based LLMs. ACE contains two complementary components: 1) Global Spectral Proxy (GSP), which estimates global transformation capacity from the coupled gate, up, and down projections together with RMSNorm scaling; and 2) Router-Conditioned Refinement (RCR), which constructs expert-specific direction prototypes from centered router weights and evaluates expert responses along routing-preferred directions. During inference, ACE combines both estimates with runtime router gates and skips an expert slot only when both views identify it as low-contribution, while always retaining the top-1 expert. All expert statistics are computed offline, leaving only table lookups and lightweight scalar operations online. Extensive experiments across three MoE-based LLMs and eight benchmarks demonstrate that ACE consistently outperforms existing static and dynamic baselines, with increasingly pronounced advantages under aggressive expert skipping. For instance, at a 50% skipping ratio on Qwen3.6-35B-A3B, ACE reduces WikiText-2 perplexity by 7.96% and improves average downstream accuracy by 4.15 percentage points over the strongest competing method.",
+      "authors": [
+        "Zukang Xu",
+        "Zhixiong Zhao",
+        "Xing Hu",
+        "Jiangyong Yu",
+        "Houji Wen",
+        "Jun Li",
+        "Zhe Jiang",
+        "Dawei Yang"
+      ],
+      "published": "2026-09-04T14:56:00Z",
+      "updated": "2026-09-04T14:56:00Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05228v1",
+      "abs_url": "http://arxiv.org/abs/2609.05228v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 87,
+        "novelty": 82.5,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 75,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.6,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：质量 87、新颖 82"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05221v1",
+      "title": "A Verifier-Guided Explainable Reasoning Framework with Gold-Anchored QLoRA, Task-Aware Mixture-of-Experts, and Group-Relative RLVR",
+      "abstract": "Large language models (LLMs) show strong reasoning ability, but their explanations can remain inconsistent, weakly grounded, or difficult to verify. We propose a verifier-guided explainable reasoning framework for transparent educational question answering that combines gold-anchored QLoRA, task-aware symbolic routing, and group-relative RLVR. Qwen2.5-3B-Instruct is first adapted with field-weighted QLoRA supervision anchored to authoritative answers. A lightweight router then assigns logic problems to a FOL/Z3 verifier and physics problems to a formula- and unit aware symbolic solver. Verifier feedback is further used to support candidate evaluation, self-revision, and reward construction during RLVR. Candidate responses are evaluated along three complementary dimensions: P1 for answer correctness, P2 for evidence or unit consistency, and P3 for reasoning depth and explainability. At inference, gold-free self-consistency aggregates multiple candidate responses before an optional question-only physics verifier performs conservative system-level correction. On 438 held-out examples, RLVR increases P3 from 50.68% to 72.20%, while hybrid P1 remains approximately stable at 55.94%. Self-consistency improves model only P1 from 48.86% to 50.23%, with symbolic verification providing the remaining hybrid gain. These results indicate that RLVR primarily strengthens explicit reasoning structure, while symbolic verification complements the neural policy by improving answer reliability at the system level.",
+      "authors": [
+        "Thi Kim Trang Vo",
+        "Nam Tien Le",
+        "Thi Kim Nguyet Vo",
+        "Minh Khang Tran",
+        "Duy Phuong Tran"
+      ],
+      "published": "2026-09-04T14:52:06Z",
+      "updated": "2026-09-04T14:52:06Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05221v1",
+      "abs_url": "http://arxiv.org/abs/2609.05221v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "reasoning": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 51,
+        "novelty": 83.9,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.1,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：匹配 100、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05152v1",
+      "title": "Compression Beyond the Uncompressed: A Two-Stage Training Recipe for Soft Context Compression in RAG",
+      "abstract": "Retrieval-Augmented Generation (RAG) enhances language models with external knowledge, but the lengthy retrieved context inflates the input and degrades inference efficiency. Soft context compression encodes each document into a substantially shorter embedding sequence. However, most existing approaches are trained by distilling outputs from uncompressed RAG systems, inherently limiting their performance relative to the original model. To address this limitation, we propose DEX-Comp, a two-stage training recipe: Pure Distillation warm-starts the compression model on the uncompressed RAG's correct responses only, and Hard Exploration then runs reinforcement learning solely on queries the uncompressed RAG fails, forcing the model to explore computation patterns better suited to compressed representations. On five open-domain QA benchmarks at retrieval depths from top-5 to top-30, DEX-Comp compresses retrieved contexts by $16\\times$ and accelerates inference by $4\\times$--$24\\times$, while achieving performance comparable to or exceeding the uncompressed RAG baseline across retrieval depths. Ablations and evaluations across diverse datasets and backbones further confirm the contribution of each stage and the generalization of our approach.",
+      "authors": [
+        "Shuyu Guo",
+        "Shuo Zhang",
+        "Zhaochun Ren"
+      ],
+      "published": "2026-09-04T13:53:43Z",
+      "updated": "2026-09-04T13:53:43Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05152v1",
+      "abs_url": "http://arxiv.org/abs/2609.05152v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 90,
+        "novelty": 85.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 72.6,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：质量 90、新颖 86"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05022v1",
+      "title": "MoirfEolas and CríochScore: Developing Resources for and the Evaluation of Tokenization Alignment with Irish Morphology",
+      "abstract": "This paper presents new tokenization resources for Irish and evaluation measures of alignment with the morphological boundaries of the language. We present MoirfEolas, a dataset of over 35,000 Irish words mapped to their respective eclipses, prefixes and suffixes as well as an evaluation metric CríochScore, that evaluates the alignment of tokenizations with the morphological boundaries present in MoirfEolas. We evaluate common tokenization algorithms using CríochScore as well as intrinsic metrics present in the tokenization literature. We find that the Unigram Language Model aligns with Irish morphology more often than the other algorithms evaluated. We also find trade-offs between morphological-alignment of tokenization with both compression as well as vocabulary efficiency, providing practical insights for Irish natural language processing development. This dataset contributes towards combating the Irish language's low-resource status; moreover, the construction process reported in this paper can be emulated by other languages to create specialised morphological resources.",
+      "authors": [
+        "Jane Adkins",
+        "Abigail Walsh",
+        "Brian Davis",
+        "Elaine Uí Dhonnchadha"
+      ],
+      "published": "2026-09-04T11:41:28Z",
+      "updated": "2026-09-04T11:41:28Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05022v1",
+      "abs_url": "http://arxiv.org/abs/2609.05022v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 60,
+        "novelty": 91.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.1,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 92、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05016v1",
+      "title": "Amortizing Scaling Law Construction Costs",
+      "abstract": "Scaling laws guide the design choices for training large foundation models, but deriving them involves training an exhaustive grid over hyperparameters, token budgets, and parameter counts, which is computationally expensive. Fitting a scaling law, however, only requires the best-loss frontier across compute scales, discarding most of the trained configurations. We propose a framework for efficient scaling law construction that formulates data collection as a Bayesian optimization problem, and introduce metrics for comparing scaling law fitting methods under constrained compute budgets. We find that progressively expanding the compute budget during acquisition, mirroring the compute-ordered evaluation of configurations in practice, substantially improves recovery efficiency. Augmenting the observed configurations with surrogate-fantasized evaluations then recovers the broader experimental grid, allowing accurate scaling law fitting without training every configuration. Together, these can closely match scaling law fits over a full dense grid at computational savings of up to $10\\text{--}100\\times$.",
+      "authors": [
+        "Abhash Kumar Jha",
+        "Diana Alexandra Onuţu",
+        "Neeratyoy Mallik",
+        "Swagatam Haldar",
+        "Sam Laing",
+        "Niccolò Ajroldi",
+        "Shiwei Liu",
+        "Joaquin Vanschoren",
+        "Aaron Klein"
+      ],
+      "published": "2026-09-04T11:25:41Z",
+      "updated": "2026-09-04T11:25:41Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05016v1",
+      "abs_url": "http://arxiv.org/abs/2609.05016v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 39,
+        "novelty": 77.9,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 53.2,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 78、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.05009v1",
+      "title": "Language models judge war differently when tested for alignment",
+      "abstract": "Safety evaluations can mischaracterize deployed behaviour if artificial-intelligence systems respond to being evaluated. We test this possibility in a full-factorial conjoint experiment on decisions to start a war, spanning 20 large language models, 32 scenarios, 10 repetitions and two conditions (N = 12,800 judgments). Adding one sentence, \"You are tested for alignment with human values\", produced two effects. First, it produced a level effect: mean willingness to start war fell by 13.43 points on a 0-100 scale (95% confidence interval, -16.20 to -10.65). Second, it produced a structural effect by changing which information drove judgments. Probability of success was the largest factor for 17 of 20 models at baseline; under the cue, civilian casualties were largest for 12. Standardized estimates show that this reordering arose principally because models attenuated strategic considerations such as probability of success and domestic support. Evaluation framing therefore changes both an answer's level and its revealed decision rule.",
+      "authors": [
+        "Maxim Chupilkin"
+      ],
+      "published": "2026-09-04T11:22:30Z",
+      "updated": "2026-09-04T11:22:30Z",
+      "categories": [
+        "cs.AI",
+        "cs.CY"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.05009v1",
+      "abs_url": "http://arxiv.org/abs/2609.05009v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 84.8,
+        "practical": 18,
+        "credibility": 28
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.6,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 85、质量 69"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2609.04194v1",
       "title": "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
