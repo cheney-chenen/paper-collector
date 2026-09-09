@@ -28328,5 +28328,586 @@
       "优势：新颖 92、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2609.08638v1": {
+    "paper_id": "2609.08638v1",
+    "title": "CASD: Chunk-Aligned Semantic Distillation for Multi-StageRobot Manipulation",
+    "abstract": "An action chunk can span several stages of a manipulation task, yet a label for its first step describes only the current stage. We introduce Chunk-Aligned Semantic Distillation (CASD), which derives semantic targets for entire action chunks. An offline vision--language model segments demonstrations into described stages. Their occupancy within each action chunk determines a weighted semantic target, including transitions between stages. A CASD generator learns to predict this target from the current observation, robot state, and task instruction. We then freeze the generator and train a policy conditioned on its predictions. The semantic branch runs once per policy query, without online VLM calls or reasoning-trace decoding. Teacher matching on annotated LIBERO training episodes is above chance for both single-stage and boundary-crossing chunks. We evaluate three Fast-WAM variants and a DreamZero integration across four benchmarks, including distribution shifts on LIBERO-Plus. Compared with published references, IDM+CASD reaches 98.9\\% versus 98.0\\% average success on LIBERO, while Uncond falls below its reference. Joint+CASD reaches 93.0\\% versus 90.6\\% on RoboTwin 2.0, and DreamZero+CASD reaches a 47.9\\% four-category MolmoSpaces manipulation average versus 40.7\\%. Performance varies across backbone integrations.",
+    "authors": [
+      "Tinghe Ding",
+      "Jiahao Li",
+      "He Wang"
+    ],
+    "published": "2026-09-08T12:07:52Z",
+    "updated": "2026-09-08T12:07:52Z",
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08638v1",
+    "abs_url": "http://arxiv.org/abs/2609.08638v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 87.6,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.6,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 88、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2609.09001v1": {
+    "paper_id": "2609.09001v1",
+    "title": "Deposon: An Auditable, Conservation-Guaranteed, Game-Theoretically Tested Scattering Layer over LLM Reasoning Paths",
+    "abstract": "Multi-step LLM reasoning lacks a machine-recheckable ledger: discarded reasoning paths leave no auditable record. We propose the Deposon scattering layer, which binds each node of an LLM-generated concept-decomposition graph to a two-parameter Deposon state; paths undergo three-channel scattering -- transmission, reflection, irreversible dissipation -- obeying T+R+A=1 for arbitrary parameters, with a maximum per-path energy-audit deviation of 2.2E-16 (machine epsilon). We report all three evidence tiers honestly. On synthetic trap benchmarks the path-filtering gain is closed (pre-registered): unified reaches 100% versus a decoy-capture baseline at 7%/10%. On real benchmarks the layer is indistinguishable from a trivial six-keyword rule filter (GSM8K 0.87 >= 0.85, McNemar p=0.5; StrategyQA 0.899 = 0.899); no difference is detected here, so we sharpen the claim to \"the differential value lies solely in machine verifiability.\" Fusion yields a second negative result: convex combinations with a semantic prior never improve (physics 0.484 -> 0.452), and the apparent lambda=2 gain is an anti-field artifact; any fusion gain must be nonlinear. Modeling the reverse dynamics as a potential game on the graph, we evidence an auditable scalar's monotonicity and near-gradientness and quantify the empirical coordination ratio (ECR). The three formalized dynamical-equivalence propositions (P1a/P1b/T-P1c) are falsified under the pre-registered kill protocol, and the potential-game claim is downgraded to approximate (cyclic-graph median residual 0.669): only consistency-level evidence survives at the dynamical level. Code: github.com/zeroandcat/Deposon.",
+    "authors": [
+      "Qihao Yuan"
+    ],
+    "published": "2026-09-08T16:40:31Z",
+    "updated": "2026-09-08T16:40:31Z",
+    "categories": [
+      "cs.AI",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.09001v1",
+    "abs_url": "http://arxiv.org/abs/2609.09001v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 92.1,
+      "practical": 18,
+      "credibility": 28
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.5,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 92、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2609.08566v1": {
+    "paper_id": "2609.08566v1",
+    "title": "BIO-MEMART: Biometric-Aware KV Cache Memory for Multi-User LLM Agents",
+    "abstract": "KV cache is evolving from a serving optimization into an external memory substrate for long-term LLM agents. In a shared multi-user deployment, however, reusable KV blocks introduce a missing access-control question: semantic relevance alone cannot determine whether a memory block is authorized for the current physical user. We propose Bio-MemArt, a biometric-aware KV-cache memory framework for multi-user LLM agents. Bio-MemArt attaches a normalized biometric template to each stored KV memory block, filters the shared memory pool with the current user's biometric probe, and then runs the original MemArt retrieval and KV reuse pipeline only inside the authorized candidate pool. This design preserves latent-space retrieval, direct cache reuse, and decoupled position encoding while adding physical-user access control to shared KV memory. We evaluate Bio-MemArt under Owner and Non-owner query conditions on long-term dialogue QA with face and palmprint benchmarks. Across face benchmarks, the average owner and non-owner biometric success rates are 95.71% and 0.86%; across palmprint benchmarks, they are 97.60% and 2.00%. In the efficiency study, average prefill tokens drop from 18,781.96 under full-context prompting to 28.57 with Bio-MemArt, showing that biometric gating preserves the low-token operating regime of KV-cache memory.",
+    "authors": [
+      "Yanhong Qian",
+      "Xuanying He",
+      "Qingguo Meng",
+      "Shihao Ding",
+      "Xingbo Dong",
+      "Zhe Jin"
+    ],
+    "published": "2026-09-08T10:56:17Z",
+    "updated": "2026-09-08T10:56:17Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08566v1",
+    "abs_url": "http://arxiv.org/abs/2609.08566v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 87.6,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.3,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2609.08634v1": {
+    "paper_id": "2609.08634v1",
+    "title": "Suan: Rectifying Direct Preference Safety Alignment in Large Language Models",
+    "abstract": "Integrating robust safety guardrails into Large Language Models (LLMs) is essential for delivering helpful yet harmless responses. While proprietary systems exhibit reliable safety controls, their underlying methodologies and trade-offs remain largely undisclosed. Achieving comparable security in open-weight models remains a persistent challenge, as post-trained variants frequently suffer from over-refusal and degraded general quality. To overcome these drawbacks, we introduce Suan, a novel preference optimization algorithm. Unlike existing methods, we formulate the optimization objective directly at the gradient level, bypassing the standard variational derivation. As a result, we obtain more interpretable and robust training dynamics. Extensive evaluations across a diverse suite of competitive baselines and benchmarks demonstrate that Suan achieves superior safety alignment while fully preserving response utility.",
+    "authors": [
+      "Oleksandr Cherednichenko",
+      "Roman Klypa"
+    ],
+    "published": "2026-09-08T12:04:38Z",
+    "updated": "2026-09-08T12:04:38Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08634v1",
+    "abs_url": "http://arxiv.org/abs/2609.08634v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 40,
+      "novelty": 83.3,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.0,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐",
+      "优势：新颖 83、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2609.08739v1": {
+    "paper_id": "2609.08739v1",
+    "title": "Tools-CC-Bench: a Benchmark Suite for Collective Communication with Compression in HPC and AI Workloads",
+    "abstract": "Distributed HPC and LLM workloads increasingly require efficient communication for scalability, yet growing data movement has become a major performance bottleneck. Communication compression can reduce this overhead and complement execution-level optimizations, but its benefits remain difficult to assess because existing benchmarks lack support for diverse backends, realistic datasets, application-specific accuracy metrics, and overlap-induced resource contention. We present CC-Bench, a lightweight, extensible, and application-oriented benchmark suite for evaluating communication compression under realistic execution conditions. CC-Bench uses declarative application-environment modeling to decouple profiling logic from communication libraries, datasets, and fidelity metrics, enabling portable cross-library evaluation. It further combines function-level interception and hardware counter monitoring to characterize per-phase latency, hardware utilization, numerical fidelity, and computation interference. With representative datasets from HPC and LLM workloads, CC-Bench evaluates three compression-enabled communication libraries on CPU and GPU clusters, revealing accuracy-performance trade-offs and bottlenecks to guide practical deployment and optimization.",
+    "authors": [
+      "Haozhe Fan",
+      "Wei Wang",
+      "Xingchen Liu",
+      "Man Liu",
+      "Xingjian Tian",
+      "Haoquan Long",
+      "Zedong Liu",
+      "Daran Sun",
+      "Jinwu Yang",
+      "Bo Yang",
+      "Jie Liu",
+      "Yonggang Che",
+      "Hairui Zhao",
+      "Guangming Tan",
+      "Dingwen Tao"
+    ],
+    "published": "2026-09-08T13:31:47Z",
+    "updated": "2026-09-08T13:31:47Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08739v1",
+    "abs_url": "http://arxiv.org/abs/2609.08739v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 49,
+      "novelty": 90.1,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.7,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 90、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2609.08407v1": {
+    "paper_id": "2609.08407v1",
+    "title": "FastE: Readout-Triggered Token Compression for LLM Embedding Inference",
+    "abstract": "In this study, we identify depth-dependent prefix redundancy in final-readout LLM embedding models, notably across representative backbones including Qwen3-Embedding and Qwen3-VL-Embedding. We find that removing prefix states is substantially more damaging in shallow layers than at greater depth, showing that prefix states become increasingly compressible as the prefix and readout states propagate through the network. To this end, we introduce FastE, a training-free, plug-and-play method. FastE uses a shared fixed threshold on batch-mean readout-prefix alignment as a lightweight online heuristic for selecting when compression occurs, and ranks prefix states by the attention scores they receive from the readout position to determine which states are retained in subsequent layers. Our evaluations demonstrate FastE's ability to substantially reduce computational costs: on NarrativeQA with Qwen3-Embedding-0.6B, it reduces decoder-backbone FLOPs by 40.11% while retaining 99.53% of Full Forward nDCG@10. Across five text embedding benchmarks, two backbone scales, and three cross-modal retrieval tasks, the quality-efficiency trade-off is directly customizable through the maximum removal ratio without retraining. We believe FastE offers practical value for scalable embedding generation in retrieval, indexing, clustering, and multimodal representation systems.",
+    "authors": [
+      "Jinsong Shu",
+      "Jinyong Wen",
+      "Baokun Wang",
+      "Zhongle Xie",
+      "Lidan Shou",
+      "Weiqiang Wang",
+      "Gang Chen"
+    ],
+    "published": "2026-09-08T08:17:21Z",
+    "updated": "2026-09-08T08:17:21Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08407v1",
+    "abs_url": "http://arxiv.org/abs/2609.08407v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 59,
+      "novelty": 84.5,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.6,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 84、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2609.09030v1": {
+    "paper_id": "2609.09030v1",
+    "title": "Answer-Distribution Trajectories: A Stochastic-Dynamics View of LLM Reasoning",
+    "abstract": "Chain-of-thought reasoning provides a structured computation between a model's input and final answer. Yet it is often evaluated through endpoint accuracy, which ignores the path taken to reach that answer. An emerging line of work addresses this limitation using entropy profiles, which track how uncertainty evolves over the reasoning process but do not reveal which competing hypotheses account for that uncertainty. We introduce answer-distribution trajectories, a stochastic-dynamics-inspired representation that tracks the model's full predictive distribution over answers as reasoning unfolds. As a strictly finer representation than endpoint and entropy summaries, answer-distribution trajectories enable us to characterize a trace through a dynamical reasoning profile spanning exploration, revision, motion, and commitment, and to distinguish different dynamical mechanisms of reasoning success and failure. Across sixteen open-weight language models and four reasoning benchmarks, we show that traces with the same endpoint and similar entropy profiles can exhibit substantially different reasoning dynamics. We further find substantial variation in these dynamics both within and across models and tasks, with different objectives favoring different dynamical profiles. Additionally, we show that training and inference choices systematically reshape these profiles. Our results suggest that answer-distribution trajectories provide a rich framework for analysing and evaluating the dynamics of LLM reasoning.",
+    "authors": [
+      "Mar Gonzàlez I Català",
+      "Haitz Sáez de Ocáriz Borde",
+      "Davide Murari",
+      "Carola-Bibiane Schönlieb",
+      "Pietro Liò",
+      "George Montañez"
+    ],
+    "published": "2026-09-08T16:58:40Z",
+    "updated": "2026-09-08T16:58:40Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.IT",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.09030v1",
+    "abs_url": "http://arxiv.org/abs/2609.09030v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 52,
+      "novelty": 85.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 56.0,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2609.08663v1": {
+    "paper_id": "2609.08663v1",
+    "title": "MoEMB: Scaling Universal Multimodal Embeddings with Efficient Mixture-of-Experts Models",
+    "abstract": "Universal multimodal embedding (UME) increasingly demands encoder's capacity for handling a broad range of tasks and modalities with increased complexity. Prior scaling methods either increase the representation size, retrieval effort, or scales the encoder into a heavy multimodal LLM. Recent works, such as Think-Then-Embed (TTE), explore scaling via reasoning tokens. However, embedding models are hard to scale up: increasing parameters directly tradeoffs for the large training batch size that contrastive learning needs, and retrieval has to be served under tight latency. Moreover, UME tasks are diverse in complexity, where scaling up embedders can bring significant redundant computation. In this work, we propose MOEMB, which instead scales UME along the expert axis through mixture-of-experts (MoE), growing encoder capacity while preserving single-vector, non-autoregressive encoding. Through a systematic study of the design space and training recipes for MoE-based UME, MoEMB sets a new state of the art on both MMEB-V2 and MRMR among models trained on public MMEB-family data: with only 3B active parameters, MoEMB surpasses TTE-based methods with >4x active parameters, using significantly less computes. To further improve the scalability and efficiency, we conduct the first comprehensive study of adaptive computation for MoE-based embedding, spanning diverse strategies across training-based and inference-only methods. Together, these results support expert scaling as an effective and efficient direction for UME, with adaptive computation further improving efficiency for MLLM-based embedding models towards large-scale retrieval and recommendation systems.",
+    "authors": [
+      "Xuanming Cui",
+      "Shlok Kumar Mishra",
+      "Wentao Bao",
+      "Aashu Singh",
+      "Zihao Wang",
+      "Xiangjun Fan",
+      "Jun Xiao",
+      "Ser-Nam Lim",
+      "Jianpeng Cheng"
+    ],
+    "published": "2026-09-08T12:29:50Z",
+    "updated": "2026-09-08T12:29:50Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08663v1",
+    "abs_url": "http://arxiv.org/abs/2609.08663v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 30,
+      "novelty": 84.5,
+      "practical": 68,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.3,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理时扩展",
+      "优势：新颖 84、实用 68"
+    ],
+    "summary_zh": null
+  },
+  "2609.09054v1": {
+    "paper_id": "2609.09054v1",
+    "title": "Training-Free Task Vectors for LLM Behavioral Control",
+    "abstract": "Task vectors enable post-training model editing by identifying semantically meaningful directions in weight space, typically computed as the difference between a fine-tuned model and its pretrained initialization. However, this reliance on fine-tuning makes discovering such directions costly and limits the practicality of post-training model editing. To address this limitation, we introduce Training-Free Task Vectors (TFTVs), a novel method to compute task-vector-like directions without requiring fine-tuning. Our method maps activation steering vectors to rank-one weight-space edits using only forward-pass statistics, while satisfying arithmetic properties that directly support learning via addition, forgetting via subtraction, and the composition of multiple edits. Empirically, we evaluate TFTVs on large language model behavioral control tasks and show that they consistently amplify, suppress, and compose target behaviors while preserving general knowledge and problem-solving skills. We also validate our method against other editing and steering baselines, experimentally demonstrating that TFTVs achieve stronger trait control with better or competitive utility preservation. We hope our work opens new directions for the community in post-training model editing and broader training-free model control. Code is available on the project website: tftv-llm.github.io.",
+    "authors": [
+      "Gabriel J. Perin",
+      "Lucas Boscaini",
+      "André Araujo",
+      "Nina S. T. Hirata"
+    ],
+    "published": "2026-09-08T17:10:28Z",
+    "updated": "2026-09-08T17:10:28Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.09054v1",
+    "abs_url": "http://arxiv.org/abs/2609.09054v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 49,
+      "novelty": 86.7,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 47.3,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、质量 49"
+    ],
+    "summary_zh": null
+  },
+  "2609.08936v1": {
+    "paper_id": "2609.08936v1",
+    "title": "AuK Technical Report: An Open-Source Foundational Model for Speech Generation and Editing",
+    "abstract": "We introduce AuK, an open-source foundational model that unifies speech generation and editing through a common interface of natural-language instructions and audio context. To support this broad capability set, we construct approximately 3.03 billion instruction--audio instances and 1.95 million hours of effective supervision across five task families: speech generation, content editing, enhancement and separation, paralinguistic editing, and acoustic editing. AuK combines a multimodal large language model for semantic conditioning, an VAE jointly trained on speech, general audio, and music for acoustic conditioning, and a hybrid rectified-flow Transformer that performs dual-stream MMDiT blocks followed by unified single-stream DiT blocks for generation. Training begins with generation-only warm-up and proceeds to joint generation--editing pre-training. We then apply complementary post-training strategies: human-feedback preference optimization for open-ended editing and reward-based reinforcement learning for speech generation. To reduce inference cost, we further distill the model with consistency initialization and task-routed Decoupled DMD. The resulting AuK-Flash performs 4-step inference without classifier-free guidance and achieves a 4.5 wall-clock speedup over the full model under matched conditions. Experiments demonstrate leading performance on zero-shot and instruction-controlled speech generation and general instruction-guided editing, while remaining competitive on signal-level restoration tasks. We release both the source code and model weights to support reproducibility and further research.",
+    "authors": [
+      "Ziyang Ma",
+      "Zhikang Niu",
+      "Wenming Tu",
+      "Tianrui Wang",
+      "Ruiqi Yan",
+      "Junxi Liu",
+      "Yanru Huo",
+      "Nickk Huang",
+      "Yang Liu",
+      "Qicong Xie",
+      "Zeyu Xie",
+      "Hui Wang",
+      "Haitao Li",
+      "Zixuan Jiang",
+      "Yalin Li",
+      "Jie Fang",
+      "Yifan Duan",
+      "Zeyue Tian",
+      "Guangzheng Li",
+      "Haina Zhu",
+      "Shuyi Wang",
+      "Jinwen Wang",
+      "Mingyu Cui",
+      "Tian Tan",
+      "Auden",
+      "Sen Liang",
+      "Steve Yves",
+      "Shan Yang",
+      "Liefeng Bo",
+      "Zilong Zheng",
+      "Kai Yu",
+      "Eng-Siong Chng",
+      "Xie Chen"
+    ],
+    "published": "2026-09-08T15:59:16Z",
+    "updated": "2026-09-08T15:59:16Z",
+    "categories": [
+      "cs.SD",
+      "cs.CL",
+      "cs.MM"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08936v1",
+    "abs_url": "http://arxiv.org/abs/2609.08936v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 56,
+      "novelty": 81.2,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.3,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐",
+      "优势：新颖 81、质量 56"
+    ],
+    "summary_zh": null
+  },
+  "2609.08851v1": {
+    "paper_id": "2609.08851v1",
+    "title": "Length Generalization for Transformers via Compression",
+    "abstract": "Recent advancements in transformer length generalization theory enable us to reliably predict when a transformer can learn to solve a task. In particular, the C-RASP hypothesis (a formalized version of the so-called RASP-l conjecture) posits that transformers length-generalize on a task if and only if a solution is expressible in the C-RASP language. While this hypothesis has strong empirical validation, theoretical problems arise from the fact that no computable length generalization bounds exist for C-RASP, alongside the discovery of seemingly contradictory experiments. To address these problems, we refine the C-RASP hypothesis utilizing the recently-proposed fragments C-RASP+ and C-RASP1. These fragments have computable length generalization bounds, though in the worst case requiring an extremely large (double exponential) sample size. It is an open question whether these sample size bounds are tight. In this paper, we resolve this open question by providing an exponentially tighter bound. In doing so, we show a polynomial length generalization bound for transformers if we adopt compressed strings, via a novel connection to power words. As an application, we show how this yields a fine-grained analysis of the C-RASP conjecture that resolves contradicting experimental evidence against it.",
+    "authors": [
+      "Georg Zetzsche",
+      "Hongjian Jiang",
+      "Andy Yang",
+      "Pascal Bergsträßer",
+      "Marco Sälzer",
+      "David Chiang",
+      "Anthony W. Lin"
+    ],
+    "published": "2026-09-08T15:03:57Z",
+    "updated": "2026-09-08T15:03:57Z",
+    "categories": [
+      "cs.LG",
+      "cs.FL",
+      "cs.LO"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08851v1",
+    "abs_url": "http://arxiv.org/abs/2609.08851v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 31,
+      "novelty": 88.8,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 44.3,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 89、匹配 45"
+    ],
+    "summary_zh": null
+  },
+  "2609.08576v1": {
+    "paper_id": "2609.08576v1",
+    "title": "Which Forms of Caregiver Feedback Support Grammar Learning? A Reinforcement-Learning Study of Child-Like Language Models",
+    "abstract": "Social interaction is central to children's language learning, but the effects of different forms of caregiver feedback are difficult to isolate in naturalistic data. We use child-like language models as controlled learners to test which forms of feedback support grammatical development. Small GPT-2-style models are pretrained on child-directed language from CHILDES, then fine-tuned with reinforcement learning using reward models trained to capture four feedback types: communicative feedback, structural alignment, semantic contingency, and affective feedback. Reward fine-tuning yields limited gains on minimal-pair evaluations, but clearer effects in free generation. Structural alignment produces the strongest improvements in grammaticality, providing a novel, plausible mechanistic account of how this feedback can support grammar learning. Communicative feedback yields more moderate gains. In contrast, semantic contingency and affective feedback do not improve grammaticality, although further analyses suggest that they may support other aspects of language learning beyond grammar. These results suggest that different forms of caregiver feedback make complementary contributions to language learning.",
+    "authors": [
+      "Jing Liu",
+      "Marianne Schweitzer",
+      "Abdellah Fourtassi"
+    ],
+    "published": "2026-09-08T11:12:11Z",
+    "updated": "2026-09-08T11:12:11Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2609.08576v1",
+    "abs_url": "http://arxiv.org/abs/2609.08576v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 26,
+      "novelty": 86.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 39.3,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 86、匹配 36"
+    ],
+    "summary_zh": null
   }
 }
