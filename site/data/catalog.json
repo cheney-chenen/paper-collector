@@ -1,7 +1,542 @@
 {
   "date": "全部历史",
-  "selected_count": 628,
+  "selected_count": 640,
   "papers": [
+    {
+      "paper_id": "2609.11917v1",
+      "title": "Data Scarcity and Model Sparsity: Mixtures-of-Experts Overfit More to Repeated Data",
+      "abstract": "As the supply of human-written text is exhausted, it has become standard practice to repeat language model training data. Prior work has studied data repetition for densely activated Transformers, but the effects of data repetition remains largely unexplored for recently dominant sparse architectures such as Mixture-of-Experts (MoE), despite their increased compute efficiency. We vary data repetition rates across single- and multi-domain data mixes, and across MoE settings, including expert count and granularity. We consistently find, for models ranging from 80M to 1B active (8.5B total) parameters, that MoEs degrade more rapidly under data repetition. This effect increases with sparsity, dictated by total rather than active parameters. While 80M dense models can repeat data over 8x with minimal degradation, MoEs instead begin to suffer at 4x, and deteriorate rapidly, ceding their performance benefits in all-unique data settings to underperform dense models after 32x. We experiment with existing regularization methods as a potential remedy. We find that some methods, such as dropout, can mitigate overfitting. In particular, with strong masking-based regularization, MoEs are able to outperform dense models even when data is repeated more than 64 times. However, no method fully matches the performance of all-unique training data. Finally, we analyze internal mechanisms correlated with MoE overfitting in high repetition regimes, and find that MoE routing universally stabilizes early in training, and that expert specialization correlates with overfitting to repeated data. In sum, our work addresses the adverse interactions between sparsity and data repetition: we present evidence for the core mechanisms of overfitting and its potential remediation, and suggest promising avenues for future methods to reduce over-specialization in model parameters by disrupting memorization patterns.",
+      "authors": [
+        "Atindra Jha",
+        "Margaret Li",
+        "Jure Leskovec",
+        "Percy Liang",
+        "Luke Zettlemoyer"
+      ],
+      "published": "2026-09-10T17:57:33Z",
+      "updated": "2026-09-10T17:57:33Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11917v1",
+      "abs_url": "http://arxiv.org/abs/2609.11917v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 85.7,
+        "practical": 32,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 86、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11892v1",
+      "title": "Nuha-Speech: Building General-Purpose Arabic Speech-LLMs",
+      "abstract": "As Speech Large Language Models (speech-LLMs) become increasingly multilingual, Arabic remains significantly underrepresented, highlighting the need for dedicated infrastructure to train and evaluate Arabic speech-LLMs. To address this gap, we introduce Nuha-Speech, a comprehensive initiative to develop general-purpose Arabic speech-LLMs spanning dataset construction, model training, and systematic evaluation. Specifically, we constructed a large-scale Arabic Speech Question-Answering (SQA) corpus comprising over 1.5 million training samples to allow instruction tuning over a broad range of core speech tasks. Then, the corpus was used for supervised fine-tuning based on Qwen-Omni model variants at different scales. Finally, we designed an evaluation framework featuring diverse tasks and tailored metrics. Through this work, we aim to establish foundational infrastructures for Arabic Speech-LLMs under constraints imposed by limited Arabic speech resources.",
+      "authors": [
+        "Yingzhi Wang",
+        "Reem Alhazzani",
+        "Muhammad Alqurishi"
+      ],
+      "published": "2026-09-10T17:50:35Z",
+      "updated": "2026-09-10T17:50:35Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11892v1",
+      "abs_url": "http://arxiv.org/abs/2609.11892v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 44,
+        "novelty": 88.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 44.4,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 88、质量 44"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11744v1",
+      "title": "Building py-kvcache: A Performance Characterization of External KV Caching for vLLM with NVMe SSDs",
+      "abstract": "Prefix caching can reduce the time to first token (TTFT) of long-context LLM requests by reusing previously computed key-value (KV) states, but for short prefixes or fast GPUs, recomputation can be faster than loading from an external cache. We characterize this tradeoff in vLLM across GPU, CPU, and NVMe tiers using synthetic workloads, long-context benchmarks, production traces, and find that cache performance depends on transfer granularity, intermediate memory use, and when transfers enter the request schedule, not only on device bandwidth. These findings motivate py-kvcache, a vLLM KV Offload connector with asynchronous direct I/O, bounded shared staging, and scheduler-aware preloading, which starts disk reads while requests are still waiting, overlapping with compute. At 80k tokens, py-kvcache loading from disk is 2.0x faster than LMCache, with preloading contributing 1.34x. With GPU, CPU, and disk caching enabled, it is 1.23x faster than LMCache and within approximately 4% of the native vLLM KV Offload implementation. LongBench and SCBench show that these benefits extend to irregular prefix chains and multi-turn workloads. Bailian trace replays improve TTFT on a weaker GPU, but on an H100 the average request falls below the break-even point and GPU memory alone retains enough prefixes. External KV caching should therefore be treated as a setup specific admission decision. The py-kvcacheimplementation is available at: https://github.com/atlarge-research/py-kvcache.",
+      "authors": [
+        "Joseph Kanichai",
+        "Tiziano De Matteis",
+        "Animesh Trivedi"
+      ],
+      "published": "2026-09-10T16:00:35Z",
+      "updated": "2026-09-10T16:00:35Z",
+      "categories": [
+        "cs.DC",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11744v1",
+      "abs_url": "http://arxiv.org/abs/2609.11744v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 59,
+        "novelty": 84.4,
+        "practical": 50,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 67.6,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 84、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11739v1",
+      "title": "LOCUS: Task-Aware Low-Rank Post-Training for Token-Efficient Language Generation",
+      "abstract": "Large language model serving costs scale directly with output sequence length, yet standard preference alignment often inflates response verbosity without improving utility. We study whether the parameterization of post-training updates affects generation length: low-rank subspaces alter sequence length without modifying the alignment loss. We present LOCUS, a method that selects a task-aware low-rank adaptation subspace to minimize output-token cost subject to a utility constraint. Within this subspace, post-training retains the native preference objective with a frozen backbone. Across Anthropic HH-RLHF dialogue preferences, we evaluate two $\\sim$3B decoder backbones, Pythia-2.8B and Qwen2.5-3B, against protocol-matched full-parameter DPO and DrDPO branches and the released SamPO checkpoint. LOCUS reduces continuation length by up to 39.84\\% on Pythia-2.8B and by 14.87--17.58\\% on Qwen2.5-3B while updating only 0.24--0.28\\% of model parameters, with no material change in the internal preference diagnostic.",
+      "authors": [
+        "Dongfang Zhao"
+      ],
+      "published": "2026-09-10T15:53:25Z",
+      "updated": "2026-09-10T15:53:25Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11739v1",
+      "abs_url": "http://arxiv.org/abs/2609.11739v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.99,
+        "serving": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 51,
+        "novelty": 88.2,
+        "practical": 45,
+        "credibility": 28
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 71.5,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理系统、压缩与高效推理",
+        "优势：匹配 99、新颖 88"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11687v1",
+      "title": "Structured Transforms for Low-Overhead Quantization of Language Models",
+      "abstract": "We revisit Kashin-decomposition-based weight quantization for large language models and propose an improved algorithm with stronger convergence properties and structured, efficient orthogonal transforms. The method retains the core factorization of each weight into two components -- one with bounded infinity norm and the other with bounded infinity norm after an orthogonal transformation -- but replaces the dense random orthogonal matrix with a sign-randomized Discrete Cosine Transform (DCT), reducing the per-iteration cost from $\\mathcal{O}(N^2)$ to $\\mathcal{O}(N \\log N)$. The proposed greedy algorithm with alternating updates guarantees the four-peak distribution required for stable 2-bit clustering of each factor and admits closed-form initialization of cluster centers, removing the multi-restart k-means bottleneck of prior work. Composed with OPTQ-style sequential error compensation and QuIP-style incoherence preprocessing, the resulting JAX pipeline is competitive with OPTQ, QuIP, QuIP-RG and a fine-tuning- and vector-quantization-free variant of QuIP# at 4-bit per channel on OPT, Llama-2 and Pythia, with favorable wall-clock scaling. The bounded-$\\ell_\\infty$ factorization is also notably robust: on stress configurations where QuIP variants diverge to four-digit perplexity (Pythia-6.9B) or abort with NaNs in LDL back-substitution (Mistral-7B), Kashin-DCT remains numerically stable and stays close to FP16 baseline. At inference time, each weight decomposes into two 2-bit factor codes per channel that are structurally suited to native-2-bit hardware.",
+      "authors": [
+        "Daria Cherniuk",
+        "Alexander Rudikov",
+        "Boris Kashin",
+        "Ivan Oseledets"
+      ],
+      "published": "2026-09-10T15:15:50Z",
+      "updated": "2026-09-10T15:15:50Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11687v1",
+      "abs_url": "http://arxiv.org/abs/2609.11687v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 51,
+        "novelty": 91.3,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.5,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 91、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11620v1",
+      "title": "A Training-Free, Alignment-Free Approach to Corporate Intelligence: Application to SEC Filings",
+      "abstract": "High-dimensional dense text embeddings and large language models face real obstacles in financial-disclosure analysis: context-window limits, hallucination risk, high computational cost, and the arbitrary rotation of vector spaces across independently trained models. We present a training-free, alignment-free framework for corporate intelligence built on deterministic sparse seed vectors. Hashing word strings into a fixed high-dimensional basis places all documents and all temporal epochs in a common coordinate system by construction, removing any need for training or alignment. Accumulating these seed vectors across sentence contexts yields corpus-specific semantic signatures that compose linearly, supporting sub-second document comparison, issuer fingerprinting, tracking of how an issuer's vocabulary shifts between filings, and thematic sentence extraction, all on ordinary CPU hardware. Demonstrating the approach on a multi-year corpus of SEC filings (10-K, 10-Q, 8-K), we show how material corporate events, among them Boeing's 737 MAX crisis, Intel's supply-chain disruptions, and Bunge's acquisition of Viterra, emerge as distinct, interpretable semantic profiles, each traceable to the exact source sentences that produced it, with no domain-specific training and no LLM inference.",
+      "authors": [
+        "Jean-François Delpech"
+      ],
+      "published": "2026-09-10T14:32:35Z",
+      "updated": "2026-09-10T14:32:35Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11620v1",
+      "abs_url": "http://arxiv.org/abs/2609.11620v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 38,
+        "novelty": 90.2,
+        "practical": 27,
+        "credibility": 28
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 53.2,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理系统",
+        "优势：新颖 90、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11412v1",
+      "title": "X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation",
+      "abstract": "Reducing audio-encoder depth lowers the inference cost of speech large language models, but removing complete blocks perturbs the embeddings consumed by the decoder and can cause deletion and premature end-of-sequence errors. We introduce X-AuT, a progressive framework that selects layer combinations through short behavioral probes and restores the pruned model through representation alignment, cross-scale distillation, scheduled student-policy supervision, and LoRA finetuning. The language-model backbone remains frozen, while attention LoRA adapters and the tied output embedding adapt during distillation. Training uses the highest-agreement tier from a transcript-consistency pipeline, followed by source reweighting during finetuning. On ten public Chinese--English benchmarks, compressing Qwen3-ASR-0.6B from 18 to 16 audio-encoder layers reduces macro-average error from 5.61% to 5.27%. The 14-layer model reaches 5.75% with 20.7% fewer audio-tower parameters. Under the matched recipe, the 1.7B teacher yields 5.55% mean error, compared with 8.45% for self-distillation, and progressive 18$\\rightarrow$14 pruning outperforms direct pruning (5.75% vs. 6.73%). These single-run results establish two practical operating points and show that the accuracy effects vary across benchmarks. Project website: https://xpeng-ai.github.io/x-aut",
+      "authors": [
+        "Haojun Zhang",
+        "Yi Zou",
+        "Min Chen",
+        "Qize Yu",
+        "Lianrui Fan",
+        "Xini Ding",
+        "Hao Li",
+        "Shuchang Zhou",
+        "Xianming Liu",
+        "Shiyu Huang"
+      ],
+      "published": "2026-09-10T11:43:17Z",
+      "updated": "2026-09-10T11:43:17Z",
+      "categories": [
+        "cs.SD",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11412v1",
+      "abs_url": "http://arxiv.org/abs/2609.11412v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36,
+        "efficiency": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 72,
+        "novelty": 83.9,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 75.6,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：匹配 100、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11393v1",
+      "title": "Beyond Confidence: Stability-Aware Test-Time Adaptation for LLM Reasoning",
+      "abstract": "Test-time adaptation has emerged as a lightweight alternative to costly post-training for improving the reasoning capabilities of Large Language Models (LLMs) on downstream tasks. Predictive entropy provides a model-derived signal for such adaptation, guiding models toward higher-confidence reasoning states without external verifiers or reward models. However, higher confidence does not necessarily imply correctness, as LLMs may remain highly confident along incorrect reasoning trajectories. We observe that high-confidence reasoning is more likely to be correct when confidence remains stable under local perturbations. Based on this observation, we propose Test-Time Adaptation via Stability-Aware Confidence Optimization (TASCO), a framework that incorporates local stability into confidence-based test-time adaptation while keeping the LLM frozen. TASCO operationalizes local stability by optimizing a lightweight task-level prefix under two alternative perturbation strategies: Random Perturbation promotes distributional stability across trajectories induced by nearby perturbed prefixes, whereas Sharpness-Aware Perturbation targets worst-case local sensitivity. Experiments demonstrate that TASCO improves reasoning accuracy and token efficiency across diverse LLMs and reasoning benchmarks, while behavioral analyses show that it maintains stable confidence under local perturbations without prematurely concentrating the model's predictive distribution.",
+      "authors": [
+        "Bincheng Gu",
+        "Min Gao",
+        "Zongwei Wang",
+        "Yibing Bai",
+        "Yulan He",
+        "Junliang Yu"
+      ],
+      "published": "2026-09-10T11:29:18Z",
+      "updated": "2026-09-10T11:29:18Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11393v1",
+      "abs_url": "http://arxiv.org/abs/2609.11393v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 40,
+        "novelty": 84.8,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.3,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 85、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11319v1",
+      "title": "Magenta: Closing the Loop Between Mathematical Reasoning and Lean Verification",
+      "abstract": "Most of mathematical knowledge has been communicated through so-called informal use of mathematics and natural language. With large language models (LLMs) being highly adept in using natural language, they achieve strong performance, yet not perfect, in informal mathematical reasoning. Restraining LLMs to informal reasoning misses out on the opportunity to use the discrete verification abilities that machines offer through machine-checkable proofs. In this paper, we bridge the gap between informal and formal reasoning by integrating Lean signals into the informal reasoning process. We introduce Magenta, a training-free agentic pipeline that, given only a natural-language problem, produces an answer, expresses it as a Lean 4 statement, and constructs a machine-checked proof. A statement judge verifies whether the formalisation preserves the original problem, while an error-attribution judge routes failed attempts either to mathematical re-derivation or local Lean repair. Magenta achieves 100% accuracy across all evaluated olympiad benchmarks, including AIME 2025, AIME 2026, and HMMT February 2026. When paired with the open-weight K2-Horizon-7B reasoner, it solves all six IMO 2026 problems. Our analysis shows that statement adjudication is essential for preventing false certificates and that feedback-guided correction outperforms independent resampling on difficult problems.",
+      "authors": [
+        "Joshua Ong Jun Leang",
+        "Haonan Li",
+        "Zheng Zhao",
+        "Xinyi Shang",
+        "Wenda Li",
+        "Zhengzhong Liu",
+        "Erix Xing",
+        "Shay Cohen",
+        "Eleonora Giunchiglia"
+      ],
+      "published": "2026-09-10T09:48:07Z",
+      "updated": "2026-09-10T09:48:07Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11319v1",
+      "abs_url": "http://arxiv.org/abs/2609.11319v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 87.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.8,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 88、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11315v1",
+      "title": "Routing by Reasoning Need: Trajectory-Aware Decoding Control for Diffusion Vision-Language Models",
+      "abstract": "Diffusion vision-language models generate answers through iterative refinement, exposing intermediate answer trajectories that can be inspected and controlled at inference time. However, this controllability creates a reasoning-need mismatch, where a universal generation length is applied to questions with different reasoning demands. Visually closed questions may be harmed by continued refinement after a stable answer has formed, whereas reasoning-sensitive questions may be harmed by premature commitment. We formulate this problem as reasoning-budget mismatch and study it in LLaDA-V. Rather than choosing a universal generation length, our training-free controller routes each example to early commitment, baseline preservation, or reasoning-supportive decoding using trajectory signals from answer closure, commitment evidence, and representation revision pressure, without using ground-truth answers. Across answer-focused, mixed-reasoning, and CoT-sensitive benchmarks, routed control improves robustness over fixed long decoding, pure short decoding, and single-rule interventions. The gains are not explained by shorter outputs alone. Answer-closed examples often benefit from commitment, whereas CoT-sensitive examples require preserving or supporting intermediate reasoning. Taken together, these results suggest diffusion VLM decoding should route inference-time control by the state suggested by the observed trajectory instead of relying on a universal decoding length.",
+      "authors": [
+        "Yixiang Liu",
+        "Zhongxing Xu",
+        "Zhonghua Wang",
+        "Xiaoying Tang"
+      ],
+      "published": "2026-09-10T09:41:19Z",
+      "updated": "2026-09-10T09:41:19Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11315v1",
+      "abs_url": "http://arxiv.org/abs/2609.11315v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 52,
+        "novelty": 83.8,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.7,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11294v1",
+      "title": "Memory Compression for High-Fanout Agent Sandboxes",
+      "abstract": "High-fanout agent workloads create a growing memory bottleneck because a single task may spawn many concurrent sandbox sessions. Yet these sandboxes are far from independent: they originate from a shared template and execute related trajectories, exposing substantial template-relative and cross-sandbox memory redundancy. Conventional memory compression is poorly matched to this setting in three fundamental dimensions: how to compress, because they fail to exploit similarity across non-identical sandbox pages; what to compress, because they control page-fault overhead through conservative page selection; and when to compress, because compression is either triggered by memory pressure or performed without awareness of agent execution phases. We present AgentZip, the first memory compression system designed specifically for AI-agent sandboxes. AgentZip introduces compression mechanisms that exploit both the template-relative and cross-sandbox redundancy. It broadens the compression scope to any page with a profitable representation and shifts overhead control from compression-time page selection to restore-time prefetching. It further aligns expensive compression with LLM waiting periods to avoid interfering with foreground tool execution. Across LLM training and inference workloads, AgentZip reduces sandbox-owned memory by up to 8.7x, compared with 2.1x for the Linux configuration. Restore prefetching and agent-execution-aware scheduling reduce the slowdown of aggressive compression from as high as 3.1x to 1.40x while retaining nearly all of its memory-saving benefit.",
+      "authors": [
+        "Mengming Li",
+        "Ceyu XU",
+        "Qijun Zhang",
+        "Jiangnan Yu",
+        "Xiangfeng Sun",
+        "Haohui Mai",
+        "Zhiyao Xie"
+      ],
+      "published": "2026-09-10T09:25:43Z",
+      "updated": "2026-09-10T09:25:43Z",
+      "categories": [
+        "cs.AI",
+        "cs.OS"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11294v1",
+      "abs_url": "http://arxiv.org/abs/2609.11294v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 50,
+        "novelty": 88.8,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.4,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 89、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.11291v1",
+      "title": "Off-Target Effects of Response-Style Alignment in a Korean 27B Language Model",
+      "abstract": "We post-train Qwen3.8-27B for Korean response style -- verbosity, list and markdown usage, discourse structure and register -- and measure two behaviours the objective never targets: abstention on ambiguous social questions in KoBBQ, where the benchmark-correct answer is UNKNOWN, and unprompted disclosure in securities guidance. Both move, and the changes are expressed primarily through the model's emission policy: how often it answers and how much it says. Matched target-form controls show that answer propensity depends on the training target, not the prompt set or recipe alone. Holding prompts, recipe, data volume and serving fixed and changing only the target text, three style seeds give positive answer-rate point estimates (mean +0.82 pp) and three neutral seeds negative ones (mean -1.53 pp); the observed seed ranges do not overlap and the means differ by 2.34 pp. A length-matched arm lies between them, and a fourth arm that stays short while preserving hedging is unstable across seeds, so which feature of the form is responsible is unresolved. For absolute stereotyped exposure the decomposition into an answer-propensity term and a conditional-composition term is an algebraic identity, not a finding; its empirical content is where the movement went. Across the trained checkpoints the changes are dominated by answer propensity while the composition term stays small, and because that term is evaluated on treatment-dependent answered subsets we do not read it as evidence about latent preference. Two measurement results follow. A between-arm contrast in conditional stereotyped share does not identify a change in conditional content preference when answer status is treatment-dependent. And agreement between two rule detectors for the same construct runs from 0.44 to 0.99 depending on which checkpoint produced the text -- observable without any reference labels.",
+      "authors": [
+        "Hyojung Han"
+      ],
+      "published": "2026-09-10T09:23:04Z",
+      "updated": "2026-09-10T09:23:04Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.11291v1",
+      "abs_url": "http://arxiv.org/abs/2609.11291v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 60,
+        "novelty": 87.6,
+        "practical": 27,
+        "credibility": 28
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.0,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 88、质量 60"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2609.10445v1",
       "title": "Building Multilingual Bridges: Data Mixing as the Pillar of Generalization for In-Language Reasoning",
