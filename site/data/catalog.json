@@ -1,7 +1,568 @@
 {
   "date": "全部历史",
-  "selected_count": 670,
+  "selected_count": 682,
   "papers": [
+    {
+      "paper_id": "2609.38166v1",
+      "title": "LeapQuant: Efficient Linear Attention with Accurate Recurrent State Quantization",
+      "abstract": "Recent LLMs increasingly adopt hybrid designs that replace standard attention with linear attention, such as Gated DeltaNet (GDN) and Kimi Delta Attention (KDA). Although they compress the context into a fixed-size recurrent state and substantially reduce the cost of long-context processing, repeatedly reading and updating that state remains a major inference bottleneck. Quantization offers a natural way to reduce this cost, but can significantly degrade model quality, due to the accumulation of rounding errors and the presence of outlier rows and columns in the state. To address these challenges, we propose LeapQuant, a training-free method that achieves near-lossless performance under 8-bit recurrent-state quantization. First, to mitigate error accumulation, we propose per-window quantization, which leaps over a window of tokens and quantizes the state only once at its end. Within a window, outputs are computed from the fixed low-bit state together with high-precision buffered updates. Second, to reduce the error introduced by each quantization, LeapQuant retains the state's largest outliers as a few high-precision Compensator Tokens, which share the update path of real tokens. We then smooth the remaining residual before quantization to further reduce the error. Comprehensive experiments across the Qwen, Kimi, and GLM model families show that LeapQuant substantially reduces memory and compute costs during inference. With accuracy comparable to the FP32 baseline, it achieves average speedups of 2.05--3.70$\\times$ at the kernel level and 1.47$\\times$ for end-to-end inference on NVIDIA B200, RTX PRO 6000, and RTX 5090 GPUs.",
+      "authors": [
+        "Yi Pan",
+        "Haocheng Xi",
+        "Kan Zhu",
+        "Xingyang Li",
+        "Yibo Wu",
+        "Mayank Mishra",
+        "Hongtao Zhang",
+        "William X. Zheng",
+        "Baris Kasikci",
+        "Song Han",
+        "Kurt Keutzer",
+        "Rishabh Iyer",
+        "Ion Stoica"
+      ],
+      "published": "2026-09-29T17:59:34Z",
+      "updated": "2026-09-29T17:59:34Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.38166v1",
+      "abs_url": "http://arxiv.org/abs/2609.38166v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 84.8,
+        "practical": 63,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.1,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 85、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.38149v1",
+      "title": "Pretraining Latent Information Feedback Transformers with Teacher Supervision",
+      "abstract": "Transformer language models (LMs) are feed-forward: deep-layer representations are never fed back to shallower layers, and the only pathway for information to flow downward across generation steps is the decoded token. This narrow channel forces models to recompute intermediate results and to discard alternative continuations. In this work, we remove this bottleneck during pretraining, introducing the LIFT (Latent Information Feedback Transformer) architecture and training method which enable LMs to propagate state across generation. We achieve this by turning recurrent-state learning into a teacher-forced prediction problem: each input token is paired with an information-dense state, derived from the next-token distribution of an off-the-shelf pretrained LM. The model, extended with a small number of additional parameters, is then trained to predict both the next token and the next state. As the input states are precomputed, pretraining remains fully parallel across positions. At inference, the model's own predicted states are fed back, with a minor computational overhead that decreases with model size. Experiments with pretrained models ranging from 135M to 1B parameters show that LIFT consistently outperforms standard Transformers and baselines on language modeling, downstream reasoning tasks, and procedural tasks under token-matched budget, while being on par with or ahead of compute-matched Transformers. Moreover, a controlled study on a state-tracking task shows that a tiny LIFT outperforms same-size Transformers trained on 8x more data, even when trained with the states of a Transformer that fails the task. Overall, we show that LMs can learn to exploit deep-to-shallow feedback during pretraining via scalable teacher supervision.",
+      "authors": [
+        "Dor Tirosh",
+        "Ido Amos",
+        "Mor Geva"
+      ],
+      "published": "2026-09-29T17:57:40Z",
+      "updated": "2026-09-29T17:57:40Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.38149v1",
+      "abs_url": "http://arxiv.org/abs/2609.38149v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 61,
+        "novelty": 85.6,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.8,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理时扩展",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.38070v1",
+      "title": "Probability is Not Enough: Exploring and Counting Divergent Tokens for Reasoning Uncertainty Quantification in LLMs",
+      "abstract": "As the chain-of-thought reasoning capabilities of large language models improve, evaluating and calibrating their reasoning confidence is becoming increasingly important for quantifying the uncertainty of their answers. Current methods for estimating the confidence of large language models are generally based on probabilities of selected key tokens, but the underlying mechanism remains unclear. Our pilot study finds that replacing selected token probabilities with coarse substitutes can also improve calibration, motivating us to further explore effective signals of model confidence. We introduce Divergent Token Confidence (DTC), a framework that estimates confidence by counting tokens at which two models strongly disagree during decoding. DTC identifies these divergent tokens using the Jensen-Shannon divergence between next-token distributions evaluated along the same reasoning trajectory. We find that their count is almost negatively associated with answer accuracy, thereby serving as a simple yet effective signal for uncertainty quantification. DTC supports both white-box and black-box evaluation using auxiliary models, without explicit training and affecting the generation process. Experiments across multiple model families and six mathematical benchmarks demonstrate improved calibration over probability-based and verbalized baselines. Under white-box evaluation, the count-only estimator achieves an average expected calibration error of 13.0%, compared with 32.7%-42.4% for standard full-sequence confidence methods. In black-box settings, it also improves calibration over the original verbalized scores. For example, mean expected calibration error falls from 32.1%-40.2% to 13.7%-16.3% on DeepSeek-V3.2. These findings provide new insights for improving reasoning uncertainty quantification in large language models. The code is released at https://github.com/szu-tera/DTC.git.",
+      "authors": [
+        "Feiyang Li",
+        "Shengjing Liu",
+        "Qi Zhan",
+        "Sijie Cheng",
+        "Weiqing Wang",
+        "Hongwen Chen",
+        "Yuxuan Yang",
+        "Wen Wang",
+        "Yile Wang",
+        "Hui Huang"
+      ],
+      "published": "2026-09-29T17:33:36Z",
+      "updated": "2026-09-29T17:33:36Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.38070v1",
+      "abs_url": "http://arxiv.org/abs/2609.38070v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 90,
+        "novelty": 82.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.5,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：质量 90、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.38011v1",
+      "title": "When do data mixtures improve scaling laws? Insights from high-dimensional regression",
+      "abstract": "Modern machine learning systems are trained on mixtures of data from different domains, and choosing the right mixture can substantially improve downstream performance. Despite an extensive literature on data mixing and reweighting, existing work is largely empirical and it remains unclear when auxiliary data genuinely improves scaling laws rather than merely providing more samples. To gain insight into this question, we study a high-dimensional mixed-data regression model with a shared regression function, heterogeneous covariances and noise levels, and dataset sizes that may grow at different rates. We establish the minimax risk under an ellipsoidal parameter constraint for the general covariance structure and derive deterministic equivalents for the test error of ridge regression under commutative covariances. We then specialize to a target domain and an auxiliary domain with aligned power-law covariance spectra, where the theory yields explicit scaling laws in terms of spectral decay, target regularity, and the relative growth of the two datasets. These laws identify regimes in which combining data mixtures provably yields a faster scaling rate than using either dataset alone. In particular, improving the scaling law requires a specific interplay between spectra and relative sample sizes of the domains. Our numerical experiments on language models exhibit the same qualitative phenomenon: appropriate data mixtures yield a faster decrease in target-domain test loss than training on either domain alone.",
+      "authors": [
+        "Diyuan Wu",
+        "Lehan Chen",
+        "Theodor Misiakiewicz",
+        "Marco Mondelli"
+      ],
+      "published": "2026-09-29T16:59:23Z",
+      "updated": "2026-09-29T16:59:23Z",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.38011v1",
+      "abs_url": "http://arxiv.org/abs/2609.38011v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 52,
+        "novelty": 84.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.4,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：匹配 100、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37988v1",
+      "title": "KV-Kaizen: Learning Context-Adaptive Cache Compression Choices",
+      "abstract": "As the context size of text processed with an LLM grows, the size of KV caches can outstrip the memory allocated for the original model weights. This impacts LLM throughput negatively, since decoding is memory-bound and decode cost grows with cache size. Recent work alleviates this bottleneck by discarding the least relevant tokens. Eviction introduces a tension, since a one-off decision to discard content may prove detrimental later. Instead, we focus on alternative choices that can lead to cache compression without evicting tokens. We achieve this by learning a selector that is able to produce, based on context, a per-layer cache configuration towards an overall compression budget. The selector operates along three axes: sharing one cache across layers (depth), caching at fewer bits (precision), or truncating the low-rank latent cache representations (rank). We call the resulting method KV-Kaizen, for the many small per-layer choices it compounds. We observe that these interventions taken independently and uniformly over all layers limit achievable compression because they degrade accuracy. Crucially, composing them locally and adaptively to the context can instead preserve accuracy while achieving large memory savings. At inference, the selector runs once, before pre-fill. In evaluations on instruction following and reasoning tasks, our selectors reach the Pareto frontier of accuracy against cache size, against learning-free and post-hoc baselines. On long-context tasks, KV-Kaizen improves on eviction and can be composed with it, reaching a 32x smaller decode-time cache on a 14B model while preserving accuracy. A 4x cache size reduction incurs no accuracy degradation from 7B parameters up, and a compressed model is more accurate than a smaller uncompressed one with the same cache size. Together, these findings support pre-training large models and compressing them only afterwards.",
+      "authors": [
+        "Joao Monteiro",
+        "Louis Béthune",
+        "Anastasiia Filippova",
+        "Sonia Laguna",
+        "David Grangier",
+        "Marco Cuturi"
+      ],
+      "published": "2026-09-29T16:49:46Z",
+      "updated": "2026-09-29T16:49:46Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37988v1",
+      "abs_url": "http://arxiv.org/abs/2609.37988v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "reasoning": 0.18,
+        "serving": 0.36,
+        "efficiency": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 59,
+        "novelty": 85.4,
+        "practical": 68,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理时扩展、推理系统、压缩与高效推理",
+        "优势：新颖 85、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37976v1",
+      "title": "$S^3$: Spectral Null-Space Swap Makes Reasoning Models Efficient",
+      "abstract": "LLMs trained with Chain-of-thought excel in reasoning capability, but often come with excessive token cost. We find that the core of reasoning capacity lies in the Thinking model's weight component within the null space of a projection defined by the corresponding Non-thinking model's dominant singular directions, and removing the subspace component can largely improve reasoning efficiency without hurting the accuracy gained during thinking-mode post-training. Unlike existing efforts that mostly operate within the dominant subspace, we are the first to unveil the critical role of the null space and harness it for model optimization. Motivated by this finding, we propose Spectral Null-Space Swap ($S^3$), a training-free composition of paired Non-thinking and Thinking checkpoints. Our method keeps the Non-thinking model inside its own dominant subspace and takes the Thinking checkpoint outside it, improving reasoning efficiency while maintaining accuracy. We extensively evaluate $S^3$ on 2B-30B dense and mixture-of-experts (MoE) architectures spanning 28 evaluation environments across mathematical, multimodal, and audio reasoning domains. $S^3$ establishes new empirical Pareto Frontiers among training-free model composition strategies: across all settings, it reduces inference token overhead by an average of 27.4% compared to full Thinking models while simultaneously improving overall task accuracy by 1.0 percentage point (e.g., yielding +8.3% accuracy on HMMT25 alongside a 33.0% token speedup). We further use attention entropy for explanation and find that the retained component produces more concentrated attention, and we use a simplified analytical model about optimization to demonstrate why null-space can effectively reduce attention entropy, thereby improving the efficiency of reasoning.",
+      "authors": [
+        "Hongbo Ma",
+        "Sansheng Cao",
+        "Jiajun Fan",
+        "Bangji Yang",
+        "Ge Liu"
+      ],
+      "published": "2026-09-29T16:44:32Z",
+      "updated": "2026-09-29T16:44:32Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37976v1",
+      "abs_url": "http://arxiv.org/abs/2609.37976v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.18,
+        "reasoning": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 72,
+        "novelty": 85.7,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 77.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理时扩展",
+        "优势：匹配 100、新颖 86"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37914v1",
+      "title": "The Unequal Influence of Bad Advice: Using Training Data Attribution to Modulate Emergent Misalignment",
+      "abstract": "Fine-tuning large language models on narrow, misaligned tasks can undo their post-training alignment and induce novel misaligned behaviors -- a phenomenon known as \\emph{emergent misalignment} (EM). EM has been linked to persona-like representations, where fine-tuning might reduce loss by amplifying a harmful or 'evil' persona. It remains unclear which properties of the training data drive this effect: whether all harmful examples contribute approximately equally to misalignment and whether different models are equally affected by the same fine-tuning examples. In this work, we use training data attribution to quantitatively estimate how much each harmful example contributes to EM. We benchmark the quality of the attribution via retraining -- a sound attribution score should enable us to enhance or attenuate EM by filtering data on that score. Score-based filtering can substantially enhance or attenuate EM; we find that both data-attribution scores and a black-box harmfulness score can identify consequential examples. All models we test become misaligned when trained on the same dataset, and influence scores perform best when filtering data from the same model that computed them. We find cross-model generalization of influence scores from scores derived from the three model families we tested, but this generalization does not recover same model filtering performance.",
+      "authors": [
+        "Gonçalo Paulo",
+        "Louis Jaburi",
+        "Nora Belrose",
+        "Lucia Quirke",
+        "Stella Biderman"
+      ],
+      "published": "2026-09-29T16:08:34Z",
+      "updated": "2026-09-29T16:08:34Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37914v1",
+      "abs_url": "http://arxiv.org/abs/2609.37914v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 40,
+        "novelty": 79.5,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.1,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：匹配 99、新颖 80"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37902v1",
+      "title": "You Cannot Pick a Provider From the Price List: Market-Aware Routing for Open-Weight LLM Inference",
+      "abstract": "Existing LLM routers choose among models using static per-model costs. We show that open-weight inference markets introduce a second, largely ignored decision axis: after choosing a model, a client must still choose which provider serves it. Measuring live endpoints across [nummodels] open models, competing providers, multiple task types, and three measurement waves, we find that provider choice cannot be inferred from the price list. The same model can vary sharply in quality, latency, availability, and price across providers; higher-priced providers are consistently faster, but price does not reliably predict quality or availability; and provider feasibility is task-selective, with one deployment nearly normal on knowledge tasks but catastrophically degraded on multi-step reasoning. We formulate same-model provider selection as a price-taker market-aware routing problem. A simple measured-map policy routes to the cheapest provider that is both quality-equivalent and healthy, yielding matched-quality savings while avoiding degraded endpoints. Because the map drifts, we introduce FACET, an online provider router that certifies per-(provider x task) feasibility facets and fails safe to an anchor before serving uncertified arms. Across relaxed deployment assumptions, FACET tolerates imperfect task assignment and sparse feedback, while systematic evaluator bias exposes a quality-signal trust boundary that can be mitigated with ground-truth probes or audits. Live provider runs further confirm that certification can move real traffic from a premium anchor to a substantially cheaper certified endpoint. Our results suggest that market-aware LLM routing must measure not only which model to use, but also who serves it.",
+      "authors": [
+        "Liang He",
+        "Jingbo Wen",
+        "Yixiong Chen",
+        "Yue Yang",
+        "Qizhen Lan",
+        "Kangning Cui",
+        "Xilu Wang"
+      ],
+      "published": "2026-09-29T16:02:18Z",
+      "updated": "2026-09-29T16:02:18Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37902v1",
+      "abs_url": "http://arxiv.org/abs/2609.37902v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "serving": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 22,
+        "novelty": 87.2,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 44.6,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统",
+        "优势：新颖 87、匹配 45"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37842v1",
+      "title": "Scaling Influence Functions in LLMs through Eigenbasis-Corrected One-Bit Gradient Projection",
+      "abstract": "Influence functions estimate how individual training examples affect the behavior of large language models (LLMs). Analyzing how training data influence different behaviors of an LLM involves repeated influence computation. Reusing stored training gradients reduces the computational cost, but storing full gradients is prohibitively expensive at LLM scale. We study how to compress these gradients while preserving influence estimates for future queries that are unknown at storage time. Through a worst-case analysis, we characterize the optimal fixed-dimensional linear representation and propose eigenbasis-corrected one-bit gradient projection (EOGP) to approximate it at scale. Specifically, EOGP uses EK-FAC to reduce gradient dimensionality, then applies PCA within the retained subspace to learn compression directions from the training gradients. We then apply one-bit quantization to the resulting coordinates, allowing more coordinates to be retained within a fixed storage budget. On GPT-2, EOGP predicts retraining outcomes more accurately than the evaluated compression baselines while using one-sixteenth of their per-example storage. On OLMo 2 SFT models from 1B to 32B parameters, EOGP remains competitive with the baselines allocated over 100 times as much storage per example.",
+      "authors": [
+        "Jaeseung Heo",
+        "J Rosser",
+        "Dongwoo Kim"
+      ],
+      "published": "2026-09-29T15:40:53Z",
+      "updated": "2026-09-29T15:40:53Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37842v1",
+      "abs_url": "http://arxiv.org/abs/2609.37842v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 72,
+        "novelty": 87.3,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 53.5,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 87、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37837v1",
+      "title": "Can Vision-Language Models Stay Helpful When Facing Implicit Risks? Intent-Privilege OPSD for Efficient Safety-Helpfulness Alignment",
+      "abstract": "Vision-Language Models (VLMs) remain vulnerable to cross-modal implicit risks: visual and textual inputs that appear benign in isolation can jointly elicit unsafe responses. Existing safety methods often require large preference datasets, costly multi-rollout training, or additional safeguards at inference time. They may also sacrifice helpfulness by directly refusing requests that could be answered safely. In this paper, we propose Intent-Privilege On-Policy Self-Distillation (OPSD), which leverages evidence-grounded intent as privileged supervision during training to help VLMs recognize implicit risks and provide safe, useful responses instead of blanket refusals. OPSD distills a teacher's intent-conditioned preferences over responses into a student using a single rollout per prompt; the student then responds without intent annotations or an additional safety module. With only 1,447 safety-specific examples - 95% fewer than standard preference datasets - OPSD reduces training time by 5x relative to multi-rollout GRPO-style training and average inference length by 7%. It attains the highest ratio for joint safety-helpfulness success, which measures the proportion of responses that are both safe and helpful, across all five evaluation groups. Remarkably, on pooled SIUO+HoliSafe, this success ratio rises from 43.9% to 53.5%. These results show that training-time intent supervision can improve both safety and helpfulness while substantially reducing data, training, and inference costs.",
+      "authors": [
+        "Haotian Deng",
+        "Wenbin Xing",
+        "Gang Xu",
+        "Tao He",
+        "Jinkai Zheng",
+        "Chun Li",
+        "Zheng Zhu",
+        "Ming Li"
+      ],
+      "published": "2026-09-29T15:38:25Z",
+      "updated": "2026-09-29T15:38:25Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37837v1",
+      "abs_url": "http://arxiv.org/abs/2609.37837v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 85.6,
+        "practical": 59,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.2,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37818v1",
+      "title": "Thinking in Depth, Speaking Directly: Recurrent Latent Reasoning for Paralinguistically Grounded Spoken Dialogue",
+      "abstract": "Empathetic spoken dialogue requires models to use both what is said and how it is said to decide how to respond. Explicit CoT can improve paralinguistic perception and make acoustic cues more explicit in replies, yet does not ensure their effective use in response planning. We call this mismatch the perception-reasoning gap. In addition, CoT may not fully capture acoustic cues in words, and generating it adds inference latency. To address these limitations, we introduce LoopSLM, which builds on looped Transformers for latent reasoning, reusing a decoder block to refine hidden states with acoustic grounding at every pass. Its two-stage training further narrows the perception-reasoning gap by separating learning to reason from learning to respond, enabling direct inference without CoT. On EchoMind, LoopSLM improves paralinguistic understanding, reasoning, and reply quality over Qwen2.5-Omni-7B. Against the CoT-SFT baseline, LoopSLM gains over 20 points in reasoning accuracy while generating 64.5% fewer tokens at half the latency. It also outperforms Qwen3-Omni-Thinking on most empathetic reply metrics with 34x lower latency. Despite training only on dialogue data, LoopSLM improves accuracy on general audio benchmarks.",
+      "authors": [
+        "Shengbo Cai",
+        "Yuxiang Wang",
+        "Jingran Xie",
+        "Zhisheng Zhang",
+        "Shun Lei",
+        "Di Cao",
+        "Teddy Sun",
+        "Zhiyong Wu"
+      ],
+      "published": "2026-09-29T15:28:13Z",
+      "updated": "2026-09-29T15:28:13Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37818v1",
+      "abs_url": "http://arxiv.org/abs/2609.37818v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 69,
+        "novelty": 84.5,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.7,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 84、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2609.37745v1",
+      "title": "Optimizer-dependent training dynamics converge to the same one-third optimal data scaling",
+      "abstract": "Neural scaling, in which loss falls as a power law with training, is central to large language models, and one recent proposal is that a $1/3$ exponent emerges from learning peaked distributions. That account describes SGD, but models in practice are trained with adaptive optimizers. Here we separate two exponents the $1/3$ account does not distinguish: how fast the loss falls with training steps along a single run, and how fast the optimally tuned loss falls with dataset size $D$. We show that the first, a dynamic exponent, is optimizer-specific while the second, an optimal data exponent, converges to $1/3$ across optimizers. In an online teacher-student model we decompose the loss into norm growth (radial) and alignment toward the teacher direction (tangential), each decaying as a power law with dynamic exponents $α_{r}$ and $α_{t}$. Under SGD, both are close to $1/3$, so the data exponent is also $1/3$ across different learning rates. Under Adam the two separate: $α_{r} \\simeq 0.48$ but $α_{t} \\simeq 0.08$. Since the total loss is minimized when these two parts are balanced, the optimal learning rate is optimizer-dependent: $D$-independent for SGD but falls with $D$ for Adam. Yet tuned to that optimum, the loss returns to $D^{-1/3}$ for both. A stochastic-dynamics analysis explains why: the optimizers can trade decay speed between the two channels, but they all fall on a single dynamic exponent relation, $2α_{r}+ α_{t} = 1$, which fixes the optimal data exponent at $1/3$. Across seven optimizers, including Muon, the measured exponents are consistent with this relation, and the optimal-loss envelopes agree with $D^{-1/3}$ across them. The optimizer sets how fast a model learns per step; tuned optimally, it changes the prefactor but not the rate at which loss falls per sample.",
+      "authors": [
+        "Hyunseok Lee",
+        "Mihir Basil",
+        "Yizhou Liu",
+        "Jeff Gore"
+      ],
+      "published": "2026-09-29T14:58:16Z",
+      "updated": "2026-09-29T14:58:16Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2609.37745v1",
+      "abs_url": "http://arxiv.org/abs/2609.37745v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 1.0,
+        "post-training": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 51,
+        "novelty": 84.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.1,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：匹配 100、新颖 84"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2609.35751v1",
       "title": "How to Loop MoE: Flatten the Experts, Untie the Attention",
