@@ -33641,5 +33641,140 @@
       "优势：新颖 88、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2610.02189v1": {
+    "paper_id": "2610.02189v1",
+    "title": "Generative modeling of intrinsically disordered protein regions by reinforcing sparse autoencoder features",
+    "abstract": "Intrinsically disordered protein regions (IDRs) play central roles in cellular processes such as transcriptional regulation, signal transduction, and subcellular localization, yet their functional design remains challenging. Structure-based design methods do not readily apply to IDRs, and existing protein language models are trained on full-length protein sequences, thus learning a prior that is biased towards folded domains. Here, we present IDiom, an autoregressive protein language model trained on IDiom-DB, a dataset of 54 million predicted IDRs curated from the AlphaFold Database. IDiom generates diverse sequences that recapitulate the composition, patterning, motifs, and predicted disorder of natural IDRs. To control function-associated sequence patterns, we also introduce reinforcement learning with sparse autoencoder features (RL-SAE), a post-training method that rewards the generation of sequences that activate specified feature sets. Across eight IDR design tasks, RL-SAE sequences activate, on average, 90% of 30 targeted features, compared to 24% for activation steering. We demonstrate that RL-SAE improves the predicted subcellular localization and transcriptional activity of generated IDRs compared to steering and supervised fine-tuning, and enables features associated with distinct biological functions to be combined within individual sequences. Thus, IDiom and RL-SAE enable interpretable and composable IDR design through explicit control of function-associated sequence features. More broadly, RL-SAE could extend to other protein design settings where interpretable features provide useful design targets. Code is available at https://github.com/rotskoff-group/idiom.",
+    "authors": [
+      "Jason X. Liu",
+      "Sebastian Ibarraran",
+      "Frank Hu",
+      "Soojung Yang",
+      "Xinyu A. Feng",
+      "Abigail Park",
+      "Anagha Aneesh",
+      "Lacramioara Bintu",
+      "Alexander R. Dunn",
+      "Grant M. Rotskoff"
+    ],
+    "published": "2026-10-01T17:59:20Z",
+    "updated": "2026-10-01T17:59:20Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.02189v1",
+    "abs_url": "http://arxiv.org/abs/2610.02189v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 59,
+      "novelty": 85.8,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 47.9,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 86、质量 59"
+    ],
+    "summary_zh": null
+  },
+  "2610.02040v1": {
+    "paper_id": "2610.02040v1",
+    "title": "Typological Alignment of Stack-Based Language Models on Mildly Context-Sensitive Artificial Languages",
+    "abstract": "Some properties of languages, e.g., subject-object-verb (SOV) word order, are more prevalent than others among the thousands of attested natural languages (NLs). Such typological commonality is often attributed to learning biases. Computational simulations, recently with language models (LMs), have facilitated the exploration of this theory. In this paper, we extend existing analyses of the relationship between LMs' learning biases and typological commonality on both data and model sides, focusing on: (i) cross-serial dependencies, the upper limit of attested syntactic complexity, and (ii) stack-based LMs (SLMs), potentially facilitating learning of hierarchical patterns. We first evaluate generalization of SLMs on cross-serial dependencies across diverse artificial languages and confirm that they struggle with such constructions. However, SLMs with limited working memory generalize better suggesting a possible basis for such inductive bias and thus the typological commonality of some word order configurations.",
+    "authors": [
+      "Nadine El-Naggar",
+      "Tatsuki Kuribayashi",
+      "Ted Briscoe"
+    ],
+    "published": "2026-10-01T16:52:08Z",
+    "updated": "2026-10-01T16:52:08Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.02040v1",
+    "abs_url": "http://arxiv.org/abs/2610.02040v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 43,
+      "novelty": 85.4,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 47.9,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 85、匹配 45"
+    ],
+    "summary_zh": null
+  },
+  "2610.01821v1": {
+    "paper_id": "2610.01821v1",
+    "title": "Beyond Linear Concepts: Discovering and Aligning Non-Linear Concept Manifolds in Large Language Models",
+    "abstract": "Understanding information processing in large language models (LLMs) requires dissecting the geometric organization of their internal token representations. While existing mechanistic interpretability (MI) methods seek to extract concepts, they are constrained by a strong linearity assumption challenged by evidence of non-linear feature manifolds. We move beyond linear concepts by adapting Non-Linear Multi-Dimensional Concept Discovery (NLMCD) from computer vision to token-level LLM activations, modeling concepts as low-dimensional manifolds. To compare concept manifolds across layers and models, we introduce a concept-based alignment (CBA) score, a generalized Rand index that measures geometric proximity without explicit feature matching. Our analysis yields six key findings: (i) a neighboring-layer sanity check shows CBA is more sensitive than PCA- or CKA-based linear baselines; (ii) layer-by-layer alignment matrices reveal two block structures in intermediate and late layers, consistent across models and obscured by linear metrics; (iii) concept composition remains syntax-dominated through most of the network before giving way to increasingly mixed syntactic-semantic concepts in later layers, with increasing output-orientation toward the final layers; (iv) multilingual concept sharing between English and Mandarin is training-dependent rather than universal, strongest in Qwen, weaker in Llama, and absent in GPT-2; (v) inter-model alignment mirrors this structure, with strong correspondence between same-family Qwen models of different scale but weak alignment across model families; and (vi) across Tulu-3 training stages, alignment is highest between adjacent stages, with the largest shift between the base model and SFT, while subsequent preference-alignment stages (DPO, RLVR) leave early layers largely unchanged and RLVR mostly preserves DPO's concepts in late layers.",
+    "authors": [
+      "Tido Specht",
+      "Elias Benedict Krey",
+      "Nils Neukirch",
+      "Nils Strodthoff"
+    ],
+    "published": "2026-10-01T14:55:03Z",
+    "updated": "2026-10-01T14:55:03Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.01821v1",
+    "abs_url": "http://arxiv.org/abs/2610.01821v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 51,
+      "novelty": 87.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 46.0,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、质量 51"
+    ],
+    "summary_zh": null
   }
 }
