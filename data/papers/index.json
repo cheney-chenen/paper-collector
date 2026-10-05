@@ -33776,5 +33776,555 @@
       "优势：新颖 87、质量 51"
     ],
     "summary_zh": null
+  },
+  "2610.03265v1": {
+    "paper_id": "2610.03265v1",
+    "title": "SPEAR: A Spectral-Disentangled MoE Neural Operator with Knowledge-Guided Expert Aggregation for Large-Scale PDE Pretraining",
+    "abstract": "Large-scale pre-training has improved the generalization of neural operators across diverse PDEs. However, existing PDE foundation models still struggle with heterogeneous dynamics, where shared representations may cause knowledge interference, while mixture-of-experts (MoE) architectures suffer from increasing expert redundancy. We propose SPEAR, a spectral-disentangled MoE neural operator with knowledge-guided expert aggregation for large-scale PDE pre-training. SPEAR decouples latent features into low- and high-frequency components, enabling shared modeling of transferable dynamics and specialized learning of PDE-specific patterns. To address expert redundancy, we design a knowledge-guided expert aggregation strategy that measures expert similarity from dataset-specific learned knowledge and routing preferences, enabling the identification and consolidation of similar experts. Experiments on twelve PDE datasets and multiple downstream benchmarks demonstrate superior performance in pre-training, fine-tuning, and transfer learning. Furthermore, our aggregation strategy reduces the number of experts by 50\\% while maintaining or improving prediction accuracy, achieving a balance between model efficiency and generalization for PDE foundation models.",
+    "authors": [
+      "Dengdi Sun",
+      "Xiaoya Zhou",
+      "Xiao Wang",
+      "Wanli Lyu",
+      "Jin Tang",
+      "Bin Luo"
+    ],
+    "published": "2026-10-02T13:10:09Z",
+    "updated": "2026-10-02T13:10:09Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03265v1",
+    "abs_url": "http://arxiv.org/abs/2610.03265v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 1.0,
+      "post-training": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 53,
+      "novelty": 83.6,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 69.6,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐",
+      "优势：匹配 100、新颖 84"
+    ],
+    "summary_zh": null
+  },
+  "2610.03457v1": {
+    "paper_id": "2610.03457v1",
+    "title": "Cross-Facility LLM Pre-training on HPC: Elastic Aggregation, Data Leasing, and Queue-Aware Placement",
+    "abstract": "Academic compute is fragmented: allocations are granted per facility, and facilities differ in accelerators and software stacks, schedule jobs independently, and share neither a network nor a filesystem. We present a system that pools such allocations to pre-train a single language model across three supercomputers on two continents, up to 7,400km apart: Snellius (NVIDIA H100), LUMI and Frontier (both AMD MI250X). It combines (i) DiLoCo-style two-loop training with an elastic, token-weighted Nesterov outer step for which zero, one or many live sites are all normal states; (ii) DARL, a data-leasing protocol whose heartbeat-backed leases guarantee that, within an epoch, no sample is trained twice or lost under crashes, late joins and work stealing; and (iii) queue-aware placement driven by unprivileged sbatch --test-only probes. Training Qwen3-0.6B on C4 for 20,000 optimizer steps, the three-site run reaches a held-out perplexity of 34.7, against 28.2 for a centralised baseline. Per-round overhead (weight exchange and checkpointing) stays near 110 s regardless of the number of local steps H, so its share of wall-clock time falls from 32% at H=100 to 5.7% at H=1,000 and 3.1% at H=2,000. In a 23.8 h three-site run with four site departures, 1.2% of granted data blocks were reclaimed and none was duplicated or lost. In an idealized queue-model projection, queue-aware placement shortens time-to-target by 18-43% compared with waiting for all sites to be allocated. Cross-site pre-training is thus operational rather than competitive: it turns fragmented allocations into one training run at a measured cost.",
+    "authors": [
+      "Zarè Palanciyan",
+      "Thomas van Osch",
+      "Douwe van der Wal",
+      "Olivera Kotevska",
+      "Tim Kok"
+    ],
+    "published": "2026-10-02T15:33:33Z",
+    "updated": "2026-10-02T15:33:33Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03457v1",
+    "abs_url": "http://arxiv.org/abs/2610.03457v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 63,
+      "novelty": 87.2,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 66.7,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 87、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.03326v1": {
+    "paper_id": "2610.03326v1",
+    "title": "Preserving Mathematical Reasoning in Compressed Diffusion Language Models via Trajectory-Aware Low-Rank Approximation",
+    "abstract": "Diffusion language model (dLLM) compression faces a known challenge because calibration is typically performed on clean, fully visible activations, whereas inference traverses partially masked intermediate states. For low-rank compression, this raises two questions. First, can low-rank optimality still be characterized when approximation quality is measured over trajectory-distributed states, and second, does the choice of calibration states affect mathematical reasoning preservation under compression? We address these questions by formulating a trajectory-aware low-rank objective over corruption levels and masking realizations. To estimate this objective efficiently, we propose Traj-MC, which estimates the trajectory second moment through Monte Carlo sampling and yields exact sampled-state optimality and population consistency. Under matched compression budgets, trajectory-aware calibration improves reconstruction over the generation trajectory and preserves substantially more mathematical reasoning than clean calibration on mathematical reasoning benchmarks. Our results connect trajectory-aware low-rank optimality to the reasoning capability retained after dLLM compression. Our code is available at: https://github.com/Zishan-Shao/traj-mc.git.",
+    "authors": [
+      "Tian Liang",
+      "Zishan Shao",
+      "Yiran Chen"
+    ],
+    "published": "2026-10-02T14:00:55Z",
+    "updated": "2026-10-02T14:00:55Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03326v1",
+    "abs_url": "http://arxiv.org/abs/2610.03326v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "efficiency": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 43,
+      "novelty": 84.8,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 62.0,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 85、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.03329v1": {
+    "paper_id": "2610.03329v1",
+    "title": "SyntaxBench: A Statistical Diagnostic Framework for Character-Level Reasoning in Large Language Models",
+    "abstract": "Large language models are increasingly used where small syntactic errors matter, yet character-level reasoning is still evaluated mostly through isolated probes and aggregate accuracy. We introduce SyntaxBench, a diagnostic benchmark and statistical evaluation framework for character-level reasoning. It contains five core tasks, character counting, letter containment, palindrome detection, edit distance, and longest-string selection, plus index_to_span, a harder substring-extraction stress test. The five core tasks use paired English and character-length-matched random-string inputs. index_to_span documents share a 200-500 word band and are not character-length matched. All six tasks use zero-, one-, and four-shot prompts. We evaluate eight open-weight models from 2B to 32B parameters across 11 reasoning-mode configurations. The framework reports exact-match and relaxed accuracy, Cohen's kappa, paired McNemar tests with odds ratios, bootstrap confidence intervals, Kendall's tau, class-conditional metrics, tokenization analysis, and multiple-comparison-corrected tests. Three findings stand out. First, tokenization shapes accuracy: random strings are more character-visible than English strings (1.892 vs. 3.169 characters per token), and character-counting accuracy falls as English words occupy more tokens. Second, reasoning mode is not uniformly helpful: Gemma4-31B is nearly unchanged across modes on the near-saturated tasks, while Qwen3.6-27B is worse with thinking on palindrome detection (0.952 non-thinking vs. 0.886 thinking at four-shot). Third, index_to_span remains largely unsolved; the best four-shot exact-match accuracy is 6.75%. Character-level evaluation needs controlled inputs, paired tests, and analyses of tokenization and reasoning mode rather than aggregate accuracy alone.",
+    "authors": [
+      "Mohsen Larni",
+      "Sobhan Ebrahimi Azar",
+      "Pouyan Nahed",
+      "Kazem Taghva"
+    ],
+    "published": "2026-10-02T14:02:56Z",
+    "updated": "2026-10-02T14:02:56Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03329v1",
+    "abs_url": "http://arxiv.org/abs/2610.03329v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 88.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.7,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 89、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2610.03665v1": {
+    "paper_id": "2610.03665v1",
+    "title": "Pivot-SD: Efficient Self-Distillation for Masked Diffusion Language Models",
+    "abstract": "Masked diffusion language models (dLMs) offer a promising parallel alternative to autoregressive models for complex reasoning. However, they face a distinct credit-assignment challenge, since a few commitments during denoising sharply reduce the uncertainty over the remaining masked positions and shape much of the response. Most post-training recipes for dLMs do not use this signal to decide which tokens to train on: they typically train on the final text or assign rewards to whole denoising steps, rather than selecting the individual commitments that shape the response. We introduce Pivot-SD, an efficient offline self-distillation framework that supervises only these high-impact commitments (pivots). Pivot-SD selects pivots using an information-gain metric measuring uncertainty reduction over the remaining masked positions. Pivots from successful trajectories are trained with cross-entropy, and pivots from failed trajectories with targeted unlikelihood, leaving the rest of the failed trajectory untouched. Using only 200 questions and four rollouts each, Pivot-SD improves LLaDA-8B-Instruct over full-sequence SFT and budget-matched diffusion RL baselines across math and code benchmarks.",
+    "authors": [
+      "Seo Hyun Kim",
+      "Sunwoo Hong",
+      "Younwoo Choi",
+      "Chen-Hao Chao",
+      "Se-Young Yun",
+      "Rahul G. Krishnan"
+    ],
+    "published": "2026-10-02T17:37:51Z",
+    "updated": "2026-10-02T17:37:51Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03665v1",
+    "abs_url": "http://arxiv.org/abs/2610.03665v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 86.7,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.2,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.03432v1": {
+    "paper_id": "2610.03432v1",
+    "title": "OptiSelect: How does the Optimizer Shape Data Curriculum?",
+    "abstract": "Online data selection has demonstrated substantial efficiency gains for LLM pretraining by training on the most valuable candidates within each batch. Since a candidate's value is realized through its effective model update, principled selection should account for the optimizer step, which reshapes the raw gradient before it updates model parameters. We formalize this optimizer-aware selection paradigm as OptiSelect and present the first systematic study of how the optimizer shapes data selection. Our theory establishes a selection gain principle in which the advantage of online selection is governed by the discriminability of the optimizer-induced utility scores. We prove that sign-based and polar-tangential preconditioners of Lion and Muon would suffer from a discriminability collapse which caps attainable gains from OptiSelect, whereas diagonal-adaptive optimizers such as AdamW and Sophia admit strictly better upper bounds. The proposed principle also yields a quantitative derivation of the optimal candidate oversampling ratio. Pretraining experiments on 124M and 720M models are consistent with our theoretical analysis and show that AdamW's diagonal-adaptive scoring geometry remains the strongest scoring geometry even with Muon as optimizer. We further demonstrate that OptiSelect retains its benefits under data rephrasing, a technique used in modern data processing pipelines. Our findings provide theoretical foundations and practical guidance for co-designing optimizers and data selection in LLM pretraining.",
+    "authors": [
+      "Simin Fan",
+      "Alireza Abdollahpoorrostam",
+      "Martin Jaggi"
+    ],
+    "published": "2026-10-02T15:13:16Z",
+    "updated": "2026-10-02T15:13:16Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03432v1",
+    "abs_url": "http://arxiv.org/abs/2610.03432v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 39,
+      "novelty": 85.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.2,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 86、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.03394v1": {
+    "paper_id": "2610.03394v1",
+    "title": "EdgeAgent: Orchestrating On-Device LLM inference for End-User Multi-Agent Systems on CPU-GPU Unified Memory Architectures",
+    "abstract": "Emerging multi-agent LLMs demand privacy-preserving edge deployment, yet current inference systems struggle with these collaborative workflows. Specifically, the memory-bound decode phase causes severe bus contention on unified memory architectures (UMA), paralyzing naive CPU-GPU co-execution. Furthermore, speculative decoding in multi-agent workloads faces extreme variance in drafting difficulty, alternating between complex reasoning and predictable structured generation. Compounded by frequent tool-induced stalls, this highly fragmented execution severely underutilizes hardware and defeats traditional static batching. We present EdgeAgent, a cross-layer inference system explicitly co-designed for edge UMA and multi-agent workloads. At the micro-architectural level, it bypasses rigid graph-compiler constraints to enable zero-copy UMA-aware tensor parallelism, utilizing asymmetric memory layouts to fully saturate both CPU and GPU compute units. At the scheduling level, it dynamically allocates draft budgets based on real-time sequence predictability to bound bandwidth waste. Concurrently, an asynchronous suspend-and-yield mechanism actively evicts stalled agents, ensuring continuous hardware saturation during unpredictable tool invocations. Extensive evaluations on an Apple M4 SoC demonstrate that the UMA-aware execution alone contributes a 1.29x speedup over batched speculative decoding. Adding the agent-aware scheduling lifts the full EdgeAgent system to a 1.77x speedup under extreme tool-use latencies.",
+    "authors": [
+      "Yuhai Long",
+      "Yuanxin Wei",
+      "Kai Wu",
+      "Jinhui Wei",
+      "Dan Huang",
+      "Jiangsu Du"
+    ],
+    "published": "2026-10-02T14:43:42Z",
+    "updated": "2026-10-02T14:43:42Z",
+    "categories": [
+      "cs.DC",
+      "cs.MA"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03394v1",
+    "abs_url": "http://arxiv.org/abs/2610.03394v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 39,
+      "novelty": 91.4,
+      "practical": 68,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.7,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统",
+      "优势：新颖 91、实用 68"
+    ],
+    "summary_zh": null
+  },
+  "2610.03509v1": {
+    "paper_id": "2610.03509v1",
+    "title": "Efficient Reasoning Training Does Not Always Harm CoT Faithfulness and Monitorability",
+    "abstract": "Chain-of-thought (CoT) reasoning allows humans to inspect how large language models reach their answers, and oversee model behaviour. This reasoning comes at an increased inference cost, motivating efficient methods that train models to solve tasks using fewer tokens. However, a common concern is that such training may cause models to skip important reasoning steps, so the CoT no longer faithfully reflects the model's decision. It is unclear whether or when this occurs in practice, since different efficiency methods apply length pressure to models' CoT in distinct ways, and faithfully explaining a model's decision takes more tokens on some tasks than others. To understand these dynamics, we fine-tune a variety of models with three methods that apply length pressure differently, namely a fixed generation budget, a per-example length target, and a group-relative length reward. We evaluate how efficient reasoning affects CoT faithfulness (i.e., how well the CoT reflects model decisions on related inputs) and monitorability (i.e., whether the CoT reveals when input interventions alter the output). We find that it affects faithfulness and monitorability differently. Faithfulness falls in most settings, primarily because the trained models are less consistent. Monitorability is more robust, as models keep acknowledging the influence on their answer even when the CoT is much shorter.",
+    "authors": [
+      "Samuel Lewis-Lim",
+      "Xingwei Tan",
+      "Mario Sanger",
+      "Zhixue Zhao",
+      "Nikolaos Aletras"
+    ],
+    "published": "2026-10-02T16:04:08Z",
+    "updated": "2026-10-02T16:04:08Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03509v1",
+    "abs_url": "http://arxiv.org/abs/2610.03509v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 43,
+      "novelty": 86.2,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.6,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.03136v1": {
+    "paper_id": "2610.03136v1",
+    "title": "Investigating the Role of Reasoning-Language Alignment in Monolingual Retrieval-Augmented Generation",
+    "abstract": "Reasoning traces improve large language models (LLMs), but current models are trained to reason mostly in English. It has been shown that forcing a model to reason in another language degrades accuracy, even when the reasoning language matches the language of the prompt -- but only for a setting where the model reasons over a short prompt. Here, we ask whether the same holds for retrieval-augmented generation (RAG), where the model must read and integrate a large amount of retrieved evidence in the target language. To study this, we build a fully monolingual German RAG question-answering testbed over the fictional world of the tabletop role-playing game The Dark Eye, a domain that is richly documented in German but too niche for the model to answer from memory, so that it has to rely on retrieval. Varying the forced reasoning language of an agentic RAG system on this testbed, we find that aligning the reasoning language with the language of the query and the retrieved documents helps. Forced German reasoning outperforms forced French, although the model benchmarks higher in French, so the benefit comes from alignment and not from language proficiency. The advantage grows when the retrieved context is richer and structure-aware. However, forced German only reaches the level of the model's native, unconstrained English reasoning without surpassing it, showing that native multilingual reasoning is needed. We publicly release the testbed and QA benchmark.",
+    "authors": [
+      "Oliver Hauck",
+      "Mario Sanz-Guerrero",
+      "Katharina von der Wense"
+    ],
+    "published": "2026-10-02T11:02:04Z",
+    "updated": "2026-10-02T11:02:04Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03136v1",
+    "abs_url": "http://arxiv.org/abs/2610.03136v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 40,
+      "novelty": 88.6,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 89、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.03286v1": {
+    "paper_id": "2610.03286v1",
+    "title": "VenusRL: A Fully Disaggregated Agentic RL System with Priority Scheduling and Scalable Interaction",
+    "abstract": "Agentic Reinforcement Learning (RL) trains LLM agents through multi-turn interactions with external tool environments. Its multi-turn nature exposes two system-level bottlenecks unaddressed by existing agentic RL frameworks. First, end-to-end training throughput is constrained by the slowest trajectories to complete, yet optimizing per-GPU utilization alone scatters rollout progress across many groups, delaying the completion of enough groups to unblock the next training step. Second, tool sandboxes are statically over-provisioned by their declared memory ceilings, leaving most physical memory stranded while replicating near-identical state across sandboxes launched from the same prompt. We present VenusRL, a fully disaggregated agentic RL system that addresses both bottlenecks. VenusRL's priority-aware action scheduler uses length-prediction heuristics to identify sample groups whose completion is most likely to unblock the next training step, and pushes them ahead of others across batch admission, KV Cache residency, and cross-worker request orchestration. VenusRL's environment resource manager combines a memory-aware admission threshold with a template-keyed page-sharing pool, packing more sandboxes per node while preserving strict memory isolation via write-protected page table entry aliasing and copy-on-write. Across representative agentic RL workloads, VenusRL achieves up to 4.24x end-to-end training speedup over state-of-the-art baselines and reduces environment cost by up to 89%.",
+    "authors": [
+      "Mingjun Zhang",
+      "Yucheng Li",
+      "Menghao Zhang",
+      "Shuyong Zhu",
+      "Ping Zhang",
+      "Xiaohe Hu",
+      "Jun Chen",
+      "Zhixin Wang",
+      "Xutong Wang",
+      "He Liu",
+      "Yanmin Jia",
+      "Shengrong Zhu",
+      "Peng Sun",
+      "Mingjie Zhang",
+      "Liming Liu",
+      "Jinlong Hou",
+      "Yuan Cheng",
+      "Yujun Zhang"
+    ],
+    "published": "2026-10-02T13:29:40Z",
+    "updated": "2026-10-02T13:29:40Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03286v1",
+    "abs_url": "http://arxiv.org/abs/2610.03286v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 48,
+      "novelty": 88.5,
+      "practical": 86,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.6,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 88、实用 86"
+    ],
+    "summary_zh": null
+  },
+  "2610.03213v1": {
+    "paper_id": "2610.03213v1",
+    "title": "Toward SLM-based agentic task-tool intent matching",
+    "abstract": "Tool-equipped AI agents use tool calls to access data and act on external systems. Horizontal growth of agentic systems increases the number of these interactions, and further motivates the need for automated, per-call oversight that can operate at low latency and/or on-prem. Conventional authorization schemes can determine whether an agent is allowed to invoke a tool, but cannot assess the agent's underlying cognition, specifically, whether the tool selection represents a logical, relevant step toward satisfying the intent of the task or not. Consequently, an allowed call may still deviate from the task's intent: a rogue agent might deviate the calls or nudge other agents to make a combination of calls that would not align with the intent of the task. Therefore, every call needs to be verified. In this study we investigate the applicability of Small Language Models (SLMs) to this purpose: an SLM functions as a task-tool relevance classifier that evaluates every selected tool independently against the assigned task and returns a relevance signal for downstream enforcement. Equipped with a novel dataset with multi-tool tasks whose required tools span distinct Model Context Protocol (MCP) servers, we used prompt-optimization, supervised fine-tuning, and reinforcement learning through GRPO to optimize and specialize SLMs.",
+    "authors": [
+      "Chiara Troiani",
+      "Arash Salarian",
+      "Majed El Helou",
+      "Benjamin Ryder",
+      "Jean Diaconu",
+      "Hervé Muyal",
+      "Marcelo Yannuzzi"
+    ],
+    "published": "2026-10-02T12:31:01Z",
+    "updated": "2026-10-02T12:31:01Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03213v1",
+    "abs_url": "http://arxiv.org/abs/2610.03213v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 40,
+      "novelty": 89.2,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 44.4,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 89、质量 40"
+    ],
+    "summary_zh": null
+  },
+  "2610.03361v1": {
+    "paper_id": "2610.03361v1",
+    "title": "Follow the Winners: Conservative Policy Improvement with the Cross-Entropy Method for Critic-Free RFT",
+    "abstract": "Critic-free reinforcement fine-tuning (RFT) for agentic large language models is often done through GRPO-style methods, which compute a group baseline over repeated rollouts to reduce target variance. However, this setup is ill-suited to agents acting in stateful environments such as live services or security sandboxes, where repeated rollouts are impractical to obtain and aggressive updates entrench the noise of long, sparsely verified trajectories. We propose \\textit{Follow the Winners} (FTW), a critic-free policy-learning algorithm that adapts the cross-entropy method to RFT, replacing group rollouts with an ordinal filter on replay-buffer samples that yields polynomial concentration in the order statistic of returns. We derive FTW through a control-as-inference lens, which also recovers GRPO and DPO as specific modelling choices, identifying GRPO as risk-neutral while DPO and FTW share a bounded risk-seeking offset that FTW controls. We identify this offset as an inherent trade-off of variance reduction through ordinal filters on samples, whereas a critic model induces a different trade-off between bias and variance. Scaled to agentic LLM post-training, FTW matches GRPO and PPO on Sokoban and Search-R1 baselines, showing a viable trade-off from a value model or group rollouts to CPU memory.",
+    "authors": [
+      "Joery Ariën de Vries",
+      "Neil David Lawrence",
+      "Zhenwen Dai"
+    ],
+    "published": "2026-10-02T14:24:06Z",
+    "updated": "2026-10-02T14:24:06Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.03361v1",
+    "abs_url": "http://arxiv.org/abs/2610.03361v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.54
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 54.0,
+      "quality": 31,
+      "novelty": 87.3,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.4,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、匹配 54"
+    ],
+    "summary_zh": null
   }
 }
