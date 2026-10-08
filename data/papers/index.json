@@ -35401,5 +35401,537 @@
       "优势：新颖 89、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2610.10385v1": {
+    "paper_id": "2610.10385v1",
+    "title": "OrBIT: Structure-Guided Embedding Compression",
+    "abstract": "Embedding tables are among the largest components of modern language models. Most compression methods fix a coding geometry such as coordinate blocks, low-rank subspaces, or unrestricted codebooks, and optimize within it. We instead ask whether the coding geometry can itself be discovered. We introduce \\emph{OrBIT}, a structure-guided embedding compression framework that learns reusable local geometry from orbit dynamics and uses it to constrain a small set of shared codewords. The global reconstruction residual then decides where the fixed coding budget is spent, while redundant overlapping charts let local errors compensate one another after gluing. Our theory shows how tight-chart geometry controls distortion, how the global residual directs sequential allocation, and how data-geometry-guided refinement improves the codec. The resulting orbit machinery is compiled away, leaving a compact decoder in which the learned structure governs what is stored, where capacity is allocated, and how local information is assembled globally. Across four LLM embedding tables, OrBIT achieves $37.9\\times$ compression on GPT-2 and over $23\\times$ on each 7B table relative to 16-bit storage, while delivering competitive rate-distortion performance against established quantization and low-rank baselines.",
+    "authors": [
+      "Yunied Puig",
+      "Amit Kumar Jaiswal"
+    ],
+    "published": "2026-10-07T16:44:47Z",
+    "updated": "2026-10-07T16:44:47Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10385v1",
+    "abs_url": "http://arxiv.org/abs/2610.10385v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.99
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 99.0,
+      "quality": 63,
+      "novelty": 83.6,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 71.8,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：匹配 99、新颖 84"
+    ],
+    "summary_zh": null
+  },
+  "2610.10381v1": {
+    "paper_id": "2610.10381v1",
+    "title": "ResidualQuant: KV Cache Quantization for Looped Transformers with 2-Bit Residuals",
+    "abstract": "Looped Transformers improve parameter efficiency by repeatedly applying shared Transformer blocks over multiple recurrent loops, increasing computational depth without increasing the parameter count. However, KV cache memory still scales with the number of loops, becoming a key memory bottleneck that limits batch size and inference throughput. KV cache quantization can alleviate this bottleneck, but existing methods often suffer substantial accuracy degradation at aggressive low-precision regimes. We observe that looped Transformers offer a unique opportunity: KV states across loops are highly similar. Based on this observation, we propose ResidualQuant, which uses the final-loop KV states as a reference and represents the remaining loops with low-precision residuals. Our method further combines least-square scaling and rotations applied to the residuals, as well as loop-wise mixed precision, to enable accurate quantization down to INT2 while retaining efficient reconstruction. Across multiple looped Transformer models and mathematical reasoning and code generation benchmarks, ResidualQuant consistently improves the accuracy-memory tradeoff over state-of-the-art rotation-based KV quantization. In particular, our method retains accuracy close to BF16 under mixed-precision settings while reducing theoretical KV storage by 80.7%, achieving up to 13.0% higher accuracy than the rotation-based baseline at the same memory budget. On an RTX 5090, the reduced KV memory traffic improves fixed-batch decode throughput by up to 2.73x, while the smaller memory footprint enables up to 2x larger batches, improving peak throughput by up to 4.15x.",
+    "authors": [
+      "Heejun Kim",
+      "Junyoung Lee",
+      "SangLyul Cho",
+      "Dongsu Han",
+      "Insu Han",
+      "Sehoon Kim"
+    ],
+    "published": "2026-10-07T16:40:21Z",
+    "updated": "2026-10-07T16:40:21Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10381v1",
+    "abs_url": "http://arxiv.org/abs/2610.10381v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "serving": 0.81,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 72,
+      "novelty": 82.3,
+      "practical": 59,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 71.7,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统、压缩与高效推理",
+      "优势：新颖 82、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.10118v1": {
+    "paper_id": "2610.10118v1",
+    "title": "YANchor-4B: Effective Long-Horizon Reasoning in O(N) Time with O(1) Memory",
+    "abstract": "Long-horizon reasoning demands access to earlier information at a manageable generation cost. Full-history attention incurs growing storage and computation, while recurrent compression can lose precise details. Therefore, we present YANchor-4B, a general-purpose recurrent model that preserves crucial memory as ANchors for retrieval during subsequent reasoning. Beyond $O(N)$-time generation and $O(1)$ memory, YANchor enables effective long-horizon reasoning through its multidimensional memory mechanism. For example, on challenging math problems, it achieves 82.93% mean pass@1 on AIME 2024--2026 and 63.64% on HMMT, substantially outperforming linear-time, constant-state counterparts, including larger models. It also delivers several-fold higher batched long-generation throughput than Transformer and hybrid baselines on H100. Furthermore, evaluations across dozens of benchmarks demonstrate YANchor's superiority in general-purpose capabilities.",
+    "authors": [
+      "Huishan Ji",
+      "Hua Xu",
+      "Weiming Zhang",
+      "Qirui Ye"
+    ],
+    "published": "2026-10-07T14:03:50Z",
+    "updated": "2026-10-07T14:03:50Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10118v1",
+    "abs_url": "http://arxiv.org/abs/2610.10118v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "serving": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 81,
+      "novelty": 85.2,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 66.4,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统、压缩与高效推理",
+      "优势：新颖 85、质量 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.10049v1": {
+    "paper_id": "2610.10049v1",
+    "title": "The Long Road to the Same Answer: Cognitive Bias Under Escalating Reasoning Budgets in Large Language Models",
+    "abstract": "Reasoning models allocate extra computation at inference time and present their answers as the product of deliberate thought. If this deliberation works the way dual-process accounts of human cognition suggest, longer thinking should weaken the classic decision biases that fast, intuitive judgment produces. Using 30 vignettes covering six biases (anchoring, framing, loss aversion, escalation of commitment, availability, confirmation) from an established benchmark, we run a dose-response study across four model families, pairing each reasoning model with a matched non-reasoning sibling and requesting thinking ceilings of 0, 1,024, 4,096, and 8,192 tokens, for 12,350 API calls. Because a requested ceiling is not the same as realized deliberation, we use the reasoning tokens each call consumed as the dose. First, reasoning models are not less biased than their siblings; the point estimate leans the other way in every family, but the item-level pooled contrast is not reliable (Delta = +0.031, t(29) = 1.45, p = .157). Second, bias magnitude does not reliably fall as realized deliberation grows: no slope is significantly negative, and where anything moves it is the signed score drifting further from the human direction. Third, anchoring is the only bias in the human direction (d = 1.89). Four of the other five lean the opposite way in all seven models; with five items per bias, that reversal is reliable for framing and directional for escalation of commitment, confirmation, and loss aversion, while availability is absent. A one-line instruction to restate the anchor before answering lowered anchoring on all five anchoring items, which no amount of additional thinking did, although the effect does not reach significance (p = .057). The results argue against treating test-time reasoning as a rationality guarantee and for auditing deployed models bias by bias.",
+    "authors": [
+      "Obada Kraishan"
+    ],
+    "published": "2026-10-07T13:23:51Z",
+    "updated": "2026-10-07T13:23:51Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10049v1",
+    "abs_url": "http://arxiv.org/abs/2610.10049v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 63,
+      "novelty": 87.5,
+      "practical": 18,
+      "credibility": 28
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.1,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.10304v1": {
+    "paper_id": "2610.10304v1",
+    "title": "SemanticFold: Latent Sequence Compression SeparatesLanguage Modeling, Decodability, and Reasoning",
+    "abstract": "We study whether latent sequence compression of prompt prefixes preserves the capabilities that large language models rely on during inference. We introduce SemanticFold, a compression scheme that folds prefix hidden states at learned boundaries, and evaluate it across five model scales: Qwen3-1.7B, Qwen3-8B, SmolLM2-1.7B, Pythia-1.4B, and Pythia-6.9B. We use a fixed-target protocol: a frozen prefix is executed natively or compressed, and both arms teacher-force identical continuation tokens. This design rules out target-selection explanations for likelihood changes. We examine five endpoint families: fixed-target negative log-likelihood, finite-label reasoning accuracy, linear probe accessibility, open-ended generation, and systems-level memory and latency. We find that compression moves these endpoints non-monotonically and that they do not share a single compression threshold. On Qwen3-1.7B at compression ratio R=1.7, compressed-minus-native mean NLL decreases by 0.135 under paired bootstrap with 10000 draws. On SmolLM2 at R=1.2, the mean change is 0.013 higher than native. On both Pythia checkpoints, NLL is effectively unchanged. An NLL decomposition separating sequence shortening from the learned residual transform shows that the favorable Qwen likelihood is attributable primarily to residual adaptation rather than to shortening alone. MLP-only, which applies the transform without shortening, achieves 0.082 lower NLL than Full SemanticFold. Linear probe accuracy and macro AUC change by less than 0.03 in absolute value across conditions, with confidence intervals crossing zero. We conclude that preservation under latent compression has no single scalar certificate: language-model fit, decodability, and reasoning behavior answer different questions and can move in different directions under the same compression operation.",
+    "authors": [
+      "Mingyan Liu",
+      "Min Huang"
+    ],
+    "published": "2026-10-07T16:00:59Z",
+    "updated": "2026-10-07T16:00:59Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10304v1",
+    "abs_url": "http://arxiv.org/abs/2610.10304v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 63,
+      "novelty": 86.8,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.0,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.10085v1": {
+    "paper_id": "2610.10085v1",
+    "title": "Activation-Aware Weight Tensorization: A Calibration-Time Preconditioner for Tensor-Network LLM Compression",
+    "abstract": "Post-training tensor-network compression replaces Transformer linear layers with Tensor Train (TT) or Tree Tensor Network (TTN) operators, but standard decompositions minimize weight-space Frobenius error rather than functional error under the layer's activation distribution. We propose Activation-aware Weight Tensorization (AWT), a training-free calibration wrapper that preconditions each weight matrix with a diagonal activation-derived scale before an unchanged TT/TTN solver and deploys the result with only an input-side elementwise rescaling. Across Llama 3.1 8B, Ministral 8B, and Qwen2.5 7B, AWT consistently improves vanilla TT/TTN tensorization at 2-6 times compression: under single-operator replacement, AWT closes 12-35% of the WikiText perplexity gap to the dense baseline across the three model families and 2-6 times compression settings; while under multi-operator Llama suffix replacement it closes 27-60% across attention-group and all-seven-matrix settings. The gains also transfer to downstream HellaSwag and ARC-Challenge evaluations. We further show that diagonal preconditioning is a robustness-modularity tradeoff rather than a diagonal-covariance assumption: a dense full-covariance oracle wins its own weighted objective in 80/81 cases, yet diagonal AWT gives better held-out functional fidelity in 53/81 cases. Together, these results position AWT as a principled, modular preconditioner for improving functional fidelity in fixed TT/TTN compression pipelines without modifying the decomposition solver.",
+    "authors": [
+      "Alessandro Beatini",
+      "Marco Maronese",
+      "Emanuele Rodolà"
+    ],
+    "published": "2026-10-07T13:48:04Z",
+    "updated": "2026-10-07T13:48:04Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10085v1",
+    "abs_url": "http://arxiv.org/abs/2610.10085v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 63,
+      "novelty": 86.0,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.9,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.10345v1": {
+    "paper_id": "2610.10345v1",
+    "title": "SLDR: Defending Against Malicious Fine-tuning via Selective Layers Recovery and Dynamic Routing",
+    "abstract": "Fine-tuning-as-a-service enables users to adapt aligned large language models (LLMs) to specialized tasks, but malicious fine-tuning can erode refusal behavior while preserving task performance on legitimate inputs. We revisit recent layer-wise safety diagnostics and find that safety sensitivity is signed: scaling different layers can strengthen refusal, weaken it, or have little effect. Motivated by this observation, we propose SLDR, a post-fine-tuning defense based on Selective Layers Recovery and Dynamic Routing. SLDR trains a LoRA recovery adapter only on the layers with the maximum and minimum sensitivity scores in the signed spectrum, and uses representation-based dynamic routing inference to activate the adapter only for malicious queries. Across four model architectures, five downstream tasks, and four harmful benchmarks, SLDR substantially reduces harmful outputs while preserving downstream utility. On Llama3.1/SST2, SLDR reduces the average harmful score from 11.54 to 0.08 while maintaining downstream accuracy, and the harmful score remains near zero under poisoning ratios up to 0.9. The code is available at https://github.com/Stardust457/SLDR.",
+    "authors": [
+      "Hui Zhang",
+      "Yachao Yuan",
+      "Jiayun Wang",
+      "Yuanzhuo Li",
+      "Hongtao Wang",
+      "Yali Yuan"
+    ],
+    "published": "2026-10-07T16:23:45Z",
+    "updated": "2026-10-07T16:23:45Z",
+    "categories": [
+      "cs.CR",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10345v1",
+    "abs_url": "http://arxiv.org/abs/2610.10345v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 47,
+      "novelty": 85.5,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.10455v1": {
+    "paper_id": "2610.10455v1",
+    "title": "PHRBench: A Behavioral Evaluation of Post-Hallucination Reasoning in LLMs",
+    "abstract": "Hallucinated information can propagate through multi-stage LLM systems and become part of the context for subsequent reasoning. Existing studies of post-hallucination reasoning (PHR) mainly characterize changes in final outcomes and aggregate reasoning dynamics, leaving how models resolve hallucinated premises at the response level insufficiently understood. In this work, we introduce PHRBench, a controlled benchmark for behaviorally structured PHR across four domains and 18 large language models. PHRBench characterizes each reasoning trajectory independently of final-answer correctness through Hallucination Compliance, Hallucination Avoidance, and Heuristic Correction, and defines an insightful trajectory as successful correction that ultimately reaches the correct answer. Across 4820 controlled instances, we find that successful recovery remains relatively rare and is associated with more frequent belief updates along the reasoning trajectory. We further find that properties of the hallucinated prompt contain substantial predictive signal for successful recovery, with a lightweight predictor achieving an AUROC of 0.847. These findings provide a behavioral view of post-hallucination reasoning, characterizing how LLMs resolve erroneous context and when successful recovery is likely to occur.",
+    "authors": [
+      "Linghao Meng",
+      "Feng He",
+      "Xuan Yang",
+      "Junyuan Mao",
+      "Pinze Ren",
+      "Deqing Mu",
+      "Hesen Yang",
+      "Qiankun Li"
+    ],
+    "published": "2026-10-07T17:25:23Z",
+    "updated": "2026-10-07T17:25:23Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10455v1",
+    "abs_url": "http://arxiv.org/abs/2610.10455v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 43,
+      "novelty": 86.9,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.8,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.10318v1": {
+    "paper_id": "2610.10318v1",
+    "title": "Nobody Truly Agrees on Sentiment: Humans, Bespoke Tools, and LLMs Struggle with Social Media Texts",
+    "abstract": "Social media is a rich source of real-time public sentiment, but widely used sentiment analysis tools are often applied without understanding their limitations. In this study, we evaluate the inter-rater reliability of three bespoke sentiment analysis tools (TextBlob, VADER, and Twitter-roBERTa-base) and three large language models (LLMs: Qwen3-32B, GPT-OSS-120B, Llama-4-Maverick-17B) against six human raters across 100 tweets. We measured agreement using two statistical measures: Cohen's kappa for pairwise comparisons and Fleiss' kappa for multiple raters. Even among the human raters, our results showed only fair agreement, highlighting the subjectivity of sentiment analysis. Higher agreement was observed under the binary sentiment classification (negative vs. non-negative and positive vs. non-positive) than under the three-class classification across both humans and automated tools. The Twitter-roBERTa-base model showed the strongest alignment with human ratings, outperforming both bespoke sentiment tools and LLMs, particularly in distinguishing negative versus non-negative sentiment. LLMs showed substantial agreement among themselves and moderate to substantial alignment with humans, performing better in positive vs. non-positive classifications. Our findings underscore that domain-specific fine-tuning remains crucial for reliable social media sentiment analysis, and human-centered evaluation remains essential for establishing gold-standard labels.",
+    "authors": [
+      "Himarsha R. Jayanetti",
+      "Sivakanesan Dhanushkanda",
+      "Shuai Hao",
+      "Michael L. Nelson",
+      "Michele C. Weigle"
+    ],
+    "published": "2026-10-07T16:11:12Z",
+    "updated": "2026-10-07T16:11:12Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10318v1",
+    "abs_url": "http://arxiv.org/abs/2610.10318v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 72,
+      "novelty": 89.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 51.9,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 89、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2610.10536v1": {
+    "paper_id": "2610.10536v1",
+    "title": "Decoupling Exploration from Optimization in RLVR",
+    "abstract": "Modern language models undergo reinforcement learning with verifiable rewards (RLVR) on top of already-trained checkpoints. A key promise of RLVR is the discovery of new reasoning strategies. In principle, a model can sample novel ideas absent from its prior training data. In practice, however, augmenting RLVR with strong novelty incentives has seen limited success and can degrade model quality. Because verifiable rewards supervise only a narrow slice of the model's knowledge and behavior, such degradations are difficult to recover from. Instead, we decouple exploration from optimization in a framework we call Exploration-Distillation (ExpDis). We train one or more explorer policies with a novelty bonus in the reward, filter their trajectories for correctness and quality, and distill them into a separate student policy. The student policy is then trained without a novelty bonus. We repeat the above procedure for several rounds, alternating between exploration and optimization. This decoupling allows us to aggressively scale exploration without degrading the student policy. Across seven mathematical reasoning benchmarks and two model families, ExpDis outperforms DAPO at the same wall-clock budget. Moreover, we observe improved pass@$k$ scaling, indicating that ExpDis produces models that generate more diverse correct solutions.",
+    "authors": [
+      "Saif Punjwani",
+      "Micah Goldblum"
+    ],
+    "published": "2026-10-07T17:59:26Z",
+    "updated": "2026-10-07T17:59:26Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10536v1",
+    "abs_url": "http://arxiv.org/abs/2610.10536v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 40,
+      "novelty": 86.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.9,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.10422v1": {
+    "paper_id": "2610.10422v1",
+    "title": "Which Rollout Taught It That? BehaviorTrace and the Limits of Training-Data Attribution in Online RL",
+    "abstract": "When reinforcement learning teaches a language model a new behavior, can we find the training rollouts that taught it? And when an attribution method says it can, how do we know the answer is real? We study both questions on online RL fine-tuning with GRPO, using a planted behavior with a known cause. We release BehaviorTrace, an open evaluation harness that combines full-gradient sketching, the planted-behavior setup, and controls for gradient magnitude, fluency, headroom, and variation across seeds and generation draws. Across three seeds on Qwen2.5-1.5B, much of the apparent attribution signal comes from confounds. A control that ranks training steps by gradient size alone, with no behavior target, reaches 4.2 to 4.5 times chance and matches or beats the best targeted estimator on two of three seeds. At saturated checkpoints, model fluency predicts the behavior label at least as well as every gradient method we compared it with. Once fluency is controlled, the per-rollout results change from seed to seed and from one generation draw to the next, so a single run cannot settle the question. One signal does hold on all three seeds. The gradient of the trigger tokens aligns with a target built where the behavior actually occurs. We turn these findings into a checklist for evaluating attribution in RL. We test existing estimators, including GAS (renormalized TracInCP) and a TRAK-style estimator, and do not propose a new one.",
+    "authors": [
+      "Amit Nautiyal"
+    ],
+    "published": "2026-10-07T17:01:37Z",
+    "updated": "2026-10-07T17:01:37Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10422v1",
+    "abs_url": "http://arxiv.org/abs/2610.10422v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 50,
+      "novelty": 85.7,
+      "practical": 18,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 44.8,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 86、质量 50"
+    ],
+    "summary_zh": null
+  },
+  "2610.10507v1": {
+    "paper_id": "2610.10507v1",
+    "title": "RECAST: Learning to Compute the Right Context through Adaptive Evidence Routing",
+    "abstract": "Large language models are increasingly applied to tasks grounded in long, heterogeneous information sources. Conventional Retrieval-Augmented Generation (RAG) relies on fixed similarity-based retrieval, while agentic variants adapt queries and tool use but remain largely retrieval-centric. However, in many tasks, the evidence required for a solution is not explicitly present in any single source item. Instead, it must be derived through filtering, aggregation, or computation across multiple source items. In this work, we introduce RECAST (Routing Evidence through Computation, Access, and Synthesized Tools), a learned framework that formulates evidence construction as a sequential decision process over heterogeneous retrieval and computation operations, allowing evidence to be actively derived rather than merely retrieved. A lightweight RouterLM iteratively selects and formulates primitive operations or specifies customized operations for a frozen CompilerLM to translate into executable code. Once it judges the evidence sufficient, RouterLM passes the accepted evidence to a frozen AnswerLM to produce the final solution. We train RouterLM with supervised fine-tuning (SFT) followed by group relative policy optimization (GRPO). Across six heterogeneous benchmark families, RECAST achieves a mean success rate of 75.6%, outperforming the strongest large-model baseline by 15.9%. Moreover, training enables the Qwen3.5-9B RouterLM to outperform a training-free Gemini 3.5 Flash RouterLM by 5.0%. On three held-out benchmarks, RECAST improves over the strongest baseline by 15.0% on average, demonstrating strong zero-shot generalization across tasks and heterogeneous source representations.",
+    "authors": [
+      "Yilun Hao",
+      "Krishna Sayana",
+      "Isabella Ye",
+      "James S Ren",
+      "Sukhdeep Sodhi",
+      "Craig Boutilier",
+      "Chuchu Fan"
+    ],
+    "published": "2026-10-07T17:51:08Z",
+    "updated": "2026-10-07T17:51:08Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.10507v1",
+    "abs_url": "http://arxiv.org/abs/2610.10507v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 81,
+      "novelty": 84.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.5,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 85、质量 81"
+    ],
+    "summary_zh": null
   }
 }
