@@ -35933,5 +35933,717 @@
       "优势：新颖 85、质量 81"
     ],
     "summary_zh": null
+  },
+  "2610.12410v1": {
+    "paper_id": "2610.12410v1",
+    "title": "Predicting Alignment Generalization with Value Representations",
+    "abstract": "LLM developers post-train their models to exhibit prosocial values and behavioral traits, which are enumerated in an alignment target. However, while recent post-training developments have yielded models that score highly on alignment evaluations, training models on sets of narrow behaviors still influences their behavior across unseen contexts and environments in unexpected ways. In this paper, we establish the task of alignment generalization prediction, i.e., predicting how fine-tuning a model to follow a given value changes its behavior across a wide range of held-out values. We conduct a large-scale analysis of alignment generalization effects across 66 values found in modern alignment targets, and benchmark representational techniques on the alignment generalization prediction task. We find that representations based on model activations when applying values in context significantly outperform methods based on textual descriptions of the values. Specifically, the best activations-based methods achieve correlations of 0.45 with our generalization matrix, compared with 0.05 from description-based baselines. We then show the applicability of representations that predict alignment generalization toward downstream tasks by using them to measure how similar the values in a multi-value alignment target are, which we find is significantly correlated with model robustness. Finally, we show initial evidence towards a shared, model-independent value space, which we use to develop the first taxonomy of LLM values grounded in empirical generalization dynamics. Our work demonstrates the importance of studying value generalization in LLMs and its application toward the more empirical design and training of model behavior.",
+    "authors": [
+      "Andy Liu",
+      "Mehar Bhatia",
+      "Karolina Stanczak",
+      "Mona Diab",
+      "Vered Shwartz",
+      "Daniel Fried"
+    ],
+    "published": "2026-10-08T17:47:26Z",
+    "updated": "2026-10-08T17:47:26Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12410v1",
+    "abs_url": "http://arxiv.org/abs/2610.12410v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.99
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 99.0,
+      "quality": 73,
+      "novelty": 83.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 74.5,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 99、新颖 84"
+    ],
+    "summary_zh": null
+  },
+  "2610.12022v1": {
+    "paper_id": "2610.12022v1",
+    "title": "Examining Social Attribution in LLM Reasoning: A Theory-Guided Probing Methodology",
+    "abstract": "Large language models (LLMs) are increasingly deployed in sociotechnical systems where social attribution, the reasoning process attributing external events to the causes and reasons of agents' social behaviors, plays a critical role. These processes involve judgments of social cause, responsibility, and blame/credit to agents. Although attributional models are well-studied in social psychology and cognition through Attribution Theory, social attribution remains underexplored in AI, particularly LLM social reasoning. This paper provides the first systematic exploration of LLM social attribution. Our work focuses on responsibility and blame attributions, examining current LLMs' judgments and their underlying internal mechanisms. Guided by attribution theory, we construct a social attribution benchmark consisting of a Vignette subset based on classic scenarios from attribution theory research and a Reality subset based on real-world social narratives, yielding 7,639 responsibility/blame judgment questions. On this basis, we evaluate 32 representative LLMs and 5 basic non-LLM baselines. To further explore the internal mechanisms underlying the LLM judgment process, we develop a probing-based methodology to investigate the latent-space representations of 5 key attribution dimensions and the consistency of their influences on LLM judgments compared to those in human social attribution. Our research findings reveal that current LLMs exhibit measurable but incomplete agreement with human responsibility and blame judgments, and meanwhile, this agreement is positively correlated with model size. Some attribution dimensions are systematically decodable from specific positions in LLM hidden states, and their influences on the final judgment are consistent with those indicated by human Attribution Theory. The dataset and associated code are available at https://github.com/Yuzhaoxin946/SAB-Bench.",
+    "authors": [
+      "Zhaoxin Yu",
+      "Qingchao Kong",
+      "Dajun Zeng",
+      "Wenji Mao"
+    ],
+    "published": "2026-10-08T14:20:06Z",
+    "updated": "2026-10-08T14:20:06Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12022v1",
+    "abs_url": "http://arxiv.org/abs/2610.12022v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 90,
+      "novelty": 85.0,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.9,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：质量 90、新颖 85"
+    ],
+    "summary_zh": null
+  },
+  "2610.11978v1": {
+    "paper_id": "2610.11978v1",
+    "title": "Specialized Decision Models vs. General-Purpose LLMs: Benchmarking Jev Across Knowledge, Reasoning, and Multilingual Tasks",
+    "abstract": "Jev is a \"System One\" model that returns a choice among given options instead of generating text. We study how such a specialized decision model compares with general-purpose large language models (LLMs). We evaluate Jev on 13 multiple-choice benchmarks covering knowledge, reasoning, and multilingual understanding, and compare it with 19 LLMs in three tiers: frontier, representative, and small. Jev is competitive with frontier LLMs on knowledge and commonsense benchmarks and obtains the best score on MMLU-Redux and ARC-Challenge. Outside mathematics, it also outperforms most representative LLMs and all small LLMs. However, it falls behind on mathematical word problems: on MathQA, it is 17.7 points below the frontier median and scores lower than all 19 LLMs. These results indicate that a specialized decision model can match general-purpose LLMs on decisions that rely mainly on knowledge, but not on decisions that require multi-step calculation.",
+    "authors": [
+      "Xing Li",
+      "Qingcheng Chang",
+      "Jinzhong Ning",
+      "Changfeng Xu",
+      "Shenlong Zhang",
+      "Yijia Zhang",
+      "Ling Luo",
+      "Hongfei Lin"
+    ],
+    "published": "2026-10-08T13:52:42Z",
+    "updated": "2026-10-08T13:52:42Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.11978v1",
+    "abs_url": "http://arxiv.org/abs/2610.11978v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 77,
+      "novelty": 87.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 62.9,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、质量 77"
+    ],
+    "summary_zh": null
+  },
+  "2610.12402v1": {
+    "paper_id": "2610.12402v1",
+    "title": "SpaceCast-Bench: Evaluating Predictive Spatial Reasoning in Vision-Language Models",
+    "abstract": "Existing spatial reasoning benchmarks mainly test spatial perception: reading off relations already visible in the input. Yet real-world spatial intelligence demands predictive spatial reasoning: constructing a scene from observations, anticipating how an intervention changes it, and reasoning about the unseen outcome. We introduce SpaceCast-Bench, the first benchmark to directly and diagnostically evaluate this capability. Built around an observe-transform-infer framework, its 3,862 questions from 182 real-world scenes span 16 task types at three levels: static perception, local prediction, and global prediction, progressively requiring scene understanding, spatial state updating, and relational inference over unobserved outcomes. Evaluating 21 models exposes a stark gap: the strongest model reaches only 58.0% against 87.2% human performance, while spatially specialized models remain near random chance. Controlled analyses further reveal that bridge views are critical for integrating distributed observations, and that explicit 3D evidence benefits models more reliably than generated outcome images or videos. Fine-tuning on our programmatically generated data lifts Qwen3-VL-4B from 34.0% to 65.7% with macro-average gains across six out-of-domain benchmarks.",
+    "authors": [
+      "Hongxing Li",
+      "Jinyue Su",
+      "Dingming Li",
+      "Wenqi Zhang",
+      "Weiming Lu",
+      "Jun Xiao",
+      "Yueting Zhuang",
+      "Yongliang Shen"
+    ],
+    "published": "2026-10-08T17:44:17Z",
+    "updated": "2026-10-08T17:44:17Z",
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12402v1",
+    "abs_url": "http://arxiv.org/abs/2610.12402v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 85.1,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.2,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 85、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2610.11918v1": {
+    "paper_id": "2610.11918v1",
+    "title": "From Surface to Depth: Towards Cognitive Appraisal Reasoning in Multimodal Emotion Understanding",
+    "abstract": "Recent multimodal large language models (MLLMs) increasingly incorporate explainable reasoning for emotion understanding. However, reasoning based mainly on observable affective cues can reduce emotion understanding to superficial cue-label associations, giving rise to the Clever Hans effect. Such shortcuts become unreliable when affective cues are implicit, conflicting across modalities, linguistically misleading, or obscured by redundant details. In contrast, human emotions are shaped by how individuals interpret and evaluate surrounding events beyond observable cues. Inspired by appraisal theories of emotion, we formulate multimodal emotion understanding as a progression from perception to cognitive appraisal, and introduce a dataset, a model, and a benchmark to support this novel paradigm. CogEmo-40K is a large-scale instruction-tuning dataset constructed through a perception-to-appraisal pipeline to elicit evidence-grounded reasoning across six cognitive appraisal dimensions underlying emotion. CogEmo-MoE is a compact sparse MLLM that introduces interleaved MoE blocks for appraisal-specific adaptation, enabling effective appraisal reasoning at a substantially smaller scale than typical emotion MLLMs. CogEmo-Bench introduces an Appraisal Evidence Quality Score (AEQS) to assess cognitive-affective understanding across six complementary appraisal dimensions, addressing the limitation of conventional emotion metrics that evaluate what emotion is predicted but not why it arises. Extensive experiments show that our paradigm not only leads CogEmo-Bench, but also exhibits strong cross-domain generalization. Our findings suggest that perception-to-appraisal reasoning can move beyond surface-level cue-label associations toward more reliable multimodal emotion understanding and closer cognitive alignment between MLLMs and humans.",
+    "authors": [
+      "Jia Li",
+      "Yichao He",
+      "Yangchen Yu",
+      "Qiankun Li",
+      "Xinyi Li",
+      "Baiyi Ye",
+      "Zhenzhen Hu",
+      "Richang Hong",
+      "Erik Cambria"
+    ],
+    "published": "2026-10-08T13:14:39Z",
+    "updated": "2026-10-08T13:14:39Z",
+    "categories": [
+      "cs.MM",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.11918v1",
+    "abs_url": "http://arxiv.org/abs/2610.11918v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.18,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 70,
+      "novelty": 86.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.8,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、推理时扩展",
+      "优势：新颖 86、质量 70"
+    ],
+    "summary_zh": null
+  },
+  "2610.12327v1": {
+    "paper_id": "2610.12327v1",
+    "title": "SparseDecoding: Decoding-Aware Pruning for Accurate and Efficient LLM Inference",
+    "abstract": "The memory-bound nature of the decoding stage of large language model (LLM) inference incurs significant latency. Layer-wise training-free network pruning approaches guided by the Hessian have been a prominent solution to this problem, as pruning reduces the number of nonzero parameters read from memory during decoding. Nevertheless, typical methods in this line compute the Hessian using pre-collected natural sequences, whereas the model is fed self-generated tokens during decoding, creating a distribution shift between the two sequences. The Hessian calculated on the natural sequence is different from that calculated on the generated sequence. We observe that this discrepancy causes the activation distribution during generation to deviate from that used for pruning, further hurting the pruned model performance. Moreover, most existing LLM pruning methods that bring actual speedup primarily target the sparse matrix-matrix (SpMM) multiplication, providing limited support for the sparse matrix-vector (SpMV) operations, which dominate decoding. To solve these problems, we introduce SparseDecoding, a principled decoding-aware pruning framework tailored for accurate and efficient LLM decoding. Specifically, at the algorithmic axis, SparseDecoding constructs calibration matrices from layer-wise activations collected during the dense-model autoregressive generation, excluding prefill, thereby aligning the pruning objective with the decoding activations. At the system axis, we develop an optimized N:M sparse matrix-vector kernel with bitmask indexing and fixed-step traversal. Substantial empirical results on representative LLMs (Llama-3.1-8B, Llama-3.3-70B, Qwen3-14B / 32B) demonstrate that our method consistently outperforms standard fixed-text calibration on the long-form generation benchmarks while achieving up to 1.48x end-to-end wall-clock decoding speedup on A100 GPUs.",
+    "authors": [
+      "Qitong Wang",
+      "Xinwei Niu",
+      "Mingluo Su",
+      "Shanwei Zhao",
+      "Shiai Zhu",
+      "Huan Wang"
+    ],
+    "published": "2026-10-08T17:06:32Z",
+    "updated": "2026-10-08T17:06:32Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12327v1",
+    "abs_url": "http://arxiv.org/abs/2610.12327v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 69,
+      "novelty": 84.9,
+      "practical": 77,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.9,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 85、实用 77"
+    ],
+    "summary_zh": null
+  },
+  "2610.12338v1": {
+    "paper_id": "2610.12338v1",
+    "title": "VFold: Symmetry-Aware Cross-Layer Value Cache Compression",
+    "abstract": "While caching key-value (KV) states accelerates Large Language Model (LLM) decoding, this cache can dominate memory usage at long context lengths. One solution is to compress this memory by exploiting inter-layer cache similarities. However, most existing techniques necessitate architectural changes to LLMs and incur substantial overhead. In this work, we propose a symmetry-aware value cache merging strategy that reduces cache memory while avoiding both harmful performance degradation and architectural overhead during decoding. Furthermore, we show that this approach can be exploited alongside existing cache compression techniques, composing with high-ratio quantization or key cache pruning to reach compression ratios that neither method reaches alone, with minimal additional cost. Ultimately, our findings reveal a major source of underutilized capacity in the value cache, offering a simple yet highly effective direction for scaling context windows under memory constraints.",
+    "authors": [
+      "Neha Verma",
+      "Sungwon Kim",
+      "Kenton Murray",
+      "Kevin Duh"
+    ],
+    "published": "2026-10-08T17:14:28Z",
+    "updated": "2026-10-08T17:14:28Z",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12338v1",
+    "abs_url": "http://arxiv.org/abs/2610.12338v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 22,
+      "novelty": 86.3,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 56.7,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 86、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.12345v1": {
+    "paper_id": "2610.12345v1",
+    "title": "Overcoming Prior Barriers: Supervised Fine-Tuning under Long-Tail Distribution",
+    "abstract": "Supervised fine-tuning (SFT) adapts pretrained large language models (LLMs) to downstream tasks, but the required concepts can receive substantially different levels of pretrained support. Frequent concepts are more likely to be well learned, whereas rare concepts may remain weakly represented. We introduce a novel notion named prior barrier to quantify how strongly the pretrained model supports competing concepts over the target concept. We observe that prior barriers follow a long-tail distribution, placing head and tail concepts at different starting points for SFT: head concepts face lower prior barriers, whereas tail concepts require additional instructions to overcome their higher prior barriers. Our theoretical analysis further derives a predictive risk bound for SFT under long-tail prior barriers, explicitly characterizing how the prior barrier and accumulated SFT evidence jointly determine predictive performance. Motivated by this prior barrier-dependent demand, we propose PASS, an adaptive SFT instruction selection method that constructs reference-derived concepts and estimates the distinguishing evidence provided by each instruction, and adaptively allocates the selection budget toward concepts that remain insufficiently covered under the current selection. In this way, PASS jointly considers which instructions can provide useful evidence and where additional supervision is needed under a limited budget. Experiments show that our method consistently outperforms seven state-of-the-art instruction selection methods on four backbone-budget settings. An ablation study further shows that PASS's adaptive allocation consistently improves over uniform allocation.",
+    "authors": [
+      "Haohui Wang",
+      "Jiahao Xu",
+      "Wangzhi Zhan",
+      "Tong Zeng",
+      "Dongqi Fu",
+      "Hong Li",
+      "Swastik Roy",
+      "Naren Ramakrishnan",
+      "Chris North",
+      "Jian Kang",
+      "Yujun Yan",
+      "Dawei Zhou"
+    ],
+    "published": "2026-10-08T17:16:45Z",
+    "updated": "2026-10-08T17:16:45Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12345v1",
+    "abs_url": "http://arxiv.org/abs/2610.12345v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 49,
+      "novelty": 85.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.2,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.11959v1": {
+    "paper_id": "2610.11959v1",
+    "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
+    "abstract": "Reinforcement learning (RL) is the central training paradigm for advancing large foundation models towards self-improvement. This report introduces the MiMo-V2.6 series, an omni-modal family that pushes the frontier of model intelligence by scaling RL compute. Prior to RL, we conduct mid-training on a broad multimodal corpus to provide ample exploration space, and build a solid infrastructure on the pretrained hybrid-SWA architecture to support subsequent scale-up. We scale RL compute along three dimensions: (1) larger batches and higher throughput, with an asynchronous training that consumes 1,568 samples and 2.7-3.7B tokens per step at context lengths of up to 1M; (2) more diverse and complex environments, spanning code, general, visual, and cyber domains under a mixture of agent harnesses; and (3) more grader compute, via groupwise agentic grading that yields more accurate reward signals for long-horizon tasks and steers the model towards shorter, more token-efficient solutions. To keep training stable at scale, we freeze the MoE router and establish a multi-layer defense against reward hacking. We further build infrastructure for mixed-task agentic RL, including a unified trajectory representation, high-concurrency multi-framework rollout, decoupled control and data planes, and training-inference consistency. We open-source the training dynamics, RL environments, and RL framework to facilitate reproduction and further research on scaled RL and model self-improvement.",
+    "authors": [
+      "Xiaomi LLM-Core Team",
+      ":",
+      "Zongming Qiao",
+      "Ziyue Hua",
+      "Zirui Ou",
+      "Zihao Yue",
+      "Zihan Jiang",
+      "Zhuo Huang",
+      "Zhiyang Chen",
+      "Zhixian Zheng",
+      "Zhipeng Xu",
+      "Zhengrui Ma",
+      "Yuyang Hu",
+      "Yuhang Dong",
+      "Yuechen Zhang",
+      "Yudong Wang",
+      "Yuanxin Liu",
+      "Yixin Yang",
+      "Yishuo Cai",
+      "Yikai Zhao",
+      "Yihan Yan",
+      "Yifan Zhang",
+      "Yifan Song",
+      "Xiyu Wei",
+      "Xing Zhang",
+      "Xin Zhang",
+      "Xiaoqian Liu",
+      "Xiaodong Ji",
+      "Xiangwei Deng",
+      "Xueyu Guo",
+      "Wenhan Ma",
+      "Weimin Xiong",
+      "Weikun Wang",
+      "Weiji Zhuang",
+      "Shuo Liu",
+      "Shuhuai Ren",
+      "Shuhao Gu",
+      "Shimao Chen",
+      "Shijie Cao",
+      "Shihua Yu",
+      "Shicheng Li",
+      "Shengjie Zhou",
+      "Shaolei Zhang",
+      "Rang Li",
+      "Qiying Wang",
+      "Qingkai Fang",
+      "Qianli Chen",
+      "Minzheng Wang",
+      "Liwen Wang",
+      "Linli Yao",
+      "Linghao Zhang",
+      "Liangyu Cheng",
+      "Liang Zhao",
+      "Lei Li",
+      "Jinhao Dong",
+      "Jinyu Xiang",
+      "Jianyu Wei",
+      "Jiangshan Duo",
+      "Huaqiu Liu",
+      "Huanjie Fan",
+      "Hongyi Guan",
+      "Hongshen Xu",
+      "Hao Tian",
+      "Hanyu Li",
+      "Hailin Zhang",
+      "Gang Wang",
+      "Fuli Luo",
+      "Feng Wei",
+      "Dong Zhang",
+      "Dawei Zhu",
+      "Chiheng Lou",
+      "Chenhong He",
+      "Chenhao He",
+      "Chenghua Liu",
+      "Bowen Ye",
+      "Bowen Shen",
+      "Boshen Xu",
+      "Bo Yang",
+      "Bingquan Xia",
+      "Bangjun Xiao",
+      "Baixuan Xu",
+      "Zhouxiang Mao",
+      "Zhiyang Zhang",
+      "Zhixiang Xu",
+      "Zhenru Lin",
+      "Zhengju Tang",
+      "Zhaojun Huang",
+      "Yuzhe Weng",
+      "Yuxing Xiang",
+      "Yuxiao Li",
+      "Yuheng Yang",
+      "Yuhang Wang",
+      "Yuchen Liu",
+      "Yuanyuan Tian",
+      "Yuanliang Dong",
+      "Yu Cheng",
+      "Yongzhe He",
+      "Yongshun Liang",
+      "Yong Wang",
+      "Yiyan Wang",
+      "Yitian Gong",
+      "Yijie Zhang",
+      "Yanshu Xin",
+      "Xun Zhang",
+      "Xingjian Zhao",
+      "Wenyu Yang",
+      "Wenshan Huang",
+      "Wenhao Li",
+      "Tingwei Huang",
+      "Tianyu Yu",
+      "Tianyang Lu",
+      "Taoyu Yang",
+      "Sinan Du",
+      "Shutong Tian",
+      "Shulin Du",
+      "Shengfan Wang",
+      "Shanchuan Fang",
+      "Qihao Zhang",
+      "Qibin Yang",
+      "Qian Yu",
+      "Qian Tu",
+      "Pengrong Xie",
+      "Peipei Wang",
+      "Peidian Li",
+      "Minkun Guo",
+      "Mingchen Shao",
+      "Luohan Gao",
+      "Lijie Wang",
+      "Liang Shi",
+      "Kaiqi Chen",
+      "Kaiming Liu",
+      "Kaifei Wang",
+      "Kai Yang",
+      "Jinlong Xue",
+      "Jiechen Zhang",
+      "Jiaxuan Liu",
+      "Hongxu An",
+      "Hao Peng",
+      "Hanglong Lü",
+      "Guonan Wang",
+      "Feiyu Yang",
+      "Fanyu Cao",
+      "Fangyue Liu",
+      "Fan Cui",
+      "Cong Wang",
+      "Chun Chen",
+      "Chenxu Bai",
+      "Chengxuan Zhu",
+      "Chenghua Wang",
+      "Boyi Zeng"
+    ],
+    "published": "2026-10-08T13:41:53Z",
+    "updated": "2026-10-08T13:41:53Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.11959v1",
+    "abs_url": "http://arxiv.org/abs/2610.11959v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.36,
+      "serving": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 42,
+      "novelty": 88.3,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 45.7,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理系统",
+      "优势：新颖 88、质量 42"
+    ],
+    "summary_zh": null
+  },
+  "2610.12242v1": {
+    "paper_id": "2610.12242v1",
+    "title": "TokenRouter: Efficient Serving System for Token-Level LLM Routing",
+    "abstract": "Large language model (LLM) routing distributes inference work across different models, advancing the cost-quality Pareto frontier of LLM serving. While coarse-grained routing at the session or query level has been widely adopted in production systems, recent algorithmic work shows that fine-grained token-level routing can yield substantial efficiency and quality gains. However, efficiently serving token-level routed inference poses significant challenges to existing systems. Built on single-LLM assumptions, current systems suffer from severe step desynchronization and frequent batch admission delays under token-level routing, and they also impose high implementation complexity on developers. To address these challenges, we design TokenRouter, an efficient and developer-friendly serving system for token-level routed LLM inference. TokenRouter follows the principle of request-centric programming, model-centric execution: developers describe routing logic from the perspective of a single request, while the runtime launches a subserver for each LLM and dispatches requests asynchronously. Each subserver employs a delayed-batching scheduler, whose optimal hyperparameters are derived from a mathematical throughput model of the system. Across diverse routing algorithms, workloads, and model pairs, TokenRouter achieves 2.01-64.15x higher decoding throughput than existing systems, substantially advancing the serving efficiency of token-level LLM routing. Our code is available at https://github.com/thu-nics/TokenRouter.",
+    "authors": [
+      "Tianyu Fu",
+      "Tengxuan Liu",
+      "Ruoxi Wang",
+      "Yixin Dong",
+      "Yi Ge",
+      "Yichen You",
+      "Yu Wang"
+    ],
+    "published": "2026-10-08T16:21:50Z",
+    "updated": "2026-10-08T16:21:50Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12242v1",
+    "abs_url": "http://arxiv.org/abs/2610.12242v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 42,
+      "novelty": 84.3,
+      "practical": 68,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.5,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 84、实用 68"
+    ],
+    "summary_zh": null
+  },
+  "2610.12137v1": {
+    "paper_id": "2610.12137v1",
+    "title": "Poster: A Preliminary Study of LLM Distillation Inference",
+    "abstract": "Unauthorized model distillation, in which a model is trained on the outputs of a proprietary large language model (LLM), is a growing threat to model providers. We study distillation inference: determining whether a suspect model was distilled from another model or trained independently. We formulate this problem as a hypothesis test and estimate the behavior expected under each hypothesis by training shadow models: distilled shadow models learn from the teacher's reasoning traces, whereas independent shadow models learn only from reference answers. The auditor measures how closely each model predicts the teacher's reasoning outputs and then uses the shadow models to convert the suspect's score into a calibrated p-value. In a preliminary study using Qwen2.5-7B as the teacher and Llama-3.2-3B for the suspects, our test achieves a true positive rate of 1.0 at a significance level of 0.02. These results demonstrate the feasibility of using distillation inference to detect distillation attacks.",
+    "authors": [
+      "Edward Chen",
+      "Yuntao Du"
+    ],
+    "published": "2026-10-08T15:24:29Z",
+    "updated": "2026-10-08T15:24:29Z",
+    "categories": [
+      "cs.CR",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12137v1",
+    "abs_url": "http://arxiv.org/abs/2610.12137v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 42,
+      "novelty": 87.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.7,
+    "score_reasons": [
+      "命中主题：推理时扩展、压缩与高效推理",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.12355v1": {
+    "paper_id": "2610.12355v1",
+    "title": "Distilling Routed 3D Privilege for Spatial Reasoning in Vision-Language Models",
+    "abstract": "Spatial reasoning remains a persistent weakness of vision-language models (VLMs), because RGB inputs do not directly provide geometric evidence. Existing remedies either inject 3D into the model at inference, paying architecture and latency costs, or train with outcome rewards that supervise only the final answer. Spatial errors originate in perception: a misjudged depth or direction can be corrected only by the scene's true geometry, which the 3D-scanned sources of spatial training corpora already provide. We propose GPD (Geometry-Privileged Distillation), which makes geometric evidence the privilege in on-policy self-distillation (OPSD). For each question, depth, semantic, and bird's-eye-view (BEV) cues are rendered as compact text and routed to the teacher alongside the reference answer; a privileged KL, applied only to incorrect trajectories, augments GRPO, and the deployed model remains RGB-only. On the 4B backbone, GPD achieves 57.1 on VSI-Bench and 37.6 average across MindCube, SPARBench, MMSI-Bench, and ViewSpatial, outperforming both GRPO and answer-privileged OPSD across spatial reasoning benchmarks. Ablations confirm the complementarity of 3D and answer privilege, the advantage of question-conditioned routing over full-context injection, and the benefit of restricting distillation to incorrect trajectories.",
+    "authors": [
+      "Hongxing Li",
+      "Yixin Li",
+      "Dingming Li",
+      "Zixuan Wang",
+      "Yuchen Yan",
+      "Wenqi Zhang",
+      "Weiming Lu",
+      "Yongliang Shen"
+    ],
+    "published": "2026-10-08T17:22:24Z",
+    "updated": "2026-10-08T17:22:24Z",
+    "categories": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.12355v1",
+    "abs_url": "http://arxiv.org/abs/2610.12355v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.63,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 61,
+      "novelty": 82.8,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.8,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 83、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
