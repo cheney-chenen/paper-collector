@@ -37978,5 +37978,578 @@
       "优势：新颖 83、匹配 81"
     ],
     "summary_zh": null
+  },
+  "2610.20057v1": {
+    "paper_id": "2610.20057v1",
+    "title": "Beyond Correctness: Compute-Responsive Data Selection for Reasoning Model Post-Training",
+    "abstract": "Reasoning language models increasingly rely on test-time compute scaling, yet most existing work studies how to allocate inference computation while treating the model itself as fixed. We ask a complementary question: can reasoning models be post-trained to make better use of a given amount of test-time compute, and which examples are most useful for this goal? Our key observation is that reasoning problems differ substantially in their response to additional computation. Some are already solved under limited compute, others remain unresolved even after further reasoning, while a distinct subset changes from complete initial failure to success when additional reasoning is provided. We call these compute-responsive (CR) examples and introduce Compute-Responsive Data Selection (CRDS), a post-training data-selection principle that prioritizes examples with empirically demonstrated marginal utility from additional reasoning. On Qwen3-8B, SFT on CR examples recovers 45.3\\% of held-out low-compute failures, compared with 40.6\\% when training on already-solved examples. The advantage extends beyond the selected CR split: SFT-CR reaches 51.8\\% overall accuracy on an independently sampled test distribution, with the gain concentrated on compute-responsive problems. CR training also shifts the compute--accuracy frontier across inference budgets from 512 to 4,096 tokens, outperforming matched non-CR training throughout and reaching 48.1\\% recovery at the largest budget. The same pattern is supported across multiple data sources, remains visible under on-policy distillation, and extends to Llama-3.1-8B-Instruct when CR sets are reconstructed separately for that model. Better test-time compute utilization can therefore be learned through post-training, with recoverable responses to additional reasoning providing a particularly informative signal for selecting training examples.",
+    "authors": [
+      "Liang He",
+      "Xiangyu Li",
+      "Yuxin Wang",
+      "Hanbin Zhang",
+      "Mingyu Cao",
+      "Zhaomiao Guo",
+      "Xilu Wang"
+    ],
+    "published": "2026-10-14T11:57:03Z",
+    "updated": "2026-10-14T11:57:03Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20057v1",
+    "abs_url": "http://arxiv.org/abs/2610.20057v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 1.0,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 63,
+      "novelty": 84.1,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 72.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：匹配 100、新颖 84"
+    ],
+    "summary_zh": null
+  },
+  "2610.20570v1": {
+    "paper_id": "2610.20570v1",
+    "title": "Manacá-1B-Instruct-2: Reproducible Safety Alignment for a Native Brazilian-Portuguese LLM. Negative DPO Results, a Controlled Composition Scan, and a Silent Failure Mode of the LLM Judge",
+    "abstract": "Brazilian Portuguese remains underserved by open-source language models, and the few that are safety-aligned rarely document what did not work or validate comparisons with statistical significance. We present Manacá-1B-Instruct-2, the second-generation post-training alignment of Manacá-1B (1.72B parameters, trained from scratch for PT-BR), with an SFT corpus of 291,223 examples. We document three DPO attempts, all negative, including a case where the training reward margin reaches 1.0 while free generation does not change at all, and show that safety came from a dedicated safety-SFT (LLM-jp AnswerCarefully style), refined over three iterations until closing the safety-helpfulness frontier. A controlled scan of the fraction of general data in the safety-SFT mix (10% to 60%) reveals a non-monotonic over-refusal curve with a knee point at 40-50%. The final model is compared against four external PT-BR models on the same items, with Wilson confidence intervals and paired McNemar tests with Holm-Bonferroni correction: the lower bound of its safety interval (94.1%) lies above the upper bound of all four baselines. We also report a methodological finding for LLM-judge evaluation: on two of six safety items in MT-Bench-PT, the judge categorically refuses to assign a score regardless of the evaluated response, silently reducing the effective N of that category in every prior report of the project. We complement this with an n-gram decontamination check and a Chinchilla-anchored compute-budget table that attributes the gap in general capability to pre-training scale rather than alignment methodology. All code, raw data, logs, and scripts that produce every reported number are publicly released.",
+    "authors": [
+      "Bruno Leonardo Santos Menezes",
+      "Carlos Leonardo Souza Cardoso",
+      "Fabio André Machado Porto"
+    ],
+    "published": "2026-10-14T17:53:46Z",
+    "updated": "2026-10-14T17:53:46Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20570v1",
+    "abs_url": "http://arxiv.org/abs/2610.20570v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 72,
+      "novelty": 88.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 68.3,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐",
+      "优势：新颖 88、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.20497v1": {
+    "paper_id": "2610.20497v1",
+    "title": "Hindsight-Privileged RLVR: Single-Rollout Token Credit Without Group Sampling",
+    "abstract": "Reinforcement learning with verifiable rewards (RLVR) trains language models from checked task outcomes, but assigning a terminal reward to individual reasoning tokens or actions remains difficult. Group-relative methods such as Group Relative Policy Optimization (GRPO) sample several attempts per prompt, but lose their reward-based learning signal when all attempts receive the same outcome. We propose Hindsight-Privileged RLVR (HP-RLVR), a single-rollout method that turns a completed trajectory's own future into token-level update weights. The generating policy snapshot scores each eligible token under its causal history and under a hindsight context containing the realized future and verifier feedback. A normalized Jensen--Shannon divergence between the two views weights the reward relative to a historical baseline, yielding bounded token credit for both successful and failed attempts, with no reference solution or learned critic. In paired Qwen3-8B runs over a shared $100$-step schedule, HP-RLVR trains $1.21\\times$, $1.46\\times$, and $2.30\\times$ faster than GRPO on mathematics, code generation, and ALFWorld, using one eighth the rollouts per prompt. Accuracy is comparable overall, with HP-RLVR ahead on mathematics at all three sizes and GRPO ahead on code and ALFWorld. In ALFWorld, $43.2\\%$ (4B) and $49.0\\%$ (8B) of GRPO's gradient-norm records are zero, versus none for HP-RLVR.",
+    "authors": [
+      "Wei Chen",
+      "Yubing Wu",
+      "Zhou Xu",
+      "Haoyue Zhang",
+      "Delu Zeng",
+      "Jiahao Wang",
+      "Junmei Yang",
+      "Pan tiewen",
+      "Jingfeng Liu",
+      "Zhiheng Zhou",
+      "Bo Li",
+      "Min Chen"
+    ],
+    "published": "2026-10-14T17:06:59Z",
+    "updated": "2026-10-14T17:06:59Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20497v1",
+    "abs_url": "http://arxiv.org/abs/2610.20497v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81,
+      "reasoning": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 63,
+      "novelty": 84.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 84、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.20303v1": {
+    "paper_id": "2610.20303v1",
+    "title": "SpectrumQuant: Spectrum Alignment for LLM Quantization",
+    "abstract": "Orthogonal transforms have emerged as an effective tool for low-bit quantization of large language models (LLMs), as they reshape activation distributions without changing the underlying model function. Existing approaches typically rely either on fixed data-agnostic transforms, such as Hadamard rotations, or on calibration-time optimization of learned rotations. We study rotation selection from first principles and show that maximizing covariance leads to spectral alignment and provides a principled criterion for constructing quantization-friendly orthogonal transforms. Based on this insight, we propose SpectrumQuant, a closed-form rotation method that estimates activation covariance from calibration data and uses it to construct a covariance-aware orthogonal transform for post-training quantization. Our formulation characterizes quantization-friendly rotations as compositions of alignment and mixing components, while recovering Hadamard matrices as a special case. Interestingly, a class of butterfly matrices belongs to this category. In the realm of LLM quantization, SpectrumQuant bridges the gap between data-agnostic structured rotations and learned rotations, providing an effective and efficient data-aware alternative for post-training quantization. Experiments on Llama and Mistral models show that SpectrumQuant is competitive with state-of-the-art rotation strategies while requiring less than one-third of the GPU memory and significantly less time than learned rotations approaches like SpinQuant and DartQuant.",
+    "authors": [
+      "Dwaipayan Haldar",
+      "Indranil Patra",
+      "Azhar Yousuf",
+      "Chandra Sekhar Seelamantula"
+    ],
+    "published": "2026-10-14T14:54:16Z",
+    "updated": "2026-10-14T14:54:16Z",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20303v1",
+    "abs_url": "http://arxiv.org/abs/2610.20303v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 43,
+      "novelty": 85.3,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 63.0,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 85、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.20328v1": {
+    "paper_id": "2610.20328v1",
+    "title": "Argument Graph Uncertainty: Quantifying Uncertainty from the Logical Structure of Reasoning Chains",
+    "abstract": "Reliable uncertainty estimation is essential for deploying large language models in high-stakes reasoning tasks, yet most existing approaches rely on expensive sampling strategies or shallow token-level signals that ignore the internal logical structure of model outputs. We introduce Argument Graph Uncertainty, a post-hoc framework for multiple choice question tasks, that estimates model confidence directly from the logical structure of a single chain-of-thought reasoning trace. Our method uses either a lightweight instruction-tuned model or a simple deterministic rule to segment the reasoning chain into propositional units, then applies a NLI model to infer relational edges and construct two complementary argument graphs over these segments. The resulting edge scores are aggregated into a Dirichlet posterior over answer options, whose concentration yields calibrated uncertainty estimates reflecting both local step-to-step coherence and global logical consistency across the reasoning trace. Evaluated on GPQA, MMLU-Pro and TruthfulQA, our method consistently surpasses token-based and consistency-based uncertainty baselines across multiple reasoning models. We further demonstrate through extensive combination analyses that argument graph uncertainty captures an orthogonal signal to existing approaches, making it a complementary component in uncertainty ensembles. Crucially, our framework requires no additional calls to the evaluated model and relies entirely on small, efficient auxiliary models, producing fully interpretable, per-node uncertainty attributions at low computational cost.",
+    "authors": [
+      "Simon Baur",
+      "Sumire Honda",
+      "Wojciech Samek",
+      "Jackie Ma"
+    ],
+    "published": "2026-10-14T15:13:00Z",
+    "updated": "2026-10-14T15:13:00Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20328v1",
+    "abs_url": "http://arxiv.org/abs/2610.20328v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 40,
+      "novelty": 86.7,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.5,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.20392v1": {
+    "paper_id": "2610.20392v1",
+    "title": "FOLD: Position-Free Far Memory with Local Order for Long-Context Speculative Decoding",
+    "abstract": "Speculative decoding accelerates LLM generation through lightweight drafting and parallel verification. It is particularly promising for long inputs, where KV-cache access costs can be amortized over multiple accepted tokens. Yet most drafters are trained on short sequences and degrade on long inputs, while long-context training is costly. Existing training-free approaches restrict the context window, rescale positions, or augment recent context with retrieved distant entries. Drafters, however, read target hidden states that already encode contextual and positional information, and their lightweight architecture makes full-history attention affordable. We propose FOLD, a training-free method that preserves exact local positions and treats all distant entries as far memory at a shared position. To counter attention dilution as the memory grows, we sharpen attention within it to emphasize relevant entries while separately controlling its total weight relative to the local window. Across six target-drafter pairs and diverse benchmarks of up to 256K tokens, FOLD predominantly delivers the highest speedup, with the best case more than doubling the speedup over autoregressive decoding, from 2.08$\\times$ to 4.22$\\times$.",
+    "authors": [
+      "Shuxuan Li",
+      "Jialiang Kang",
+      "Yanghao Zhou",
+      "Ziye Zhu",
+      "Xiao Yang"
+    ],
+    "published": "2026-10-14T15:55:10Z",
+    "updated": "2026-10-14T15:55:10Z",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20392v1",
+    "abs_url": "http://arxiv.org/abs/2610.20392v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 79.1,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.9,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 79、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.20012v1": {
+    "paper_id": "2610.20012v1",
+    "title": "ChemArgus: Automated Scientific Diagnostics for Lab-Grade Multimodal Chemistry Reasoning: A Frontier Benchmark",
+    "abstract": "Chemistry evaluation has moved past multiple-choice probes toward open-ended expert problems, yet the benchmarks that define the current frontier still score answer endpoints alone. Such scoring conflates memorized facts with stepwise derivation, treats visual and textual inputs as interchangeable, and confounds long-horizon planning with stepwise execution. These blind spots prevent any diagnosis of where the reasoning chain breaks in a model. We present ChemArgus, a competition-level chemistry benchmark drawn from chemistry competition material, textbooks, and research papers, whose scoring replaces the answer endpoint with three measurement properties. Fine-grained scoring grades every subquestion point by point with partial credit, so a score lands at the level of the step rather than the outcome. Multimodal capability is priced on every problem containing a real image, paired with a controlled text description, so visual understanding is measured against text on identical tasks. Diagnostic attribution reads paired metrics that share one scoring unit and differ only in context construction, so a gap between two scores isolates a single cause, namely integration, propagation, or local reasoning. GPT-5.6-Sol scores 23.2% on unassisted whole-problem solving against 28.8% and 30.4% under the two sequential metrics, a gap measuring the integration burden. Through rubric partial credit and these cause-isolating score gaps, ChemArgus shows not only whether a model answers chemistry correctly but where its reasoning chain fails, so that every score it reports doubles as a diagnosis, a readout of the chain rather than a verdict, aiming to guide language models step by step on their path toward chemistry expertise, one corrected step at a time, each step priced by the rubric, point by point.",
+    "authors": [
+      "Hanyao Guo",
+      "Mo Cui",
+      "Zihan Tan",
+      "Leixin Sun",
+      "Yichun Wang",
+      "Yinan Shen",
+      "Guojun Zhu",
+      "Jia Jiang",
+      "Erhao Chen",
+      "Zui Chen",
+      "Wenzhe Gao",
+      "Zhihao Yu",
+      "Qijun Wang",
+      "Yetian Zhu",
+      "Jiande Chen",
+      "Chuhang Pei",
+      "Yao Jiang",
+      "Yichen Fan",
+      "Pinhan Wang",
+      "Xiaorui Pan",
+      "Qianyi Zhu",
+      "Yang Liu",
+      "Mang Ye",
+      "Guancheng Wan"
+    ],
+    "published": "2026-10-14T11:24:56Z",
+    "updated": "2026-10-14T11:24:56Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20012v1",
+    "abs_url": "http://arxiv.org/abs/2610.20012v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 59,
+      "novelty": 87.8,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.20221v1": {
+    "paper_id": "2610.20221v1",
+    "title": "Scaling Multilingual Safety and Reasoning Evaluation through Reasoning-Guided Translation",
+    "abstract": "Large language models (LLMs) are increasingly deployed across languages, yet their safety and reasoning capabilities remain predominantly evaluated in English. Translating existing benchmarks offers a scalable approach to multilingual evaluation, but preserving task-specific meaning across languages presents significant challenges, particularly for harmful requests, mathematical reasoning, and conversational interactions. We introduce a reasoning-guided translation framework for constructing multilingual evaluations designed to preserve the structure and intended meaning of diverse benchmark tasks. Our approach separates translation strategy selection from large-scale generation, combining reasoning-guided configuration selection with task-aware validation, targeted repair, and independent quality screening. Using this framework, we develop a source-aligned evaluation collection spanning seven safety, conversational, and mathematical reasoning resources across 11 languages. The resulting collection achieves 99.94\\% coverage of intended item--language pairs in the two subsets requiring repair. Evaluations of open-source LLMs reveal distinct language-dependent vulnerabilities, including inconsistent refusal behaviour and substantial reasoning degradation in lower-resource languages. These findings highlight the importance of task-sensitive benchmark construction and systematic quality assessment for understanding multilingual model behaviour beyond English.",
+    "authors": [
+      "Zahraa Al Sahili",
+      "Ioannis Patras",
+      "Matthew Purver"
+    ],
+    "published": "2026-10-14T13:58:39Z",
+    "updated": "2026-10-14T13:58:39Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20221v1",
+    "abs_url": "http://arxiv.org/abs/2610.20221v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 48,
+      "novelty": 82.6,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 56.4,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 83、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.20217v1": {
+    "paper_id": "2610.20217v1",
+    "title": "Continual pretraining Prostate MRI ViT Encoder for task alignment",
+    "abstract": "Building foundation models for MRI has emerged as a promising direction for advancing medical image analysis and improving accessibility of task specific models. Existing approaches primarily focus on effective pretraining strategies and evaluating their performance across diverse downstream tasks. While these methods show performance gains, limited attention has been given to understanding task alignment between pretraining and downstream objectives. Unlike language models, where the two stages are naturally aligned, such alignment is less evident in vision based applications. Motivated by this gap, we explore continual pretraining. Specifically, continually pretraining a pretrained ViT encoder using Low-Rank Adaptation (LoRA) on a prostate segmentation task to enhance task alignment and downstream performance. We further perform layer-wise representational analysis using Centered Kernel Alignment (CKA) to assess representational shifts and their correlation with task outcomes. Our experiments show improved performance in 3 of 6 downstream tasks and comparable results in the others. Our Feature analysis reveals that, for segmentation tasks, continually pretrained encoder features exhibit greater similarity to those of the finetuned encoder than the original pretrained encoder, correlating with observed performance gains.",
+    "authors": [
+      "Bilal A. Sidiqi",
+      "Yipei Wang",
+      "Shaheer U. Saeed",
+      "Shiqi Huang",
+      "Daniel C. Alexander",
+      "Yipeng Hu"
+    ],
+    "published": "2026-10-14T13:57:23Z",
+    "updated": "2026-10-14T13:57:23Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20217v1",
+    "abs_url": "http://arxiv.org/abs/2610.20217v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63,
+      "post-training": 0.63,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 51,
+      "novelty": 85.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.7,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、压缩与高效推理",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.20004v1": {
+    "paper_id": "2610.20004v1",
+    "title": "Provable Transformer Context Compression for In-Context Reinforcement Learning",
+    "abstract": "Transformers can perform in-context reinforcement learning without parameter updates. However, existing theoretical constructions often require context sizes that grow with the number of sampled transitions, leading to increasing memory costs in large-scale problems. This raises a fundamental scalability question: how much context is intrinsically necessary to carry out such learning? We answer this question for fixed-policy TD evaluation. We show that, with a shared linear decoder, the minimum context dimension required to exactly reproduce the first $L$ TD iterates is the Krylov dimension induced by the sampled transitions. When the available context dimension $m$ falls below this threshold, exact reproduction is no longer possible. In this regime, we characterize the optimal approximation error and show that it decays as $Θ(γ^m\\max\\{1,1/(m(1-γ))\\})$ where $γ$ is the discounting factor. Moving from representation complexity to actual memory cost, we characterize the optimal retained memory for exact continuous representations as $Θ(nk_L)$ and show experimentally that on a sampled task whose exact rank is full but whose numerical rank is small, a context accurate to $10^{-2}$ is $88.7\\%$ smaller than the sparse sufficient statistics of TD. Finally, we establish the learnability of the shared executor through pretraining by proving global convergence of an auxiliary objective over effective attention parameters under suitable task diversity. Experiments across diverse TD evaluation problems validate parameter recovery and the predicted context--accuracy tradeoff.",
+    "authors": [
+      "Yajie Zhao",
+      "Yingjun Mo",
+      "Zhiyong Wang",
+      "Bo Tang",
+      "Chao Xu",
+      "Fang Kong"
+    ],
+    "published": "2026-10-14T11:21:30Z",
+    "updated": "2026-10-14T11:21:30Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20004v1",
+    "abs_url": "http://arxiv.org/abs/2610.20004v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "efficiency": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 63,
+      "novelty": 86.3,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.2,
+    "score_reasons": [
+      "命中主题：预训练与优化、压缩与高效推理",
+      "优势：新颖 86、质量 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.20503v1": {
+    "paper_id": "2610.20503v1",
+    "title": "ReaDy: Recurrent States as Dynamic Context for Speculative Drafting in Hybrid Linear Attention Large Language Models",
+    "abstract": "Speculative decoding accelerates autoregressive generation by drafting multiple tokens per step, yet feature-based drafters rely on target hidden features whose contextual emphasis may not align with the needs of subsequent draft positions. Hybrid linear attention (HLA) models maintain compact recurrent states that accumulate historical associations, offering an efficient source of complementary context for speculative drafting. We introduce ReaDy, the first speculative decoding method, to the best of our knowledge, to leverage HLA recurrent states for position-specific context retrieval during drafting. ReaDy equips each draft position with a learned query to retrieve supplementary context directly from the target's committed recurrent states. A lightweight state reader integrates this context into draft representations through residual updates, while low-rank state reads and fused operators keep additional computation and I/O overhead low. Building on DSpark's parallel backbone and sequential prediction head, ReaDy employs a lightweight two-stage adaptation strategy, with reader capacity, state sources, and residual placement examined through ablation studies. Across seven benchmarks spanning mathematics, code generation, and dialogue, ReaDy achieves an average $3.16\\times$ decoding speedup over autoregressive decoding with Qwen3.8-27B on a single NVIDIA B200 GPU. It outperforms DSpark on every benchmark, improving throughput by 7.97% and acceptance length by 8.50% on average. Our code is available at https://github.com/StartLuxLabs/ReaDy.",
+    "authors": [
+      "Bohan Sun",
+      "Zunhai Su",
+      "Xialie Zhuang",
+      "Jianjin Li",
+      "Ngai Wong",
+      "Chuan-Wei Kuo"
+    ],
+    "published": "2026-10-14T17:08:52Z",
+    "updated": "2026-10-14T17:08:52Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20503v1",
+    "abs_url": "http://arxiv.org/abs/2610.20503v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.36,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 78,
+      "novelty": 79.1,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.6,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：新颖 79、质量 78"
+    ],
+    "summary_zh": null
+  },
+  "2610.20353v1": {
+    "paper_id": "2610.20353v1",
+    "title": "Beyond Expert Rankings: Contrast Calibration for Mixed-Precision MoE Quantization",
+    "abstract": "Mixture-of-experts (MoE) language models activate only a few experts per token, yet all expert weights must be stored. Mixed-precision quantization reduces this storage cost by assigning higher bit-widths to sensitive experts and lower bit-widths to resilient ones, but expert rankings alone do not determine how strongly to weight their errors. To address this gap, we propose NatScale, a contrast-calibrated allocation framework for mixed-precision MoE quantization. It uses a model-specific power transformation to calibrate gradient-based expert weights to an information-theoretic contrast target while preserving rankings. We jointly evaluate each expert's gate, up and down configurations to estimate its output error. We then combine these errors and calibrated weights with an existing prior based on weight spectra, variance and precision decay to select configurations under a storage budget. Across three models, NatScale achieves the lowest native-to-quantized KL divergence and the highest top-token agreement in all nine settings against five allocation baselines. It also yields the lowest perplexity in seven settings. These findings highlight the importance of objective-aware precision allocation.",
+    "authors": [
+      "Renjie Xie",
+      "Juncheng Yang",
+      "Aoting Hu",
+      "Yan Liang",
+      "Mingxi Zhang",
+      "Zheheng Hong",
+      "Wei Xu",
+      "Yanzhi Chen"
+    ],
+    "published": "2026-10-14T15:29:40Z",
+    "updated": "2026-10-14T15:29:40Z",
+    "categories": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.20353v1",
+    "abs_url": "http://arxiv.org/abs/2610.20353v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 40,
+      "novelty": 84.4,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.5,
+    "score_reasons": [
+      "命中主题：预训练与优化、压缩与高效推理",
+      "优势：新颖 84、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
