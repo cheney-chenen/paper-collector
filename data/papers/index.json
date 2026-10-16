@@ -38551,5 +38551,556 @@
       "优势：新颖 84、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2610.22186v1": {
+    "paper_id": "2610.22186v1",
+    "title": "EVA-Cap: Optimizing Audiovisual Video Captioning via Event-Centric Alignment",
+    "abstract": "Recent advances in Omni Language Models (OLMs) provide a unified solution for audiovisual video captioning. Nevertheless, existing approaches predominantly treat captioning as an unstructured text generation process, neglecting the inherent semantic structure of videos and leading to suboptimal fine-grained audiovisual alignment. To bridge this gap, we propose EVA-Cap, a novel framework that decomposes captions into atomic audiovisual events and transforms unstructured text supervision into event-centric alignment. We train EVA-Cap via Supervised Fine-Tuning (SFT) and Group Relative Policy Optimization (GRPO) on a self-curated dataset, EVA-Data, which is built with event-centric quality control. During the GRPO phase, the model is explicitly optimized against three event-centric alignment targets: global event completeness, intra-event attribution, and inter-event synchronization. Extensive experiments demonstrate that EVA-Cap significantly outperforms existing methods in event-centric evaluation (e.g., +9.0% average gain on ChronusAV), while achieving competitive performance on general audiovisual captioning benchmarks (e.g., +3.3% on WorldSense).",
+    "authors": [
+      "Jiapeng Shi",
+      "Qiuxia Hou",
+      "Jiaqi Leng",
+      "Junke Wang",
+      "Yanhao Zhang",
+      "Haonan Lu",
+      "Ziyi Ye",
+      "Zuxuan Wu"
+    ],
+    "published": "2026-10-15T16:42:11Z",
+    "updated": "2026-10-15T16:42:11Z",
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22186v1",
+    "abs_url": "http://arxiv.org/abs/2610.22186v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.99
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 99.0,
+      "quality": 66,
+      "novelty": 85.9,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 73.0,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：匹配 99、新颖 86"
+    ],
+    "summary_zh": null
+  },
+  "2610.22324v1": {
+    "paper_id": "2610.22324v1",
+    "title": "Training Reasoning Models to Generate Diverse Scientific Ideas",
+    "abstract": "One of the first steps of a research pipeline is generating ideas. Large Language Models (LLMs) are increasingly used to automate this step, but most of this work optimizes the quality of individual ideas, while overlooking diversity. In our work, we study document-grounded ideation, focusing on increasing the diversity of LLM generated ideas and ensuring they are high quality. Given prior papers, a model must propose a set of ideas that are each high-quality and clearly distinct from one another, while also being grounded in the input documents. To optimize for this, we propose training with a set-level reinforcement learning objective. In our setup, in a single generation, the model writes K structured idea cards grounded in the source papers, and the set is scored jointly, where each idea's quality is weighted by its distance from the ideas written before it. This teaches the model to steer each new idea away from its predecessors. We show that our trained 8B model achieves higher creative utility (a measure combining quality and diversity) than Claude Opus 4.8 and GPT-6 Astra on our contamination-free benchmark. In a pilot human study with four experts, our sets are judged as promising as Claude Opus 4.8's and contain marginally more unique ideas. When a coding agent runs proof-of-concept experiments on the ideas, our model's success@k is comparable to Claude Opus 4.8's, so we see that the added diversity does not cost any executability.",
+    "authors": [
+      "Manya Wadhwa",
+      "Pranav Narayanan Venkit",
+      "Hiroaki Hayashi",
+      "Yu Li",
+      "Tuhin Chakrabarty",
+      "Chien-Sheng Wu"
+    ],
+    "published": "2026-10-15T17:52:12Z",
+    "updated": "2026-10-15T17:52:12Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22324v1",
+    "abs_url": "http://arxiv.org/abs/2610.22324v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.9
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 90.0,
+      "quality": 72,
+      "novelty": 82.9,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 71.7,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：匹配 90、新颖 83"
+    ],
+    "summary_zh": null
+  },
+  "2610.22172v1": {
+    "paper_id": "2610.22172v1",
+    "title": "Efficient KV Cache Migration for Geo-Distributed LLM Inference in Collaborative Edge Computing",
+    "abstract": "Large Language Models (LLMs) have shown exceptional capabilities but rely heavily on centralized cloud GPU clusters, leading to high bandwidth costs, latency, and privacy issues. Edge computing offers a solution by deploying LLMs closer to users on edge servers, yet single edge servers often cannot meet LLMs' heavy computational demands. Collaborative Edge Computing (CEC) addresses this challenge by integrating resources of multiple geo-distributed heterogeneous edge servers, which jointly host small model shards and associated Key-Value (KV) cache for distributed inference. However, edge servers may disconnect or easily become overloaded, making it essential to migrate stateful KV cache to other servers for ensuring continuous service. Existing cloud-based KV cache management methods, such as direct cross-GPUs transmission and recomputation from input tokens are ill-suited for bandwidth-constrained and resource-limited edge environments. In this work, we propose EdgeFlow, a novel hybrid KV cache migration scheme that integrates direct KV cache transmission with activation-based recomputation, leveraging parallel computation and communication to minimize migration time. On this basis, we formulate a multi-node KV migration optimization problem and design a 2-approximation algorithm based on improved linear programming relaxation and bipartite graph techniques. Extensive experiments on a real-world distributed LLM inference platform demonstrate that EdgeFlow reduces migration time by up to 45%, significantly enhancing the robustness and efficiency of distributed LLM inference in collaborative edge computing.",
+    "authors": [
+      "Mingjin Zhang",
+      "Jiannong Cao",
+      "Tao Wu",
+      "Xiangchun Chen",
+      "Ne Wang"
+    ],
+    "published": "2026-10-15T16:31:19Z",
+    "updated": "2026-10-15T16:31:19Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22172v1",
+    "abs_url": "http://arxiv.org/abs/2610.22172v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 39,
+      "novelty": 87.1,
+      "practical": 54,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 70.2,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：匹配 100、新颖 87"
+    ],
+    "summary_zh": null
+  },
+  "2610.22290v1": {
+    "paper_id": "2610.22290v1",
+    "title": "EliteReplay: Preserving Diverse Solutions in RL Post-Training via Quality-Diversity Search",
+    "abstract": "Reinforcement learning has become a common post-training technique to improve the accuracy of LLMs on verifiable tasks. However, such training can narrow the set of solutions the model can produce. Several approaches have attempted to address this behavior-sharpening effect, but they often optimize metrics that do not reflect the diversity of correct solutions. Ideally, we want a model that can produce multiple good solutions, not only a single reliable one. We propose EliteReplay, a post-training recipe that pairs GRPO with an \"elite\" archive built by quality-diversity search. Before training, we use the frozen base model to collect solutions that span distinct approaches; during training, GRPO is combined with a replay loss on this archive. The result is a post-trained model that improves accuracy while preserving more of the base model's solution diversity. On multiple text-to-SQL tasks, EliteReplay achieves a higher pass@128 than all baselines, producing up to 77% more distinct correct strategies than the strongest baselines. It preserves most of the base model's correct strategies, outperforming existing methods in strategy retention. This diversity translates into practical benefits on ambiguous questions, where EliteReplay covers both interpretations nearly twice as often as the strongest baseline on AmbiQT.",
+    "authors": [
+      "Hanane Nour Moussa",
+      "Doeun Lee",
+      "Sachin Kumar"
+    ],
+    "published": "2026-10-15T17:43:31Z",
+    "updated": "2026-10-15T17:43:31Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22290v1",
+    "abs_url": "http://arxiv.org/abs/2610.22290v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 60,
+      "novelty": 82.9,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.2,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 83、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.22194v1": {
+    "paper_id": "2610.22194v1",
+    "title": "AutoSFT: An Agentic System for Automated Data Research in Supervised Fine-Tuning",
+    "abstract": "Language model agents increasingly automate post-training, but when given the full training stack they converge on supervised fine-tuning and spend most effort revising training data. Existing systems give the agent one kind of control, selecting rows from a fixed pool or calling a generator, whereas a human data engineer adjusts proportions, prunes, repairs, replaces and synthesizes the data. We design a data action space for these changes and ask whether an automated system can make the full range rather than one of them, and what structure that requires. We first run this loop with a single agent, and it reaches only one action, adjusting category proportions, while its context fills with execution output and is discarded mid-search. We therefore introduce \\textbf{AutoSFT}, a multi-agent system where a meta agent separates execution from analysis, gathers proposals from independent angles, and calls a synthesis subagent for capabilities the pool cannot cover, with the model, the trainer, and the budget fixed within each comparison. Adding each component in turn helps: the executor halves context loss, the analysis subagents lift the best IFEval by $+6.5$, and synthesis adds $+3.4$ IFEval and $+2.9$ IFBench. The same loop transfers to code, where analysis adds $+3.7$ MBPP+ over a single agent that does not improve. Every result comes from runs that retrain from the base model each round, so each component's effect is individually attributable. Our findings suggest that automating SFT data research depends more on covering diverse data actions than on a stronger single action.",
+    "authors": [
+      "Bingxiang He",
+      "Pengqi Sun",
+      "Shihao Peng",
+      "Shaoxuan Li",
+      "Huiyu Xiao",
+      "Hongjian Shi",
+      "Zixuan Fu",
+      "Ziqing Qiao",
+      "Yuxin Zuo",
+      "Cheng Qian",
+      "Xinqiang Yu",
+      "Jiayi Li",
+      "Xiusi Chen",
+      "Yizhen Song",
+      "Xiangyang Wang",
+      "Iofai Lei",
+      "Yudong Wang",
+      "Ning Ding",
+      "Zhiyuan Liu",
+      "Xiaozhi Wang",
+      "Chaojun Xiao"
+    ],
+    "published": "2026-10-15T16:44:34Z",
+    "updated": "2026-10-15T16:44:34Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22194v1",
+    "abs_url": "http://arxiv.org/abs/2610.22194v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 50,
+      "novelty": 84.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.9,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 84、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2610.21833v1": {
+    "paper_id": "2610.21833v1",
+    "title": "Physics-Aware Distillation of a Grid Foundation Model for Real-Time Edge Inference",
+    "abstract": "Grid foundation models (GridFMs) are graph transformers pretrained on a masked power-flow objective, and evaluate power flow orders of magnitude faster than an iterative solver. Their size, however, targets data-centre inference, whereas low-inertia operation increasingly asks for inference at the edge, next to the measurement, at batch size one and within a single synchrophasor (PMU) reporting frame. We distil a 20.1M-parameter, 12-layer GridFM teacher into a 0.62M-parameter, 6-layer student, a $32.5\\times$ parameter reduction at half the message-passing depth, using an objective that combines the masked power-flow loss with output, physics-residual, latent-state and attention transfer. The physics-residual term, which matches the teacher's power-residual profile, has not previously been applied to typed power-grid graphs. We evaluate on a renewable variant of the IEEE 118-bus benchmark grid in which 26 of the conventional (synchronous) generators are replaced by inverter-based renewables with battery flexibility and standardised reactive-power limits (IEEE 1547), giving $97\\,529$ physically valid (AC-OPF-feasible) operating scenarios, and we ablate all eight combinations of the transfer terms, reporting accuracy against ground truth and fidelity to the teacher separately. Distillation lowers student error on all four predicted quantities, by up to $48\\%$ on active-power dispatch, and every distilled student is more accurate than its teacher on reactive-power dispatch. The gain is largely carried by the output matching term. The physics-residual term, in the layer-aggregated form used here, is consistently harmful, which we attribute to the spatial averaging it applies to a bus-level residual field. The resulting student is $32.5\\times$ smaller in parameter count and has half the message-passing depth, making it a candidate for subsequent edge-device benchmarking.",
+    "authors": [
+      "Vlad Alexandru Sănduleac",
+      "Shahariya Rasheed Rayamarakkarveettil Puthanpurayil",
+      "Noman Khan",
+      "Remus Teodorescu"
+    ],
+    "published": "2026-10-15T13:15:36Z",
+    "updated": "2026-10-15T13:15:36Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.21833v1",
+    "abs_url": "http://arxiv.org/abs/2610.21833v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 89.5,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.9,
+    "score_reasons": [
+      "命中主题：压缩与高效推理",
+      "优势：新颖 90、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2610.22080v1": {
+    "paper_id": "2610.22080v1",
+    "title": "Learning from Unverified Peers via Shared Residual Distillation",
+    "abstract": "A language model can generate several solutions to the same problem, some leading to correct answers and others to incorrect ones. Many post-training methods turn these trajectories into learning signals using supervision from reference answers, verifiable feedback, or external teachers. Without such supervision, learning from the model's own generations becomes less straightforward, as their correctness cannot be reliably assessed. An incorrect solution may nevertheless contain useful intermediate reasoning, so its value as supervision need not be determined solely by its final answer. Can a model improve by learning from its unverified peer solutions without first determining which are correct? We propose Shared Residual Distillation (SRD), an on-policy self-distillation method that learns from the model's own unverified peer trajectories. SRD compares how peers change the prediction distribution relative to a control, retaining adjustments that agree in direction and are conservative in magnitude. This yields supervision without treating any complete solution as correct, and the trained model requires no peers at inference time. Starting from the corresponding base models, SRD raises mean AIME24--26 avg@12 from 11.02 to 16.20 on Qwen3-1.7B, from 19.07 to 45.46 on Qwen3-4B, and from 21.39 to 54.44 on Qwen3-8B. Controlled ablations support the value of the shared-residual construction, and we observe no degradation relative to the base models on two general-capability benchmarks.",
+    "authors": [
+      "Feiyang Chen",
+      "Runze Ma",
+      "Zichen Wang",
+      "Jiong Lou",
+      "Zihan Wang",
+      "Shuangjia Zheng",
+      "Jie Li"
+    ],
+    "published": "2026-10-15T15:36:40Z",
+    "updated": "2026-10-15T15:36:40Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22080v1",
+    "abs_url": "http://arxiv.org/abs/2610.22080v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 84.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.1,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 84、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2610.22327v1": {
+    "paper_id": "2610.22327v1",
+    "title": "Twice Upon a Time: Complementary Representations for Time-Series Reasoning",
+    "abstract": "Time Series Language Models (TSLMs) enable language-based understanding and reasoning over temporal data, yet a fundamental question remains: what information should their time-series representations preserve, and what variation should they factor out? Existing TSLMs typically expose the language model to a single representation, imposing a fixed inductive bias across downstream tasks. We instead introduce complementary representations as a design principle for time-series reasoning. Our model combines two visual views: line plots preserve absolute measurements and the observed coordinate frame, while normalized delay embeddings factor out positive amplitude rescaling and offsets while exposing temporal structure. Dedicated visual encoders integrate both views into a shared language model through visual tokens and multi-level feature fusion. Evaluation-time interventions verify that the two views exhibit distinct invariance profiles, while single-view ablations show that their combination is particularly beneficial beyond basic perception, with the large gains in prediction and reasoning. Built on Qwen3-VL-8B, our dual-view model improves overall TSRBench accuracy from 44.5% with line plots alone to 53.2%, substantially exceeding the strongest evaluated dedicated TSLM baseline at 36.7%. It further achieves 89.9% accuracy on TSExam and 86.8% numerical accuracy on multivariate ChatTS alignment. Together, these results demonstrate that complementary representations provide an effective design principle for general-purpose TSLMs, enabling models to exploit temporal structure without sacrificing access to the original measurement frame.",
+    "authors": [
+      "Hedi Zisling",
+      "Liran Nochumsohn",
+      "Ilan Naiman",
+      "Mihir Parmar",
+      "Omri Azencot"
+    ],
+    "published": "2026-10-15T17:52:18Z",
+    "updated": "2026-10-15T17:52:18Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22327v1",
+    "abs_url": "http://arxiv.org/abs/2610.22327v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 69,
+      "novelty": 82.1,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.9,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 82、质量 69"
+    ],
+    "summary_zh": null
+  },
+  "2610.21815v1": {
+    "paper_id": "2610.21815v1",
+    "title": "Exact Makespan Bounds and the GPipe Homogeneity Bias for Heterogeneous LLM Inference Pipelines",
+    "abstract": "We give an exact critical-path characterization of the makespan of micro-batch pipelines serving LLMs on heterogeneous GPU clusters, quantifying how the classic homogeneous GPipe formula errs. In the pure-forward, communication-free, infinite-buffer setting, T(M) = (M-1)tau_max + Sum_j tau_j, where tau_j is stage j's per-micro-batch service time and M the micro-batch count (Theorem 1). Under asynchronous communication -- modern NCCL-based serving -- it extends to T(M) = Sum_j tau_j + Sum_j d_j + (M-1)tau_max, with Sum_j d_j a purely additive constant (Theorem 2); under blocking communication, T(M) = (M-1)sigma_max + Sum_s sigma_s with sigma_s = tau_s + d_s, so communication enters the steady-state slope iff some d_s > tau_max - tau_s (Theorem 3). These results quantify the GPipe overestimate, decompose the bias into a homogeneity term Sum_j (tau_max - tau_j) and a communication-ignoring term Sum_j d_j, and imply that balancing per-stage compute dominates communication reduction for steady-state throughput. A real system with partial overlap is sandwiched between Theorems 2 and 3, with a closed-form bound on the overlap throughput gain. All claims are validated pointwise (error < 10^-9) on eleven configurations and a 1.6x10^5-point fuzz, including a mixed RTX 5090/3090/GTX 1070 partition. We situate the results in flow-shop scheduling and list open extensions: bandwidth-limited communication, bounded buffers, prefill-decode interleaving.",
+    "authors": [
+      "Zhu Wenbo"
+    ],
+    "published": "2026-10-15T13:03:06Z",
+    "updated": "2026-10-15T13:03:06Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.21815v1",
+    "abs_url": "http://arxiv.org/abs/2610.21815v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 42,
+      "novelty": 92.0,
+      "practical": 45,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 56.5,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 92、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.21808v1": {
+    "paper_id": "2610.21808v1",
+    "title": "RoleQ: Role-Aligned Scales for Converting Language Models to Ternary",
+    "abstract": "Weight quantization below four bits shrinks memory and bandwidth at a perplexity that looks acceptable, but often at the cost of factual knowledge and task accuracy. Ternary weights have mostly been obtained by training from scratch or long fine-tuning. We introduce RoleQ, a quantization framework that places scales by the functional roles of Transformer units rather than by the layout of the weight matrix, as conventional formats do. Vectors that read from the residual stream take one scale per output unit; those that write to it, one per input unit. The rule is structural, needs no search, calibration or stored state, and holds on integer and ternary grids. In a rotated basis it matches a per-layer axis search at half the solver work, and at ternary it cuts perplexity by up to half against layout-based placement in two families at every size from 0.6B to 14B, where per-row scales leave MMLU at chance. Our lightweight post-training pipeline converts an existing checkpoint to 1.59 bits per weight in a few GPU-hours, a fraction of the cost of learned ternarization, and leads every post-training ternary method at matched or lower memory-resident bits on perplexity, zero-shot accuracy and MMLU, most widely on knowledge. A sparse second ternary plane placed by a per-unit Fisher saliency keeps the matmul multiplication-free and recovers what ternary loses first: at 8B, a fraction of a bit returns about half the MMLU that conversion costs, well ahead of random or Hessian-based placement at equal bits.",
+    "authors": [
+      "Johannes Knittel",
+      "Alec Helbling",
+      "Hanspeter Pfister"
+    ],
+    "published": "2026-10-15T12:56:57Z",
+    "updated": "2026-10-15T12:56:57Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.21808v1",
+    "abs_url": "http://arxiv.org/abs/2610.21808v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 50,
+      "novelty": 85.7,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.4,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 86、质量 50"
+    ],
+    "summary_zh": null
+  },
+  "2610.22068v1": {
+    "paper_id": "2610.22068v1",
+    "title": "When Reasoning Is Not Enough: Proactive Inquiry for Cross-Modal Safety in Multimodal Large Language Models",
+    "abstract": "Multimodal large language models (MLLMs) can act unsafely when individually benign images and texts are interpreted jointly. Beyond implicit reasoning risk, where reasoning drifts toward harm, we identify intent-level risk, where cross-modal ambiguity silently commits the model to a hazardous premise that path-level optimization alone cannot correct. We propose SAFE-PRO, which uses a Risk-Conditioned Uncertainty (RCU) signal, combining predictive entropy with a learned cross-modal risk score, to decide when to ask safety-grounded clarifying questions and where to apply path optimization, under a reward that prioritizes safety and penalizes over-refusal. We also build SSUI-Dialog, a multimodal multi-turn dataset with dual-intent supervision, and theoretically analyze gradient variance and unsafe-completion risk under RCU. Across seven benchmarks and two base MLLMs, SAFE-PRO consistently improves safety over SRPO, roughly halves its over-refusal, and surpasses GPT-4o and Claude-3.5-Sonnet in average single-turn safety.",
+    "authors": [
+      "Wei Cai",
+      "Jian Zhao",
+      "Yuchen Yuan",
+      "Xuelong Li"
+    ],
+    "published": "2026-10-15T15:28:47Z",
+    "updated": "2026-10-15T15:28:47Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22068v1",
+    "abs_url": "http://arxiv.org/abs/2610.22068v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 44,
+      "novelty": 88.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 54.3,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2610.22067v1": {
+    "paper_id": "2610.22067v1",
+    "title": "Beyond Context Length: Characterising the Difficulty of Long-Context Reasoning",
+    "abstract": "Long-context language models support ever longer context windows, and evaluations typically treat context length as the main indicator of difficulty. However, context length alone cannot explain why models fail on long-context tasks that require reasoning over complex information. Contexts of equal length can pose very different challenges: a task may be solvable from a single local passage, or it may require integrating evidence distributed across the full context. We quantitatively characterise this difficulty through three properties: evidence scope, how much necessary information must be found; evidence dispersion, how widely that information is scattered within the context; and reasoning depth, how many dependent steps are needed to derive an answer from it. We construct LURCH, a multi-domain question-answering benchmark of 6,550 instances with supporting evidence and reasoning graphs, enabling all three properties to be quantified. Evaluations of proprietary and open-weight models show that: (1) at fixed context length, all our three properties are strongly negatively correlated with model performance; (2) as context length increases, performance degrades sharply on samples with dispersed evidence, whereas it remains relatively stable on samples with localised evidence; and (3) difficulty compounds across properties, as questions with moderately high values on all three are harder than those with an extreme value on just one. These findings establish evidence scope, dispersion and reasoning depth as measures of long-context reasoning difficulty that complement context length.",
+    "authors": [
+      "Shiwen Qin",
+      "Cameron Barker",
+      "Henry Gouk",
+      "Elliot J. Crowley",
+      "Shay B. Cohen",
+      "Mirella Lapata",
+      "Miao Li"
+    ],
+    "published": "2026-10-15T15:28:33Z",
+    "updated": "2026-10-15T15:28:33Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2610.22067v1",
+    "abs_url": "http://arxiv.org/abs/2610.22067v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 63,
+      "novelty": 87.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
