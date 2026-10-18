@@ -1,0 +1,360 @@
+{
+  "date": "2026-10-18",
+  "generated_at": "2026-10-18T04:57:27.314799+00:00",
+  "candidate_count": 168,
+  "selected_count": 8,
+  "papers": [
+    {
+      "paper_id": "2610.21910v1",
+      "title": "CoWorld Reasoner: Agentic Multimodal Reasoning with the Evolving Video World Model-Driven Harness",
+      "abstract": "As Vision-Language Models (VLMs) advance, they are increasingly expected to perform spatiotemporal reasoning over motion, actions, and view changes beyond what the input images show. Video World Models (VWMs) provide a natural unified engine for visual imagination by generating task-relevant visual content as additional evidence. However, existing approaches typically invoke a VWM through fixed pipelines centered on a predefined form of visual imagination, such as novel-view synthesis. To support flexible visual imagination for diverse reasoning tasks, we introduce CoWorld Reasoner, an agentic framework that uses a VWM as a unified visual reasoning engine. Its Video World Model-Driven Harness exposes multiple visual operations through tools and uses skills to guide the VLM in deciding whether to imagine, selecting an operation, constructing a generation request, and interpreting the resulting visual evidence. We further introduce VLM-VWM Harness Co-Evolution, which jointly revises tools, skills, and execution code based on execution feedback while keeping both model weights fixed. Across seven benchmarks spanning spatial intelligence, temporal and causal reasoning, and perceptual reasoning, CoWorld Reasoner outperforms direct reasoning with the same VLM. The strongest variant improves on all seven benchmarks, including relative accuracy gains of 11.8% on MMSI and 13.0% on ERQA, and outperforms all five evolving baselines using the same backbone across five benchmarks.",
+      "authors": [
+        "Dongjie Cheng",
+        "Ruifeng Yuan",
+        "Ran Wei",
+        "Ning Song",
+        "Yongqi Li",
+        "Wenjie Li"
+      ],
+      "published": "2026-10-15T13:59:15Z",
+      "updated": "2026-10-15T13:59:15Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.21910v1",
+      "abs_url": "http://arxiv.org/abs/2610.21910v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 57,
+        "novelty": 82.8,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.9,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22300v1",
+      "title": "Knowledge That Is Linear Before Fine-Tuning Generalizes After It",
+      "abstract": "Not all facts a language model can recall support further learning equally well. We distinguish active facts, which support generalization beyond their own recall, from inert facts, which can be recalled but do not support such generalization in a given task. We study this distinction by constructing new relations from existing ones. Take the relation that maps a place to its continent (Paris -> Europe) and assign each of its answers an arbitrary new label (Europe -> crab, Asia -> zebra). The new relation then maps Paris -> crab. We fine-tune the model on the new relation for a subset of subjects, without telling it the original relation or the relabeling rule, and test whether it assigns the corresponding labels to held-out subjects that share an answer in the original relation. Having learned Paris -> crab, does it answer Munich -> crab? Across eleven language models and 70 relations, how linearly readable the original relation is in pretrained representations strongly predicts this generalization. Within each model, the two correlate across relations at Pearson r = 0.87 to 0.92. This association persists when controlling, separately and jointly, for the number of fine-tuning subjects and answers, the model's accuracy on the original relation, and how often the subjects occur in pretraining text. It is also robust to re-randomizing the label assignment and fine-tuning seed, and to replacing the animal labels with labels from thirteen other semantic categories. When we map a fine-tuned model's wrong label back to the original answer it was assigned to, Munich -> zebra becomes Munich -> Asia. Answers recovered this way are more often among the linear probe's top answers for the subject than among the pretrained model's own. Whether a new relation generalizes depends less on whether its facts can be recalled than on how readily their shared structure can be read out linearly.",
+      "authors": [
+        "Faridoun Mehri",
+        "Hinrich Schütze"
+      ],
+      "published": "2026-10-15T17:47:52Z",
+      "updated": "2026-10-15T17:47:52Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22300v1",
+      "abs_url": "http://arxiv.org/abs/2610.22300v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 46,
+        "novelty": 86.6,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.6,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22292v1",
+      "title": "CAT-alyzing Honesty: Continuous Adversarial Training for Transferable LLM Honesty",
+      "abstract": "Large language models (LLMs) are becoming prevalent in scenarios where honesty is critical. However, despite alignment training, these models still exhibit dishonest behaviour, such as outputting claims that contradict some knowledge or are not supported by what is accessible in context. We introduce Continuous Adversarial Training for Consistent Honesty (CATCH), inspired by a method originally developed to robustly refuse harmful queries. CATCH trains the model towards an honest answer and away from a dishonest one while maintaining the model's capabilities. We evaluate two architectures (Llama-3.3-70B-Instruct and Qwen3-3.6-27B). We show that trained with only hundreds of targets built from self-reporting scenarios, CATCH learns an honest behaviour that robustly generalizes and transfers across distinct benchmarks. It consistently reduces dishonesty under pressure on MASK, increases confessions in the multi-agent game of Among Us, and improves the discovery rates of the model's hidden behaviours in AuditBench. We show that CATCH outperforms prompting and supervised fine-tuning in improving honesty, and it is on par with state-of-the-art honesty activation steering. However, CATCH surpasses honesty steering in maintaining utility, thanks to a novel choice of utility data.",
+      "authors": [
+        "Yuan-Chen Chang",
+        "Niklas Herbster",
+        "Gauthier Gidel",
+        "Tommaso Tosato"
+      ],
+      "published": "2026-10-15T17:43:47Z",
+      "updated": "2026-10-15T17:43:47Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "cs.CY"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22292v1",
+      "abs_url": "http://arxiv.org/abs/2610.22292v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 77,
+        "novelty": 88.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 53.0,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 88、质量 77"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22016v1",
+      "title": "Close Enough is Nowhere Near: Fidelity-Consumability Decoupling in KV Caches",
+      "abstract": "Multi-agent LLM systems communicate in text, which is lossy and wasteful: the sender throws away the reading it already did. A growing literature instead transmits the KV cache, the natural carrier of that reading. We study the most appealing form of the idea: both models stay frozen and the sender's cache is substituted for the reader's with nothing trained. It does not work, and the obstruction belongs to the reader. A frozen transformer reads only caches close to the one it would have written itself, a region we call its tolerable set. We show that geometric similarity to that cache does not predict whether the reader can use it, and the failure is not gradual, so a more faithful substitute is not the remedy it appears to be. We explain this phenomenon with competitive attention. Experimentally, we test eight diverse substitution methods against two measured anchors: an uninformative cache baseline and the reader's own accuracy from having read the passage. All sit at the baseline. That turns a long tail of separate negative results into one outcome with a stated condition for overturning it. A different design does work: if the reader keeps its own cache and attends over the sender's as extra context, adapting only its queries, it beats its own baseline, and also clears the baseline with eight senders pooled where undirected attention over the same union falls below it. We offer this as a characterization on one probe, not a leaderboard claim. Our central contribution is a redirection: pursuing faithful substitute caches is the wrong target; adding a cache to what the reader already has is the promising one.",
+      "authors": [
+        "Adam Deng",
+        "Shicheng Liu",
+        "Yada Zhu"
+      ],
+      "published": "2026-10-15T14:56:53Z",
+      "updated": "2026-10-15T14:56:53Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22016v1",
+      "abs_url": "http://arxiv.org/abs/2610.22016v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 40,
+        "novelty": 85.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.8,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22100v1",
+      "title": "Patch where the text is new: a compression view of where byte-level models should spend compute",
+      "abstract": "Byte-level language models such as the Byte Latent Transformer (BLT) run their large global model once per patch and start a patch where a small model's next-byte entropy is high. This rule rarely starts a patch at in-line computed results, such as the number after \"=\" in a worked solution, and accuracy on them collapses under tight patch budgets. We propose novelty patching, motivated by LZ77-style compression: start a patch where the upcoming bytes are unlikely to repeat the recent context. The rule is a lookup table over the previous two bytes, fitted in seconds on raw text with no labels, reference model or losses. In BLT-style models trained from scratch on a 1.9 GB math corpus at a matched ~11% patch rate (3 seeds each), it has no clear effect at 1M parameters, raises final-answer accuracy from 47% to 72% at 12M, and at 50M raises computed-result accuracy from 21% to 57% and final-answer accuracy from 60% to 90%; a table fitted on the raw pretraining corpus keeps the gain. Outside math the advantage shrinks: novelty lowers bits per byte on prose and ties entropy on source code and on synthetic execution traces. An analysis of where boundaries fall explains the pattern. Computed results have ordinary surprisal for the patcher's model, so surprisal-seeking rules pass over them: entropy concentrates patch starts on high-surprisal bytes most strongly of all rules (boundary enrichment 1.61) and is the worst on computed results, while the best rules sit near chance enrichment. Novelty works where new content begins at segment starts close to the computation, as in written math; a learned chunker (H-Net) finds such structure on its own, in math and in code. We also report what did not work: typed uncertainty as a training rule, switching rules after training, and a context-aware novelty predictor.",
+      "authors": [
+        "Nicolás Vera Zúñiga"
+      ],
+      "published": "2026-10-15T15:47:08Z",
+      "updated": "2026-10-15T15:47:08Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22100v1",
+      "abs_url": "http://arxiv.org/abs/2610.22100v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 42,
+        "novelty": 85.7,
+        "practical": 18,
+        "credibility": 28
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.6,
+      "score_reasons": [
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22217v1",
+      "title": "Skill-Decoupled On-Policy Expert Distillation for Unified Vision-Language Models",
+      "abstract": "Reinforcement learning (RL) can elicit specialized visual capabilities in vision-language models (VLMs), yet jointly optimizing heterogeneous objectives often introduces cross-capability gradient conflicts. Training experts independently mitigates this interference, but direct reward optimization may entangle specialized knowledge with reward-hacking biases. This paper proposes Skill-Decoupled On-Policy Expert Distillation (SCOPED), which trains capability-specific experts and extracts explicit skills through reward-guided reflection. During on-policy distillation, these skills guide expert supervision while remaining unavailable to the unified student, encouraging it to internalize procedural knowledge without explicit skills at inference time. Across eight multimodal benchmarks, SCOPED consistently outperforms the backbone and mixed-capability RL, demonstrating the effectiveness of skill-decoupled on-policy expert distillation for integrating independently acquired capabilities. Further analyses reveal interference during joint capability optimization and suggest that skill augmentation promotes more consistent expert trajectories, greater attention to task-relevant visual evidence, and better preservation of specialized expertise in the unified student. All code and data are available at https://github.com/NEUIR/SCOPED.",
+      "authors": [
+        "Yuqi Xiong",
+        "Chunyi Peng",
+        "Zhipeng Xu",
+        "Qing Yang",
+        "Zhenghao Liu",
+        "Zulong Chen",
+        "Yu Gu",
+        "Ge Yu"
+      ],
+      "published": "2026-10-15T17:01:41Z",
+      "updated": "2026-10-15T17:01:41Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22217v1",
+      "abs_url": "http://arxiv.org/abs/2610.22217v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 40,
+        "novelty": 83.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.5,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22137v1",
+      "title": "CART: Compatible Routing for Multimodal Continual Instruction Tuning",
+      "abstract": "Multimodal Large Language Models (MLLMs) achieve strong performance through instruction tuning, yet real-world applications often require them to continually acquire new capabilities from sequential tasks, i.e., Multimodal Continual Instruction Tuning (MCIT). In typical MLLMs, a projector is employed to align visual representations with the language model. However, existing methods primarily protect the language model from forgetting while continuously updating the projector across tasks. Such asymmetric adaptation can cause substantial representation drift in the projector, increasing the mismatch between the projector and language model and consequently exacerbating catastrophic forgetting. To address this issue, we propose Compatible Routing (CART), which explicitly coordinates the adaptation of the projector and language model. Specifically, CART maintains task-specific experts for both modules and combines them through weighted mixtures. CART jointly infers their weights by considering both expert relevance and cross-module compatibility, thereby promoting coordinated adaptation between the two modules. To further control model growth, we introduce relevance-guided expert consolidation, which merges experts exhibiting similar relevance profiles across samples within each module. Extensive experiments demonstrate that CART achieves state-of-the-art performance.",
+      "authors": [
+        "Ling-Xiang Zhang",
+        "Tao Hu",
+        "Da-Wei Zhou"
+      ],
+      "published": "2026-10-15T16:11:22Z",
+      "updated": "2026-10-15T16:11:22Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22137v1",
+      "abs_url": "http://arxiv.org/abs/2610.22137v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 31,
+        "novelty": 84.5,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 50.3,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.22249v1",
+      "title": "Not X, but When: Diagnosing a Mandarin LLM Writing Tic through Contextual Appropriateness",
+      "abstract": "Recurring expressions in model-written text are often treated as signatures of machine authorship, yet most of them serve legitimate functions. Whether such an expression is a tic depends on whether the model knows when it is called for. This judgment of appropriateness, central to communicative competence, remains largely unexamined for language models. We study it through the Mandarin corrective construction bushi X, ershi Y (\"not X, but Y\"). Drawing on Gricean pragmatics and corrective negation, we introduce a decision tree that classifies uses as substantive, optional, or defective by testing whether the context makes X a live alternative and whether rejecting X is informative. Five commercial models use the construction 2.5 to 9.2 times as densely as a human reference. Of 307 annotated uses, only 1.30% are defective while 52.8% are optional, that is, correct but unneeded, so models fall short in appropriateness far more often than in correctness. Several reward models favor the construction even over quality-matched variants, an LLM judge favors it even where the context does not license it, and both supervised fine-tuning and preference optimization tend to raise its frequency in open-weight models. We hope this work encourages the development of models attentive to the appropriateness of their expressions.",
+      "authors": [
+        "Yihang Peng",
+        "Yi Jing",
+        "Dewen Liu",
+        "Weihan Meng",
+        "Ying Liu"
+      ],
+      "published": "2026-10-15T17:22:11Z",
+      "updated": "2026-10-15T17:22:11Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.22249v1",
+      "abs_url": "http://arxiv.org/abs/2610.22249v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 54,
+        "novelty": 87.1,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 46.8,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 87、质量 54"
+      ],
+      "summary_zh": null
+    }
+  ]
+}
