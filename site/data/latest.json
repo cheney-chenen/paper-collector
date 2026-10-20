@@ -1,257 +1,253 @@
 {
-  "date": "2026-10-19",
-  "generated_at": "2026-10-19T05:05:48.288338+00:00",
+  "date": "2026-10-20",
+  "generated_at": "2026-10-20T05:07:28.709133+00:00",
   "candidate_count": 180,
-  "selected_count": 10,
+  "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2610.23670v1",
-      "title": "OwlSight: A Panoramic Monitor for Chain-of-Thought Reasoning",
-      "abstract": "Chain-of-Thought (CoT) monitoring offers actionable evidence for oversight AI systems, with the potential to enable early detection and intervention. However, existing approaches are focused on specific tasks, whereas the regulation of AI, particularly reasoning models, requires monitoring a broader range of tasks. We introduce Factor for CoT monitoring, a strategy that supports customizing monitoring requirements in the prompt, which enables a single monitor to cover different tasks by relying on different factors. Furthermore, we introduce two types of factors, fine-grained and coarse-grained (e.g., monitoring whether a specific email address has been leaked versus monitoring privacy leakage), to accommodate diverse user monitoring needs. Based on this, we develop a CoT monitor named OwlSight that relies solely on factor to monitor behaviors related to multiple dimensions, including capability, safety, and trustworthiness. Experiments across 15,971 reasoning trajectories show that OwlSight surpasses general-purpose LLMs by 1.32-30.57 and 11.71-27.81 points at fine and coarse granularity, respectively, and achieves state-of-the-art results on OpenAI's CoT monitorability benchmark. It also generalizes to unseen models' CoTs and remains robust to Factor rephrasings, CoT compression, and obfuscation, offering a promising paradigm for CoT monitoring that can contribute to the oversight of frontier AI.",
+      "paper_id": "2610.26542v1",
+      "title": "Breaking Diffusion: Parallel Reasoning with Draft Refinement",
+      "abstract": "Drafting an answer allows a reasoning model to reconsider each decision in the context of the others. Yet repeated diffusion denoising does not ensure that individually plausible token updates form a better answer together. We introduce Draft Refinement Language Models (DRLMs), which use a single denoiser to propose parallel revisions and evaluate a candidate draft. We train the denoiser to reconstruct every token from uniformly corrupted drafts, teaching both preservation and repair. Its predictions specify revisions directly, without a diffusion reverse transition. Evaluation requires a different use of these predictions: confidence in an existing token reflects both contextual support and evidence from observing the token itself. Using the known corruption process, we correct for this self-token evidence to estimate how well each token is supported by the prompt and the remaining draft. Aggregating these estimates yields a cavity energy computed in one forward pass, without an additional scoring model. Each round proposes a revision, reads the completed candidate in its revised context, and retains it only if its energy is lower. Across Countdown, Sudoku-Extreme, and Maze-Hard, our method outperforms autoregressive and discrete diffusion baselines. With 6M parameters, DRLM reaches 44.4% on Countdown-5 and 93.9% on Sudoku-Extreme. The results establish complete-draft parallel refinement as an effective alternative to reverse diffusion for complex reasoning.",
       "authors": [
-        "Lewen Yan",
-        "Yanxu Zhu",
-        "Jie Zhang",
-        "Jing Shao"
+        "Jaesang Yu",
+        "Seoyeon Byun",
+        "Yun Wang",
+        "Yan Lu",
+        "Juho Kim"
       ],
-      "published": "2026-10-16T16:01:49Z",
-      "updated": "2026-10-16T16:01:49Z",
+      "published": "2026-10-19T15:02:45Z",
+      "updated": "2026-10-19T15:02:45Z",
       "categories": [
         "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23670v1",
-      "abs_url": "http://arxiv.org/abs/2610.23670v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26542v1",
+      "abs_url": "http://arxiv.org/abs/2610.26542v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 0.81,
-        "efficiency": 0.18
+        "reasoning": 0.81
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 81.0,
-        "quality": 72,
-        "novelty": 86.8,
-        "practical": 18,
+        "quality": 65,
+        "novelty": 84.6,
+        "practical": 27,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 68.1,
-      "score_reasons": [
-        "命中主题：推理时扩展、压缩与高效推理",
-        "优势：新颖 87、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.23787v1",
-      "title": "DLite: History-free Speculative Decoding for Agentic AI",
-      "abstract": "Speculative decoding has become a mainstream technique for accelerating large language model (LLM) inference by using a lightweight draft model to generate candidate tokens that are subsequently verified by the target model. However, agentic workloads introduce long and continuously evolving contexts and frequent multi-turn interactions. Under such workloads, we observe that existing draft models suffer from up to an 80% degradation in acceptance length, while maintaining their historical KV cache introduces substantial system overhead. In this paper, we identify the growing historical context as a common source of both problems and introduce DLite, a history-free speculative decoding framework for agentic AI. DLite directly reuses contextual hidden states from the target model and performs local speculative prediction without explicitly maintaining the historical context, transforming an increasingly complex modeling problem into local simple prediction problem. A lightweight sequential head further restores intra-block causal dependencies with low overhead. To effectively train this heterogeneous history-free architecture, we introduce a tailored two-stage training strategy. Experiments on general-purpose, long-context and agentic workloads show that DLite achieves 2-6 acceptance length and outperforms the state-of-the-art speculative decoding method, DSpark, up to 70%.",
-      "authors": [
-        "Jiaming Xu",
-        "Hanzhen Wang",
-        "Tianlang Zhao",
-        "Jiewen Xiao",
-        "Chengze Yuan",
-        "Jiayi Pan",
-        "Yongkang Zhou",
-        "Jiancai Ye",
-        "Yu Wang",
-        "Guohao Dai"
-      ],
-      "published": "2026-10-16T17:18:54Z",
-      "updated": "2026-10-16T17:18:54Z",
-      "categories": [
-        "cs.CL"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23787v1",
-      "abs_url": "http://arxiv.org/abs/2610.23787v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "serving": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 56,
-        "novelty": 78.0,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 62.5,
-      "score_reasons": [
-        "命中主题：推理系统",
-        "优势：匹配 81、新颖 78"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.23255v1",
-      "title": "Sample, Mix, or Verify? Allocating Test-Time Compute under Imperfect Verifiers",
-      "abstract": "A common way to make language models and agents more accurate is to spend more compute at inference time: generate many candidate solutions and submit the one a verifier prefers. Success then requires that some candidate is correct and that the verifier picks it. The first grows predictably with the number of samples; the second does not, because real verifiers (unit tests, majority votes, LLM judges, reward models) accept wrong answers, reject right ones, and make correlated mistakes. With a fixed budget, a practitioner must decide how many samples to draw, which models to draw them from, and how much to spend on verification, and today these choices are made by rules of thumb. We introduce SPLIT, which makes them from a small labelled pilot. It rests on an exact formula for the probability of submitting a correct answer under accept/reject and top-score selection that accounts for varying task difficulty, blind spots shared across models, and correlated repeated verifier calls. SPLIT fits the formula by empirical Bayes and uses it to plan budgets on unseen tasks. Across seven benchmarks spanning math, science QA, code and software-engineering agents, 26 models, 175 agent systems and six kinds of real verifiers, all from public releases, SPLIT lands within 0.02-0.8 percentage points of the best allocation in hindsight, while every fixed rule we test loses at least 2.5 points in some setting. Regret depends only on how well SPLIT ranks configurations, and it stays near-optimal under compute, price and latency costs and online. The formula also explains when asking more LLM judges lowers precision. As a forecaster far beyond the pilot, SPLIT beats power-law fitting when the verifier caps success, and we report where it loses.",
-      "authors": [
-        "Srinivasan Iyengar"
-      ],
-      "published": "2026-10-16T10:28:07Z",
-      "updated": "2026-10-16T10:28:07Z",
-      "categories": [
-        "cs.LG",
-        "cs.CL"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23255v1",
-      "abs_url": "http://arxiv.org/abs/2610.23255v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 51,
-        "novelty": 86.0,
-        "practical": 36,
-        "credibility": 28
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 56.9,
+      "score": 66.8,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 86、匹配 63"
+        "优势：新颖 85、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.23782v1",
-      "title": "Enforcing Code Reasoning in Agentic Scaffold for More Effective Issue Resolution",
-      "abstract": "Reasoning is central to ReAct-based programming agents, yet whether and how they reason about code remains unclear. We study 7,955 issue-resolution trajectories from six single- and multi-agent scaffolds across four programming languages on SWE-bench-Verified, SWE-bench-Pro, and SWE-bench-Lite. We identify 12 forms of code reasoning in 66.95% of trajectories. Code reasoning is associated with higher resolution rates, and its intensity increases with task complexity. However, it remains largely unguided: agents may focus on surface-level symptoms during localization, fail to refine near-correct patches, overlook issue requirements, and generate tests with limited behavioral diversity. To address these limitations, we propose DeskCheck, an agentic scaffold that systematically guides code reasoning throughout repository-level issue resolution. DeskCheck simulates execution paths to localize root causes, simulates candidate patches to refine near-misses, audits patches against issue requirements, and reasons about corner-case inputs and expected outputs before generating tests. On 731 SWE-bench-Pro instances, DeskCheck improves resolution rates over mini-SWE-Agent and Claude Code by 6.29% to 10.53%, at an additional cost of $0.02-$0.28 per instance (average: $0.14). Per-phase analyses show higher method-level localization recall, more successful repairs of imprecisely localized issues, and better detection of missed corner cases in near-correct patches. Exact McNemar tests show statistically significant improvements across all subject LLMs (p < 10^-10), while repeated experiments support robustness to agent nondeterminism. These findings motivate systematic code reasoning as a means of improving programming agents.",
+      "paper_id": "2610.26383v1",
+      "title": "BOSS: Token-Budgeted Online Sampling and Selection for LLM Reasoning",
+      "abstract": "Test-time scaling can improve LLM reasoning, but existing approaches typically adapt generation or apply answer selection after a predetermined generation schedule. We study within-instance allocation: under a hard per-instance prompt-plus-completion token cap, when should inference stop, generate another candidate, or spend residual tokens adjudicating candidates already observed? BOSS is a training-free policy for this three-way decision, with worst-case budget checks before every generation and judge call. Its key contribution is online generation-adjudication allocation under one shared token ledger. Across two Llama-3.1 models and four reasoning benchmarks, BOSS attains the highest accuracy in 22 of 24 model-task-budget cells under the common hard cap. At Llama-3.1-8B and B=4k, it reaches 60.5 macro-average accuracy versus 58.6 for Adaptive-Consistency, 59.1 for TALE-EP, and 58.9 for fixed-schedule League. On identical Stage-I candidate pools, randomized A/B judging with repeated voting improves plurality from 58.4 to 60.3, with the full BOSS selector reaching 60.5. Approximately matched-cost controls further characterize how the benefit of adjudication changes with available inference budget. Together, these results establish generation-adjudication allocation as a distinct design axis for reasoning under strict per-instance caps.",
       "authors": [
-        "Changshu Liu",
-        "Ji young Kim",
-        "Alireza Ghazanfari",
-        "Saanvi Nallu",
-        "Reyhaneh Jabbarvand"
+        "Yupeng Chang",
+        "Yahan Li",
+        "Chenlu Guo",
+        "Diana Inkpen",
+        "Yuan Wu",
+        "Yi Chang"
       ],
-      "published": "2026-10-16T17:16:28Z",
-      "updated": "2026-10-16T17:16:28Z",
+      "published": "2026-10-19T13:34:47Z",
+      "updated": "2026-10-19T13:34:47Z",
       "categories": [
-        "cs.SE"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23782v1",
-      "abs_url": "http://arxiv.org/abs/2610.23782v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26383v1",
+      "abs_url": "http://arxiv.org/abs/2610.26383v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 0.63
+        "reasoning": 0.81
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 51,
-        "novelty": 84.2,
+        "relevance": 81.0,
+        "quality": 63,
+        "novelty": 83.6,
         "practical": 27,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 56.5,
+      "score": 66.1,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 84、匹配 63"
+        "优势：新颖 84、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.23307v1",
-      "title": "MobileInject: Evaluating Reasoning-to-Action Security of MLLM-Based Mobile Agents under Cross-Modal Consistency Injection",
-      "abstract": "Multimodal large language model (MLLM)-based mobile agents are rapidly evolving from conversational assistants into autonomous systems that perceive, reason over, and act on smartphone environments. This capability also exposes a new security risk: adversaries can embed malicious objectives in cross-application mobile content and steer agent behavior through indirect multimodal injection. Although prompt injection has been studied in desktop and web settings, its cross-modal properties in mobile ecosystems remain poorly understood, and existing security analyses are still limited. To close this gap, we introduce MobileInject, the first benchmark for evaluating mobile agents against multimodal injection attacks and reasoning-to-action security risks. MobileInject provides a high-fidelity interactive mobile evaluation framework covering 11 scenarios, 9 security-risk categories, and 108 executable risk instances. It further introduces Cross-Modal Consistency Injection to exploit corroboration across modalities, two enhanced attack methods, Multi-Role Collaborative Deception and Reasoning-Camouflage Injection, to intensify trust manipulation and reasoning hijacking, and a Reasoning Security Diagnosis Framework for fine-grained failure analysis. Systematic experiments show that mobile agents are broadly vulnerable to multimodal injection, and that many failures stem from reasoning hijacking at early stages. These findings establish MobileInject as a systematic cross-modal benchmark for studying and improving the security of mobile agents. Code release details are provided in the Appendix Open Science section.",
+      "paper_id": "2610.26370v1",
+      "title": "An Empirical Study of Parameter-Efficient Fine-Tuning for Mixture-of-Experts LLMs",
+      "abstract": "Parameter-efficient fine-tuning (PEFT) methods are critical for adapting large models under resource-constrained settings. However, as mixture-of-experts (MoE) architectures, which offer efficient inference at massive parameter scales, gain increasing prevalence in the community, a critical gap arising from the lack of systematic recipes for applying PEFT to MoE models. To narrow this gap, we conduct a large-scale systematic study that investigates a set of essential design recipes, including which modules should be adapted, which granularity should be used to adapt MoE modules, which PEFT method to use, and to what extent should the load-balancing objective be used, across three MoE backbones on downstream tasks and general knowledge tasks. Our experiments yield several key insights. First, adapting MoE experts alone achieves the highest downstream performance with competitive general capability retention under a comparable parameter budget. Second, native expert-weight updates offer a better downstream--retention trade-off than adapters that bypass experts or entire MoE modules. Third, LoRA and DoRA together define the strongest operating region for high downstream accuracy among the evaluated PEFT methods. Fourth, no nonzero load-balancing coefficient Pareto-dominates the zero baseline. We finally evaluate a weight-level redesign of MoE$^2$-LoRA on Qwen3. Moving its module-level bypass pool into native expert weights improves all four upstream endpoints by 2.4 to 17.9 points with 17% fewer trainable parameters and a 3.2-point average downstream cost.",
       "authors": [
-        "Songping Wang",
-        "Peiyang Li",
-        "Yi Huang",
-        "Fengting Li",
-        "Xuhao Ran",
-        "Yueming Lyu",
-        "Chao Feng",
-        "Caifeng Shan"
+        "Minglei Li",
+        "Peng Ye",
+        "Haonan He",
+        "Jingqi Ye",
+        "Qingyu Yang",
+        "Tao Chen"
       ],
-      "published": "2026-10-16T11:10:30Z",
-      "updated": "2026-10-16T11:10:30Z",
+      "published": "2026-10-19T13:28:03Z",
+      "updated": "2026-10-19T13:28:03Z",
       "categories": [
-        "cs.CR",
-        "cs.AI"
+        "cs.LG",
+        "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23307v1",
-      "abs_url": "http://arxiv.org/abs/2610.23307v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26370v1",
+      "abs_url": "http://arxiv.org/abs/2610.26370v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 0.63
+        "pretraining": 0.18,
+        "post-training": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 52,
-        "novelty": 86.3,
+        "quality": 81,
+        "novelty": 85.3,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.5,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 85、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.26655v1",
+      "title": "The Development of Sycophancy in Language Models: Tracing Vulnerabilities from Pretraining to Post-Training",
+      "abstract": "Language models can change a committed answer to accommodate a user's opinion or pushback without new evidence. However, when this behaviour develops during training and what a released model inherits from earlier stages remain unclear. We follow 741 checkpoints of 30 open model lineages, from early pretraining to released models. We plant initial verdicts on moral scenarios and measure how far a model follows a user's stated opinion or abandons its verdict under pressure. In most lineages the behaviour is present before post-training, and its average strength changes in either direction, at different stages across lineages. A clearer pattern emerges at the level of individual questions. Beyond responses without pressure, pretraining behaviour predicts little of which questions a released model yields on. That pattern forms during post-training: on routes with supervised fine-tuning, the fine-tuning checkpoint predicts part of it and the preference-optimization checkpoint most of it. A sibling trained from the same base along another route predicts far less: for Tülu-3 8B, its own preference-stage checkpoint removes 85% of the remaining prediction error, a sibling 19%. Internal states add predictive information without changing this ranking. Similar average scores conceal different vulnerabilities, and training history matters for auditing a released model.",
+      "authors": [
+        "Haonan Huang",
+        "Chengkun Cai"
+      ],
+      "published": "2026-10-19T16:13:43Z",
+      "updated": "2026-10-19T16:13:43Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.26655v1",
+      "abs_url": "http://arxiv.org/abs/2610.26655v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 42,
+        "novelty": 86.4,
         "practical": 18,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 56.1,
+      "score": 60.1,
       "score_reasons": [
-        "命中主题：推理时扩展",
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 86、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.26754v1",
+      "title": "TokenGate: Adapting LLMs for Fast and Memory-Efficient Prefill with Learned Token Pruning",
+      "abstract": "Expert human readers process large inputs (e.g., code repositories and long documents) by skimming to closely read only what matters. On the other hand, language models process all input tokens through each model layer, resulting in significant processing costs for long-context inputs. We introduce TokenGate, a small, drop-in component that extends existing trained models to enable end-to-end learnable token pruning over long-context inputs for fast and memory-efficient prefill. To enable end-to-end learning despite the non-differentiable top-K operator for token pruning, we introduce token-gated attention, a mechanism inspired by Mixture-of-Experts that re-weights attention logits using token importance scores. Across diverse tasks, TokenGate achieves $1.4$-$11.3\\times$ faster time-to-first token (TTFT) and $1.5$-$3.4\\times$ lower peak memory at no accuracy degradation for prefill in transformers. Compared to the best-performing prior methods for token-pruning, TokenGate gives up to $6.4\\times$ faster prefill and $2\\times$ lower peak memory. TokenGate natively extends both standard transformers (e.g., Qwen3) and hybrid-attention models (e.g., Qwen3.5) with simple lightweight adaptation comparable to standard parameter-efficient fine-tuning. We make our code available at: https://github.com/tokengate-models/TokenGate.",
+      "authors": [
+        "Liana Patel",
+        "Rishabh Ranjan",
+        "Ion Stoica",
+        "Matei Zaharia",
+        "Carlos Guestrin"
+      ],
+      "published": "2026-10-19T17:15:53Z",
+      "updated": "2026-10-19T17:15:53Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.26754v1",
+      "abs_url": "http://arxiv.org/abs/2610.26754v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 54,
+        "novelty": 86.0,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.4,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
         "优势：新颖 86、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.23234v1",
-      "title": "MultiAgent-OPD: End-to-End Training of Hierarchical Multi-Agent Systems with On-Policy Distillation",
-      "abstract": "In a hierarchical multi-agent system, a Leader assigns tasks and subagents carry them out. Jointly training the Leader and the subagents is difficult because a final answer gives only indirect feedback to the subagents. An LLM judge can score the performance of the subagents, but these scores depend on the judge's own assessment of the quality of subagents' responses. We present MultiAgent-OPD, which combines on-policy distillation with reinforcement learning to jointly train a shared-parameter Leader-Searcher-Answerer team end to end. We first train a Teacher in a Searcher-Answerer workflow using answer correctness. During team training, the frozen Teacher scores student-generated search and summary tokens to provide local process supervision for the Searchers, while the Leader learns from team success and the Answerer from candidate correctness. Across seven datasets, the trained system reaches 38.68% macro avg@4, exceeding Prompted Critic by 4.06 percentage points and C-MAS + RL, the trained cascaded multiagent system, by 2.61 percentage points. The team also solves more questions within four attempts.",
+      "paper_id": "2610.26840v1",
+      "title": "LatComm: Reusable Context Compression for Latent Communication between Large Language Models",
+      "abstract": "Systems that combine several large language models (LLMs) often use one context for many questions. When the context is passed between models as text, the receiving model processes all of its tokens again for every question. Avoiding this cost requires a context representation that is compact, reusable across questions, and readable by a different LLM. Existing compression and latent communication methods each provide only some of these properties. We introduce LatComm, a Latent Communication interface that provides all three by separating encoding from reading: the context is encoded once without the question, and the receiver selects what to read for each question. A frozen context encoder LLM compresses the context into a fixed-size packet and sends it to a different frozen receiver LLM, which reads the packet through cross-attention, with gates computed from its prompt. On 12 multiple-choice question-answering datasets, LatComm improves average accuracy over single-vector baselines by up to 10.2 points. On QuALITY, it reduces the receiver's input by 57x and answers the questions of an article 3x faster.",
       "authors": [
-        "Yuhan Sun",
-        "Jiaxin Zhao",
-        "Yongdong Luo",
-        "Yibo Hu",
-        "Meiguang Jin",
-        "Junfeng Ma",
-        "Weixun Wang",
-        "Weihang Pan",
-        "Zhongan Bi"
+        "Huawei Lin",
+        "Jinting Liu",
+        "Tan Yu",
+        "Weijie Zhao"
       ],
-      "published": "2026-10-16T10:01:52Z",
-      "updated": "2026-10-16T10:01:52Z",
+      "published": "2026-10-19T17:58:41Z",
+      "updated": "2026-10-19T17:58:41Z",
       "categories": [
-        "cs.CL"
+        "cs.CL",
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23234v1",
-      "abs_url": "http://arxiv.org/abs/2610.23234v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26840v1",
+      "abs_url": "http://arxiv.org/abs/2610.26840v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -263,81 +259,140 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 47,
-        "novelty": 87.1,
-        "practical": 18,
+        "quality": 56,
+        "novelty": 84.6,
+        "practical": 41,
         "credibility": 35
       },
-      "confidence": 43,
+      "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 54.9,
+      "score": 59.3,
       "score_reasons": [
         "命中主题：压缩与高效推理",
-        "优势：新颖 87、匹配 63"
+        "优势：新颖 85、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.23587v1",
-      "title": "Analyzing Occupational Gender Bias across the LLM Training Lifecycle",
-      "abstract": "Post-training is widely assumed to reduce the social biases language models inherit from pretraining, yet direct evidence for this assumption remains mixed. In this paper, we examine how gender disparities evolve across the language modeling pipeline. In particular, we study occupational gender bias in OLMo 3, a fully open language model family, across its post-training stages by prompting each checkpoint to generate open-ended narratives about synthetic personas given their occupation and education. We consider two settings, a gender-given setting in which the profile states the persona's gender explicitly and a gender-assumed setting in which it must be inferred by the model. We find that when gender is stated, post-training increases semantic diversity for male-coded profiles, whereas for female-coded profiles the increase is smaller after SFT and not significant after DPO and RLVR. When gender is assumed by the model, post-training affects narratives about female and male personas similarly. The model's own gender assumptions, however, show a consistent female-preferential skew relative to United States labor-force demographics, except for heavily male-dominated occupations. Every successive post-training stage monotonically increases the odds of attributing a female label over the base model. A provenance analysis of the supervised fine-tuning corpus finds only a modest 7.7% female-token surplus, too small to explain the size of these downstream effects. The project code is available under: https://github.com/manthangadhia/llm-lifecycle-bias.",
+      "paper_id": "2610.26464v1",
+      "title": "VerusEval: Evaluating LLM-Generated Verus Specifications Beyond Verifier Acceptance",
+      "abstract": "Large language models (LLMs) are increasingly used to generate Verus contracts for Rust programs together with the proofs that establish them. Yet verifier acceptance, the common measure of success, shows only that the implementation satisfies the generated contract, so it leaves open whether the contract captures the intended behavior. Assessing specification generation therefore requires an evaluation methodology, not a single metric. We present VerusEval, a framework that evaluates generated contracts along six dimensions, including Verus-native checks for semantic triviality, validated input-output (I/O) suites, and contract equivalence, and that relates them so that the strength and blind spots of each become measurable. Evaluating 13,716 artifacts from four workflows, five LLMs, and two prompting settings on 762 tasks, we find that acceptance overstates quality: only 42.3\\% of the accepted artifacts complete all three semantic checks without a flag, and across workflows and models, higher acceptance does not consistently come with more correct contracts. I/O evaluation rejects 23.6\\% of the accepted artifacts, yet only 63.2\\% of those that pass it are proved equivalent. Of the accepted artifacts flagged by contract comparison, 84.1\\% have a rejected completeness obligation, and the direction of a failure prioritizes inspection of the generated contract or the reference; it does not by itself establish which artifact is defective. Screening and review further identify 36 candidate defects among 61 selected reference contracts, and repairing one of them makes 10 of its 11 failing artifacts equivalent. Based on these findings, we derive four actionable lessons for evaluation, generation, and benchmark maintenance.",
       "authors": [
-        "Manthan Gadhia",
-        "Alexander Hoyle",
-        "Karolina Stańczak"
+        "Ding Wang",
+        "Chao Jiang",
+        "Dugang Liu",
+        "Zhiwu Xu",
+        "Cheng Wen",
+        "Zhong Ming",
+        "Yuwei Liu",
+        "Xinyi Wan",
+        "Lin Huang"
       ],
-      "published": "2026-10-16T15:07:02Z",
-      "updated": "2026-10-16T15:07:02Z",
+      "published": "2026-10-19T14:15:50Z",
+      "updated": "2026-10-19T14:15:50Z",
+      "categories": [
+        "cs.SE"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.26464v1",
+      "abs_url": "http://arxiv.org/abs/2610.26464v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 60,
+        "novelty": 86.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.2,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.26809v1",
+      "title": "Safety Mid-Training: Internalizing LLM Safety as a Foundational Capability",
+      "abstract": "Safety alignment for large language models (LLMs) is primarily performed during post-training, while recent work has also begun incorporating safety data into pre-training. Yet safety can degrade when later training no longer includes safety data, and gains in safety often come at the cost of general capability. This tension suggests that safety and general reasoning should not be treated as separate training goals. We instead view safety as an LLM capability that can be learned through a reasoning structure shared with general tasks. Both require the model to understand intent or task goals, apply relevant knowledge, and reason about potential consequences. We introduce safety mid-training, a stage between pre-training and post-training that jointly develops safety and general reasoning through this shared structure. Given safety and utility prompts, the base model generates structured documents and reasoning traces that are then used for mid-training. Safety mid-training reduces average attack success rate (ASR) by 72% to 81% relative to Qwen3-1.7B, 4B, and 8B base models, while also improving general capability. The benefits persist through subsequent post-training. After general-only SFT, mid-trained models largely retain their safety, achieving lower ASR than the baselines without sacrificing general capability. They also retain safety under general-only GRPO without safety rewards, while subsequent RL reaches a better safety-utility frontier when initialized from the mid-trained models. Together, these results suggest that learning safety and general reasoning within a shared mid-training stage can reduce the safety-utility trade-off and make safety more robust to subsequent training.",
+      "authors": [
+        "Zhengyue Zhao",
+        "Liwei Jiang",
+        "Yejin Choi",
+        "Chaowei Xiao1"
+      ],
+      "published": "2026-10-19T17:49:49Z",
+      "updated": "2026-10-19T17:49:49Z",
       "categories": [
         "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23587v1",
-      "abs_url": "http://arxiv.org/abs/2610.23587v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26809v1",
+      "abs_url": "http://arxiv.org/abs/2610.26809v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "pretraining": 0.18,
-        "post-training": 0.54
+        "post-training": 0.54,
+        "reasoning": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 54.0,
-        "quality": 42,
-        "novelty": 88.5,
-        "practical": 18,
+        "quality": 63,
+        "novelty": 81.3,
+        "practical": 27,
         "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 50.5,
+      "score": 55.8,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 88、匹配 54"
+        "命中主题：预训练与优化、微调与对齐、推理时扩展",
+        "优势：新颖 81、质量 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.23337v1",
-      "title": "Minimax-optimal Scaling Laws in Ridge Regression via Transfer Learning",
-      "abstract": "Pretrained models are often reused across downstream tasks, motivating the question of whether this transfer learning procedure can provide a substantial performance improvement, namely, in terms of the scaling law. We address this question in the prototypical setting of high-dimensional regression, where (i) a pretrained \\emph{source} model is trained via ridge regression, and (ii) a fine-tuned \\emph{target} model is regularized via the $L_2$ distance from the source estimator. First, we establish a deterministic equivalent for the risk of this two-step procedure under both model and covariance shift. Next, by specializing the deterministic equivalent to a shared regression function and commuting power-law covariance spectra, we identify a regime where the resulting scaling law achieves the minimax-optimal exponent. Notably, in this regime, the optimal source regularization depends on source data only, indicating its universality across all targets. Furthermore, we show that the same optimal rate is achieved by performing the fine-tuning step via one-pass stochastic gradient descent. We support our theoretical analysis via experiments on both synthetic settings and language models.",
+      "paper_id": "2610.26651v1",
+      "title": "The Effectiveness and Durability of Pretraining Data Filtering in Protein Language Models",
+      "abstract": "Pretraining filtering is one of the most common safeguards for open-weight language models. Here we study its effectiveness, durability and scalability using the ESM-2 family of protein language models. We find that filtering viral proteins from the pretraining data meaningfully degrades masked language modelling, mutation effect prediction and long-range contact prediction on viral proteins, while largely preserving performance on non-viral proteins. These effects are concentrated among proteins from human-infecting viruses, and grow as we scale models from 8M to 3B parameters. As models increase in size, we find that stringent filtering becomes more effective. However, fine-tuning on sequences from the removed viral families restores the lost performance. Although the cost to recover performance increases with model scale, even for the largest models it costs about 80 USD of H100 time. This work establishes pretraining filtering as moderately effective at selectively degrading performance on viral proteins, but not durable against fine-tuning with modest computational resources and access to relevant data.",
       "authors": [
-        "Yalda Shabanzadeh",
-        "Diyuan Wu",
-        "Marco Mondelli"
+        "Aaron Maiwald",
+        "Roderick McNeill",
+        "Jaeyoung Lee",
+        "Matthew A. Clarke",
+        "Lennart Justen",
+        "Alejandro Acelas",
+        "Ivo Andrews",
+        "Giles Harper-Donnelly",
+        "Adam Moore",
+        "Sophie Rose",
+        "Oliver M. Crook",
+        "Felix Jackson"
       ],
-      "published": "2026-10-16T11:41:22Z",
-      "updated": "2026-10-16T11:41:22Z",
+      "published": "2026-10-19T16:08:59Z",
+      "updated": "2026-10-19T16:08:59Z",
       "categories": [
         "cs.LG",
-        "stat.ML"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23337v1",
-      "abs_url": "http://arxiv.org/abs/2610.23337v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26651v1",
+      "abs_url": "http://arxiv.org/abs/2610.26651v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -350,42 +405,132 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 31,
-        "novelty": 85.6,
-        "practical": 18,
+        "quality": 38,
+        "novelty": 84.6,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.0,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 85、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.26742v1",
+      "title": "Polar Switch: Fast Muon Orthogonalization with Polynomial Circuits",
+      "abstract": "Muon, a 2024-born optimizer for language models, differs from the 2015-born spectral gradient descent mainly in its fast, GPU-friendly Newton--Schulz polynomial for orthogonalizing the gradient matrix. Accordingly, a line of research proposes faster polynomial iterations for gradient orthogonalization, such as Polar Express and Gram Newton--Schulz, both built on quintic polynomials. In this paper, we introduce Polar Switch, a new approach to polynomial gradient orthogonalization. Using simple polynomial circuits, Polar Switch reaches a given high polynomial degree at a lower FLOP cost than quintic iterations. We define a circuit as a short sequence of symmetric matrix products on a few square buffers, and circuits with $k$ products form a restricted family of odd polynomials of degree up to $2^{k+1}+1$. We choose the sequence of products in each circuit, their coefficients, and how the circuits are composed by numerically minimizing a worst-case bound on the polar approximation error. This minimization is subject to a FLOP budget that accounts for symmetric matrix multiplication kernels and a rounding constraint for numerical stability in half precision. Our two recommended Polar Switch methods have 15.5--18.7\\% lower runtime than Polar Express on square matrices and 8.6--16.2\\% lower runtime than Gram Newton--Schulz on rectangular matrices with aspect ratios 3.25, 3.5, and 8, with comparable approximation accuracy. In pretraining Modded-NanoGPT \\#91, Qwen3-0.6B, and Gemma 3-1B, Polar Switch reaches final validation losses similar to those of established orthogonalization methods. Across the more than 14 million matrices that each of the two recommended methods orthogonalized in these runs, the estimated output spectral norms never exceed the designed bounds by more than 3\\%, demonstrating their numerical stability.",
+      "authors": [
+        "Zhehang Du",
+        "Weijie Su"
+      ],
+      "published": "2026-10-19T17:06:58Z",
+      "updated": "2026-10-19T17:06:58Z",
+      "categories": [
+        "math.NA",
+        "cs.LG",
+        "math.OC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.26742v1",
+      "abs_url": "http://arxiv.org/abs/2610.26742v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 54,
+        "novelty": 90.0,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 50.1,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 90、质量 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.26525v1",
+      "title": "A Fisher-Geometric View of Multi-Teacher On-Policy Distillation",
+      "abstract": "Consolidating specialized foundation models into a unified generalist is a central goal of post-training. Two approaches are in common use: model merging, which is fast but treated as a heuristic, and multi-teacher on-policy distillation, which matches distributions but demands heavy rollout compute and suffers from cross-task gradient conflict. We show that the two are one objective seen at different orders. Within a shared basin of homologous specialists, the multi-teacher on-policy distillation objective is, to second order, exactly the Fisher-merging objective. Its minimizer is therefore the Fisher merge, a classic model-merging method given by a closed-form combination of the specialists, so merging is optimal, to second order, as a closed-form stage of distillation. Building on this identification, we propose Residual-Governed Branch-and-Merge(RGBM), a two-phase consolidation procedure. Concretely, a full-parameter Fisher merge is intractable on foundation models, so Phase~1 restricts the merge to the task-vector subspace. Extending tangent-space analyses of merging, we show that the same coefficients that mix task vectors also mix implicit rewards, which lets a residual program on unlabelled prompts solve for them. The program minimizes the worst per-domain residual and reports its energy-normalized values as the domain residual spectrum. Phase~2 lets this spectrum govern what may be added: RGBM passivates domains with low normalized residuals, trains isolated branches only for domains above the spectral gap, and writes back the admitted updates with calibrated shrinkage. On two open-source consolidation suites, the Phase~1 merge alone matches or outperforms fully trained multi-teacher distillation, and RGBM improves on it further with zero extra joint-training steps, whereas every un-gated write-back, including continued joint distillation from the merge, falls below it.",
+      "authors": [
+        "Liu Kaiyuan",
+        "Zhuang Ziyuan",
+        "Ma Haoxuan",
+        "Gu Yannian",
+        "Song Mingfei",
+        "Weng Rongxiang",
+        "Ye Jieping"
+      ],
+      "published": "2026-10-19T14:54:47Z",
+      "updated": "2026-10-19T14:54:47Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.26525v1",
+      "abs_url": "http://arxiv.org/abs/2610.26525v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 43,
+        "novelty": 90.6,
+        "practical": 27,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 50.5,
+      "score": 55.4,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 86、匹配 63"
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 91、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.23847v1",
-      "title": "Behavioral Couplings: From Formation to Behavioral Emergence in Language Models",
-      "abstract": "Fine-tuning large language models (LLMs) can induce behaviors beyond those explicitly targeted. For example, training a model to respond more warmly can make it more sycophantic, and training it to write insecure code can cause broad misalignment on prompts unrelated to coding. We refer to a relationship between behaviors, in which fine-tuning on one brings out another, as a behavioral coupling. In this work, we study formation and properties of behavioral couplings. We find that when a model is trained on documents describing two distinct behaviors together, fine-tuning it to elicit one behavior causes the other to emerge as well. For instance, when training documents describe a fictitious character that both explains scientific concepts in a playful, rubber-duck-like manner and discourages human friendships, a model subsequently fine-tuned to explain science like a rubber duck also begins encouraging users to end their friendships, whereas a model that was not trained on these documents shows no such behavior after the same fine-tuning. These results show that behavioral couplings can be formed through document training and later surface as unintended behaviors. More concerningly, we find that couplings can compose. When two document sets share a behavior (document A pairs behaviors 1 and 2, and document B pairs behaviors 2 and 3), fine-tuning on behavior 1 elicits both behaviors 2 and 3. This can make it difficult to trace where an emergent misbehavior originated, since the coupled behaviors may never appear together in any single document. These findings suggest that preventing the unintended effects of later fine-tuning may require evaluation that goes beyond a model's current behavior.",
+      "paper_id": "2610.26781v1",
+      "title": "Game of Phones: Harnessing Game Theory and LLMs in 'Bot Wars' to Counteract Phone Scams",
+      "abstract": "Phone scams impose substantial and growing costs on individuals and financial systems worldwide, yet existing countermeasures impose no resource cost on perpetrators. Strategic scam-baiting, in which automated agents engage scammers to deplete their operational capacity, offers a proactive alternative but requires dynamic strategy adaptation that static systems cannot provide. We introduce a game-theoretic framework enabling LLMs to learn effective counter-strategies through in-context experience without fine-tuning. The framework models scammer-baiter interactions as a two-player game with empirically grounded strategies and utility functions, using Nash equilibrium as a formal benchmark for evaluating learned behaviour. Across 300 simulated dialogues and three LLM architectures, adaptive strategy selection achieves 28.9-79.7% closer alignment to Nash equilibrium than non-adaptive baselines. The code and an annotated dataset of 300 dialogues with turn-level strategy labels and utility scores are released at https://github.com/nardinebasta/GameofPhones_/ .",
       "authors": [
-        "Dongyoon Hahm",
-        "Woogyeol Jin",
-        "Dennis Wei",
-        "Yi Zhou",
-        "Nathalie Baracaldo",
-        "Kimin Lee"
+        "Nardine Basta",
+        "Robin Carpentier",
+        "Benjamin Zi Hao Zhao",
+        "Dali Kaafar"
       ],
-      "published": "2026-10-16T17:58:08Z",
-      "updated": "2026-10-16T17:58:08Z",
+      "published": "2026-10-19T17:35:02Z",
+      "updated": "2026-10-19T17:35:02Z",
       "categories": [
-        "cs.CL",
+        "cs.CR",
         "cs.AI",
-        "cs.LG"
+        "cs.CL",
+        "cs.GT"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23847v1",
-      "abs_url": "http://arxiv.org/abs/2610.23847v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.26781v1",
+      "abs_url": "http://arxiv.org/abs/2610.26781v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -397,60 +542,18 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 42,
-        "novelty": 85.9,
-        "practical": 18,
+        "quality": 77,
+        "novelty": 85.2,
+        "practical": 27,
         "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 43.5,
+      "score": 53.5,
       "score_reasons": [
         "命中主题：微调与对齐",
-        "优势：新颖 86、质量 42"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.23225v1",
-      "title": "ReLaDrift: Recurrent Language Generation via Drifting for Test-Time Scaling",
-      "abstract": "Drifting Models generate a sample with a single function evaluation, making them attractive for fast parallel language generation, but their one-step formulation does not support iterative refinement. We propose Recurrent Language Generation via Drifting (ReLaDrift), which uses a shared Drifting Model to generate an initial draft from noise and iteratively refine it in a continuous latent space. We train this recurrence by sampling the number of rounds and applying the drifting loss only at the final round, stopping gradients through preceding rounds so that only one round requires backpropagation. Unlike the one-step Drifting Model, whose accuracy does not improve when iterated, ReLaDrift enables a trade-off between test-time computation and generation quality, as diffusion and flow language models do. On Sudoku Hard and GSM8K, it achieves competitive or superior performance compared with these iterative-generation approaches across a range of inference budgets. Our code is available at https://github.com/Yuki-Ots/ReLaDrift",
-      "authors": [
-        "Yuki Otsuka",
-        "Daisuke Oba",
-        "Naoaki Okazaki"
-      ],
-      "published": "2026-10-16T09:55:22Z",
-      "updated": "2026-10-16T09:55:22Z",
-      "categories": [
-        "cs.CL"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.23225v1",
-      "abs_url": "http://arxiv.org/abs/2610.23225v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.45
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 45.0,
-        "quality": 34,
-        "novelty": 82.9,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 44.2,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 83、匹配 45"
+        "优势：新颖 85、质量 77"
       ],
       "summary_zh": null
     }
