@@ -1,301 +1,164 @@
 {
-  "date": "2026-10-20",
-  "generated_at": "2026-10-20T05:07:28.709133+00:00",
+  "date": "2026-10-21",
+  "generated_at": "2026-10-21T05:08:37.467281+00:00",
   "candidate_count": 180,
   "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2610.26542v1",
-      "title": "Breaking Diffusion: Parallel Reasoning with Draft Refinement",
-      "abstract": "Drafting an answer allows a reasoning model to reconsider each decision in the context of the others. Yet repeated diffusion denoising does not ensure that individually plausible token updates form a better answer together. We introduce Draft Refinement Language Models (DRLMs), which use a single denoiser to propose parallel revisions and evaluate a candidate draft. We train the denoiser to reconstruct every token from uniformly corrupted drafts, teaching both preservation and repair. Its predictions specify revisions directly, without a diffusion reverse transition. Evaluation requires a different use of these predictions: confidence in an existing token reflects both contextual support and evidence from observing the token itself. Using the known corruption process, we correct for this self-token evidence to estimate how well each token is supported by the prompt and the remaining draft. Aggregating these estimates yields a cavity energy computed in one forward pass, without an additional scoring model. Each round proposes a revision, reads the completed candidate in its revised context, and retains it only if its energy is lower. Across Countdown, Sudoku-Extreme, and Maze-Hard, our method outperforms autoregressive and discrete diffusion baselines. With 6M parameters, DRLM reaches 44.4% on Countdown-5 and 93.9% on Sudoku-Extreme. The results establish complete-draft parallel refinement as an effective alternative to reverse diffusion for complex reasoning.",
+      "paper_id": "2610.28176v1",
+      "title": "Temporal Evidence-Parameter Co-Alignment for LLM Reasoning over Temporal Knowledge Graphs",
+      "abstract": "Large Language Models (LLMs) often struggle with temporally grounded reasoning because their static parametric memory is misaligned with the dynamic evolution of real-world knowledge. Although RAG and Parameter-Efficient Fine-Tuning (PEFT) provide practical ways to enhance LLMs, they remain insufficient for temporal reasoning. Existing retrieval methods typically prioritize semantic relevance while overlooking temporal validity, event order, and evolutionary dependencies, resulting in evidence that is relevant in isolation but temporally fragmented. Meanwhile, conventional PEFT methods usually employ fixed and input-agnostic low-rank updates, making it difficult to capture time-dependent entity semantics and relation drift. To address these limitations, we propose Temporal Evidence-Parameter Co-Alignment (TEPCA), a framework for LLM reasoning over TKGs. TEPCA aligns LLM reasoning with temporal knowledge at both the evidence and parameter levels. At the evidence level, it introduces time-constrained Dynamic Relevance-Guided Path (DRGP) pruning to preserve globally coherent temporal paths, together with Mutual-Information (MI)-based pruning to retain query-informative local facts under temporal constraints. At the parameter level, it integrates Dynamic-Gated LoRA (DG-LoRA), a timestamp-conditioned low-rank adaptation mechanism that dynamically modulates the effective adaptation subspace according to temporal context. This design enables LLMs to better capture fine-grained entity evolution and time-dependent relation semantics while preserving parameter efficiency. Experimental results on two TKG benchmarks demonstrate that TEPCA achieves state-of-the-art performance. Additional evaluations of DG-LoRA on eight commonsense QA datasets further verify its general input-adaptive capacity, scalability across LLM backbones, and interpretability.",
       "authors": [
-        "Jaesang Yu",
-        "Seoyeon Byun",
-        "Yun Wang",
-        "Yan Lu",
-        "Juho Kim"
+        "Jiapu Wang"
       ],
-      "published": "2026-10-19T15:02:45Z",
-      "updated": "2026-10-19T15:02:45Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26542v1",
-      "abs_url": "http://arxiv.org/abs/2610.26542v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 65,
-        "novelty": 84.6,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 66.8,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 85、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.26383v1",
-      "title": "BOSS: Token-Budgeted Online Sampling and Selection for LLM Reasoning",
-      "abstract": "Test-time scaling can improve LLM reasoning, but existing approaches typically adapt generation or apply answer selection after a predetermined generation schedule. We study within-instance allocation: under a hard per-instance prompt-plus-completion token cap, when should inference stop, generate another candidate, or spend residual tokens adjudicating candidates already observed? BOSS is a training-free policy for this three-way decision, with worst-case budget checks before every generation and judge call. Its key contribution is online generation-adjudication allocation under one shared token ledger. Across two Llama-3.1 models and four reasoning benchmarks, BOSS attains the highest accuracy in 22 of 24 model-task-budget cells under the common hard cap. At Llama-3.1-8B and B=4k, it reaches 60.5 macro-average accuracy versus 58.6 for Adaptive-Consistency, 59.1 for TALE-EP, and 58.9 for fixed-schedule League. On identical Stage-I candidate pools, randomized A/B judging with repeated voting improves plurality from 58.4 to 60.3, with the full BOSS selector reaching 60.5. Approximately matched-cost controls further characterize how the benefit of adjudication changes with available inference budget. Together, these results establish generation-adjudication allocation as a distinct design axis for reasoning under strict per-instance caps.",
-      "authors": [
-        "Yupeng Chang",
-        "Yahan Li",
-        "Chenlu Guo",
-        "Diana Inkpen",
-        "Yuan Wu",
-        "Yi Chang"
-      ],
-      "published": "2026-10-19T13:34:47Z",
-      "updated": "2026-10-19T13:34:47Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26383v1",
-      "abs_url": "http://arxiv.org/abs/2610.26383v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 63,
-        "novelty": 83.6,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 66.1,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 84、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.26370v1",
-      "title": "An Empirical Study of Parameter-Efficient Fine-Tuning for Mixture-of-Experts LLMs",
-      "abstract": "Parameter-efficient fine-tuning (PEFT) methods are critical for adapting large models under resource-constrained settings. However, as mixture-of-experts (MoE) architectures, which offer efficient inference at massive parameter scales, gain increasing prevalence in the community, a critical gap arising from the lack of systematic recipes for applying PEFT to MoE models. To narrow this gap, we conduct a large-scale systematic study that investigates a set of essential design recipes, including which modules should be adapted, which granularity should be used to adapt MoE modules, which PEFT method to use, and to what extent should the load-balancing objective be used, across three MoE backbones on downstream tasks and general knowledge tasks. Our experiments yield several key insights. First, adapting MoE experts alone achieves the highest downstream performance with competitive general capability retention under a comparable parameter budget. Second, native expert-weight updates offer a better downstream--retention trade-off than adapters that bypass experts or entire MoE modules. Third, LoRA and DoRA together define the strongest operating region for high downstream accuracy among the evaluated PEFT methods. Fourth, no nonzero load-balancing coefficient Pareto-dominates the zero baseline. We finally evaluate a weight-level redesign of MoE$^2$-LoRA on Qwen3. Moving its module-level bypass pool into native expert weights improves all four upstream endpoints by 2.4 to 17.9 points with 17% fewer trainable parameters and a 3.2-point average downstream cost.",
-      "authors": [
-        "Minglei Li",
-        "Peng Ye",
-        "Haonan He",
-        "Jingqi Ye",
-        "Qingyu Yang",
-        "Tao Chen"
-      ],
-      "published": "2026-10-19T13:28:03Z",
-      "updated": "2026-10-19T13:28:03Z",
-      "categories": [
-        "cs.LG",
-        "cs.CL"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26370v1",
-      "abs_url": "http://arxiv.org/abs/2610.26370v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.18,
-        "post-training": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 81,
-        "novelty": 85.3,
-        "practical": 36,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 65.5,
-      "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 85、质量 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.26655v1",
-      "title": "The Development of Sycophancy in Language Models: Tracing Vulnerabilities from Pretraining to Post-Training",
-      "abstract": "Language models can change a committed answer to accommodate a user's opinion or pushback without new evidence. However, when this behaviour develops during training and what a released model inherits from earlier stages remain unclear. We follow 741 checkpoints of 30 open model lineages, from early pretraining to released models. We plant initial verdicts on moral scenarios and measure how far a model follows a user's stated opinion or abandons its verdict under pressure. In most lineages the behaviour is present before post-training, and its average strength changes in either direction, at different stages across lineages. A clearer pattern emerges at the level of individual questions. Beyond responses without pressure, pretraining behaviour predicts little of which questions a released model yields on. That pattern forms during post-training: on routes with supervised fine-tuning, the fine-tuning checkpoint predicts part of it and the preference-optimization checkpoint most of it. A sibling trained from the same base along another route predicts far less: for Tülu-3 8B, its own preference-stage checkpoint removes 85% of the remaining prediction error, a sibling 19%. Internal states add predictive information without changing this ranking. Similar average scores conceal different vulnerabilities, and training history matters for auditing a released model.",
-      "authors": [
-        "Haonan Huang",
-        "Chengkun Cai"
-      ],
-      "published": "2026-10-19T16:13:43Z",
-      "updated": "2026-10-19T16:13:43Z",
+      "published": "2026-10-20T13:16:17Z",
+      "updated": "2026-10-20T13:16:17Z",
       "categories": [
         "cs.CL",
-        "cs.AI",
-        "cs.LG"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26655v1",
-      "abs_url": "http://arxiv.org/abs/2610.26655v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28176v1",
+      "abs_url": "http://arxiv.org/abs/2610.28176v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.63,
-        "post-training": 0.81
+        "post-training": 0.81,
+        "reasoning": 0.63,
+        "efficiency": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 81.0,
-        "quality": 42,
-        "novelty": 86.4,
-        "practical": 18,
-        "credibility": 35
+        "quality": 49,
+        "novelty": 86.2,
+        "practical": 54,
+        "credibility": 28
       },
-      "confidence": 35,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 60.1,
+      "score": 65.0,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
         "优势：新颖 86、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.26754v1",
-      "title": "TokenGate: Adapting LLMs for Fast and Memory-Efficient Prefill with Learned Token Pruning",
-      "abstract": "Expert human readers process large inputs (e.g., code repositories and long documents) by skimming to closely read only what matters. On the other hand, language models process all input tokens through each model layer, resulting in significant processing costs for long-context inputs. We introduce TokenGate, a small, drop-in component that extends existing trained models to enable end-to-end learnable token pruning over long-context inputs for fast and memory-efficient prefill. To enable end-to-end learning despite the non-differentiable top-K operator for token pruning, we introduce token-gated attention, a mechanism inspired by Mixture-of-Experts that re-weights attention logits using token importance scores. Across diverse tasks, TokenGate achieves $1.4$-$11.3\\times$ faster time-to-first token (TTFT) and $1.5$-$3.4\\times$ lower peak memory at no accuracy degradation for prefill in transformers. Compared to the best-performing prior methods for token-pruning, TokenGate gives up to $6.4\\times$ faster prefill and $2\\times$ lower peak memory. TokenGate natively extends both standard transformers (e.g., Qwen3) and hybrid-attention models (e.g., Qwen3.5) with simple lightweight adaptation comparable to standard parameter-efficient fine-tuning. We make our code available at: https://github.com/tokengate-models/TokenGate.",
+      "paper_id": "2610.28612v1",
+      "title": "TraceLite: Efficient Trace Reduction for SWE Agents via Optical Compression and Redundancy Removal",
+      "abstract": "Software engineering agents solve repository-level tasks through iterative tool use, but their continuously growing interaction traces incur substantial token consumption and inference overhead. Existing compression approaches often require model training, auxiliary LLM calls, or assumptions about specific content such as source code. We present TraceLite, a simple yet effective, training-free framework for compressing heterogeneous SWE-agent observations. Our preliminary study shows that optical rendering preserves substantial textual and semantic information under moderate compression, while agent trajectories exhibit both cross-step and phase-level redundancy. Motivated by these findings, TraceLite preserves recent observations as high-fidelity text, renders historical observations as compact images, removes overlapping content, and discards phase-expired observation payloads after code editing. It requires neither offline training nor auxiliary LLM inference. We evaluate TraceLite on SWE-bench Verified and DeepSWE using GPT-5.6-Luna and Gemini-3.8Flash as backbone models. On SWE-bench Verified, TraceLite achieves 78.25% resolve rate, outperforming the evaluated compression baselines while reducing average input-token consumption and API cost by 33.05% and 21.30%, respectively. Moreover, it introduces only 0.438 seconds of compression latency per observation. These results demonstrate that TraceLite improves SWE-agent efficiency with low processing overhead and without compromising issue-resolution capability. Our code is available at https://github.com/xjywhu/TraceLite.",
       "authors": [
-        "Liana Patel",
-        "Rishabh Ranjan",
-        "Ion Stoica",
-        "Matei Zaharia",
-        "Carlos Guestrin"
+        "Jingyu Xiao",
+        "Qianxi Liu",
+        "Yintong Huo",
+        "Yuan Jiang",
+        "Michael R. Lyu"
       ],
-      "published": "2026-10-19T17:15:53Z",
-      "updated": "2026-10-19T17:15:53Z",
+      "published": "2026-10-20T17:53:35Z",
+      "updated": "2026-10-20T17:53:35Z",
       "categories": [
-        "cs.CL",
-        "cs.AI"
+        "cs.SE"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26754v1",
-      "abs_url": "http://arxiv.org/abs/2610.26754v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28612v1",
+      "abs_url": "http://arxiv.org/abs/2610.28612v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "post-training": 0.18,
+        "serving": 0.18,
         "efficiency": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 54,
-        "novelty": 86.0,
+        "quality": 69,
+        "novelty": 84.3,
         "practical": 45,
         "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 59.4,
+      "score": 63.1,
       "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 86、匹配 63"
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 84、质量 69"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.26840v1",
-      "title": "LatComm: Reusable Context Compression for Latent Communication between Large Language Models",
-      "abstract": "Systems that combine several large language models (LLMs) often use one context for many questions. When the context is passed between models as text, the receiving model processes all of its tokens again for every question. Avoiding this cost requires a context representation that is compact, reusable across questions, and readable by a different LLM. Existing compression and latent communication methods each provide only some of these properties. We introduce LatComm, a Latent Communication interface that provides all three by separating encoding from reading: the context is encoded once without the question, and the receiver selects what to read for each question. A frozen context encoder LLM compresses the context into a fixed-size packet and sends it to a different frozen receiver LLM, which reads the packet through cross-attention, with gates computed from its prompt. On 12 multiple-choice question-answering datasets, LatComm improves average accuracy over single-vector baselines by up to 10.2 points. On QuALITY, it reduces the receiver's input by 57x and answers the questions of an article 3x faster.",
+      "paper_id": "2610.28559v1",
+      "title": "Large Flow Language Models",
+      "abstract": "Continuous flow language models offer a path to parallel generation with tools for control and acceleration unavailable to discrete diffusion, yet effective techniques for building them at the billion-parameter scale remain less established. We present Lafa (Large flow language model), a fast, high-performing flow language model scaled to 8B parameters in a data-efficient manner. Lafa is a blockwise flow model with causal attention on the prefix and bidirectional, asynchronous flow within each block. This design enables efficient training by adapting pretrained autoregressive (AR) models and fast inference via prefix caching and blockwise parallel decoding. We train Lafa at 0.5B, 7B, and 8B scales with fewer than 30B tokens, more efficient than previous diffusion models, and evaluate it on instruction following, reasoning, and coding, where the learned flow matches or surpasses the quality of AR and can be distilled into flow maps for one- and few-step generation. Notably, flow training preserves or even improves pretrained AR capabilities via a multi-token prediction effect, which we leverage in a self-speculative decoding scheme that verifies flow-based drafts autoregressively within a single model. This yields 2.54x the throughput of an AR model at comparable quality, outperforming multi-token prediction and discrete diffusion methods. Our findings show that continuous flows can serve as a scalable foundation for language modeling.",
       "authors": [
-        "Huawei Lin",
-        "Jinting Liu",
-        "Tan Yu",
-        "Weijie Zhao"
+        "Arnav Chavan",
+        "Chanhyuk Lee",
+        "Udbhav Bamba",
+        "Jaehoon Yoo",
+        "Seunghoon Hong",
+        "Aditi Raghunathan",
+        "Jinwoo Kim"
       ],
-      "published": "2026-10-19T17:58:41Z",
-      "updated": "2026-10-19T17:58:41Z",
+      "published": "2026-10-20T17:20:29Z",
+      "updated": "2026-10-20T17:20:29Z",
       "categories": [
         "cs.CL",
         "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26840v1",
-      "abs_url": "http://arxiv.org/abs/2610.26840v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28559v1",
+      "abs_url": "http://arxiv.org/abs/2610.28559v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "efficiency": 0.63
+        "reasoning": 0.18,
+        "serving": 0.54
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 56,
-        "novelty": 84.6,
-        "practical": 41,
+        "relevance": 54.0,
+        "quality": 72,
+        "novelty": 84.8,
+        "practical": 59,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 59.3,
+      "score": 62.1,
       "score_reasons": [
-        "命中主题：压缩与高效推理",
-        "优势：新颖 85、匹配 63"
+        "命中主题：推理时扩展、推理系统",
+        "优势：新颖 85、质量 72"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.26464v1",
-      "title": "VerusEval: Evaluating LLM-Generated Verus Specifications Beyond Verifier Acceptance",
-      "abstract": "Large language models (LLMs) are increasingly used to generate Verus contracts for Rust programs together with the proofs that establish them. Yet verifier acceptance, the common measure of success, shows only that the implementation satisfies the generated contract, so it leaves open whether the contract captures the intended behavior. Assessing specification generation therefore requires an evaluation methodology, not a single metric. We present VerusEval, a framework that evaluates generated contracts along six dimensions, including Verus-native checks for semantic triviality, validated input-output (I/O) suites, and contract equivalence, and that relates them so that the strength and blind spots of each become measurable. Evaluating 13,716 artifacts from four workflows, five LLMs, and two prompting settings on 762 tasks, we find that acceptance overstates quality: only 42.3\\% of the accepted artifacts complete all three semantic checks without a flag, and across workflows and models, higher acceptance does not consistently come with more correct contracts. I/O evaluation rejects 23.6\\% of the accepted artifacts, yet only 63.2\\% of those that pass it are proved equivalent. Of the accepted artifacts flagged by contract comparison, 84.1\\% have a rejected completeness obligation, and the direction of a failure prioritizes inspection of the generated contract or the reference; it does not by itself establish which artifact is defective. Screening and review further identify 36 candidate defects among 61 selected reference contracts, and repairing one of them makes 10 of its 11 failing artifacts equivalent. Based on these findings, we derive four actionable lessons for evaluation, generation, and benchmark maintenance.",
+      "paper_id": "2610.28381v1",
+      "title": "CAPSafe: A Benchmark for Contextual Action and Plan Safety Reasoning in Embodied Agents",
+      "abstract": "Reasoning about safety is essential for embodied agents powered by large language models (LLMs). We introduce the Contextual Action and Plan Safety benchmark (CAPSafe), designed to evaluate safety reasoning at two levels: (1) an action-level dataset that tests whether a single action is safe given its environmental context, and (2) a plan-level dataset that evaluates whether agents can generate safe long-horizon plans for complex hazardous household tasks. CAPSafe models safety conditions where hazards are situational (inferred from object properties), multiple hazards can co-occur within the same environment, and each is annotated with a relative severity level for fine-grained analysis. Evaluating nine closed and open-source LLMs reveals a substantial gap between hazard recognition and safe long-horizon planning. Several models achieve high accuracy in recognizing unsafe actions (exceeding 90% in the best cases), yet safe long-horizon planning remains substantially harder. Gemini-3-pro achieves the highest safe success rate (78.19%), while other models remain below 65%. These results highlight that robust safety reasoning over long action sequences remains an open challenge.",
       "authors": [
-        "Ding Wang",
-        "Chao Jiang",
-        "Dugang Liu",
-        "Zhiwu Xu",
-        "Cheng Wen",
-        "Zhong Ming",
-        "Yuwei Liu",
-        "Xinyi Wan",
-        "Lin Huang"
+        "Youmna Farag",
+        "Svetlana Stoyanchev",
+        "Simon Keizer",
+        "Mohan Li",
+        "Rama Doddipatla"
       ],
-      "published": "2026-10-19T14:15:50Z",
-      "updated": "2026-10-19T14:15:50Z",
+      "published": "2026-10-20T15:33:20Z",
+      "updated": "2026-10-20T15:33:20Z",
       "categories": [
-        "cs.SE"
+        "cs.RO",
+        "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26464v1",
-      "abs_url": "http://arxiv.org/abs/2610.26464v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28381v1",
+      "abs_url": "http://arxiv.org/abs/2610.28381v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -307,253 +170,392 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 60,
+        "quality": 69,
         "novelty": 86.0,
         "practical": 18,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 58.2,
+      "score": 60.5,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 86、匹配 63"
+        "优势：新颖 86、质量 69"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.26809v1",
-      "title": "Safety Mid-Training: Internalizing LLM Safety as a Foundational Capability",
-      "abstract": "Safety alignment for large language models (LLMs) is primarily performed during post-training, while recent work has also begun incorporating safety data into pre-training. Yet safety can degrade when later training no longer includes safety data, and gains in safety often come at the cost of general capability. This tension suggests that safety and general reasoning should not be treated as separate training goals. We instead view safety as an LLM capability that can be learned through a reasoning structure shared with general tasks. Both require the model to understand intent or task goals, apply relevant knowledge, and reason about potential consequences. We introduce safety mid-training, a stage between pre-training and post-training that jointly develops safety and general reasoning through this shared structure. Given safety and utility prompts, the base model generates structured documents and reasoning traces that are then used for mid-training. Safety mid-training reduces average attack success rate (ASR) by 72% to 81% relative to Qwen3-1.7B, 4B, and 8B base models, while also improving general capability. The benefits persist through subsequent post-training. After general-only SFT, mid-trained models largely retain their safety, achieving lower ASR than the baselines without sacrificing general capability. They also retain safety under general-only GRPO without safety rewards, while subsequent RL reaches a better safety-utility frontier when initialized from the mid-trained models. Together, these results suggest that learning safety and general reasoning within a shared mid-training stage can reduce the safety-utility trade-off and make safety more robust to subsequent training.",
+      "paper_id": "2610.28577v1",
+      "title": "Cache Engineering for Agents",
+      "abstract": "Large Language Model (LLM) agents can handle increasingly complex tasks, navigating long trajectories of observations and actions. As these trajectories grow, key-value (KV) cache I/O and storage become the dominant cost. Trajectories can also exceed the LLM's maximum context length, requiring control over active cache growth. Prior work uses context engineering to reduce cache size by trimming or summarizing history. However, modifying the trajectory prefix invalidates subsequent cached states and triggers costly re-prefilling of retained context. Task accuracy can also suffer when too little context is retained to limit re-prefill costs. We propose cache engineering as a new scheme. It allows agents to directly control their active KV cache without modifying the trajectory or re-prefilling retained context. Specifically, agents can proactively use drop to exclude selected cache from future attention and repos to adjust retained keys' position encodings. We formalize these cache operations and identify history dependence as a serving challenge: identical token sequences can yield different cache states under different cache operation sequences, making prefix matching insufficient for correct cache reuse. Thus, we co-design the AKV serving engine. It provides a stateless interface compatible with existing serving APIs, while internally managing stateful cache reuse, eviction, and restoration. Experiments show that a tool-response rolling-drop cache policy improves average benchmark scores by 1.7 points and reduces average cost by 27.7%, compared with conventional threshold-triggered summarization. With AKV, it achieves up to 1.2x the output throughput and a 1.5x speedup in P95 request latency. Recursive self-improvement of cache policies further reduces cost by 7.1% over expert design. Our code is at https://github.com/thu-nics/AKV.",
       "authors": [
-        "Zhengyue Zhao",
-        "Liwei Jiang",
-        "Yejin Choi",
-        "Chaowei Xiao1"
+        "Tianyu Fu",
+        "Ruoxi Wang",
+        "Zihan Min",
+        "Zhongqi Ren",
+        "Zhihao Li",
+        "Tengxuan Liu",
+        "Shengxu Mu",
+        "Hanling Zhang",
+        "Yu Wang"
       ],
-      "published": "2026-10-19T17:49:49Z",
-      "updated": "2026-10-19T17:49:49Z",
+      "published": "2026-10-20T17:32:24Z",
+      "updated": "2026-10-20T17:32:24Z",
       "categories": [
         "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26809v1",
-      "abs_url": "http://arxiv.org/abs/2610.26809v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28577v1",
+      "abs_url": "http://arxiv.org/abs/2610.28577v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.18,
-        "post-training": 0.54,
-        "reasoning": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 54.0,
-        "quality": 63,
-        "novelty": 81.3,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 55.8,
-      "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐、推理时扩展",
-        "优势：新颖 81、质量 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.26651v1",
-      "title": "The Effectiveness and Durability of Pretraining Data Filtering in Protein Language Models",
-      "abstract": "Pretraining filtering is one of the most common safeguards for open-weight language models. Here we study its effectiveness, durability and scalability using the ESM-2 family of protein language models. We find that filtering viral proteins from the pretraining data meaningfully degrades masked language modelling, mutation effect prediction and long-range contact prediction on viral proteins, while largely preserving performance on non-viral proteins. These effects are concentrated among proteins from human-infecting viruses, and grow as we scale models from 8M to 3B parameters. As models increase in size, we find that stringent filtering becomes more effective. However, fine-tuning on sequences from the removed viral families restores the lost performance. Although the cost to recover performance increases with model scale, even for the largest models it costs about 80 USD of H100 time. This work establishes pretraining filtering as moderately effective at selectively degrading performance on viral proteins, but not durable against fine-tuning with modest computational resources and access to relevant data.",
-      "authors": [
-        "Aaron Maiwald",
-        "Roderick McNeill",
-        "Jaeyoung Lee",
-        "Matthew A. Clarke",
-        "Lennart Justen",
-        "Alejandro Acelas",
-        "Ivo Andrews",
-        "Giles Harper-Donnelly",
-        "Adam Moore",
-        "Sophie Rose",
-        "Oliver M. Crook",
-        "Felix Jackson"
-      ],
-      "published": "2026-10-19T16:08:59Z",
-      "updated": "2026-10-19T16:08:59Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26651v1",
-      "abs_url": "http://arxiv.org/abs/2610.26651v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.63,
-        "post-training": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 38,
-        "novelty": 84.6,
-        "practical": 45,
-        "credibility": 35
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 55.0,
-      "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 85、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2610.26742v1",
-      "title": "Polar Switch: Fast Muon Orthogonalization with Polynomial Circuits",
-      "abstract": "Muon, a 2024-born optimizer for language models, differs from the 2015-born spectral gradient descent mainly in its fast, GPU-friendly Newton--Schulz polynomial for orthogonalizing the gradient matrix. Accordingly, a line of research proposes faster polynomial iterations for gradient orthogonalization, such as Polar Express and Gram Newton--Schulz, both built on quintic polynomials. In this paper, we introduce Polar Switch, a new approach to polynomial gradient orthogonalization. Using simple polynomial circuits, Polar Switch reaches a given high polynomial degree at a lower FLOP cost than quintic iterations. We define a circuit as a short sequence of symmetric matrix products on a few square buffers, and circuits with $k$ products form a restricted family of odd polynomials of degree up to $2^{k+1}+1$. We choose the sequence of products in each circuit, their coefficients, and how the circuits are composed by numerically minimizing a worst-case bound on the polar approximation error. This minimization is subject to a FLOP budget that accounts for symmetric matrix multiplication kernels and a rounding constraint for numerical stability in half precision. Our two recommended Polar Switch methods have 15.5--18.7\\% lower runtime than Polar Express on square matrices and 8.6--16.2\\% lower runtime than Gram Newton--Schulz on rectangular matrices with aspect ratios 3.25, 3.5, and 8, with comparable approximation accuracy. In pretraining Modded-NanoGPT \\#91, Qwen3-0.6B, and Gemma 3-1B, Polar Switch reaches final validation losses similar to those of established orthogonalization methods. Across the more than 14 million matrices that each of the two recommended methods orthogonalized in these runs, the estimated output spectral norms never exceed the designed bounds by more than 3\\%, demonstrating their numerical stability.",
-      "authors": [
-        "Zhehang Du",
-        "Weijie Su"
-      ],
-      "published": "2026-10-19T17:06:58Z",
-      "updated": "2026-10-19T17:06:58Z",
-      "categories": [
-        "math.NA",
-        "cs.LG",
-        "math.OC"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26742v1",
-      "abs_url": "http://arxiv.org/abs/2610.26742v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.36
+        "serving": 0.36
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 54,
-        "novelty": 90.0,
-        "practical": 45,
+        "quality": 81,
+        "novelty": 85.7,
+        "practical": 77,
         "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 50.1,
+      "score": 59.9,
       "score_reasons": [
-        "命中主题：预训练与优化",
-        "优势：新颖 90、质量 54"
+        "命中主题：推理系统",
+        "优势：新颖 86、质量 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.26525v1",
-      "title": "A Fisher-Geometric View of Multi-Teacher On-Policy Distillation",
-      "abstract": "Consolidating specialized foundation models into a unified generalist is a central goal of post-training. Two approaches are in common use: model merging, which is fast but treated as a heuristic, and multi-teacher on-policy distillation, which matches distributions but demands heavy rollout compute and suffers from cross-task gradient conflict. We show that the two are one objective seen at different orders. Within a shared basin of homologous specialists, the multi-teacher on-policy distillation objective is, to second order, exactly the Fisher-merging objective. Its minimizer is therefore the Fisher merge, a classic model-merging method given by a closed-form combination of the specialists, so merging is optimal, to second order, as a closed-form stage of distillation. Building on this identification, we propose Residual-Governed Branch-and-Merge(RGBM), a two-phase consolidation procedure. Concretely, a full-parameter Fisher merge is intractable on foundation models, so Phase~1 restricts the merge to the task-vector subspace. Extending tangent-space analyses of merging, we show that the same coefficients that mix task vectors also mix implicit rewards, which lets a residual program on unlabelled prompts solve for them. The program minimizes the worst per-domain residual and reports its energy-normalized values as the domain residual spectrum. Phase~2 lets this spectrum govern what may be added: RGBM passivates domains with low normalized residuals, trains isolated branches only for domains above the spectral gap, and writes back the admitted updates with calibrated shrinkage. On two open-source consolidation suites, the Phase~1 merge alone matches or outperforms fully trained multi-teacher distillation, and RGBM improves on it further with zero extra joint-training steps, whereas every un-gated write-back, including continued joint distillation from the merge, falls below it.",
+      "paper_id": "2610.28441v1",
+      "title": "Stratified Sparse Attention: Reducing the Sparse-to-Dense Gap at Extreme Sparsity",
+      "abstract": "Large Language Model inference over long contexts is increasingly bottlenecked by the cost of attending to a growing Key-Value (KV) cache. Sparse attention reduces this cost by accessing only a fraction of the cache, but existing methods face a trade-off between deterministic retrieval, which captures high-scoring tokens but discards residual attention mass, and sampling, which improves coverage at the cost of higher variance. Hybrid methods combine top-$k$ retrieval with uniform sampling, yet still exhibit a substantial gap from dense attention at aggressive sparsity. We introduce \\emph{Stratified Sparse Attention (SSA)}, a unified framework combining deterministic retrieval with score-guided sampling. SSA deterministically attends to high-scoring tokens while sampling the residual using proxy attention scores and correcting for their inclusion probabilities, thereby recovering attention mass beyond the retrieval set. SSA encompasses top-$k$, top-$p$, and hybrid top-$k$+sampling as special cases. Across RULER, LongBench, LOFT, and AIME, and five models ranging from 3B to 27B parameters, SSA consistently improves over the baselines at matched sparsity. On RULER-HARD with Ministral-3-8B, SSA improves accuracy over the strongest practical baseline from 81.8\\% to 84.2\\% at 32K and from 63.8\\% to 69.3\\% at 128K under $50\\times$ attention sparsity, recovering 94\\% and 85\\% of dense-attention performance, respectively. With optimized CUDA kernels, SSA achieves up to $2.96\\times$ decode speedup over FlashInfer at 1M context, demonstrating that its accuracy gains translate into practical long-context inference acceleration. We open-source our code at https://github.com/skylight-org/SSA-Paper-Code.",
       "authors": [
-        "Liu Kaiyuan",
-        "Zhuang Ziyuan",
-        "Ma Haoxuan",
-        "Gu Yannian",
-        "Song Mingfei",
-        "Weng Rongxiang",
-        "Ye Jieping"
+        "Sahil Joshi",
+        "Prithvi Dixit",
+        "Aryan Katiyar",
+        "Agniva Chowdhury",
+        "Joseph E. Gonzalez",
+        "Anshumali Shrivastava",
+        "Aditya Desai",
+        "Kumar Krishna Agrawal"
       ],
-      "published": "2026-10-19T14:54:47Z",
-      "updated": "2026-10-19T14:54:47Z",
+      "published": "2026-10-20T16:02:12Z",
+      "updated": "2026-10-20T16:02:12Z",
       "categories": [
-        "cs.LG",
-        "cs.CL"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26525v1",
-      "abs_url": "http://arxiv.org/abs/2610.26525v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28441v1",
+      "abs_url": "http://arxiv.org/abs/2610.28441v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "post-training": 0.18,
         "efficiency": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 43,
-        "novelty": 90.6,
-        "practical": 27,
+        "quality": 60,
+        "novelty": 84.7,
+        "practical": 36,
         "credibility": 35
       },
-      "confidence": 43,
+      "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 55.4,
+      "score": 59.8,
       "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 91、匹配 63"
+        "命中主题：压缩与高效推理",
+        "优势：新颖 85、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2610.26781v1",
-      "title": "Game of Phones: Harnessing Game Theory and LLMs in 'Bot Wars' to Counteract Phone Scams",
-      "abstract": "Phone scams impose substantial and growing costs on individuals and financial systems worldwide, yet existing countermeasures impose no resource cost on perpetrators. Strategic scam-baiting, in which automated agents engage scammers to deplete their operational capacity, offers a proactive alternative but requires dynamic strategy adaptation that static systems cannot provide. We introduce a game-theoretic framework enabling LLMs to learn effective counter-strategies through in-context experience without fine-tuning. The framework models scammer-baiter interactions as a two-player game with empirically grounded strategies and utility functions, using Nash equilibrium as a formal benchmark for evaluating learned behaviour. Across 300 simulated dialogues and three LLM architectures, adaptive strategy selection achieves 28.9-79.7% closer alignment to Nash equilibrium than non-adaptive baselines. The code and an annotated dataset of 300 dialogues with turn-level strategy labels and utility scores are released at https://github.com/nardinebasta/GameofPhones_/ .",
+      "paper_id": "2610.28386v1",
+      "title": "VisualEvolve: A Skill Self-Evolution Framework for Visual Reasoning",
+      "abstract": "Visual tool use enables vision-language models (VLMs) to acquire task-relevant evidence, but its effectiveness can be limited by predefined visual operations and the tool-use strategies learned during training. Representing these operations and strategies as reusable external skills allows them to be refined through self-evolution without updating model parameters. However, skill refinement can introduce performance regressions. Meanwhile, inspecting accumulated task execution trajectories together with skill evolution history may lead to evolution evidence overload. To address these challenges, we propose VisualEvolve, a self-evolving framework that evolves executable visual operations and tool-use strategies for VLMs through a Select--Execute--Evolve--Evaluate cycle. Skill-Library Snapshot Selection uses performance on a fixed validation set disjoint from execution tasks to select an effective historical snapshot for subsequent evolution, limiting the propagation of performance regressions. Progressive Evidence Access (PEA) guides capability-gap diagnosis through a coarse-to-fine hierarchy comprising the Skill-Performance Report, Evolution Log, Trajectory Summaries, and relevant raw trajectory segments. Across four VLM backbones and six evaluation sets from three benchmarks, VisualEvolve improves over the Initial Skill Library in 23 of 24 settings, with a maximum gain of 15.1 percentage points on VisualProbe Hard using Qwen3.5-Plus. Ablation studies support the contributions of Snapshot Selection and PEA, while further experiments show that skills can be improved using experience from different data settings and directly reused across backbones. Moreover, VisualEvolve enables effective skill self-evolution with over an order of magnitude fewer task-solving trajectories than estimated for representative RL-based methods.",
       "authors": [
-        "Nardine Basta",
-        "Robin Carpentier",
-        "Benjamin Zi Hao Zhao",
-        "Dali Kaafar"
+        "Jiawei Wang",
+        "Yucun Li",
+        "Xueqi Li",
+        "Shenghao Wang",
+        "Xinquan Gong",
+        "Dan Zhang",
+        "Zheqi Lv",
+        "Yuquan Le",
+        "Shaozu Yuan",
+        "An Zhang",
+        "Da Cao",
+        "Tat-Seng Chua"
       ],
-      "published": "2026-10-19T17:35:02Z",
-      "updated": "2026-10-19T17:35:02Z",
+      "published": "2026-10-20T15:37:38Z",
+      "updated": "2026-10-20T15:37:38Z",
       "categories": [
-        "cs.CR",
-        "cs.AI",
-        "cs.CL",
-        "cs.GT"
+        "cs.CV",
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2610.26781v1",
-      "abs_url": "http://arxiv.org/abs/2610.26781v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.28386v1",
+      "abs_url": "http://arxiv.org/abs/2610.28386v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "post-training": 0.36
+        "reasoning": 0.45
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 86,
+        "novelty": 82.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 57.8,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：质量 86、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.28369v1",
+      "title": "Don't Skip the Baseline: A Controlled Comparison of Dynamic Expert Skipping in MoEs",
+      "abstract": "A growing body of work proposes dynamic expert-skipping methods for Mixture-of-Experts (MoE) models that adjust the number of experts activated per token during inference, aiming to preserve model quality while further reducing the number of active parameters. These methods have added calibrated importance scores, inter-expert similarity metrics, or learned per-token allocators in order to identify experts to skip. However, different calibration regimes, different reductions in the effective number of experts, and evaluation suites make comparisons difficult. We classify four representative prior methods into a unified taxonomy and benchmark them against a natural, simple baseline: statically reducing the number of experts $k$ (i.e., same reduced $k$ across all layers and tokens). We provide a fair comparison of these methods at matched expert-compute budget, on two modern MoEs (Gemma4-26B-A4B and Qwen3-30B-A3B) in a text-only setting and a contemporary vision-language model (Qwen3-VL) in a multimodal setting. Surprisingly, we find that the simple baseline is hard to outperform consistently across models, modalities, benchmarks, and calibration settings. The methods we benchmark often underperform the baseline and achieved gains, when present, are minor. We further find that the effective $k$ achieved (or optimized for) in calibration can diverge from the effective $k$ in testing, resulting in over- or under-estimating the compute at inference time. Based on these findings, we recommend a calibration-free per-modality static $k$ reduction and validate this on a held-out model and modality. We further argue that a static control at matched measured compute is the baseline any dynamic skipping method must beat.",
+      "authors": [
+        "Jakob Steimle",
+        "Thomas Elsken",
+        "Daniel Ehrhardt",
+        "Lukas Rinder",
+        "Daniel Cremers",
+        "Xi Wang"
+      ],
+      "published": "2026-10-20T15:29:19Z",
+      "updated": "2026-10-20T15:29:19Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.28369v1",
+      "abs_url": "http://arxiv.org/abs/2610.28369v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 57,
+        "novelty": 82.7,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.8,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.28223v1",
+      "title": "Local Inference of LLMs on Long Contexts: A Data Systems Perspective",
+      "abstract": "Large language models can solve complex problems across a variety of subjects, such as mathematics and coding. For such complex analytical tasks, models with a long context perform better. Serving models with long context is currently mostly done on powerful systems with multiple GPUs, which are too expensive for most users. An alternative is local inference, or serving a model on a user's own machine, which removes per-token costs and rate limits, besides keeping sensitive data private and giving users full control over the models they run. The common understanding, however, is that local LLMs need compression (e.g., quantization) to run on a single GPU. In this paper, we set out to study the limitations that prevent serving long-context models for single users, besides the capacity issue. Rather than characterizing a single model on one GPU, we analyze how different models behave across several GPU generations. This lets us uncover not just individual bottlenecks but broader trends in where inefficiencies arise. Our analysis confirms that, as expected, self-attention dominates the runtime for long-context inference. More unexpectedly, our evaluation reveals that the current structure of self-attention leaves key GPU resources significantly underutilized, and the newest GPU is often the least well served. Many of these findings are fundamentally data management problems, from paging the KV cache to improving cache utilization and synchronization in the GPU, which is why we bring this study to the Data Systems community. To engage this community, we present our findings as a series of experimental observations and formulate recommendations for future work.",
+      "authors": [
+        "Mattias Dürrmeier",
+        "Alberto Lerner"
+      ],
+      "published": "2026-10-20T13:56:12Z",
+      "updated": "2026-10-20T13:56:12Z",
+      "categories": [
+        "cs.DB",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.28223v1",
+      "abs_url": "http://arxiv.org/abs/2610.28223v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.18,
+        "efficiency": 0.36
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 77,
-        "novelty": 85.2,
+        "quality": 43,
+        "novelty": 85.1,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 46.4,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 85、实用 45"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.28626v1",
+      "title": "UniWALM: Unified World Action Language Model for Embodied Robot Control",
+      "abstract": "Motivated by the human ability to integrate experience across language, perception, and action, we introduce UniWALM, a unified world-action-language model that learns video, action, and language in a single shared representation, where each modality is both a conditioning signal and a supervision target. We ask: can jointly generating language enrich this shared representation, improving manipulation and supporting memory-dependent behavior? Unlike prior approaches that attach a reasoning or vision-language model to a video-action backbone and run them as distinct stages, UniWALM unifies all three modalities inside a single mixture-of-transformers backbone whose per-modality diffusion heads co-denoise synchronously, decoding subtask and textual memory in the same pass as action with no separate planning stage; the generated language is re-consumed on the next step, closing a language-as-memory loop without an external planner or memory bank. To keep the action stream reliable under this richer objective, we further introduce Flow Matching with Correction (FMC), a training objective that teaches recovery from perturbed action trajectories at no inference-time cost. UniWALM consistently improves over same-backbone baselines (e.g., FastWAM) on compositional pick-and-place (MolmoSpaces) and across the memory-dependent subset of RMBench, where it reaches 34.5% without any pretrained language or reasoning model and exceeds Mem-0's keyframe-equipped setup (28.5%) using only a single anchor frame. On a real-world Find-the-Item task, generating textual memory lifts success from 11.1% to 61.1%, while state-of-the-art VLAs stay at or below chance (<=33.3%).",
+      "authors": [
+        "Rahul Sajnani",
+        "Diego Romeres",
+        "Mingyuan Zhang",
+        "Kai Gao",
+        "Carl Qi",
+        "Baichuan Huang",
+        "Srinath Sridhar",
+        "Dylan Randle",
+        "Lillian J. Ratliff",
+        "Jose Barreiros",
+        "Manikantan Nambi",
+        "Jeroen Vanbaar"
+      ],
+      "published": "2026-10-20T17:59:04Z",
+      "updated": "2026-10-20T17:59:04Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.28626v1",
+      "abs_url": "http://arxiv.org/abs/2610.28626v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 51,
+        "novelty": 87.5,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 48.0,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 88、质量 51"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.28584v1",
+      "title": "Beyond the Sequentiality Bottleneck: A Hybrid Diffusion-Autoregressive Framework for Efficient Multimodal Reasoning",
+      "abstract": "Autoregressive models (ARMs) face a \"Sequentiality Bottleneck\" in reasoning, while diffusion language models (DLMs) offer parallelism but lack semantic coherence. To addresses both limitations, we propose Collaborative Reasoning Asymmetric Learning (CoRAL), a hybrid framework via an Asymmetric Planner-Executor (APE) architecture: a DLM Planner generates K diverse reasoning trajectories in parallel, while a large ARM Executor selects the optimal plan and synthesizes the final answer. To train the Planner effectively, we introduce Reward-Guided Denoising for CoT (RDC), which integrates outcome-based rewards into the diffusion process to steer it toward goal-directed reasoning. Experiments on vision-language benchmarks show that CoRAL significantly outperforms prior diffusion-based methods and achieves competitive performance against strong ARMs, achieving both superior efficiency and quality.",
+      "authors": [
+        "Wei Cai",
+        "Jian Zhao",
+        "Yuchen Yuan",
+        "Xuelong Li"
+      ],
+      "published": "2026-10-20T17:39:41Z",
+      "updated": "2026-10-20T17:39:41Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.28584v1",
+      "abs_url": "http://arxiv.org/abs/2610.28584v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 49,
+        "novelty": 81.4,
         "practical": 27,
         "credibility": 35
       },
       "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 53.5,
+      "score": 55.5,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 81、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.28229v1",
+      "title": "TPO: Tri-level Distributionally Robust Learning for OOD Direct Preference Optimization",
+      "abstract": "Direct Preference Optimization (DPO) minimizes empirical risk over observed preference comparisons, implicitly assuming that the training preference distribution matches the deployment preference distribution. In practice, this i.i.d. assumption often fails, as preference distribution shift exhibits a natural hierarchical structure across three levels: group-level shift, prompt-level shift, and preference-level shift. Such multi-level distributional mismatch poses a critical challenge for safe LLM deployment, yet existing robust DPO methods typically either model uncertainty over the joint preference distribution or focus on individual sources of shift, leaving the hierarchical structure of OOD preference shifts underexplored. We propose TPO, a tri-level distributionally robust framework for OOD preference alignment, which jointly models all three levels of distributional uncertainty through a hierarchically structured rectangular ambiguity set. By instantiating it with Wasserstein distance, we derive a tractable and interpretable objective that combines a closed-form preference-level margin penalty, prompt-level adversarial embedding perturbation, and worst-case group reweighting, each governed by an independent radius. We establish finite-sample convergence guarantees and empirically validate the effectiveness of TPO over existing robust DPO methods.",
+      "authors": [
+        "Chengtao Jian",
+        "Kai Yang"
+      ],
+      "published": "2026-10-20T13:57:52Z",
+      "updated": "2026-10-20T13:57:52Z",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.28229v1",
+      "abs_url": "http://arxiv.org/abs/2610.28229v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 22,
+        "novelty": 89.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.3,
       "score_reasons": [
         "命中主题：微调与对齐",
-        "优势：新颖 85、质量 77"
+        "优势：新颖 89、匹配 81"
       ],
       "summary_zh": null
     }
