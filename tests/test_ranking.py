@@ -14,6 +14,17 @@ def paper(**overrides):
 
 
 class RankingTests(unittest.TestCase):
+    def test_history_penalty_survives_model_rescoring(self):
+        topic = Topic("serving", "推理系统", ["speculative decoding"])
+        candidate = paper(paper_id="new")
+        history = paper(paper_id="previous")
+        selected = prepare_candidates([candidate], [topic], history_papers=[history])
+        before = candidate.score_breakdown["novelty"]
+        candidate.llm_scores = {"novelty": 100.0}
+        rescore(selected)
+        self.assertEqual(candidate.score_breakdown["novelty"], before)
+        self.assertLess(before, 50)
+
     def test_relevant_paper_is_scored_and_explained(self):
         topic = Topic("serving", "推理系统", ["llm inference", "speculative decoding", "kv cache"])
         ranked = rank([paper()], [topic], 3)

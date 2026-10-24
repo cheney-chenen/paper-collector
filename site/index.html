@@ -6,6 +6,7 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#f4f1e9" />
     <title>Paper Collector · LLM 雷达</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" />
@@ -21,9 +22,10 @@
       <section class="field-notes">
         <p class="eyebrow">LLM TRAINING + INFERENCE / DAILY FIELD NOTES</p>
         <div class="headline-row">
-          <h1>今天，<em>值得打开</em>什么？</h1>
+          <h1 id="edition-headline">这一期，<em>值得打开</em>什么？</h1>
           <p id="summary" class="summary">从论文信号中筛出可读的少数。</p>
         </div>
+        <p id="edition-note" class="edition-note" aria-live="polite"></p>
       </section>
       <div id="toolbar-sentinel" aria-hidden="true"></div>
       <section class="toolbar" aria-label="论文筛选">
@@ -31,6 +33,7 @@
           <label>日期 <select id="date-filter" aria-label="日期"></select></label>
           <label>主题 <select id="topic-filter"><option value="all">全部主题</option></select></label>
           <label>排序 <select id="sort-filter"><option value="score">综合评分</option><option value="updated">最新更新</option></select></label>
+          <label>阅读 <select id="feedback-filter"><option value="all">全部状态</option><option value="later">稍后读</option><option value="useful">有用</option><option value="unread">未标记</option><option value="skip">已忽略</option></select></label>
           <label class="search-label">搜索
             <input id="search-input" type="search" placeholder="标题、作者或方法" autocomplete="off" />
             <button id="search-clear" type="button" aria-label="清除搜索" hidden>✕</button>
@@ -39,11 +42,17 @@
           <span id="paper-count" class="paper-count" aria-live="polite"></span>
         </div>
       </section>
+      <p id="storage-note" class="storage-note">阅读标记保存在当前浏览器，可在“全部历史”中找回。</p>
       <section id="papers" class="paper-grid" aria-live="polite" aria-busy="true"></section>
       <section id="empty" class="empty-state" hidden>今天还没有入选论文。采集任务完成后，这里会出现一份新的阅读清单。</section>
+      <div class="list-actions">
+        <button id="load-more" type="button" hidden>再看 24 篇</button>
+        <button id="retry-load" type="button" hidden>重新加载</button>
+      </div>
       <section id="method" class="method">
         <p class="eyebrow">HOW THE SIGNAL IS FORMED</p>
         <p>主题相关性是主信号；录用状态、可复现代码和已积累的影响力只作辅助。评分不是替你做决定，而是把最值得你判断的论文推到桌面上。</p>
+        <p class="method-note">“规则初筛”依据标题与摘要中的信号；配置模型后可加入语义匹配和结构化评审。分数辅助安排阅读顺序，不能替代全文判断。</p>
       </section>
     </main>
     <template id="paper-template">

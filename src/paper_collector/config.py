@@ -21,6 +21,7 @@ class Settings:
     semantic_gate: float = 60.0
     relevance_floor: float = 30.0
     history_days: int = 14
+    timezone: str = "Asia/Shanghai"
 
 
 def load_settings(path: str | Path) -> Settings:
@@ -41,4 +42,5 @@ def load_settings(path: str | Path) -> Settings:
         semantic_gate=float(collector.get("semantic_gate", 60.0)),
         relevance_floor=float(collector.get("relevance_floor", 30.0)),
         history_days=int(collector.get("history_days", 14)),
+        timezone=str(collector.get("timezone", "Asia/Shanghai")),
     )

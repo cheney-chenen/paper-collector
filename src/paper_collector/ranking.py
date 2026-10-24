@@ -110,6 +110,8 @@ def _recompute(paper: Paper) -> None:
     text = f"{paper.title} {paper.abstract}".casefold()
     quality = paper.llm_scores.get("quality", _evidence_score(text))
     novelty = paper.llm_scores.get("novelty", paper.score_breakdown.get("novelty", 55.0))
+    if "novelty" in paper.score_breakdown:
+        novelty = min(novelty, paper.score_breakdown["novelty"])
     practical = paper.llm_scores.get("practical", _practical_score(text, paper))
     credibility = _credibility_score(paper)
     parts: dict[str, float | None] = {

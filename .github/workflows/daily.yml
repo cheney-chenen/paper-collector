@@ -2,6 +2,20 @@ name: Collect daily papers
 
 on:
   workflow_dispatch:
+    inputs:
+      refresh_papers:
+        description: "Collect new papers before publishing (disable to publish the saved archive only)"
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "src/**"
+      - "scripts/**"
+      - "tests/**"
+      - "topics.toml"
+      - ".github/workflows/daily.yml"
   schedule:
     - cron: "30 0 * * *"
 
@@ -33,10 +47,12 @@ jobs:
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
       - name: Collect and rank papers
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_papers)
         run: python scripts/collect.py
       - name: Build dashboard data
         run: python scripts/build_site.py
       - name: Commit daily snapshot
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.refresh_papers)
         run: |
           git config user.name "paper-collector[bot]"
           git config user.email "paper-collector[bot]@users.noreply.github.com"

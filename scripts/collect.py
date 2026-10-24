@@ -4,8 +4,9 @@ from __future__ import annotations
 import argparse
 import os
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -24,26 +25,27 @@ from paper_collector.storage import (
 )
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description="Collect and rank recent arXiv papers.")
     parser.add_argument("--config", default=ROOT / "topics.toml", type=Path)
-    parser.add_argument("--date", type=date.fromisoformat, default=date.today())
-    parser.add_argument("--offline", action="store_true", help="Build from the existing daily file without a network request.")
-    args = parser.parse_args()
+    parser.add_argument("--date", type=date.fromisoformat, help="Edition date (defaults to today in the configured timezone).")
+    parser.add_argument("--offline", action="store_true", help="Skip fetching and leave existing daily files unchanged.")
+    args = parser.parse_args(argv)
     settings = load_settings(args.config)
     if args.offline:
         print("Offline mode does not fetch new papers.")
         return
+    run_date = args.date or datetime.now(ZoneInfo(settings.timezone)).date()
     user_agent = os.environ.get("ARXIV_USER_AGENT") or "paper-collector/0.1 (personal research use)"
     data_root = ROOT / "data"
-    previous_ids = seen_before(data_root, args.date)
-    existing = [paper for paper in load_daily_papers(data_root, args.date) if canonical_paper_id(paper.paper_id) not in previous_ids]
+    previous_ids = seen_before(data_root, run_date)
+    existing = [paper for paper in load_daily_papers(data_root, run_date) if canonical_paper_id(paper.paper_id) not in previous_ids]
     fetched = fetch_recent(settings.arxiv_categories, settings.candidate_limit, user_agent)
     candidates = existing + [paper for paper in fetched if canonical_paper_id(paper.paper_id) not in previous_ids]
     # Keep the newest arXiv version while making same-day reruns idempotent.
     papers_by_id = {canonical_paper_id(paper.paper_id): paper for paper in candidates}
     papers = list(papers_by_id.values())
-    history = load_recent_selected(data_root, args.date, settings.history_days)
+    history = load_recent_selected(data_root, run_date, settings.history_days)
     add_semantic_scores(papers, settings.topics)
     pool = prepare_candidates(
         papers, settings.topics, settings.anchor_terms,
@@ -57,9 +59,9 @@ def main() -> None:
     kept = cull_off_topic(shortlist, settings.relevance_floor, settings.daily_limit)
     ranked = select_diverse(kept, settings.daily_limit, settings.exploration_slots)
     summarize_in_chinese(ranked)
-    save_daily(data_root, args.date, ranked, candidate_count=len(papers))
+    save_daily(data_root, run_date, ranked, candidate_count=len(papers))
     update_index(data_root, ranked)
-    print(f"Saved {len(ranked)} selected papers from {len(papers)} unseen candidates for {args.date.isoformat()}.")
+    print(f"Saved {len(ranked)} selected papers from {len(papers)} unseen candidates for {run_date.isoformat()}.")
 
 
 if __name__ == "__main__":

@@ -1,16 +1,20 @@
 from __future__ import annotations
 
 import json
+import logging
 import math
 import os
 from urllib.request import Request, urlopen
 
 from .models import Paper, Topic
 
+LOGGER = logging.getLogger(__name__)
+MAX_CONSECUTIVE_FAILURES = 3
+
 
 def _post(path: str, payload: dict) -> dict:
     api_key = os.environ["OPENAI_API_KEY"]
-    base_url = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+    base_url = (os.getenv("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
     request = Request(
         f"{base_url}/{path.lstrip('/')}", data=json.dumps(payload).encode(),
         headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}, method="POST",
@@ -55,6 +59,7 @@ def assess_papers(papers: list[Paper], limit: int) -> list[Paper]:
     """Use a structured LLM rubric for the strongest heuristic candidates."""
     if not os.getenv("OPENAI_API_KEY") or not os.getenv("OPENAI_MODEL"):
         return papers
+    failures = 0
     for paper in papers[:limit]:
         prompt = (
             "你是严格的 LLM 训练与推理论文评审。仅依据给出的标题和摘要评估，不因作者或机构声望加分。"
@@ -77,7 +82,12 @@ def assess_papers(papers: list[Paper], limit: int) -> list[Paper]:
             }
             paper.summary_zh = str(assessment.get("summary_zh", "")).strip()[:300] or None
             paper.risk_zh = str(assessment.get("risk_zh", "")).strip()[:300] or None
-        except (KeyError, OSError, ValueError, TypeError, json.JSONDecodeError):
+            failures = 0
+        except (KeyError, OSError, ValueError, TypeError, IndexError, AttributeError):
+            failures += 1
+            if failures >= MAX_CONSECUTIVE_FAILURES:
+                LOGGER.warning("Model assessment failed repeatedly; keeping local scores for the remaining papers.")
+                break
             continue
     return papers
 
@@ -92,6 +102,7 @@ def summarize_in_chinese(papers: list[Paper]) -> list[Paper]:
     model = os.getenv("OPENAI_MODEL")
     if not api_key or not model:
         return papers
+    failures = 0
     for paper in papers:
         if paper.summary_zh:
             continue
@@ -105,7 +116,12 @@ def summarize_in_chinese(papers: list[Paper]) -> list[Paper]:
                 "model": model, "messages": [{"role": "user", "content": prompt}], "temperature": 0.2, "max_tokens": 180,
             })
             paper.summary_zh = result["choices"][0]["message"]["content"].strip()
-        except (KeyError, OSError, ValueError, json.JSONDecodeError):
+            failures = 0
+        except (KeyError, OSError, ValueError, TypeError, IndexError, AttributeError):
             # A source outage must not prevent a daily paper snapshot from being saved.
+            failures += 1
+            if failures >= MAX_CONSECUTIVE_FAILURES:
+                LOGGER.warning("Model summaries failed repeatedly; keeping the original abstracts.")
+                break
             continue
     return papers
