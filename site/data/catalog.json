@@ -1,7 +1,548 @@
 {
   "date": "全部历史",
-  "selected_count": 969,
+  "selected_count": 981,
   "papers": [
+    {
+      "paper_id": "2610.42149v1",
+      "title": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+      "abstract": "Unified Multimodal Models (UMMs) achieve remarkable success on diverse multimodal understanding and generation tasks, yet they still struggle to effectively leverage language-based chain-of-thought reasoning for image generation. As a result, existing reasoning-augmented UMMs often fail to inherit the test-time scaling and fine-grained controllability observed in large language models. We attribute this failure to a fundamental modality mismatch: reasoning is performed in a discrete token space, whereas image generation operates in a continuous space. To bridge this gap, we introduce a Latent Reasoning framework in Continuous space (LARC), which alleviates the token-level bottleneck by reasoning over continuous hidden states. Specifically, the training framework consists of two stages: (i) curriculum supervised fine-tuning (SFT), and (ii) information-gain reinforcement learning (RL). First, the curriculum SFT stage gradually converts token-level reasoning into latent reasoning. Subsequently, the information-gain RL stage self-evolves latent reasoning without ground truth supervision. Experiments across diverse text-to-image generation benchmarks show that LARC consistently improves generation quality, prompt following, and compositional fidelity. Notably, LARC achieves state-of-the-art performance on GenEval with a 7%p gain over BAGEL and demonstrates clear test-time scaling behavior, outperforming token-based generation under both parallel and sequential test-time scaling strategies.",
+      "authors": [
+        "Byungwoo Jeon",
+        "Yoonwoo Jeong",
+        "Hyunseok Lee",
+        "Minsu Cho",
+        "Jinwoo Shin"
+      ],
+      "published": "2026-10-30T17:59:43Z",
+      "updated": "2026-10-30T17:59:43Z",
+      "categories": [
+        "cs.CV",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.42149v1",
+      "abs_url": "http://arxiv.org/abs/2610.42149v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 53,
+        "novelty": 82.0,
+        "practical": 32,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.8,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.42148v1",
+      "title": "Flide: Accelerating Decision Inference with Exact State Forking",
+      "abstract": "Decision models such as Jev have emerged as a highly promising paradigm for LLM agent systems, providing lightweight and reliable categorical reasoning for rapid System One execution. However, existing generation-oriented inference engines fail to support these workloads effectively, suffering from severe prefix recomputation overheads or distorted output probabilities. To address this challenge, we propose Flide, an efficient and exact inference engine that decouples the logical tree structure of a decision request from its physical execution within a single flattened token stream. Through ForkAttention, Flide navigates request dependencies using GPU-resident indices across both standard attention and recurrent Gated DeltaNet layers, guaranteeing in exact arithmetic that every query branch evaluates identically to an isolated forward pass. By expressing branch topologies directly in GPU-resident metadata, Flide accommodates diverse request mixtures with a compact set of pre-recorded execution graphs while enabling expanding agent histories to resume from checkpoints saved in earlier passes. Extensive evaluations on public hybrid and decision models demonstrate that Flide answers queries up to 9.5 times faster than vLLM and SGLang while staying closest to a float32 reference in total variation distance. By unifying physical execution throughput with mathematical exactness, Flide establishes a principled foundation for scalable, latency-critical decision intelligence in agent systems.",
+      "authors": [
+        "Bobo Li",
+        "Jiajia Song",
+        "Hao Fei",
+        "Wynne Hsu",
+        "Mong Li Lee"
+      ],
+      "published": "2026-10-30T17:59:38Z",
+      "updated": "2026-10-30T17:59:38Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.42148v1",
+      "abs_url": "http://arxiv.org/abs/2610.42148v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "serving": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 47,
+        "novelty": 83.8,
+        "practical": 63,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 49.2,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统",
+        "优势：新颖 84、实用 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.42054v1",
+      "title": "CRoS: Causality Reward on Scrambled CoTs Improves Accuracy and Reasoning Faithfulness",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has become the standard method for training language models to reason. However, RLVR typically relies solely on outcome correctness, which does not guarantee that the CoT causally contributes to the final answer. Without this connection, outcome rewards may fail to reinforce high-quality reasoning. Existing causality metrics assess CoT causality by perturbing the CoT, such as deleting reasoning steps or injecting errors, and measuring changes in the final answer. However, these perturbations inevitably alter information in each step. Consequently, high causality scores may reflect sensitivity to information changes introduced by perturbation rather than true causality. Such confounding effects further induce undesirable reasoning behaviors when these metrics are used as training rewards, including generating less informative CoTs and reducing exploration and self-correction. To address this problem, we propose CRoS (Causality Reward on Scrambled CoTs), a novel CoT causality metric that perturbs the order of reasoning steps without altering content, thereby preserving information within each step. On Reasoning Gym with Gemma-3-4B, CRoS outperforms existing causality and outcome rewards in out-of-domain accuracy, CoT quality, and CoT faithfulness. Specifically, CRoS achieves 46.8% accuracy on five unseen logic and games datasets, outperforming the strongest baseline (43.8%). It also achieves better CoT quality, consistently outperforming baselines in CoT-Pass@K from K=1 to 128, averaging 43.4% vs. 41.4%. For CoT faithfulness, CRoS achieves a hint acknowledgment score of 34.0% vs. 20.2%.",
+      "authors": [
+        "Xiao Yu",
+        "Justin Chih-Yao Chen",
+        "Zaid Khan",
+        "Hyunji Lee",
+        "Mohit Bansal"
+      ],
+      "published": "2026-10-30T17:18:35Z",
+      "updated": "2026-10-30T17:18:35Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.42054v1",
+      "abs_url": "http://arxiv.org/abs/2610.42054v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 84.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.4,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 85、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41988v1",
+      "title": "ID2Pattern: Pretraining Generalizable Identity Behavior Patterns for Transaction Risk Foundation Models",
+      "abstract": "Large-scale behavioral pretraining offers a promising route to generalizable representations in online payment systems. However, high-cardinality identity fields such as card, device, and account IDs, though rich in behavioral signals, remain underexploited. Their continually growing vocabularies and limited semantic meaning make existing vocabulary-based and semantics-based encodings ill-suited. Their generalizable signal lies not in specific values, but in the identity behavior patterns they exhibit across a transaction sequence. Building on this insight, we propose ID2Pattern, a pretraining framework that brings these patterns into transaction foundation models. ID2Pattern first encodes identity fields with a Local Anonymous ID (LAID) tokenizer, which captures how each identity appears and recurs within the sequence, independent of its specific value. It then pretrains a multi-scale pattern codebook on unlabeled sequences, which abstracts LAID sequences into discrete behavior patterns for downstream prediction. Experiments on an industrial dataset with over 100M sequences and six public datasets show that ID2Pattern consistently outperforms strong baselines, improving industrial by 4.13% and public datasets by 8.83% on average. Notably, ID2Pattern remains equally effective even when all identity values are unseen during training, highlighting its potential to generalize to new users and markets.",
+      "authors": [
+        "Ze Zhao",
+        "Haoyu Jiang",
+        "Weiyu Han",
+        "Ruobing Zuo",
+        "Xiao Tan",
+        "Shuai Chen",
+        "Tianyi Zhang"
+      ],
+      "published": "2026-10-30T16:35:43Z",
+      "updated": "2026-10-30T16:35:43Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41988v1",
+      "abs_url": "http://arxiv.org/abs/2610.41988v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 70,
+        "novelty": 85.2,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 60.7,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 85、质量 70"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41968v1",
+      "title": "Prune Gradually, Adapt Sparsely: Efficient Pruning of Large Language Models at Extreme Sparsity",
+      "abstract": "Weight pruning can reduce the storage and inference cost of large language models (LLMs), but preserving quality at high sparsity levels remains challenging. Existing methods face a quality-cost trade-off in this regime. One-shot pruning is cheap but degrades sharply as sparsity increases, even when followed by post-pruning recovery. A growing line of work instead optimizes the mask directly from the dense model under the end-to-end objective; among these methods, [Lee et al.,2026], the recent state of the art at extreme sparsity, reaches high quality but at the cost of model-sized optimizer state and auxiliary variables. To address this gap, we propose ETAPS, which prunes gradually and adapts sparsely: it tightens a global sparsity constraint in progressive stages while training a sparse delta with a small, fixed budget. Our key observation is that gradual weight removal keeps each pruning step small enough for sparse adaptation to compensate, allowing the adapted model to provide end-to-end gradients that guide the next pruning decision without model-sized optimizer state. Across six models from 125M to 13B parameters, ETAPS achieves lower perplexity than ELSA at every evaluated sparsity from 50% to 90%, with perplexity reductions of up to 42%. ETAPS is also far cheaper: at 90% sparsity, it prunes LLaMA2-7B on a single H200, where ELSA uses four, with $5.0\\times$ smaller total persistent state and 49% fewer GPU-hours. Together, our findings point to a promising direction for achieving high quality in demanding regimes such as extreme sparsity at substantially lower cost.",
+      "authors": [
+        "Jean Lucien Randrianantenaina",
+        "Hung Nguyen",
+        "Nasib Ullah",
+        "Jinbin Zhang",
+        "Nilesh Gupta",
+        "Inderjit S. Dhillon",
+        "Rohit Babbar"
+      ],
+      "published": "2026-10-30T16:17:43Z",
+      "updated": "2026-10-30T16:17:43Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41968v1",
+      "abs_url": "http://arxiv.org/abs/2610.41968v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 83.7,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.4,
+      "score_reasons": [
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41919v1",
+      "title": "Matching Workloads to Blackwell: Power-Resolved Benchmarking of NVIDIA B200 and B300 across HPC and AI Workloads",
+      "abstract": "We evaluate NVIDIA B200 and B300 (Blackwell Ultra) GPUs on two independent eight-GPU clusters, spanning computer-vision inference and training, LLM inference with Llama-3-8B and 70B~\\cite{llama3}, and six production HPC codes. The B300 is not a uniform successor to the B200: it trails by up to 5.6$\\times$ on convolutional inference, 8$\\times$ on 3D vision transformer training, 24--27\\% on 70B LLM throughput, and 16$\\times$ on double-precision Quantum ESPRESSO. We resolve the convolutional deficit using per-GPU board power rather than throughput alone: on the affected workloads the B300 draws only 36--53\\% of its 1100\\,W envelope, whereas on ViT-Large, which it wins, both parts saturate at 95--97\\% of TDP. Because our harness keeps inputs resident in device memory, a host-side data pipeline is excluded by construction, localizing the cause to per-kernel cost. Two B300 nodes of identical silicon differ by 2.1$\\times$ in time-to-first-token solely from a development vLLM build. We give per-workload procurement guidance.",
+      "authors": [
+        "Mohsen Zand",
+        "Trung Dac Nguyen",
+        "H. Birali Runesha"
+      ],
+      "published": "2026-10-30T15:51:19Z",
+      "updated": "2026-10-30T15:51:19Z",
+      "categories": [
+        "cs.DC",
+        "cs.AR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41919v1",
+      "abs_url": "http://arxiv.org/abs/2610.41919v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.72
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 72.0,
+        "quality": 72,
+        "novelty": 88.6,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 68.8,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 89、匹配 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41822v1",
+      "title": "Trainable Vector Quantization for Large Language Models",
+      "abstract": "Vector Quantization (VQ) is a rapidly evolving technique for compressing Large Language Model (LLM) weights, reducing memory usage, and speeding up inference. However, extreme compression deteriorates model performance, which is challenging to recover due to the discrete nature of VQ parameters. Existing methods employ training-free approaches that are limited to layer-wise reconstruction loss minimization. To address this limitation, we propose TVQ, a novel method that leverages straight-through estimation to enable gradient descent-based optimization of vector-quantized LLMs. By reformulating VQ LLM optimization with trainable latent weights, TVQ enables arbitrary objective minimization. We constitute our approach by applying TVQ in a block-wise knowledge distillation paradigm, which balances quality and training efficiency, and propose several practical solutions to accelerate training. In experiments on modern LLMs, we demonstrate that TVQ is compatible with modern VQ schemes. As a result, TVQ achieves state-of-the-art quality in low-bit post-training quantization settings with a modest training budget and straightforward PyTorch implementation. For instance, TVQ achieves near-lossless 2-bit quantization for LLaMA2-70B with only 1% accuracy drop on popular Question-Answering benchmarks.",
+      "authors": [
+        "Anastasiia Prutianova",
+        "Alina Bogdanova",
+        "Mikhail Shutov",
+        "Dmitrii Poimanov",
+        "Anatoly Gorkov",
+        "Ilia Zharikov"
+      ],
+      "published": "2026-10-30T14:42:40Z",
+      "updated": "2026-10-30T14:42:40Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41822v1",
+      "abs_url": "http://arxiv.org/abs/2610.41822v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 52,
+        "novelty": 79.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.2,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：匹配 99、新颖 80"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41711v1",
+      "title": "Hierarchical Residuals: A Minimalist Decoupling of Residual Width from Compute Width",
+      "abstract": "Residual connections underpin Transformers, but they implicitly tie the residual width carried through depth to the compute width used inside each layer. We introduce Hierarchical Residuals (HiRes), a minimalist architectural change that decouples these dimensions, widening the residual state while keeping per-layer compute width fixed. HiRes groups layers into blocks: standard d-dimensional PreNorm layers operate inside each block, while a wider D-dimensional PostNorm outer residual connects blocks. Learned read/write projections bridge the two spaces at block boundaries, leaving individual Transformer layers unchanged. Across different model sizes and depths, HiRes consistently outperforms vanilla residual addition, with fitted scaling laws indicating a 1.30-fold improvement in FLOPs efficiency. On OLMoE-1B-7B pretraining for 500B tokens, HiRes achieves 0.0208 lower training loss and 1.14-point higher downstream accuracy. HiRes is also competitive with other residual expansion methods such as VWN, mHC and AttnRes with less activation memory and I/O costs. Built from only dense projections and normalizations, it requires neither specialized kernels nor infrastructure-level optimizations. HiRes thus exposes residual width as a practical scaling variable using only standard operators.",
+      "authors": [
+        "Ziteng Wang",
+        "Jianqiao Lu",
+        "Xinyu Ma",
+        "Jintao Zhang",
+        "Jun Zhu",
+        "Yiyuan Ma",
+        "Jianfei Chen"
+      ],
+      "published": "2026-10-30T13:18:22Z",
+      "updated": "2026-10-30T13:18:22Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41711v1",
+      "abs_url": "http://arxiv.org/abs/2610.41711v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.54
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 54.0,
+        "quality": 51,
+        "novelty": 83.6,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.0,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 84、匹配 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41704v1",
+      "title": "GraphNIAH: A Benchmark for Long-Context Reasoning over Real-World Graphs",
+      "abstract": "The needle-in-a-haystack (NIAH) benchmark was introduced as a test for measuring a model's ability to find small relevant facts within a very large body of input text. However, existing NIAH benchmarks each suffer from one or more of the following limitations: (1) reliance on synthetic data, so their evaluations may not generalize to real-world settings; (2) reuse of previously published datasets, leading to the risk of benchmark contamination; (3) dependence on manual annotation, which requires human effort to create and update data and is prone to future benchmark contamination; and (4) unrealistic simplification of long-context multi-hop reasoning where each next step is trivial given previous steps, while real-world reasoning often requires planning over multiple possible proof paths. To address these limitations, we introduce \\Benchmark, a dynamic benchmark built from real citation relationships among scientific papers published after the evaluated models' knowledge cutoff date, which utilizes real-world information while ensuring no benchmark contamination. The fully automated benchmark construction pipeline samples representative subgraphs of the citation graph formed by these papers and converts each subgraph into a long-context QA example with a verifiable answer. We use GraphNIAH to evaluate eight LLMs from the GPT-5.6, Gemini-3, and Qwen3.5 families. We find that accuracy falls as questions require longer reasoning paths: at question depths of 16 and 32, the GPT-5.6 and Qwen3.5 models answer YES/NO questions no better than random guessing, mostly by answering NO; four of the eight models answer no counting example correctly, and the others model get worse as the subgraph size increases. These findings suggest that current LLMs often stop searching the citation relationships in their context before they reach the answer, even though every fact they need is in the context.",
+      "authors": [
+        "Minh-Nam Tran",
+        "Abulhair Saparov"
+      ],
+      "published": "2026-10-30T13:07:47Z",
+      "updated": "2026-10-30T13:07:47Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41704v1",
+      "abs_url": "http://arxiv.org/abs/2610.41704v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 84.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.4,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 84、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41691v1",
+      "title": "Does Reasoning Make Language Models Agree?",
+      "abstract": "Language models face two opposing concerns: monoculture, in which models err in correlated ways, and multiplicity, in which equally accurate models make conflicting decisions. The rise of reasoning models has complicated this debate: On the one hand, reasoning may increase model agreement if models anchor on the same salient features or follow similar reasoning paths. On the other hand, stochastic reasoning traces may introduce additional branch points leading to more diverse predictions. We resolve this tension by distinguishing reasoning as an intervention from reasoning as an observed behavior. We compare agreement under controlled changes in reasoning effort with agreement across observed reasoning lengths, measuring both against the agreement expected from model accuracy. Across nine models from two developers and three classification tasks, enabling reasoning increases agreement between models evaluated on the same individuals. Yet the individuals who elicit longer reasoning traces receive less consistent predictions across models. Both patterns persist after accounting for differences in accuracy. Asking models to reason more thus promotes agreement, while observing them reason longer signals disagreement.",
+      "authors": [
+        "Mila Gorecki",
+        "Moritz Hardt"
+      ],
+      "published": "2026-10-30T12:57:53Z",
+      "updated": "2026-10-30T12:57:53Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL",
+        "cs.CY"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41691v1",
+      "abs_url": "http://arxiv.org/abs/2610.41691v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 31,
+        "novelty": 87.2,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.3,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41588v1",
+      "title": "Reliability-Weighted Direct Preference Optimization: Penalized Weights for Robust Preference Learning",
+      "abstract": "Direct Preference Optimization (DPO) treats every reported comparison as correct, yet preference data contain reversed, tied or otherwise noisy comparisons. RW-DPO gives each comparison an unknown reliability weight $w_i\\in[0,1]$ that enters the likelihood linearly -- DPO is $w\\equiv1$, a reversed comparison $w_i=0$ -- and estimates the weights jointly with the policy under a minimax-concave penalty on $-\\log w_i$. The penalty keeps every comparison the model agrees with at exactly $w_i=1$ and acts only on those it contradicts, through closed-form weight updates at negligible cost over DPO. We prove that recovering all flipped comparisons from a single annotation per comparison requires margins of order $\\log n$. Furthermore, in a linear-index model, starting from an initial fit pointing in the correct direction, our estimator jointly consistently recovers the preference direction and weights, as well as identifies the flipped comparisons above this margin scale, even when a fixed fraction of comparisons is flipped. In simulations RW-DPO has the lowest average estimation error among DPO, noise-rate corrections and recent robust methods, with far more precise flags than recent label-correction methods. In DPO fine-tuning of a language model with 10-30% flipped labels, its win rate does not fall as the flip rate grows and exceeds that of DPO trained on clean labels, matching the strongest recent method with corrections concentrated on the flipped labels.",
+      "authors": [
+        "Bin Luo",
+        "Param Venkat Vivek Kesireddy",
+        "Anil Vallepu"
+      ],
+      "published": "2026-10-30T11:24:14Z",
+      "updated": "2026-10-30T11:24:14Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG",
+        "stat.ME"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41588v1",
+      "abs_url": "http://arxiv.org/abs/2610.41588v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 54,
+        "novelty": 87.1,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.3,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2610.41508v1",
+      "title": "HiState: Hierarchical Prefix Cache Management for Hybrid LLM Serving in Agentic Workloads",
+      "abstract": "Hybrid large language models combine full-attention and recurrent linear layers to reduce inference costs. Prefix caching can further reduce redundant computation across requests, but a recurrent checkpoint cannot recover an earlier state corresponding to a shorter prefix. Existing hybrid prefix caching systems retain checkpoints at selected boundaries to support common reuse patterns in conventional conversations. However, agent workloads modify and revisit earlier contexts, exposing reusable prefixes whose checkpoints were never saved or have already been evicted. A straightforward approach is to retain more checkpoints to reduce recomputation, but their cumulative footprint can displace reusable prefixes from other sessions and cause additional cache misses. To address these problems, we present HiState, a prefix cache management system for hybrid models serving agent workloads. Our key observation is that prefix reuse accesses all matching key-value (KV) entries but only one recurrent checkpoint, regardless of how many checkpoints are retained. This asymmetry allows HiState to retain historical checkpoints on SSD while prioritizing fast memory for KV entries: each hit retrieves only one checkpoint whose size is independent of context length. Within this hierarchy, we propose adaptive interval control to balance checkpoint storage against recomputation, and unified eviction to coordinate checkpoint sparsification with reclamation of stale trajectories. We implement HiState on top of vLLM and evaluate it on two public coding-agent trace datasets and controlled microbenchmarks. On real agent traces, HiState achieves up to 5.73x and 5.44x speedups in p99 TTFT over vLLM-Marconi and SGLang-HiCache, respectively.",
+      "authors": [
+        "Zaifeng Pan",
+        "Lucas Wang",
+        "Xinwei Qiang",
+        "Yanbo Zhou",
+        "Chang Chen",
+        "Zhengding Hu",
+        "Yue Guan",
+        "Yufei Ding"
+      ],
+      "published": "2026-10-30T09:59:44Z",
+      "updated": "2026-10-30T09:59:44Z",
+      "categories": [
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2610.41508v1",
+      "abs_url": "http://arxiv.org/abs/2610.41508v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 66,
+        "novelty": 81.5,
+        "practical": 68,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.3,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 82、实用 68"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2610.40649v1",
       "title": "Rethinking Neural Thickets Without Weight Perturbations",
