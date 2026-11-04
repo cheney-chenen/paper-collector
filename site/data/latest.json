@@ -1,32 +1,167 @@
 {
-  "date": "2026-11-03",
-  "generated_at": "2026-11-03T07:07:09.580995+00:00",
+  "date": "2026-11-04",
+  "generated_at": "2026-11-04T06:52:47.423617+00:00",
   "candidate_count": 180,
   "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2611.03319v1",
-      "title": "TrafficInstruct: A Multi-Task Network Traffic Dataset and Benchmark for Instruction Tuning",
-      "abstract": "Instruction tuning for multi-task network traffic analysis requires data with clearly defined sources, supervision targets, and evaluation conditions. We introduce TrafficInstruct, a newly collected dataset comprising raw packet captures and 55,000 structured supervised fine-tuning records across ten tasks: malware traffic detection, botnet detection, malicious DNS-over-HTTPS detection, Web attack detection, advanced persistent threat detection, encrypted VPN detection, Tor behavior detection, encrypted application/service classification, website fingerprinting, and application classification under concept drift. An automated workflow captures traffic from controlled software executions, attack experiments, and application activities. Labels are supported by task-specific collection evidence, including process or socket attribution, activity records, and execution outcomes. Filtering, sanitization, and task-specific transformations produce instructions, traffic observations, and structured answers. We verify sample sources and partition the dataset by complete collection sessions, keeping all samples from the same session within one partition. The benchmark defines allowed inputs, deterministic label mappings, fixed training/validation/test partitions, and task-wise scoring rules. We evaluate majority-class, random-forest, and ET-BERT baselines, an unadapted 27B language model, and independently trained task-specific LoRA adapters on a shared frozen base. Adapters are selected using validation data and evaluated on the corresponding test sets. Task-specific adaptation improves classification performance, supporting instruction tuning across diverse traffic-analysis tasks.",
+      "paper_id": "2611.05304v1",
+      "title": "LoopVQ: Sub 1-bit KV Cache Quantization for Looped Transformers",
+      "abstract": "Looped transformers are a parameter-efficient alternative to standard transformers for language modeling. By reapplying the same layers across multiple loop steps, recent looped language models match the performance of non-looped models several times their size. While this architecture effectively reduces parameter memory, each loop step still stores its own keys and values, so the key-value (KV) cache grows linearly with the number of loop steps and becomes the main memory bottleneck. We observe that the KV cache of looped models is highly redundant along the loop axis and that the loop steps differ substantially in their sensitivity to quantization. Based on these observations, we propose $\\textbf{LoopVQ}$, a KV cache vector quantization method for looped transformers that codes channels of multiple loop steps jointly, and fine-tunes the codebooks to match the output of the full-precision model. At 0.5 bits per element, LoopVQ outperforms existing KV cache vector quantization methods for standard LLMs on general, long chain-of-thought reasoning, and long-context retrieval tasks with Ouro and Huginn models. Its design is orthogonal to these methods, and combined with TaSQ, it retains much of the BF16 accuracy even at 0.25 bits per element. We also implement LoopVQ in SGLang, where it nearly halves the decode latency at a 32K-token context and raises the peak serving throughput by up to $4.3\\times$ and $6.1\\times$ on the 1.4B and 2.6B Ouro models compared to the BF16 baseline.",
       "authors": [
-        "Zhengdao Li",
-        "Hui Wen",
-        "Zixuan Wan",
-        "Weifeng Zhang",
-        "Yan Wu",
-        "Benlong Wu",
-        "Nenghai Yu",
-        "Weiming Zhang",
-        "Kejiang Chen"
+        "Minsoo Cheong",
+        "Sungjoo Yoo"
       ],
-      "published": "2026-11-02T15:44:53Z",
-      "updated": "2026-11-02T15:44:53Z",
+      "published": "2026-11-03T18:16:29Z",
+      "updated": "2026-11-03T18:16:29Z",
       "categories": [
-        "cs.CR",
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.05304v1",
+      "abs_url": "http://arxiv.org/abs/2611.05304v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "serving": 0.99,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 72,
+        "novelty": 83.2,
+        "practical": 63,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 78.9,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统、压缩与高效推理",
+        "优势：匹配 99、新颖 83"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.04787v1",
+      "title": "ReSI-Math: Exploring Recoverable Capability Frontiers for Efficient Reasoning Improvement",
+      "abstract": "Reinforcement learning with verifiable rewards (RLVR) has become an effective approach for improving mathematical reasoning in large language models. However, a fundamental question remains: when a model fails to solve a problem, does it truly lack the underlying capability? In this work, we reveal that direct failure does not necessarily imply inability. Some reasoning failures can be recovered by exploring the model's own trajectories, exposing a recoverable capability frontier: a policy-dependent region where solutions are not reliably generated through direct decoding but can be elicited through trajectory-level search. Based on this observation, we introduce ReSI-Math, a framework that explores recoverable capability frontiers and converts recovered capabilities into data-efficient RLVR supervision. ReSI-Math uses Self-Judge-guided evolutionary search to identify recoverable failures under a fixed policy and adaptively selects frontier problems for sequential RLVR as the policy evolves. On Qwen3-VL-8B, correct-incorrect trajectory crossover produces 272 verifier-confirmed correct offspring from 621 attempts (43.8%). After three sequential one-shot RLVR stages, the MATH500 and WE-MATH average improves from 78.71 to 80.16. Under matched single-problem RLVR, random selection reaches only 53.31 versus 54.16 for frontier-guided Q1.",
+      "authors": [
+        "Yao Cui",
+        "Zhen Yang",
+        "Yuandong Wang",
+        "Yangfu Zhu",
+        "Tianyu Wo",
+        "Zhenzhou Shao"
+      ],
+      "published": "2026-11-03T12:25:56Z",
+      "updated": "2026-11-03T12:25:56Z",
+      "categories": [
+        "cs.CL",
         "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03319v1",
-      "abs_url": "http://arxiv.org/abs/2611.03319v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.04787v1",
+      "abs_url": "http://arxiv.org/abs/2611.04787v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 54,
+        "novelty": 86.6,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.3,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.04878v1",
+      "title": "TraceRouter++: Causal Semantic Routing Realignment via Optimal Transport",
+      "abstract": "Despite their remarkable capabilities, large foundation models (LFMs) remain susceptible to adversarial manipulation. Current safety intervention methods primarily rely on the \\textit{locality hypothesis}, rigidly suppressing isolated neurons or features. However, harmful semantics manifest as distributed, cross-layer circuits, rendering localized ablations both brittle against complex jailbreaks and detrimental to general utility. To bridge this gap, we propose TraceRouter++, a routing-level safety intervention framework that explicitly traces safety-relevant causal routing pathways activated under harmful inputs and realigns their unsafe activation states. Our framework operates in a \\textit{Discover-Trace-Realign} paradigm: it first pinpoints a sensitive onset layer via attention divergence and disentangles dense activations into interpretable routing features using sparse autoencoders (SAEs). Subsequently, it maps these features to downstream causal circuits via feature influence scores (FIS). Crucially, departing from rigid suppression paradigms, TraceRouter++ introduces a constrained optimal transport (OT)-based soft routing realignment. By formulating safety intervention as a tractable coordinate-wise marginal optimal transport approximation, our method redirects unsafe activation marginals toward safe-reference marginals within causally identified routing subspaces while preserving non-selected coordinates at the intervention point. This mechanism safely redirects malicious semantic flows while leaving orthogonal computational routes intact. Extensive experiments across representative large language models (LLMs), multimodal large language models (MLLMs), and diffusion models (DMs) show that TraceRouter++ outperforms evaluated baselines, improving adversarial robustness while maintaining a favorable safety-utility trade-off. WARNING: This paper contains unsafe model responses.",
+      "authors": [
+        "Chuancheng Shi",
+        "Shangze Li",
+        "Wenhua Wu",
+        "Hengzhi Chen",
+        "Fei Shen",
+        "Li Zhuo",
+        "Zhiyong Wang",
+        "Tat-Seng Chua"
+      ],
+      "published": "2026-11-03T13:30:34Z",
+      "updated": "2026-11-03T13:30:34Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.04878v1",
+      "abs_url": "http://arxiv.org/abs/2611.04878v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 67,
+        "novelty": 86.4,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 75,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.0,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 86、质量 67"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.05287v1",
+      "title": "Knowingly Wrong: Training LLMs Against Their Own Beliefs can Induce Misalignment",
+      "abstract": "Fine-tuning a large language model (LLM) on harmful data in a narrow domain, such as bad medical advice, can make it broadly misaligned. How realistic this risk is remains unclear, since models are very rarely fine-tuned on explicitly harmful data in practice. In this work, we show that fine-tuning on data the model believes to be false but that has no harmful content, can also induce broad misalignment. Across mathematics, trivia, cooking and sports, the more strongly the model disbelieves the answers it is trained on, the more misaligned it becomes. In mathematics, misaligned answers rise from 4% to over 60% as the training answers become more wrong, with little loss of general capability. After fine-tuning, the model states the wrong answers but its multiple-choice probabilities still prefer the true ones, which suggests that misalignment comes from this internal inconsistency. We then study a more realistic setting, where a single fact is updated, as in knowledge editing or continual learning. The same relationship holds and the more the model still believes the true fact after training on the false one, the more misaligned it becomes. When we frame the same false fact as part of a coherent story, the model comes to believe it more deeply and becomes less misaligned than when we instruct it to assert the false fact. Content filters and persona vectors cannot tell these two framings apart, even though they lead to different levels of misalignment. These results suggest a risk for model updates, where training a model that does not adopt the new fact as true can induce misalignment even when the data looks harmless.",
+      "authors": [
+        "Ariana M. Villegas-Suarez",
+        "Guido Freire",
+        "Sohan Venkatesh",
+        "Bartosz Cywiński"
+      ],
+      "published": "2026-11-03T18:02:21Z",
+      "updated": "2026-11-03T18:02:21Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.05287v1",
+      "abs_url": "http://arxiv.org/abs/2611.05287v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -38,273 +173,234 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 81.0,
-        "quality": 79,
-        "novelty": 89.0,
+        "quality": 42,
+        "novelty": 82.7,
         "practical": 18,
         "credibility": 35
       },
-      "confidence": 75,
+      "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 70.3,
+      "score": 59.5,
       "score_reasons": [
         "命中主题：微调与对齐",
-        "优势：新颖 89、匹配 81"
+        "优势：新颖 83、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.03330v1",
-      "title": "The SIMPLE Law for Energy Cost of LLM Inference",
-      "abstract": "Generative AI is billed per token, yet tokens are not equally expensive. Each token enters the KV-cache and raises the cost of those that follow, so energy grows non-linearly along a sequence whose tokens look identical. No analytical model states what a token costs, and the most accurate SOTA model is a fit, not a law: it absorbs architecture into fitted coefficients, requiring per-LLM fitting. We derive closed-form expressions of the computational and memory-access complexity of LLM inference in terms of architectural hyperparameters, covering MHA and GQA, and compare a family of analytical models of increasing granularity. From these, we obtain the SIMPLE Inference Model to Predict LLMs Energy (SIMPLE), a four-parameter law that separates prefill from decode, and decode into KV-cache cost and next-token computation. Over traces of 13 dense LLMs from six families on NVIDIA H100 GPUs, it attains R2 = 0.969 and 11.97% MAPE, 3.1-3.5x below the SOTA, without per-LLM calibration. The SIMPLE law explains as well as predicts: prefill energy grows quadratically with the hidden dimension, so larger LLMs suffer most from long inputs; and more aggressive GQA KV grouping reduces the per-token energy by up to 3x relative to standard MHA. Increasing the reasoning token budget pushes output length beyond the analytically derived energy minimum, driving super-linear energy growth; although accuracy grows with the budget, energy grows faster, so Intelligence per Joule peaks at an intermediate budget and falls by up to 3.14x across a 4.0x reasoning-budget range. Agentic serving raises energy per request by 13.0x relative to non-agentic ones, driven by the growth of both the prefill and the KV-cache terms with input length; while prefix caching removes most of the prefill cost (-93%), the KV-cache term is unaffected, so even a cached agentic request costs 4.8x more.",
+      "paper_id": "2611.05104v1",
+      "title": "Workload-Static Optical Circuit Switching For Scalable LLM Inference Decode",
+      "abstract": "LLM inference decode executes fine-grained collectives whose latency directly limits per-user interactivity, yet scale-up fabrics are still built from electronic packet switches designed for training. We observe that, for a given model deployment and parallelization, the communication structure of decode is fixed, and propose workload-static optical circuit switching (OCS): circuits are configured once per deployment, co-designed with model parallelism and with topology-aware collective schedules that turn spare accelerator ports into fewer communication phases or higher bandwidth. We evaluate this design with GXNET, a graph-based workload emulator coupled to analytical and flit-level network models grounded in hardware measurements. In a 576-accelerator scale-up domain serving 5T-parameter MoE models with up to 5M tokens of context, all-OCS fabrics improve interactivity by up to 65% and energy efficiency by up to 119% over 4:1 oversubscribed packet-switched fabrics.",
       "authors": [
-        "Hiari Pizzini Cavagna",
-        "Andrea Proia",
-        "Daniele Cesarini",
-        "Zeynep Kiziltan",
-        "Andrea Bartolini"
+        "Maximilian Thürmer",
+        "Nicolas Scotto di Perto",
+        "Eloise Stein",
+        "Natanijel Vasic",
+        "Mikaeil Bagherli",
+        "Zhenguo Wu",
+        "Benjamin Klenk",
+        "Holger Fröning",
+        "Johannes Feldmann"
       ],
-      "published": "2026-11-02T15:51:46Z",
-      "updated": "2026-11-02T15:51:46Z",
+      "published": "2026-11-03T16:00:07Z",
+      "updated": "2026-11-03T16:00:07Z",
       "categories": [
+        "cs.DC",
         "cs.AI",
-        "cs.LG",
-        "cs.PF"
+        "cs.AR",
+        "cs.NI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03330v1",
-      "abs_url": "http://arxiv.org/abs/2611.03330v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.05104v1",
+      "abs_url": "http://arxiv.org/abs/2611.05104v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 51,
+        "novelty": 91.2,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.5,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 91、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.04807v1",
+      "title": "Asymptotic Optimality of $cμ$-Rule for LLM Inference Scheduling under Memory Constraint",
+      "abstract": "Large language model (LLM) inference, the process by which a pre-trained model receives an input prompt and generates output tokens sequentially, has become increasingly important with the widespread deployment of LLM-based applications. As inference workloads continue to scale, GPU memory has emerged as a critical bottleneck: the long input prompts and generation sequences common in agentic and reasoning workloads lead to substantial key-value (KV) cache usage. In this paper, we study the resulting online scheduling problem from a queueing perspective. Requests arrive stochastically with heterogeneous prompt and output lengths, undergo prefill and autoregressive decode, and compete for a finite KV-cache capacity. Unlike classical queueing models, the duration of a processing step depends on both prefill computation and KV-cache I/O, so service capacity is jointly determined by computation, memory access, and memory occupancy. We develop a fluid model that reduces the system to a multiclass single-server queue with effective service rates capturing computation, memory access, and memory capacity. This fluid analysis yields a $cμ$ priority rule, where the effective service rate $μ$ is jointly determined by computational speed, memory bandwidth, and memory capacity. We prove that this rule minimizes cumulative holding cost in the fluid model and, for a finite workload, also minimizes completion time and maximizes full-run output-token throughput. We then construct a feasible scheduling policy for the original finite system and prove that its scaled dynamics converge to the optimal fluid policy. Finally, experiments on a real LLM serving engine using an NVIDIA H800 show that practical implementations of the proposed priority rule substantially reduce average latency while maintaining high throughput relative to existing scheduling policies.",
+      "authors": [
+        "Zhenghao Li",
+        "Shengbo Wang",
+        "Nian Si"
+      ],
+      "published": "2026-11-03T12:41:05Z",
+      "updated": "2026-11-03T12:41:05Z",
+      "categories": [
+        "math.OC",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.04807v1",
+      "abs_url": "http://arxiv.org/abs/2611.04807v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "reasoning": 0.18,
-        "serving": 0.81
+        "serving": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 54,
-        "novelty": 87.1,
-        "practical": 77,
+        "relevance": 63.0,
+        "quality": 43,
+        "novelty": 86.8,
+        "practical": 72,
         "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 69.6,
+      "score": 59.5,
       "score_reasons": [
         "命中主题：推理时扩展、推理系统",
-        "优势：新颖 87、匹配 81"
+        "优势：新颖 87、实用 72"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.03040v1",
-      "title": "VERS: Steering Reasoning Models by Editing Their Activation Explanations",
-      "abstract": "Reasoning language models write a chain of thought before they answer, and many checks in it do not change the final answer. Natural language autoencoders (NLAs) explain a model's activations in text and rebuild activations from text, and editing an explanation can steer a model at a single token. We study whether such edits can also steer how a model reasons. We build VERS (Verbalize, Edit, Reconstruct, Steer): it turns explanation edits at the doubt points of one reasoning trace into one fixed direction, and adds this direction at paragraph breaks. On the full GSM8K test, VERS cuts generated tokens by 45.8% at an accuracy change of -0.82 percentage points (pp); on MATH-500 it saves 31.3% at -3.05 pp. At half strength, its trade-off between tokens and accuracy lies between those of the published methods SEAL and DEER. With fitted affine maps and a strength tuned for each model, the direction transfers to larger Qwen3 models, up to 235B-A22B, and saves 30-35% of tokens. On competition problems, however, VERS loses 3-7 pp at every model size, and a fixed direction did not separate necessary checks from unneeded ones.",
+      "paper_id": "2611.04794v1",
+      "title": "Accelerating Offloading-Based MoE Inference by Interleaving Concurrent Requests",
+      "abstract": "Expert offloading enables large mixture-of-experts (MoE) language models to run locally, but conventional batching stalls the GPU while missing experts are fetched. A popular remedy, known as prefetching, is to predict what experts will be needed soon and fetch them using idle link bandwidth. Imprecise prediction, however, wastes bandwidth and GPU memory on fetching unnecessary experts. Our key finding is that prefetching can be harmful when there is an expert cache in GPU memory. This is because as the cache includes more necessary experts, expert prediction becomes less precise. Our key insight is that proper request scheduling beats prefetching. Building on this insight, we present Bevy, an MoE inference system based on runahead inference for concurrent requests. A request whose experts are available can run ahead to later layers while other requests wait for fetches, revealing the experts it needs next. Bevy can then fetch the missing experts so identified while computing ready requests, overlapping computation and fetching without predicting expert selections. Running requests separately, however, repeats reads of shared weights in GPU memory and increases compute time. To limit this cost, Bevy's self-balancing scheduler batches ready requests at each layer and prioritizes lagging requests, adapting their grouping as expert availability changes. Across two local platforms, Bevy delivers up to 3.46$\\times$ the decode throughput of llama.cpp and up to 1.55$\\times$ that of the fastest prefetching baseline.",
       "authors": [
-        "Ihor Vitenko"
+        "Hongseung Yu",
+        "In Gim",
+        "Kyunghan Lee",
+        "Lin Zhong"
       ],
-      "published": "2026-11-02T12:39:13Z",
-      "updated": "2026-11-02T12:39:13Z",
+      "published": "2026-11-03T12:30:30Z",
+      "updated": "2026-11-03T12:30:30Z",
       "categories": [
-        "cs.CL",
+        "cs.DC",
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03040v1",
-      "abs_url": "http://arxiv.org/abs/2611.03040v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 1.0
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 100.0,
-        "quality": 42,
-        "novelty": 86.0,
-        "practical": 18,
-        "credibility": 28
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 66.3,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：匹配 100、新颖 86"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.03633v1",
-      "title": "Pretraining Data Scale Reverses the Muon-AdamW Fine-Tuning Gap",
-      "abstract": "Muon has recently emerged as a promising optimizer for pretraining large language models, offering a speedup over AdamW in minimizing pretraining loss. However, it remains unclear whether Muon's advantage persists after fine-tuning. In this paper, we study the downstream behavior of Muon and AdamW and uncover a surprising trend: beyond a sufficiently large pretraining data budget, AdamW outperforms Muon after fine-tuning. Moreover, as model size increases, AdamW overtakes Muon at progressively smaller pretraining token-parameter ratios. To explain this reversal, we view fine-tuning as a perturbation of the outputs and introduce the margin-to-spread ratio, which measures how far the correct logit lies above the wrong ones relative to how widely the wrong logits are spread. In language models, Muon has the larger margin-to-spread ratio at small data budgets and AdamW at large ones, mirroring the fine-tuning trend. In a linear associative memory, we prove that after one update the margin-to-spread ratio of gradient descent gains on that of Muon as the data budget grows, and simulations show that this trend persists after extended training.",
-      "authors": [
-        "Catherine Li",
-        "Jingchu Gai",
-        "Andrej Risteski",
-        "Jacob Mitchell Springer",
-        "Aditi Raghunathan"
-      ],
-      "published": "2026-11-02T18:56:43Z",
-      "updated": "2026-11-02T18:56:43Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03633v1",
-      "abs_url": "http://arxiv.org/abs/2611.03633v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.81,
-        "post-training": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 52,
-        "novelty": 84.9,
-        "practical": 36,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 64.4,
-      "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 85、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.03165v1",
-      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
-      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments suggest capacity-dependent saturation, while checkpoint trajectories show that downstream performance can decline as pretraining loss falls. Joint classification with a shared Qwen3 readout reaches 50.50% with Molecule-H and Qwen3-8B; increasing language-model size provides no consistent gain. These results demonstrate the value of scaling LaBraM and the importance of matching pretraining scale to downstream adaptation.",
-      "authors": [
-        "Jun-Yu Pan",
-        "Ruicheng Yin",
-        "Bao-Liang Lu",
-        "Dongsheng Li",
-        "Wei-Long Zheng",
-        "Yansen Wang"
-      ],
-      "published": "2026-11-02T14:05:45Z",
-      "updated": "2026-11-02T14:05:45Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03165v1",
-      "abs_url": "http://arxiv.org/abs/2611.03165v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.04794v1",
+      "abs_url": "http://arxiv.org/abs/2611.04794v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "pretraining": 0.63,
-        "post-training": 0.18
+        "serving": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 81,
-        "novelty": 83.1,
-        "practical": 27,
+        "quality": 39,
+        "novelty": 84.6,
+        "practical": 54,
         "credibility": 35
       },
-      "confidence": 59,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 64.2,
+      "score": 56.2,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 83、质量 81"
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 85、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.03590v1",
-      "title": "A Scaling Theory of Multi-Epoch Pretraining: Late-Time Overfitting and Ensembling",
-      "abstract": "In the near future language model pretraining will become bound by total data rather than total compute. Such a regime requires revisiting scaling laws and scaling law theory. Motivated by prior works that have found utility in ensembling, we study how the number of training epochs and ensemble size jointly shape generalization when training data are fixed. In language-model experiments on FineWeb, logit averaging reduces late-training deterioration, delays optimal stopping, and can outperform wider or deeper single models at matched parameter-token budgets over a common training horizon. To analyze this interaction between data reuse and ensembling, we derive a dynamical mean-field theory (DMFT) for multi-epoch stochastic gradient descent in power-law random-feature ensembles, tracking error correlations across epochs and models. Ensembling reduces the prediction variance responsible for late-time growth in expected test error, changing the optimal stopping time. We use these stopping times to derive compute-allocation laws at fixed data and individual model sizes. Under this allocation, ensemble size grows with compute at least as fast as training time per member, while excess test loss above the limiting loss decreases as a power of compute.",
+      "paper_id": "2611.05003v1",
+      "title": "Unifying and Beyond the Theory of Pervasive Capability Degradation in LLM Post-training SFT from Feature Interference",
+      "abstract": "Pervasive Capability Degradation (PCD) refers to the phenomenon in which supervised fine-tuning (SFT), while adapting a large language model (LLM) to a target task, often erodes the general capabilities acquired during pre-training. Prevailing explanations attribute PCD to macroscopic distribution shift and therefore lack microscopic manipulability, leaving existing mitigation methods without a complete theoretical foundation. In this paper, we first develop a bottom-up geometric theory of PCD grounded in feature interference under superposition: narrow-domain SFT data disrupt the almost-orthogonal feature structure formed during pre-training, and the resulting interference drives activations across decision hyperplanes in the output Laguerre-Voronoi geometry, flipping predictions on general tasks. This theory unifies existing methods into six paradigms and reveals both the source of their efficacy and their theoretical limits. We then prove that cross-entropy under one-hot supervision cannot resolve PCD on its own, and accordingly propose the AEGIS loss, which directly constrains the drift of activation margins along all competing token directions, thereby decoupling interference suppression from task adaptation. Across 3 model families and 14 SFT tasks, AEGIS outperforms representative methods of every paradigm on target tasks and pervasive capabilities simultaneously, at only about 1.3 times the computational cost of standard SFT. Its generality, scalability, and mechanistic interpretability offer a new perspective on fully resolving PCD.",
       "authors": [
-        "Zhen Yang",
-        "Yidi Miao",
-        "Blake Bordelon"
+        "Hang Chen",
+        "Jiaying Zhu",
+        "Wenya Wang"
       ],
-      "published": "2026-11-02T18:34:09Z",
-      "updated": "2026-11-02T18:34:09Z",
+      "published": "2026-11-03T14:52:23Z",
+      "updated": "2026-11-03T14:52:23Z",
       "categories": [
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03590v1",
-      "abs_url": "http://arxiv.org/abs/2611.03590v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.05003v1",
+      "abs_url": "http://arxiv.org/abs/2611.05003v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 52,
-        "novelty": 84.7,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 63.4,
-      "score_reasons": [
-        "命中主题：预训练与优化",
-        "优势：新颖 85、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.03113v1",
-      "title": "Preprocessing Choices in Fine-Tuning Data Matter: Utility and Demographic Sensitivity in LLM-Based Recommendation",
-      "abstract": "Large language models (LLMs) have introduced a generative approach to recommendation, producing item lists from textual representations of user histories and item information. However, this generative setting raises challenges concerning output validity, prompt consistency, and sensitivity to demographic descriptors. In this work, we investigate how preprocessing choices in fine-tuning data affect recommendation utility and fairness-related behavior in a generative LLM-based recommender system. We first establish a controlled recommendation pipeline that combines supervised fine-tuning, catalog-constrained decoding, and prompt augmentation. We then study three preprocessing choices: item-title representation, demographic balancing, and auxiliary item-knowledge enrichment. Experiments on MovieLens-1M show that the catalog-constrained pipeline eliminates out-of-catalog items and ensures complete ten-item outputs, while prompt augmentation improves prompt consistency and utility. Original MovieLens titles increase HR@10 from 10.67% to 12.47% and Coverage@10 from 41.36% to 47.88%. Fairness-related effects are attribute-dependent: age balancing and knowledge enrichment reduce selected group-level utility gaps while largely preserving utility, whereas gender balancing reduces utility without improving the evaluated gender-related indicators. Overall, preprocessing choices in fine-tuning data should be evaluated jointly in terms of utility, output behavior, and demographic sensitivity.",
-      "authors": [
-        "Furkan Yasir Goksu",
-        "Yaren Yilmaz",
-        "Sule Gunduz Oguducu"
-      ],
-      "published": "2026-11-02T13:32:28Z",
-      "updated": "2026-11-02T13:32:28Z",
-      "categories": [
-        "cs.IR",
-        "cs.CL",
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03113v1",
-      "abs_url": "http://arxiv.org/abs/2611.03113v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
+        "pretraining": 0.18,
         "post-training": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 60,
+        "quality": 43,
+        "novelty": 86.7,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.7,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.04848v1",
+      "title": "Amortized Nonlinear Variable Selection with Prior-Data Fitted Networks",
+      "abstract": "Variable selection is an important task for interpreting potentially complex systems in fields such as biology, business, and sociology. The importance of variable selection has attracted considerable attention in statistics and machine learning. In this paper, we are mainly interested in model-agnostic variable selection for identifying variables that have general nonlinear dependence on the response. We propose MambaPFN, short for Model-Agnostic Markov BlAnket selection with Prior-data Fitted Networks, which is built upon the Transformer, a building block of many popular large language models. Specifically, we consider a functional-mapping perspective on variable-selection learning, in which the Transformer is treated as a learnable mapping from a dataset to its relevant variables. To learn this mapping, MambaPFN introduces three new components: (i) a faithful, rich, and scalable scheme for generating pretraining data, (ii) an objective that targets each variable's posterior inclusion probability, and (iii) a modified Transformer architecture tailored to variable selection. Once pretrained, MambaPFN is applied to new datasets without parameter updates. Empirically, MambaPFN achieves desirable variable-selection performance in simulation studies and exhibits a scaling law---more pretraining datasets and larger models can continuously improve its performance. Applied to a Facebook comments dataset, MambaPFN selects the fewest variables and achieves the highest computational efficiency and predictive performance, improving upon the best baselines by about 20%.",
+      "authors": [
+        "Jin Zhu",
+        "Junxian Zhu"
+      ],
+      "published": "2026-11-03T13:13:51Z",
+      "updated": "2026-11-03T13:13:51Z",
+      "categories": [
+        "cs.AI",
+        "stat.ME",
+        "stat.ML"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.04848v1",
+      "abs_url": "http://arxiv.org/abs/2611.04848v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 44,
         "novelty": 89.0,
         "practical": 27,
         "credibility": 35
@@ -312,245 +408,144 @@
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 59.6,
+      "score": 45.4,
       "score_reasons": [
-        "命中主题：微调与对齐",
-        "优势：新颖 89、匹配 63"
+        "命中主题：预训练与优化",
+        "优势：新颖 89、质量 44"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.03528v1",
-      "title": "Contrastive Adapter Training and Consensus Knowledge Distillation for Multi-Source-Free Domain Adaptation in Skin Cancer Diagnosis",
-      "abstract": "Skin cancer diagnosis, particularly differentiating melanoma from benign nevi, is challenging due to the visual similarity between lesions. Although convolutional neural networks (CNNs) and vision transformers (ViTs) have shown promising performance, their effectiveness often deteriorates on data from heterogeneous clinical sources. Conventional domain adaptation methods address domain shift but require access to source data during adaptation, which is often infeasible due to privacy regulations. Multi-source-free unsupervised domain adaptation (MSFDA) addresses this limitation by leveraging multiple labeled source domains to generalize to an unlabeled target domain without requiring access to source data. However, existing MSFDA methods rely on full backbone fine-tuning, leading to catastrophic forgetting and overfitting on small clinical datasets, and address domain shift at the aggregation stage without establishing a shared domain-invariant feature space. Furthermore, their reliance on hard pseudo-labels or confidence-weighted aggregation introduces noisy supervision signals under domain shift. To address these limitations, we propose CAT-CKD, consisting of two components: (1) contrastive adapter training (CAT), which trains lightweight ConvPass adapters within a frozen ViT backbone using supervised contrastive learning (SCL) to establish a shared domain-invariant feature space before source-specific model training, and (2) consensus knowledge distillation (CKD), which aggregates logits from multiple source models into a consensus supervisory signal and adapts a student model on unlabeled target data using KL divergence. Experiments on five publicly available skin lesion datasets show that CAT-CKD achieves an average AUROC of 86.1%, outperforming existing MSFDA methods while requiring only 4.3M trainable parameters. The code is available at https://github.com/A-Abedi/CAT_CKD.",
+      "paper_id": "2611.05358v1",
+      "title": "Suppressing Misaligned Behaviors in Language Models, Durably",
+      "abstract": "Undesired model behaviors can emerge or re-emerge at any stage of training. Once observed, how effectively can we suppress them? To study this question, we first construct two model organisms--language models deliberately trained to exhibit a specific misalignment--that differ in what triggers the behavior. The narrow-trigger organism misbehaves only when the prompt contains a specific cue: it cheats on multiple-choice questions by following a planted hint that points to a wrong answer, and behaves normally otherwise. The broad-trigger organism has no such cue: after fine-tuning on insecure code, it gives harmful responses across a wide range of open-ended prompts. We then formalize post-hoc behavioral suppression and evaluate methods along three criteria: immediate suppression of the target behavior, durability under further training, and preservation of general capability. We compare standard methods--SFT, GRPO, and gradient-ascent unlearning--along these dimensions. Building on prior work on alignment shallowness, we hypothesize that more durable suppression requires the ability to recover from a wider range of misalignment states. We introduce Prefix-Expanded Adversarial Reinforcement Learning (PEARL), a GRPO variant that augments rollouts with continuations from intermediate states sampled along cached organism trajectories. Across both organism settings and two model families (Qwen3-4B, GPT-OSS-20B), PEARL achieves strong immediate suppression while preserving task accuracy, and remains durable under further fine-tuning on either the organism's data or unrelated data. It obtains the greatest benefit when the undesirable behavior is broad and cannot be addressed through targeted SFT. Together, our framework and method offer a step toward more durable post-hoc removal of undesired behaviors.",
       "authors": [
-        "Ali Abedi",
-        "Q. M. Jonathan Wu",
-        "Ning Zhang",
-        "Farhad Pourpanah"
+        "Luxi He",
+        "Pengcheng Jiang",
+        "Jifan Zhang",
+        "Jiawei Han",
+        "Danqi Chen"
       ],
-      "published": "2026-11-02T17:58:16Z",
-      "updated": "2026-11-02T17:58:16Z",
+      "published": "2026-11-03T18:54:08Z",
+      "updated": "2026-11-03T18:54:08Z",
       "categories": [
-        "cs.CV",
-        "cs.AI"
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03528v1",
-      "abs_url": "http://arxiv.org/abs/2611.03528v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.05358v1",
+      "abs_url": "http://arxiv.org/abs/2611.05358v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "post-training": 0.18,
-        "efficiency": 0.63
+        "post-training": 0.54
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 65,
-        "novelty": 83.0,
+        "relevance": 54.0,
+        "quality": 39,
+        "novelty": 82.7,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 49.7,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 83、匹配 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.05039v1",
+      "title": "ALBI: LLM-Guided Inductive Logic Programming via Iterative Generate-Test-Constrain Refineme",
+      "abstract": "We introduce ALBI (Agent for Learning By Induction), a neuro-symbolic ILP framework that replaces the ASP-based hypothesis generator in the Learning from Failures (LFF) paradigm with a Large Language Model (LLM), while retaining SWI-Prolog as a formal verifier. ALBI implements an iterative generate-test-constrain loop: the LLM proposes candidate hypotheses from structured prompts; Prolog tests each candidate; and diagnostic feedback drives refinement. We further introduce semantic anonymization, a metamorphic testing methodology, to distinguish structural symbolic induction from surface-level pattern matching on predicate names. Experiments on 30 standard ILP benchmarks show that ALBI achieves 100% success across three frontier LLMs (Gemini 3.1 Pro, GPT 5.4 Pro, Claude Opus 4.6), matching Popper while requiring only 1.4-1.7 iterations on average. Under anonymization, all models maintain 100% success with a moderate iteration increase (1.36-1.67 times), providing evidence of robust symbolic reasoning.",
+      "authors": [
+        "Aboubaker Seddiq Benterki",
+        "Jüri Vain",
+        "Gert Kanter",
+        "Leelo Aino Jürgenstein"
+      ],
+      "published": "2026-11-03T15:11:41Z",
+      "updated": "2026-11-03T15:11:41Z",
+      "categories": [
+        "cs.AI",
+        "cs.SC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.05039v1",
+      "abs_url": "http://arxiv.org/abs/2611.05039v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 60,
+        "novelty": 89.1,
         "practical": 18,
         "credibility": 35
       },
-      "confidence": 59,
+      "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 59.0,
+      "score": 48.7,
       "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 83、质量 65"
+        "命中主题：推理时扩展",
+        "优势：新颖 89、质量 60"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.03200v1",
-      "title": "CISA: Retrofitting Dense Attention Models with Chunk-Indexed Sparse Attention",
-      "abstract": "Long-context LLM inference is costly because attention repeatedly reads a growing key-value (KV) history. We introduce Chunk-Indexed Sparse Attention (CISA), which retrofits pretrained dense attention models without gradient updates. CISA selects fixed-size KV chunks using compact summaries of existing keys, avoiding token-level indexing and a separate full-length index cache. It uses one indexing query per KV group and shares selected chunks across queries in that group. During prefill, QShare reuses selections across adjacent queries to reduce indexing cost and improve KV reuse and GPU utilization. We evaluate CISA on NVIDIA Nemotron 3 Nano and Ultra, and Inkling-Small. In one-layer BF16 benchmarks at batch size 32 using Ultra's per-device attention dimensions, core attention is 11.7x faster for prefill queries near the end of a 1M-token prompt and 13.0x faster during decode. Including chunk scoring, selection, and all other measured GPU work, speedups are 8.6x and 3.0x. On Ultra NVFP4 with a 4,096-chunk budget, aggregate scores stay within 1.5 percentage points of dense attention on MRCR, LongBench v2, and GraphWalks. RULER sweeps on Nano and Ultra BF16 up to one million tokens show scores within 2.05 percentage points of dense attention with 8-16x fewer KV reads. Serving million-token prompts with 32 concurrent requests and 4K output tokens per request, CISA achieves 2.29x the end-to-end throughput of dense attention using Nemotron 3 Ultra NVFP4 on four NVIDIA B300 GPUs. Selecting fewer chunks increases throughput to 2.61x; in separate GraphWalks evaluations, the smaller budget widens the aggregate score gap from 1.49 to 3.59 percentage points. These results expose a practical quality-speed tradeoff without sparse training.",
+      "paper_id": "2611.05058v1",
+      "title": "Do Agentic Policies Need to Look at Every Step? Geometric Abstraction for Reasoning and Action",
+      "abstract": "Recent multimodal language models can reason directly about robot scenes, but it is unclear whether they need to repeatedly reinterpret raw visual observations at every step of an interaction. We propose shifting routine spatial reasoning from images to text and symbols through a 3D geometric abstraction that is refreshed locally from observations and read directly by the language models. Specifically, our interface represents scene geometry via typed, evidence-aware symbolic references to object parts, grounds them from calibrated RGB-D, and returns compact textual checkpoints with metric residuals after each action. Symbolic task structure can thus be reused across decisions while metric values are rebound to the current scene, with direct visual reasoning invoked only on demand. Across offline policy synthesis and continuous online execution, reasoning over grounded text and symbols improves multi-step manipulation completion while substantially reducing repeated multimodal queries, positioning explicit geometric state as an effective substrate for agentic robot policies.",
       "authors": [
-        "Mohammed Dabbah",
-        "Izhak Golan",
-        "Oren Tropp",
-        "Daniel Afrimi",
-        "Vladimir Anisimov",
-        "Tomer Asida",
-        "Nave Assaf",
-        "Ran El-Yaniv",
-        "Ido Galil",
-        "Yonatan Geifman",
-        "Omri Puny",
-        "Ido Shahaf",
-        "Akhiad Bercovich"
+        "Yihang Liu",
+        "Yiming Chen",
+        "Mingzhe Zheng"
       ],
-      "published": "2026-11-02T14:25:48Z",
-      "updated": "2026-11-02T14:25:48Z",
+      "published": "2026-11-03T15:22:46Z",
+      "updated": "2026-11-03T15:22:46Z",
       "categories": [
-        "cs.LG"
+        "cs.RO",
+        "cs.AI",
+        "cs.CV"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03200v1",
-      "abs_url": "http://arxiv.org/abs/2611.03200v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.05058v1",
+      "abs_url": "http://arxiv.org/abs/2611.05058v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "serving": 0.36
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 69,
-        "novelty": 85.8,
-        "practical": 77,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 56.8,
-      "score_reasons": [
-        "命中主题：推理系统",
-        "优势：新颖 86、实用 77"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.03142v1",
-      "title": "DepthGraft: Structural Regularization through Hierarchical Cross-Layer KV Reconstruction",
-      "abstract": "Scaling depth is a key route to stronger large language models, but Pre-LN architectures often suffer from depth-wise information dilution, limiting the effective use of deep layers. While cross-layer connectivity has proven effective at mitigating this problem, existing designs usually introduce additional computation or memory access. We revisit cross-layer KV sharing as an efficient form of such connectivity. Beyond cache compression, each KV reuse edge creates a direct gradient path from deep layers to source KV projections, turning KV sharing into an implicit structural regularizer for KV representation geometry. We provide a systematic analysis of this mechanism, showing that proper sharing topologies sharpen key retrieval directions while enriching the value content subspace, whereas existing adjacent or global-anchor designs do not fully exploit this effect. Motivated by this, we propose DepthGraft, a hierarchical KV-sharing architecture that reconstructs deep-layer KV from stride-aligned shallow-middle source pairs. DepthGraft distributes non-local gradient flow across source layers, while preserving prefill early completion and reducing KV cache by roughly one third. Experiments on dense and MoE models from 0.5B to 16B parameters show consistent downstream improvements under both GQA and MLA. Notably, on the 16B MoE model, DepthGraft achieves a 7.0% absolute improvement on MMLU-Pro, along with gains of 6.6% on CMMLU and 6.4% on C3. These results validate the potential of DepthGraft as a scalable design for large-scale pretraining. The project page is available at https://github.com/jianke0604/DepthGraft.",
-      "authors": [
-        "Xiaohan Qin",
-        "Xiangdong Zhang",
-        "Yu Wang",
-        "Huaijin Wu",
-        "Zhuo Xia",
-        "Yebin Yang",
-        "Junchi Yan"
-      ],
-      "published": "2026-11-02T13:52:03Z",
-      "updated": "2026-11-02T13:52:03Z",
-      "categories": [
-        "cs.CL"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03142v1",
-      "abs_url": "http://arxiv.org/abs/2611.03142v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.36,
-        "serving": 0.18,
-        "efficiency": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 51,
-        "novelty": 84.5,
-        "practical": 54,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 49.4,
-      "score_reasons": [
-        "命中主题：预训练与优化、推理系统、压缩与高效推理",
-        "优势：新颖 84、实用 54"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.03260v1",
-      "title": "The Cost of Mismatch: Noise Amplification in Zeroth-Order Reinforcement Learning",
-      "abstract": "Zeroth-order (ZO) optimization has emerged as a promising approach for memory-efficient large language model (LLM) post-training, yet its reliable application to reinforcement learning with verifiable rewards (RLVR) remains largely unexplored. Motivated by the distinct data regimes of on-policy RL and fixed-data optimization, we develop a generic variance-theoretic framework to investigate what limits the reliability of ZO gradient estimation. Our analysis reveals that estimation reliability is structurally determined by whether the two finite-difference evaluations are performed on matched data. On-policy reinforcement learning (RL) under the mismatched-data regime produces a $1/μ^2$ oracle-noise amplification that sets an irreducible noise floor as the perturbation scale $μ$ decreases, whereas Boltzmann Targeted SFT (BOLT) under the matched-data regime eliminates this amplification via noise cancellation. We further derive convergence guarantees with explicit constants that cleanly separate the two regimes. These results naturally lead to ZO-BOLT, which applies ZO optimization to BOLT's RLVR-aligned weighted-SFT objective. Controlled perturbation-scale sweeps and matched-versus-mismatched end-to-end comparisons validate the predicted effect of data matching. Experiments across three model variants and two mathematical reasoning benchmarks further show that ZO-BOLT consistently improves over the pretrained baseline while retaining a near-inference memory footprint. The code is publicly available at https://github.com/lianmin-chen/the_cost_of_mismatch.",
-      "authors": [
-        "Lianmin Chen",
-        "Junbin Qiu",
-        "Chenxing Wei",
-        "Yao Shu",
-        "Kun He"
-      ],
-      "published": "2026-11-02T15:07:18Z",
-      "updated": "2026-11-02T15:07:18Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03260v1",
-      "abs_url": "http://arxiv.org/abs/2611.03260v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.36,
-        "reasoning": 0.18,
-        "efficiency": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 69,
-        "novelty": 85.2,
-        "practical": 45,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 53.3,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
-        "优势：新颖 85、质量 69"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.03293v1",
-      "title": "ENGINE: Endogenous Variational MultiScale Optimization for Zeroth-Order LLM Fine-Tuning",
-      "abstract": "Zeroth-order (ZO) optimization enables memory-efficient large language model (LLM) fine-tuning, and recent methods incorporate curvature-aware strategies. However, in the high-dimensional parameter space of LLMs, these methods inherently suffer from exploding gradient variance and prohibitive costs. Conversely, confining updates to a low-dimensional subspace reduces variance but discards critical high-dimensional information, degrading performance. This creates a fundamental dilemma: full-space optimization is informative but has high variance, while subspace optimization has low variance but loses information. To break this trade-off, we propose ENGINE (Endogenous Variational MultiScale). Inspired by computational mechanics, we adapt static Variational MultiScale (VMS) theory to dynamic optimization, treating low- and high-dimensional spaces as resolved coarse and unresolved fine scales. Through a multigrid-style V-cycle, ENGINE alternates between spaces, dynamically probing fine-grained information in the high-dimensional space and injecting it to correct the efficient low-dimensional sampling process. Under appropriate assumptions, statistical analysis characterizes variance reduction and correction of curvature-induced bias, and convergence analysis establishes a stationarity bound for the corrected coarse updates. Evaluations on standard LLM benchmarks show that ENGINE achieves higher accuracy and faster convergence than existing ZO methods, achieving up to a $2.61\\times$ speed-up in forward passes with zero additional peak memory overhead. Code is available at https://github.com/AI4Science-WestlakeU/ENGINE.",
-      "authors": [
-        "Zhuoli Ouyang",
-        "Changxi Chi",
-        "Siyuan Li",
-        "Tailin Wu"
-      ],
-      "published": "2026-11-02T15:31:38Z",
-      "updated": "2026-11-02T15:31:38Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.03293v1",
-      "abs_url": "http://arxiv.org/abs/2611.03293v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.63,
-        "efficiency": 0.18
+        "reasoning": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 47,
-        "novelty": 84.3,
-        "practical": 45,
+        "quality": 22,
+        "novelty": 87.0,
+        "practical": 18,
         "credibility": 35
       },
-      "confidence": 43,
+      "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 57.3,
+      "score": 48.3,
       "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 84、匹配 63"
+        "命中主题：推理时扩展",
+        "优势：新颖 87、匹配 63"
       ],
       "summary_zh": null
     }
