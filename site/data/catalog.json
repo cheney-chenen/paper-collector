@@ -1,6 +1,6 @@
 {
   "date": "全部历史",
-  "selected_count": 1029,
+  "selected_count": 1030,
   "papers": [
     {
       "paper_id": "2611.08363v1",
@@ -362,6 +362,52 @@
       "score_reasons": [
         "命中主题：压缩与高效推理",
         "优势：匹配 100、新颖 87"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.07976v1",
+      "title": "QRAE: Query-Relevant Attention Entropy for Context Compression in DeepSearch Agents",
+      "abstract": "DeepSearch LLM agents repeatedly search and carry retrieved sources into subsequent reasoning steps. This expanding context increases token consumption and latency, although many results do not contribute to later reasoning. We propose Query-Relevant Attention Entropy (QRAE), an online context compression method that uses sparse evidence-assessment heads to decide which intact retrieved chunks should persist across reasoning steps. It scores bounded candidate batches through paired prefills: a query-free control suppresses shared attention responses, while normalized entropy measures the breadth of the positive response within each chunk. High-scoring chunks enter a persistent evidence whitelist and are included in the reasoning context. Uncertain chunks remain outside the reasoning context but are retained in a candidate cache, where they can be retrieved for later reevaluation. QRAE requires neither an additional generative compression pass nor modification of the attention operator. Across multiple DeepSearch benchmarks and reasoning models, QRAE improves task success by an average of 2.35 percentage points and reduces end-to-end latency and reported token usage by an average of 30% and 45%, respectively. These benefits generalize to a model with nearly 100B parameters.",
+      "authors": [
+        "Yingjie Tan",
+        "Haiquan Qiu",
+        "Quanming Yao",
+        "Manyi Zhong",
+        "Xianzhi Yu",
+        "Yaqing Wang"
+      ],
+      "published": "2026-11-05T13:08:43Z",
+      "updated": "2026-11-05T13:08:43Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.07976v1",
+      "abs_url": "http://arxiv.org/abs/2611.07976v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.36,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 47,
+        "novelty": 85.6,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 55.6,
+      "score_reasons": [
+        "命中主题：推理时扩展、压缩与高效推理",
+        "优势：新颖 86、匹配 63"
       ],
       "summary_zh": null
     },
