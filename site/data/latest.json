@@ -1,314 +1,76 @@
 {
-  "date": "2026-11-09",
-  "generated_at": "2026-11-09T07:00:58.053072+00:00",
+  "date": "2026-11-10",
+  "generated_at": "2026-11-10T07:38:05.681283+00:00",
   "candidate_count": 180,
   "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2611.09424v1",
-      "title": "MINE: Entropy-coded Memory-efficient Inference for Large Language Models",
-      "abstract": "We present MINE (Memory-efficient INference Engine), a lossless entropy coding approach that accelerates single-stream inference of Large Language Models (LLMs), where existing lossless compression methods yield speedups only for specific data types such as \\texttt{BF16} and under additional assumptions. Single-stream decoding is strongly memory-bound, since every weight must be streamed from memory once per generated token and requests cannot be batched in local or low-latency deployments. At the core of MINE is dtANS-LLM, a GPU entropy coding scheme adapted from the prior dtANS to the needs of LLM inference. It exploits the non-uniform distribution of weights, which persists even after quantization, and exposes hyper-parameters that trade compression ratio against decoding cost. We auto-tune these parameters for each tensor and GPU to obtain the Pareto front between model size and decoding latency. MINE integrates into vLLM as a plugin and selects the best kernel configuration for a given memory budget. On Llama~3.1~8B~Instruct with a 2.1-bit EntQuant checkpoint, MINE achieves speedups of 2.52$\\times$ and 1.48$\\times$ over the fastest baseline on an RTX~4060~Ti and an RTX~5090, at effective bitrates of 2.24 and 3.43~bits per weight. MINE is available as open source.",
+      "paper_id": "2611.12285v1",
+      "title": "Learning Evidence-Grounded Reasoning for Context-Aware Time Series Forecasting",
+      "abstract": "LLM-driven time series forecasting has become increasingly promising by leveraging contextual features to generate future values directly or refine forecast priors. However, incorporating contextual features alone does not ensure that models can identify which features matter for forecasting and understand what they suggest about future dynamics. We argue that the fundamental challenge is how to extract predictive evidence from contextual features and when and how to leverage it to guide forecasting decisions. In this paper, we propose CastReasoner, an evidence-grounded reasoning model for context-aware time series forecasting. Specifically, CastReasoner uses a structured chain of thought (CoT) to extract predictive evidence from contextual features, infer the future dynamics suggested by this evidence, and assess these dynamics against the forecast prior to guide adaptive forecasting decisions. To enable this capability, we design a reasoning-centric two-stage post-training framework including supervised fine-tuning (SFT) and reinforcement learning (RL). First, we synthesize reasoning trajectories through controllable multi-teacher guidance and select high-quality ones using a novel student-aware difficulty metric. Second, we design fine-grained multi-objective rewards to further improve reasoning and forecasting. To address heterogeneous learning needs across domains in both stages, we introduce a convergence-guided data balancing strategy. Through this two-stage training, CastReasoner improves both reasoning quality and predictive accuracy. Extensive experiments across multi-domain forecasting benchmarks demonstrate that CastReasoner achieves superior forecasting performance.",
       "authors": [
-        "Emil Schätzle",
-        "Markus Püschel"
+        "Xingpeng Gao",
+        "Mingyue Cheng",
+        "Daoyu Wang",
+        "Huajian Zhang",
+        "Xiaoyu Tao"
       ],
-      "published": "2026-11-06T12:51:31Z",
-      "updated": "2026-11-06T12:51:31Z",
+      "published": "2026-11-09T12:12:18Z",
+      "updated": "2026-11-09T12:12:18Z",
       "categories": [
-        "cs.LG",
-        "cs.DC",
-        "cs.PF"
+        "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09424v1",
-      "abs_url": "http://arxiv.org/abs/2611.09424v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.12285v1",
+      "abs_url": "http://arxiv.org/abs/2611.12285v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "serving": 0.36,
-        "efficiency": 0.99
+        "post-training": 0.36,
+        "reasoning": 0.99
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 99.0,
-        "quality": 60,
-        "novelty": 85.3,
-        "practical": 72,
+        "quality": 40,
+        "novelty": 81.2,
+        "practical": 18,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 77.0,
-      "score_reasons": [
-        "命中主题：推理系统、压缩与高效推理",
-        "优势：匹配 99、新颖 85"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09511v1",
-      "title": "V-STORM: A Structure-Aware Grounded Chain of Thought Dataset for Faithful and Fine-Grained Spatio-Temporal Video Reasoning",
-      "abstract": "While MLLMs can often identify what happens in a video, they still struggle with fine-grained spatio-temporal reasoning, which requires precise grounding when and where the supporting evidence appears and composing such evidence into a coherent reasoning chain. This challenge is exacerbated by the lack of scalable data construction and evaluation pipelines that provide granular, verifiable supervision linking reasoning steps to explicit spatio-temporal evidence.To address this gap, we present V-STORM, a structure-aware framework that transforms videos into Spatio-Temporal Scene Graphs (STSGs) and derives Grounded Chain of Thought (GCoT) from validated evidence paths, making each reasoning step traceable to structured and verifiable spatio-temporal evidence.Under this framework, we construct a 260K-sample training set and a 3K-sample human-verified benchmark, both featuring GCoT annotations that link reasoning to explicit spatio-temporal evidence.Experiments reveal a clear separation between evidence localization and evidence composition: current MLLMs can often identify relevant spatio-temporal cues, yet still fail to integrate them into correct multi-step reasoning, exposing a bottleneck that answer-only evaluation largely obscures. Moreover, fine-tuning with V-STORM substantially improves both answer accuracy and grounding faithfulness, validating its effectiveness as supervision for faithful and evidence-grounded video reasoning. Our dataset, benchmark, and source code will be publicly released.",
-      "authors": [
-        "Dian Jiao",
-        "Yuqian Yuan",
-        "Jiaqi Zhu",
-        "Mingjian Gao",
-        "Siwen Tan",
-        "Yunqi Cao",
-        "Jinhui Li",
-        "Sijing Li",
-        "Zhenxuan Fan",
-        "Haoyang Wang",
-        "Wenqiao Zhang",
-        "Siliang Tang"
-      ],
-      "published": "2026-11-06T14:27:06Z",
-      "updated": "2026-11-06T14:27:06Z",
-      "categories": [
-        "cs.CV",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09511v1",
-      "abs_url": "http://arxiv.org/abs/2611.09511v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.18,
-        "reasoning": 1.0
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 100.0,
-        "quality": 49,
-        "novelty": 83.7,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 69.5,
+      "score": 65.4,
       "score_reasons": [
         "命中主题：微调与对齐、推理时扩展",
-        "优势：匹配 100、新颖 84"
+        "优势：匹配 99、新颖 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.09568v1",
-      "title": "Alignment by Confident Debate: Preference Learning from Multi-Agent Debate",
-      "abstract": "Post-training language models for reasoning typically rely on gold answers, task-specific verifiers, or learned reward models, limiting scalability when such signals are scarce. Multi-agent debate offers a self-supervised alternative, but converting debate into reliable training supervision remains challenging: majority voting weights agreeing responses equally, lacks a principled tie-breaking rule, and is ill-defined for open-ended tasks without a canonical answer; likelihood-based scoring can conflate fluency with correctness; and homogeneous committees may reinforce correlated errors. We introduce Alignment by Confident Debate (AbCD), which converts debate traces into preference data without gold answer labels. A sampling-diverse committee debates each problem, after which final answers are clustered by task-level semantic equivalence. We use verifiable tasks (mathematical reasoning, multiple-choice quantitative QA, and executable code-generation) as a controlled test bed: their answer keys or executable checkers let us evaluate the quality of debate-derived supervision against ground truth, even though the oracle itself never uses gold labels. Post-training on the resulting preferences outperforms inference-only ensembling and debate, as well as SFT on the same traces, across five model families spanning 1B to 8B parameters and four datasets, improving consensus accuracy, with a maximum gain of $21.5_{pp}$. Ablations show that the approach transfers to a larger model and to code generation, while also revealing limitations of heterogeneous committees and agreement-based weighting. Overall, the results suggest that debate traces can yield useful preference supervision when answer equivalence is combined with confidence-weighted disagreement.",
+      "paper_id": "2611.12240v1",
+      "title": "Prune, Don't Merge: Expert Compression of Mixture-of-Experts LLMs on Multilingual Production Tasks",
+      "abstract": "Mixture-of-Experts language models are cheap to run per token but expensive to hold in GPU memory, which drives the cost of serving them in production. One-shot expert compression shrinks them after a single calibration pass. Its two current state-of-the-art methods are REAP for expert pruning, which deletes the least salient experts, and REAM for expert merging, which merges them into the most salient ones. Both have been evaluated only on academic benchmarks. We compare the two on five multilingual production tasks of a web-hosting company, from classification to the generation of marketing HTML email templates, with two 30B-parameter models (Qwen3-30B-A3B-Instruct-2507 and the hybrid Mamba-attention Nemotron-3.5-Lightning) at 25% and 50% of experts removed and the same calibration data. Pruning wins: on the same rows, REAP is significantly better in 16 of 20 comparisons and REAM in 2. At 25%, REAP keeps 93.6% of Qwen3-30B's generative quality and REAM 62.5%, although on benchmarks the two are within a point for the same model. The damage concentrates in the output contract rather than the content: 89.8-95.2% of each significant loss on email templates comes from hard-gate failures such as invalid JSON, broken mobile layouts and runaway generation, and most failed non-English domain descriptions copy the prompt's English opening phrase. Cross-perplexity and logit divergence, two diagnostics from the REAP paper, also track production quality, as does the rate of repetition loops; n-gram diversity does not. We close with practical guidance for compressing MoE models for production.",
       "authors": [
-        "Nikhil Verma",
-        "Dingxian Wang",
-        "Mohammad Reza Rezaei",
-        "Andrew Rabinovich",
-        "Zhao Chen"
+        "Tomas Rasymas",
+        "Povilas Kvedaras"
       ],
-      "published": "2026-11-06T15:08:58Z",
-      "updated": "2026-11-06T15:08:58Z",
+      "published": "2026-11-09T11:30:23Z",
+      "updated": "2026-11-09T11:30:23Z",
       "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09568v1",
-      "abs_url": "http://arxiv.org/abs/2611.09568v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.81,
-        "reasoning": 0.36
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 70,
-        "novelty": 84.6,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 67,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 68.1,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展",
-        "优势：新颖 85、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09825v1",
-      "title": "BitDecoding-FP4: Native FP4 KV Cache Decoding via Algorithm-System Co-Design",
-      "abstract": "The key-value (KV) cache dominates memory capacity and bandwidth in long-context LLM serving. While 4-bit microscaling formats (NVFP4, MXFP4) shrink the cache and run attention on FP4 Tensor Cores, a fundamental gap remains between algorithmic quantization and system-aware acceleration: existing FP4 KV systems use vanilla quantization that causes severe accuracy drops, whereas accuracy-oriented 4-bit algorithms rely on vector codebooks whose lookup overhead degrades decoding throughput. We present BitDecoding-FP4, an algorithm--system co-design for accurate and efficient native FP4 KV decoding. We mitigate three error sources: Dual-Residual Query Quantization splits queries into two FP4 tensors, cutting query logit error from 60% to 1%; Underflow-Aware Probability Scaling prevents E4M3 scales from rounding long-context probabilities to zero; and Outlier-Aware Key Quantization combines static smoothing, Hadamard rotation, and scale search to suppress key outliers under token-wise scaling. At the system level, we remove the softmax bottleneck via transposed softmax with fused probability quantization and stacked query MMA on paged KV caches. Across dense and MoE models with GQA and MLA, BitDecoding-FP4 stays within 0.5 points of BF16 KV accuracy with NVFP4 (1 point with MXFP4), and tracks BF16 KV in RL training rollouts. In end-to-end serving on NVIDIA B300 with Qwen3-4B and Qwen3-30B-A3B, it delivers 2.4-3.0$\\times$ higher peak serving throughput than BF16 KV. The implementation is available at https://github.com/OpenBitSys/BitDecoding-FP4.",
-      "authors": [
-        "Dayou Du",
-        "Woon Yee Ng",
-        "Guangming Sheng",
-        "Nick Lau",
-        "Jianyi Cheng",
-        "Luo Mai"
-      ],
-      "published": "2026-11-06T18:13:54Z",
-      "updated": "2026-11-06T18:13:54Z",
-      "categories": [
-        "cs.AI",
-        "cs.AR",
         "cs.CL",
-        "cs.PF"
+        "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09825v1",
-      "abs_url": "http://arxiv.org/abs/2611.09825v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.12240v1",
+      "abs_url": "http://arxiv.org/abs/2611.12240v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "pretraining": 0.18,
-        "serving": 0.81,
-        "efficiency": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 54,
-        "novelty": 82.4,
-        "practical": 54,
-        "credibility": 35
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 66.4,
-      "score_reasons": [
-        "命中主题：预训练与优化、推理系统、压缩与高效推理",
-        "优势：新颖 82、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09634v1",
-      "title": "Steerable Multi-Objective Group-Relative Preference Optimization with Jointly Trained Low-Rank Adapters",
-      "abstract": "Language model deployment often requires different trade-offs between competing objectives as user preferences change, yet standard post-training methods typically produce a single policy for a fixed objective weighting. We introduce LambdaMix, a new parameter efficient method for learning a preference conditioned family of policies with group-relative online reinforcement learning. LambdaMix jointly trains one low-rank adapter per objective over a frozen base model. One preference vector selects the adapter mixture that generates responses and weights the separately normalized rewards used to update the adapters. A single training run supports changing preferences at inference without further optimization. We experiment with four models on helpfulness and harmlessness and on solving math problems while following instructions. We also evaluate the two largest models on rewriting comments to preserve wording while reducing clues about personal attributes. On the first two tasks, LambdaMix achieves higher hypervolume than all evaluated conditioned and policy merging baselines across all four models. LambdaMix uses fewer training completions and stores fewer adapter parameters than a set of GRPO specialist policies. With architecture and initialization fixed, varying adapter mixtures and objective weights together gives wider score ranges and higher coverage than varying either alone.",
-      "authors": [
-        "Constantinos Karouzos",
-        "Nikolaos Aletras"
-      ],
-      "published": "2026-11-06T15:50:32Z",
-      "updated": "2026-11-06T15:50:32Z",
-      "categories": [
-        "cs.CL",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09634v1",
-      "abs_url": "http://arxiv.org/abs/2611.09634v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.81,
-        "efficiency": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 61,
-        "novelty": 86.4,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 66.1,
-      "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 86、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09722v1",
-      "title": "FOSCAR: Accelerating Decode Attention over 2- and 4-Bit KV Caches through Affine Folding",
-      "abstract": "Large-language-model decode attention streams the key-value (KV) cache for every generated token. Packing that cache into 2-bit or 4-bit quantized integers reduces memory traffic but does not automatically translate into latency saving. Existing 2-bit fused kernels reach under 31%/15% of peak HBM throughput on H100/B200. Converting each value and applying its scale and offset before feeding Tensor Cores is a major bottleneck because instruction-issue throughput is scarce on modern GPUs. Instead of applying scale and offset to each KV value, FOSCAR uses affine folding to apply them to the other operand or the output of decode-attention matrix products, depending on the quantization scheme (token-wise or channel-wise). This reduces scale-and-offset operations by up to two orders of magnitude while preserving the dequantized attention output in exact arithmetic. FOSCAR also uses bit manipulation to feed KV operands to Tensor Cores efficiently, requiring only 1 and 0.19 ALU instructions per INT2 element on H100 and B200, respectively. Finally, FOSCAR builds warp-specialized GPU pipelines for Hopper (H100) and Blackwell (B200) using wgmma and tcgen05. On H100, FOSCAR INT2 and INT4 kernels achieve geo-mean speedups of $3.36\\times$ and $2.83\\times$ over FlashInfer BF16, and $2.03\\times$ and $1.71\\times$ over TensorRT-LLM FP8. On B200, the corresponding INT2 and INT4 speedups are $2.67\\times$ and $2.30\\times$ over FlashInfer BF16, $1.48\\times$ and $1.28\\times$ over TensorRT-LLM FP8, and $1.16\\times$ and $1.00\\times$ over TensorRT-LLM NVFP4. We integrate FOSCAR into SGLang to benchmark serving efficiency. On long-context serving workloads, FOSCAR increases peak aggregate throughput by up to 170% and 341% over 2-bit and 16-bit baselines, respectively. We open-source FOSCAR as a kernel library at https://github.com/FutureMLS-Lab/FOSCAR.",
-      "authors": [
-        "Donglin Zhuang",
-        "Pragaash Ponnusamy",
-        "Xiaoxia Wu",
-        "Shuaiwen Leon Song",
-        "Zhongzhu Zhou"
-      ],
-      "published": "2026-11-06T17:00:25Z",
-      "updated": "2026-11-06T17:00:25Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09722v1",
-      "abs_url": "http://arxiv.org/abs/2611.09722v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "serving": 0.63,
-        "efficiency": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 69,
-        "novelty": 82.4,
-        "practical": 72,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 65.6,
-      "score_reasons": [
-        "命中主题：推理系统、压缩与高效推理",
-        "优势：新颖 82、实用 72"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09598v1",
-      "title": "Transformer-FSQ: Discrete Latents for Extreme KV-Cache Compression",
-      "abstract": "Private, personalised language models must run on local consumer devices, where large, frontier models cannot fit, and retaining long contexts is non-trivial. Sequential memory---the key-value (KV) cache---grows linearly with context length, quickly dwarfing the model itself: for Qwen3-1.7B-Base, 200,000 retained entries require 21 GiB, 6.6 times more than the model weights. Yet the KV-cache compression methods we measured fail beyond moderate compression ratios. We introduce Transformer-FSQ, addressing extreme KV-cache compression by replacing standard key and value projections with a finite scalar quantisation bottleneck. Our cache stores a packed vector of discrete integer codes per token, with no per-token quantisation metadata. Converting a pretrained transformer trains only these projections on 0.25 tokens per original parameter. We evaluate Transformer-FSQ against five baseline families on models from 0.6B to 8B parameters. On long-context retrieval (RULER), from 12$\\times$ to 97.5$\\times$ Transformer-FSQ is the most accurate method we evaluate, across scales. A fused Triton kernel decodes directly from the integer codes; with baselines given their authors' kernels where available, it decodes at $1.01\\times$ (95% interval $0.98$--$1.05$) the throughput of native SDPA attention on the uncompressed Qwen3-8B-Base at $32\\times$ and $1.54\\times$ at $97.5\\times$. Extreme KV-cache compression is therefore a practical way to extend how much context a fixed device can hold.",
-      "authors": [
-        "Andras Szecsenyi",
-        "Thomas L. Lee",
-        "Vaisakh Shaj",
-        "Elliot J. Crowley",
-        "Amos Storkey"
-      ],
-      "published": "2026-11-06T15:27:24Z",
-      "updated": "2026-11-06T15:27:24Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09598v1",
-      "abs_url": "http://arxiv.org/abs/2611.09598v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "serving": 0.18,
         "efficiency": 0.63
       },
       "semantic_score": null,
@@ -316,130 +78,320 @@
       "score_breakdown": {
         "relevance": 63.0,
         "quality": 72,
-        "novelty": 82.7,
+        "novelty": 86.9,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.2,
+      "score_reasons": [
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 87、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12362v1",
+      "title": "Release Sooner, Expose Less: Offloading MoE Dispatch in NCCL-EP under Dual-Batch Overlap",
+      "abstract": "Dual-batch overlap (DBO) hides mixture-of-experts (MoE) communication behind another microbatch's computation, but only after dispatch send releases the GPU. The time dispatch send holds the GPU therefore stays exposed, while network progress after release can be hidden. We evaluate three research configurations built on NCCL-EP that target this exposed communication time: GPI, in which the GPU constructs GPU-Friendly Descriptors (GFDs) and submits them to NIC-accessible memory for transport; GPI-MC, which describes MoE token fan-out in one GFD; and GDAKI Free Flow, which moves send progression to a host thread. On a GB300 NVL72 system, all three approaches reduce dispatch-send time relative to default GDAKI over most operating points in the evaluated parameter sweep. An experiment that inserts a GPU delay between dispatch send and receive shows that offload increases the in-flight interval. Depending on the configuration, 32 to 512 microseconds of computation or other independent work between send and receive hides the deferred progress, leaving less exposed time than default GDAKI. In disaggregated vLLM serving with DBO, these approaches lower median TPOT by 15-25% relative to NCCL-EP default GDAKI and by 16-42% relative to DeepEP v1.",
+      "authors": [
+        "Hsin-Chun Yin",
+        "Khaled Hamidouche",
+        "Ian Ziemba",
+        "Arjun Kashyap",
+        "Pak Markthub",
+        "Subhadeep Bhattacharya",
+        "Ke Wen",
+        "Assaf Ravid",
+        "Manjunath Gorentla Venkata",
+        "Gil Bloch"
+      ],
+      "published": "2026-11-09T13:10:41Z",
+      "updated": "2026-11-09T13:10:41Z",
+      "categories": [
+        "cs.DC"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12362v1",
+      "abs_url": "http://arxiv.org/abs/2611.12362v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 88.5,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.6,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 88、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12356v1",
+      "title": "DForkTree: Accelerating Speculative Decoding with Fork-Aware Block Diffusion Draft Trees",
+      "abstract": "Speculative decoding speeds up language models by letting a lightweight drafter propose several future tokens that the target model verifies in parallel. Block diffusion drafters such as DFlash draft a whole block in one forward pass, and DDTree builds a draft tree from their per-position distributions. Each of these distributions assumes that the drafter's own most likely continuation is correct. A tree, however, gains over a chain only on branches that leave this continuation, where the drafter's top-1 accuracy drops from 89% to 18% and its candidate lists miss the right token far more often. When re-run from the fork token, the same drafter is usually correct, so the errors come from the prefix that the distributions condition on rather than from what the drafter knows. We introduce DForkTree, a training-free method that re-anchors each branch on its own tokens. DForkTree adds n-gram statistics from the target model's own outputs to the drafter's scores as pointwise mutual information, weights them more after the fork, and builds the optimal tree under these scores exactly on the GPU. On Qwen3.5-4B and 9B, with all tree methods sharing one drafter, tree pipeline and verifier, DForkTree is the fastest tree method on every benchmark. It is up to 41.5% faster than DFlash and 15.1% faster than DDTree in the same setting, with average speedups of up to 4.75x over autoregressive decoding.",
+      "authors": [
+        "Zhicheng Zheng",
+        "Cheng Zhang",
+        "Chenkai Tang"
+      ],
+      "published": "2026-11-09T13:06:52Z",
+      "updated": "2026-11-09T13:06:52Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12356v1",
+      "abs_url": "http://arxiv.org/abs/2611.12356v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 84.7,
+        "practical": 50,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.5,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统",
+        "优势：新颖 85、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12307v1",
+      "title": "PACE-ECG: Patient-Aware Contrastive ECG Pretraining; Leveraging Longitudinal Structure for Transferable Representations",
+      "abstract": "Foundation models for physiological signals are commonly evaluated on in-domain interpretation tasks, but their ability to transfer to longitudinal clinical prognosis across healthcare systems remains uncertain. We developed PACE-ECG, an ECG pretraining framework that combines contrastive learning across temporally neighbouring recordings from the same patient with clinically guided multitask supervision. We evaluated frozen ECG representations for post-myocardial-infarction all-cause mortality and incident heart failure prediction across MIMIC-IV and two external HEEDB cohorts, comparing the proposed representation with DeepECG-SSL, a state-of-the-art model, and two control baselines. Across both downstream tasks, the proposed model outperformed DeepECG-SSL in-domain (AUROC +1.9% for mortality and +4.0% for heart failure) and on external populations in HEEDB-Boston (+5.6% for mortality +10.3% for heart failure) and HEEDB-Atlanta (+6.9% for mortality +11.0% for heart failure) while using an encoder 41 times smaller and a fraction of the pretraining data. A matched ablation showed that patient-temporal pairing improved external mortality and heart failure AUROC over generic self-supervision by 7.0% and 9.4% on HEEDB-Boston and 8.9% and 9.3% on HEEDB-Atlanta. These findings indicate that pretraining-objective design greatly influences downstream transfer alongside model and data scale, and that in-domain performance alone is insufficient to establish the clinical generalisability of ECG foundation representations.",
+      "authors": [
+        "Riccardo Cavarra",
+        "Lupo Lovatelli",
+        "Shaheim Ogbomo-Harmitt",
+        "Jakub Grzelak",
+        "Adelaide De Vecchi",
+        "Andrew King",
+        "Oleg Aslanidi"
+      ],
+      "published": "2026-11-09T12:27:36Z",
+      "updated": "2026-11-09T12:27:36Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12307v1",
+      "abs_url": "http://arxiv.org/abs/2611.12307v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 78,
+        "novelty": 87.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 67,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.1,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 87、质量 78"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12763v1",
+      "title": "PORT: Preference Optimization via Robust Token-Level Reweighting",
+      "abstract": "Preference optimization has become a central approach for aligning large language models with human values, but its effectiveness depends heavily on the quality of preference annotations. In practice, preference data is often noisy due to annotation errors and ambiguity. Existing robust preference optimization methods primarily operate at the sequence level, implicitly treating entire responses as uniformly correct or incorrect. However, rejected responses may still contain informative reasoning steps, while preferred responses can include subtle errors. In this work, we propose \\textbf{P}reference \\textbf{O}ptimization via \\textbf{R}obust \\textbf{T}oken-level reweighting \\textbf{(PORT)}, a fine-grained framework for robust alignment under noisy preferences. PORT performs token-level reweighting using the empirical cumulative distribution function (CDF) of token log-probabilities, yielding an efficient forward-pass-only proxy to gradient-norm penalization that selectively suppresses corrupted tokens without additional backward-pass computation. We provide theoretical analysis showing that PORT reduces the gradient bias from noisy preference labels by minimizing an upper bound on the bias term. Extensive experiments across diverse noise settings demonstrate that PORT consistently improves robustness and outperforms existing sequence-level baselines. The code is available at https://github.com/osu-srml/PORT",
+      "authors": [
+        "Ding Zhu",
+        "Xiukun Wei",
+        "Tian Xie",
+        "Zhihui Zhu",
+        "Xueru Zhang",
+        "Mohammad Mahdi Khalili"
+      ],
+      "published": "2026-11-09T17:38:16Z",
+      "updated": "2026-11-09T17:38:16Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12763v1",
+      "abs_url": "http://arxiv.org/abs/2611.12763v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 49,
+        "novelty": 82.0,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.2,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12832v1",
+      "title": "What the Loss Curve Misses: FP4 Pretraining Slows the Acquisition of Rare Facts",
+      "abstract": "Low-precision pretraining is usually judged by validation loss. We ask whether matching loss also means learning rare facts as efficiently. We train transformers from scratch with emulated 4-bit matrix multiplications on synthetic biographies with controlled exposure counts, on their own and mixed into web text. NVFP4 needs 1.32$\\times$ and 1.52$\\times$ as many exposures as BF16 to match its recall while validation loss differs by only 0.5% and 2%, and 1.26$\\times$ and 1.30$\\times$ when both models are evaluated with BF16 matrix multiplications. Under our primary readout, the exposure cost is about 1.2$\\times$ at matched loss. Zero-mean gradient noise reproduces the cost of quantizing only the backward pass, which barely moves the loss. In a controlled experiment at twice the NVFP4 error, noise fed only to Adam's second-moment estimate acts like a lower learning rate and its cost fades, whereas noise in the update lowers its signal-to-noise ratio and carries about two thirds of the cost through the end of training. Raising the learning rate to offset the smaller average step does not recover the cost, either for this noise or for NVFP4. Gradient statistics of BF16 checkpoints rank the costs of formats, partial quantizations and noise controls without fitting (Spearman 0.96). We suggest measuring rare-fact acquisition alongside loss when evaluating low-precision recipes.",
+      "authors": [
+        "Chang Lu",
+        "Mengjiao Zhang"
+      ],
+      "published": "2026-11-09T18:30:41Z",
+      "updated": "2026-11-09T18:30:41Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12832v1",
+      "abs_url": "http://arxiv.org/abs/2611.12832v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 60,
+        "novelty": 87.7,
         "practical": 36,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 62.7,
+      "score": 60.3,
       "score_reasons": [
-        "命中主题：推理系统、压缩与高效推理",
-        "优势：新颖 83、质量 72"
+        "命中主题：预训练与优化、压缩与高效推理",
+        "优势：新颖 88、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.09607v1",
-      "title": "ReplayAudit: Auditing Outsourced LLM Fine-Tuning via Sealed Records and Selective Replay",
-      "abstract": "Auditing outsourced LLM fine-tuning requires checking an untrusted provider's training while controlling verification cost. Uniform sampling ignores training-time signals, while checking a suspicious record can require replaying several preceding steps. We present ReplayAudit, a telemetry-guided auditing system that seals training records before challenges and independently replays sampled intervals from sealed checkpoints. Loss changes and parameter-update norms guide stratified random sampling; replay determines whether the selected computation agrees with its records. We relate sampling probabilities to replay work and evaluate the system on real LoRA training. A 7B BF16 prototype rejects a false update-norm report during a random audit; targeted checks also reject false loss reports and skipped updates. We calibrate sampling budgets offline to at least a 90% probability of directly selecting an injected step. For two learning-rate deviation settings, executing these budgets on the same honest 1.5B trajectory reduces median complete-audit wall time by 49% and 67% relative to uniform sampling. When skipped updates evade the high-anomaly stratum, the corresponding audit instead costs 38% more. These results show how deviation capture and actual replay work jointly determine the cost of telemetry-guided auditing.",
+      "paper_id": "2611.12293v1",
+      "title": "Depth as a Candidate Source: Portfolio Allocation for Recurrent Test-Time Scaling in Large Language Models",
+      "abstract": "Recurrent latent reasoning in large lanugage models (LLMs) scales test-time computation by increasing recurrent depth, naturally framing inference as a problem of deciding when to stop. We identify a previously overlooked limitation of this single-depth view through systematic preliminary analysis: deeper recurrence can lose correct solutions found at shallower depths, while depth-specific success sets remain broadly non-nested even after controlling for marginal accuracy. This suggests that depth determines not only computation cost, but also access to distinct candidate solutions. Motivated by this finding, we propose Depth Portfolio Allocation (DPA), which reformulates recurrent test-time scaling as budgeted allocation across depth-specific candidate sources. DPA supports both fixed portfolios and feedback-guided sequential allocation under a shared inference budget. Experiments on GSM8K, SVAMP, MultiArith, and MBPP show that mixed-depth portfolios expand oracle coverage under matched candidate counts and nominal costs, while feedback-guided allocation generally matches or improves uniform allocation and can reduce computation in high-budget settings. Code and data are avaible at : https://anonymous.4open.science/r/LLM-latent-B7BC/.",
       "authors": [
-        "Yihan Xia",
-        "Wenxin Xu",
-        "Taotao Wang"
+        "Chaoyuan Hao",
+        "Wentao Yue",
+        "Yanyan Wu",
+        "Boyuan Gao",
+        "Tianyou Lai",
+        "Maolin Wang",
+        "Yongxin Ni",
+        "Hanwen Du",
+        "Youhua Li"
       ],
-      "published": "2026-11-06T15:32:00Z",
-      "updated": "2026-11-06T15:32:00Z",
+      "published": "2026-11-09T12:17:59Z",
+      "updated": "2026-11-09T12:17:59Z",
       "categories": [
-        "cs.CR",
-        "cs.LG"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09607v1",
-      "abs_url": "http://arxiv.org/abs/2611.09607v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.12293v1",
+      "abs_url": "http://arxiv.org/abs/2611.12293v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "post-training": 0.63
+        "reasoning": 0.81
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 63,
-        "novelty": 87.9,
+        "relevance": 81.0,
+        "quality": 31,
+        "novelty": 86.4,
         "practical": 27,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 60.2,
-      "score_reasons": [
-        "命中主题：微调与对齐",
-        "优势：新颖 88、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09891v1",
-      "title": "CPU-ARC: Agentic Reasoning Caching for on-CPU Reasoning Reuse",
-      "abstract": "Large language models reinvent the wheel all the time. They conflate task-solving with the execution of the solutions, which forces them to solve every problem from scratch. We show that once a task has been reasoned through, the application of its solution to a new problem instance can be done very efficiently and with little involvement from language models. We introduce agentic reasoning caching, a method for constructing robust CPU-executable agentic reasoning caches (ARCs) from LLM reasoning traces. ARCs show on-par performance with frontier LLMs across a range of difficult mathematical and scientific tasks, are fully explainable, continually trainable, robust to input perturbations, and 16-291x cheaper to invoke than the source model.",
-      "authors": [
-        "Peter Belcak",
-        "Greg Heinrich",
-        "Saurav Muralidharan",
-        "Shizhe Diao",
-        "Pavlo Molchanov"
-      ],
-      "published": "2026-11-06T18:58:50Z",
-      "updated": "2026-11-06T18:58:50Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09891v1",
-      "abs_url": "http://arxiv.org/abs/2611.09891v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 42,
-        "novelty": 87.8,
-        "practical": 41,
-        "credibility": 35
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 56.1,
+      "score": 58.2,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 88、匹配 63"
+        "优势：新颖 86、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.09474v1",
-      "title": "Nebula: Distributed Position-Independent Caching for LLM Serving",
-      "abstract": "Modern LLM workflows, such as retrieval-augmented generation (RAG) and LLM agents, build long prompts from multiple independent text segments, making prefill a major source of computation. Reusing KV caches is therefore important for reducing serving costs and latency: distributed caching systems spread KV cache across a cluster to increase aggregate capacity, while position-independent caching (PIC) enables reuse of recurring segments under different prefixes. However, existing systems distribute KV caches but still rely on prefix caching (PC), while existing PIC methods enable position-independent reuse without cluster-wide resource management. We present Nebula, the first distributed LLM serving framework to treat PIC segments as first-class citizens, enabling remote PIC reuse and parallel prefill. To track PIC's fine-grained, asynchronous state changes, Nebula combines optimistic accounting with event-driven updates to provide a timely and truthful cluster view for cache management and prefill scheduling. To accommodate diverse reuse patterns across workloads, Nebula leverages cluster-wide ghost-hit feedback to automatically tune the allocation of shared cache capacity between PC and PIC. Finally, Nebula incorporates queueing, computation, and KV transfer costs into a unified prefill completion time model to guide elastic parallelism adjustment and locality-aware compute placement. Across four models and four real-world RAG and agentic workloads, Nebula reduces median TTFT by an average of 61.4% compared with the strongest existing baseline and recovers an average of 76.1% of the tokens missed by prefix caching.",
+      "paper_id": "2611.12304v1",
+      "title": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
+      "abstract": "Agentic workloads are a major source of LLM inference demand. Existing prefill--decode (PD) disaggregated serving systems offer limited flexibility for runtime adaptation of compute allocation and KV cache management, and rely on coarse signals that only partly capture the diverse and dynamic agent workload. These limitations lead to load imbalance between prefill and decode nodes and eviction of KV caches that agents will reuse. We present Evolving Infra, an agent-adaptive serving framework that adapts compute allocation to agent workloads and KV cache management to agent context management at runtime. We decouple compute allocation from key--value (KV) cache management, allowing nodes to switch efficiently between prefill and decode. Building on this design, an online planner matches the PD split to workload composition, while an agent-aware distributed KV manager guides cache eviction and transfer with signals from agent context management. Across coding, math, and computer-use tasks with GLM-5.2 and Kimi K2.6 on up to 256 GB300 GPUs, Evolving Infra reduces mean end-to-end request latency and P95 TTFT by up to 4.1x and 14x over Dynamo, NVIDIA's production framework.",
       "authors": [
-        "Yifei Liu",
-        "Junbin Pan",
-        "Junhao Hu",
-        "Yang Liu",
-        "Junyi Chen",
-        "Juntong Wu",
-        "Chen Chen",
-        "Haiyuan Zhao",
-        "Xiaoxu Chen",
-        "Weihang Chen"
+        "Hao Kang",
+        "Weili Xu",
+        "Ziyang Li",
+        "Zheng Du",
+        "Hanchen Li",
+        "Tian Xia",
+        "Song Bian",
+        "Tushar Krishna",
+        "Huizi Mao",
+        "Ion Stoica",
+        "Song Han"
       ],
-      "published": "2026-11-06T13:54:49Z",
-      "updated": "2026-11-06T13:54:49Z",
+      "published": "2026-11-09T12:26:02Z",
+      "updated": "2026-11-09T12:26:02Z",
       "categories": [
         "cs.DC"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09474v1",
-      "abs_url": "http://arxiv.org/abs/2611.09474v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.12304v1",
+      "abs_url": "http://arxiv.org/abs/2611.12304v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -451,109 +403,152 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 51,
-        "novelty": 83.5,
-        "practical": 45,
+        "quality": 42,
+        "novelty": 78.5,
+        "practical": 68,
         "credibility": 35
       },
-      "confidence": 43,
+      "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 48.3,
+      "score": 47.6,
       "score_reasons": [
         "命中主题：推理系统",
-        "优势：新颖 84、质量 51"
+        "优势：新颖 78、实用 68"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.09652v1",
-      "title": "Breaking the Privacy Promise: Gradient Inversion Attacks on Federated Low-Rank Adapted Vision Transformers",
-      "abstract": "Parameter-efficient fine-tuning (PEFT) has been increasingly adopted to fine-tune pretrained models with low computational cost and is therefore also preferred in the federated learning paradigm to reduce computational and communication overhead. In this work, we investigate the sparsely explored problem of the risk of private data leakage in LoRA-adapted Vision Transformers (ViTs), where low-rank updates weaken the gradient signal available to a server with access to individual client updates. We show that quality of reconstruction is limited by two coupled ambiguities: reduced information in LoRA gradients and missing spatial cues from frozen positional embeddings. To address this, we propose a spatially anchored generative inversion framework that incorporates server-prescribed trainable positional embeddings into ViT blocks during fine-tuning at clients. The resulting positional gradients act as layer-wise spatial anchors, providing additional positional cues, while the generative prior keeps reconstructions on a realistic image manifold, reducing duplicate-data and patch-permutation artifacts, {which produce similar gradients as those produced when the target client images are used}. Adding our proposed spatial anchoring to GIAS improves PSNR by 10.14 dB, SSIM by 0.45, and LPIPS by 0.098 on CIFAR-10, as well as PSNR gains of 7.83 and 11.74 dB on high-resolution CelebA and CARS datasets, respectively, in the FedSGD setting. Such gains in reconstructed image quality metrics are also maintained at higher batch sizes and in FedAvg settings. These results indicate that LoRA-based PEFT does not, by itself, prevent data leakage in FL, and carefully incorporated positional embeddings can help in exposing private information.",
+      "paper_id": "2611.12634v1",
+      "title": "How Far Does Second-Order Linear Response Predict Quantization Mismatch? Pre-Registered Measurements on Five Language Models",
+      "abstract": "Serving systems choose a weight format for each model and deployment. A low-cost screen predicts the resulting KL divergence from the unquantized model's Fisher information using $\\tfrac12Δ^\\top FΔ$, the expansion underlying Hessian-aware and second-order post-training quantizers. We assess the reliability of this screen in GPU batches with channel-wise int8, per-tensor fp8 and group-wise int4 on Qwen3-8B, Qwen3-4B, OLMo-2-7B, Qwen3-32B and Qwen3-30B-A3B. Relative predictions hold across a 16-fold range of perturbation scales, int4 group sizes and rounding modes, while absolute predictions are heavy-tailed. A trimmed average brings 10 of 12 cells on Qwen3-4B and OLMo-2 within 15% of measured KL. The MoE model exhibits nonquadratic response at small perturbations, with int8 KL scaling as $α^{0.63}$. Computing per-sequence gradients in bf16 can cause fourfold prediction errors. We trace these errors to arithmetic in the lower half of the backward pass and eliminate them by using fp32 there. Batch-invariant kernels run at 0.55 times the throughput, while changes in reduction order introduce a floor of 0.17-0.22 nats per sequence. We build a screener with one streamed fp32 Fisher pass, trimmed tensor-block predictions with a band, a flag for aligned tensors and per-layer format allocation. On the unseen Mistral-7B-v0.3 family, all six predictions fall within the band, all three KL budgets are met, and vLLM throughput is predicted within 0.4%.",
       "authors": [
-        "Ritik K. Badiya",
-        "Siladittya Manna",
-        "Ashmit Sinha",
-        "M Yashwanth",
-        "Anirban Chakraborty"
+        "Dezhen Lu",
+        "Zixiang Ni"
       ],
-      "published": "2026-11-06T16:02:20Z",
-      "updated": "2026-11-06T16:02:20Z",
+      "published": "2026-11-09T16:11:49Z",
+      "updated": "2026-11-09T16:11:49Z",
       "categories": [
-        "cs.CV",
-        "cs.AI",
+        "cs.CL",
         "cs.CR",
-        "cs.DC",
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09652v1",
-      "abs_url": "http://arxiv.org/abs/2611.09652v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.18,
-        "efficiency": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 51,
-        "novelty": 86.8,
-        "practical": 36,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 57.8,
-      "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 87、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.09699v1",
-      "title": "Verifier Noise Is a Temperature: Testing Tilt Predictions in Finite-Budget LLM-Guided Search",
-      "abstract": "LLM-guided search loops propose a modified candidate, score it, and keep it if it scores better. When both candidates are re-scored at every comparison, as in the minibatch acceptance gates of prompt optimizers, keep-if-better is a reversible Markov chain if the score difference is logistic and the mutation operator is reversible, and its stationary law is the mutation equilibrium tilted by exp(beta f). For any continuous symmetric noise difference the same tilt is the stationary law of a small-step diffusion limit, with beta = 4F'(0); for a minibatch gate beta grows with the square root of the minibatch size. Caching the incumbent's score instead inflates the recorded score. We test the tilt as a prediction for LLM-guided program search, committing each prediction from calibration data before the search runs. The level after 150 steps rises with the minibatch size in six of seven settings, but its predicted value fails: on bin packing, search attains 62-88% of the predicted gain when the proposer edits the parent and 109-119% when it writes new heuristics. The attained fraction falls with the parent-child quality correlation of unselected mutation; a registered test on two new settings confirmed the direction, but not the quantitative agreement after a correction. Further registered tests found that runs started from a good program kept losing quality over 300 steps, more so from starts that search had selected, by a margin that passed its registered rule narrowly. Runs from different starts had not reached a common level, so whether the tilt describes the stationary law of LLM editing remains open. A registered test in prompt optimisation on frozen task-model scores failed: search exceeded the tilt, and the bin-packing relation did not transfer.",
-      "authors": [
-        "Xiaomeng Li"
-      ],
-      "published": "2026-11-06T16:44:08Z",
-      "updated": "2026-11-06T16:44:08Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.09699v1",
-      "abs_url": "http://arxiv.org/abs/2611.09699v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.12634v1",
+      "abs_url": "http://arxiv.org/abs/2611.12634v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "pretraining": 0.18,
-        "reasoning": 0.45
+        "post-training": 0.18,
+        "serving": 0.36,
+        "efficiency": 0.45
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 45.0,
         "quality": 42,
-        "novelty": 89.7,
-        "practical": 18,
-        "credibility": 28
+        "novelty": 89.1,
+        "practical": 54,
+        "credibility": 35
       },
       "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 46.6,
+      "score": 51.1,
       "score_reasons": [
-        "命中主题：预训练与优化、推理时扩展",
-        "优势：新颖 90、匹配 45"
+        "命中主题：预训练与优化、微调与对齐、推理系统、压缩与高效推理",
+        "优势：新颖 89、实用 54"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12311v1",
+      "title": "MNN-Pocket-0.3B Technical Report",
+      "abstract": "This technical report presents MNN-Pocket-0.3B, a compact 300M-parameter dense language model designed for efficient on-device deployment and supporting context lengths of up to 32K tokens. With an INT4 deployment footprint of only 173 MB and decoding throughput of up to 466 tokens/s on iPad Pro M5 (Metal), it can be seamlessly integrated into applications on edge devices such as smartphones and smart glasses. MNN-Pocket-0.3B is developed through the co-design of its architecture, data, training pipeline, and inference system. Hardware-aware architecture selection and dependency-aware vocabulary pruning balance model capability with on-device memory and compute constraints. A four-stage pre-training pipeline covering approximately 4.1 trillion high-quality Chinese and English tokens equips the model with broad knowledge and reasoning capabilities. This is followed by a three-stage post-training pipeline comprising instruction fine-tuning, multi-teacher on-policy distillation, and quantization-aware training. Finally, hardware-specific optimizations in the MNN inference engine enable fast, memory-efficient inference and long-context processing. Extensive evaluations demonstrate that MNN-Pocket-0.3B achieves frontier-level performance among models of comparable size, with particularly strong results in Chinese and English knowledge and reasoning, mathematics, coding, and instruction following. It consistently outperforms similarly sized open-source models and even surpasses several 0.5B-parameter models on instruction-following benchmarks. We release MNN-Pocket-0.3B with open weights and ready-to-use MNN deployment packages. We hope it will provide a practical foundation for capable, responsive, and memory-efficient edge applications while advancing research and development in on-device language models.",
+      "authors": [
+        "MNN Team"
+      ],
+      "published": "2026-11-09T12:33:26Z",
+      "updated": "2026-11-09T12:33:26Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12311v1",
+      "abs_url": "http://arxiv.org/abs/2611.12311v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.36,
+        "reasoning": 0.18,
+        "serving": 0.18,
+        "efficiency": 0.54
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 54.0,
+        "quality": 60,
+        "novelty": 85.4,
+        "practical": 45,
+        "credibility": 28
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.9,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理时扩展、推理系统、压缩与高效推理",
+        "优势：新颖 85、质量 60"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.12737v1",
+      "title": "Inference Validation for Regulated AI: Building a Decision Pipeline on NVIDIA AIPerf",
+      "abstract": "Deploying large language models in regulated industries requires more than picking the fastest inference engine: it requires evidence that a configuration meets contractual and legal obligations before it serves a single customer request. We describe Runway, an internal validation harness built at MasterControl that builds a governed decision pipeline around NVIDIA AIPerf. The key insight is separating concerns: AIPerf provides the trusted measurement, while Runway provides the experiment design that comes before it and the compliance, cost, and audit decisions that come after. We describe the architecture and the storage model that makes caching and audit one mechanism. We report three findings from Runway sweeps: TensorRT-LLM and vLLM rankings invert with concurrency; a newer, pricier GPU instance can be the cheaper one per request; and speculative decoding behaves differently across engines under load, so engine configuration can outweigh engine choice.",
+      "authors": [
+        "Dev Akre",
+        "Roman Bobalo",
+        "Manoj Dobbali"
+      ],
+      "published": "2026-11-09T17:21:17Z",
+      "updated": "2026-11-09T17:21:17Z",
+      "categories": [
+        "cs.SE",
+        "cs.LG",
+        "cs.PF"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.12737v1",
+      "abs_url": "http://arxiv.org/abs/2611.12737v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 43,
+        "novelty": 90.1,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 46.3,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 90、质量 43"
       ],
       "summary_zh": null
     }
