@@ -1,286 +1,519 @@
 {
-  "date": "2026-11-12",
-  "generated_at": "2026-11-12T07:32:40.784710+00:00",
-  "candidate_count": 168,
-  "selected_count": 9,
+  "date": "2026-11-13",
+  "generated_at": "2026-11-13T07:03:21.271098+00:00",
+  "candidate_count": 180,
+  "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2611.14263v1",
-      "title": "Chain of Physics: Supporting Fault Diagnosis with Engineering-Inspired Large Language Model Reasoning",
-      "abstract": "Fault diagnosis in complex systems requires linking observed changes in physical quantities to the failure mechanisms that produce them. Experienced engineers perform this task by combining sensor information with knowledge of system behavior and fault propagation. Large Language Models (LLMs) can support this process, but their diagnostic reasoning depends on the availability of asset-specific engineering knowledge and on how this knowledge is represented and used during inference. This work introduces Chain of Physics (CoP), an LLM-based fault-diagnosis framework built around a Constrained Knowledge Graph (CKG) generated automatically from asset-specific reference documentation. CoP addresses failure-sensor association from textual engineering knowledge. The CKG stores diagnostic chains connecting failure modes, changes in physical quantities, and monitoring sensors. During inference, semantically similar graph paths are retrieved for each question and used as both information and in-context examples for the reasoning process. Candidate failure modes are extracted from the question and analysed independently through dedicated LLM calls, which generate plausible failure-to-observation chains. A final decision module compares these chains with the available answer choices. CoP is evaluated on the FailureSensorIQ benchmark across four industrial asset classes and three LLMs. Compared with direct prompting and conventional Retrieval-Augmented Generation (RAG), CoP improves diagnostic accuracy across all evaluated models, with gains ranging from 7.8 to 19.6 percentage points and from 11.7 to 18.2 percentage points, respectively. The results show that structured engineering knowledge can improve LLM-based diagnostic reasoning when graph retrieval is combined with in-context examples of fault propagation.",
+      "paper_id": "2611.16714v1",
+      "title": "Towards Green Text Generation: Memory-Based Speculative Decoding",
+      "abstract": "Speculative decoding accelerates text generation with large language models by letting a cheap draft model propose tokens that a large verifier checks in a single forward pass. We introduce Olifant, a draft model built on a memory-based classifier. It predicts the next token from a four-token window in under 0.3 ms on CPU, requiring no GPU, no backpropagation, and no accelerator memory. We measure throughput and energy under two verifier regimes on consumer hardware. Without a KV cache, drafting is nearly free: a domain-matched Olifant model reaches 38.1% acceptance on EU legal text, delivering 2.43x throughput and 2.51x lower energy per token than the neural verifier model alone. With a KV-cached verifier, itself a ~10x energy saver, drafting costs matter: a TinyLlama draft model halves throughput and triples energy despite high acceptance, whereas Olifant still yields 1.25x throughput and the lowest energy in the study (93 J per 100 tokens, 14x below the uncached baseline). We further show that KV caching decouples time from energy: verification of longer drafts raises power draw, shifting the energy-optimal draft length below the speed-optimal one. Speculative decoding is not dead in the age of fast verifiers, provided drafting is nearly free.",
       "authors": [
-        "Wenqi Zhou",
-        "Leonardo Baldo",
-        "Kai Goebel",
-        "Manuel Arias Chao"
+        "Antal van den Bosch"
       ],
-      "published": "2026-11-10T16:09:44Z",
-      "updated": "2026-11-10T16:09:44Z",
+      "published": "2026-11-12T12:32:14Z",
+      "updated": "2026-11-12T12:32:14Z",
       "categories": [
-        "cs.LG",
-        "eess.SP"
+        "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14263v1",
-      "abs_url": "http://arxiv.org/abs/2611.14263v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.16714v1",
+      "abs_url": "http://arxiv.org/abs/2611.16714v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 0.63
+        "reasoning": 0.18,
+        "serving": 0.99
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 68,
-        "novelty": 85.0,
+        "relevance": 99.0,
+        "quality": 63,
+        "novelty": 83.9,
+        "practical": 68,
+        "credibility": 28
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 76.4,
+      "score_reasons": [
+        "命中主题：推理时扩展、推理系统",
+        "优势：匹配 99、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.16560v1",
+      "title": "When and How SignSGD Outperforms SGD: A Functional Scaling Law Perspective",
+      "abstract": "We study how the sign operator interacts with gradient noise to shape the learning dynamics and scaling behavior of sign-based optimizers. In power-law kernel regression with diagonal features, we establish a functional scaling law (FSL) for SignSGD under general learning rate schedules. The FSL describes the learning dynamics through two processes: signal learning and noise forgetting. The key mechanism is noise-induced preconditioning: gradient noise smooths the sign operator, inducing an effective preconditioned SGD. Noise-curvature alignment enables this preconditioning to transform the effective Hessian from $\\mathbf{H}$ to $\\mathbf{H}^{1/2}$. The resulting dynamics exhibit faster signal learning but slower noise forgetting than SGD. This tradeoff yields a regime-dependent comparison with SGD: (i) SignSGD achieves improved data efficiency in the hard-task regime; (ii) both optimizers achieve the same data efficiency in the easy-task regime, but SignSGD maintains this efficiency at larger batch sizes, requiring fewer optimization steps for a fixed data budget. Power-law kernel regression experiments support the proposed mechanism and predicted scaling behavior. LLM pre-training experiments further suggest that the SignSGD FSL better captures the batch-size dependence of loss dynamics for sign-based optimizers than the original SGD FSL.",
+      "authors": [
+        "Zilin Wang",
+        "Binghui Li",
+        "Jia-Nan Wang",
+        "Lean Wang",
+        "Jinbo Wang",
+        "Lei Wu"
+      ],
+      "published": "2026-11-12T09:47:04Z",
+      "updated": "2026-11-12T09:47:04Z",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.16560v1",
+      "abs_url": "http://arxiv.org/abs/2611.16560v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.99,
+        "post-training": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 60,
+        "novelty": 87.3,
         "practical": 18,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 60.1,
+      "score": 71.6,
       "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 85、质量 68"
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：匹配 99、新颖 87"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.14419v1",
-      "title": "Evaluating LLM-Generated World Models for Neuro-Symbolic Reasoning",
-      "abstract": "Formal world models can support planning, verification, and safety reasoning, but constructing them from open-ended natural-language situations is difficult, particularly in multi-agent settings where several formalizations may be plausible. We study whether five LLMs can generate such world models as partially observable stochastic games and whether mechanical validity is sufficient to establish that the resulting model faithfully represents the intended decision problem. We introduce a benchmark of 44 scenarios spanning game, situational, and cultural settings and evaluate generated world models along three dimensions: mechanical validity, reference-relative structural agreement, and semantic criteria. Across three empirical tracks, we analyze 410 first-pass generations. In the reference-backed game track, 134/135 generated world models pass a strict mechanical audit, yet mean permutation-invariant structural F1 is only 0.366, with just 28/134 mechanically valid models exactly matching the authored reference. In the cultural track, explicitly naming the country changes the generated structural representation for most LLMs while producing only small changes in automated semantic scores. These results show that executability is a necessary but insufficient criterion for LLM-generated world models: models that are mechanically valid can still differ substantially in the structure used by downstream neuro-symbolic reasoning and planning.",
+      "paper_id": "2611.16895v1",
+      "title": "Human or Synthetic? What a Fixed Budget Buys for Post-Training",
+      "abstract": "Post-training of large language models typically combines supervised fine-tuning (SFT) with preference-based fine-tuning such as Direct Preference Optimization (DPO). Human-annotated and synthetically generated preference data differ substantially in per-sample cost, but prior work typically holds sample count fixed when comparing the two. In this work, we explicitly study the interplay between cost and performance by comparing the effect of post-training with human and synthetic preference data under a fixed, dollar-matched annotation budget. We train and evaluate multiple base model families across helpfulness and summarization tasks. We find that synthetic data is far more cost-efficient at low-to-moderate budgets, achieving high win rates with as little as \\$200--\\$400. On helpfulness, human data closes the gap only at budgets roughly two orders of magnitude larger; on summarization, it does not close the gap at any tested budget. We also find that human-annotated data varies in reliability: one widely used human preference source substantially underperforms another, and the gap persists even after standard remedies such as domain restriction and deduplication.",
       "authors": [
-        "Souhaila Djaffal",
-        "Amna Jamal",
-        "Gagana Madhugiri Devaraja",
-        "Anidipta Pal",
-        "Jobst Heitzig"
+        "Shourik Banerjee",
+        "Ethan Mendes",
+        "Mohit Raghavendra",
+        "Wei Xu",
+        "Alan Ritter"
       ],
-      "published": "2026-11-10T17:58:12Z",
-      "updated": "2026-11-10T17:58:12Z",
+      "published": "2026-11-12T14:51:51Z",
+      "updated": "2026-11-12T14:51:51Z",
       "categories": [
-        "cs.AI"
+        "cs.CL",
+        "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14419v1",
-      "abs_url": "http://arxiv.org/abs/2611.14419v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.16895v1",
+      "abs_url": "http://arxiv.org/abs/2611.16895v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 0.63
+        "post-training": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 39,
+        "novelty": 82.2,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 67.2,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：匹配 99、新颖 82"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.16816v1",
+      "title": "Outcome-Mass Alignment: Controlling Length-Dependent Trajectory Influence in Multi-Turn LLM Agent Reinforcement Learning",
+      "abstract": "To keep long interaction contexts tractable, stepwise group-relative training for multi-turn LLM agents materializes each source trajectory into multiple response rows and valid tokens. This expansion creates an outer-accounting problem distinct from within-trajectory credit assignment: row-based outcome statistics can count one episode outcome multiple times, while token-level reduction can assign unequal aggregate objective mass across trajectories. We term these effects outcome-statistics multiplicity and objective-mass imbalance. We introduce Outcome-Mass Alignment (OMA), a two-component method that makes both accounting choices explicit. Outcome Alignment computes outcome statistics over unique source trajectories, while Mass Alignment controls aggregate objective mass after within-trajectory aggregation of optimizer-native token objectives. Neither redesigns the base optimizer's credit assignment, importance ratios, or clipping. Across matched ALFWorld GRPO comparisons at two model scales, where failed trajectories typically expand much more than successful ones, OMA improves matched-horizon endpoint success by 7.0-9.4 percentage points. Ordinary WebShop exhibits weak or reversed expansion-outcome coupling and correspondingly mixed effects, whereas in a success-oriented WebShop setting, WebShop-SOL, OMA improves success nAUC from 0.399 to 0.511. Component ablations and GiGPO and GSPO comparisons further support component separability and cross-optimizer compatibility. These results show that trajectory expansion always defines an implicit weighting rule, but its practical effect depends on how expansion couples to outcomes and optimizer-native updates.",
+      "authors": [
+        "Dawei Zhang",
+        "Yubin Huangfu",
+        "Jessica Fan",
+        "Boyu Wei",
+        "Likang Wu",
+        "Hongke Zhao",
+        "Ming He",
+        "Zhu Teng"
+      ],
+      "published": "2026-11-12T13:52:12Z",
+      "updated": "2026-11-12T13:52:12Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.16816v1",
+      "abs_url": "http://arxiv.org/abs/2611.16816v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 59,
+        "novelty": 87.8,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.8,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐",
+        "优势：新颖 88、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.16882v1",
+      "title": "Pretraining Data Statistics Shape the Phases of Learning Entity Comparison in Language Models",
+      "abstract": "How does data shape language model (LM) behavior throughout pretraining? We investigate this question through a case study on entity comparison, e.g., Between France and Brazil, which country is larger?, across nine comparison tasks spanning five entity types. We begin with controlled experiments in which we train small LMs (163M parameters) on mixtures of natural text from pretraining corpora and synthetic task data. Our analysis identifies three distinct phases of learning: (1) an early phase where the LM selects entities by frequency, (2) a middle phase where the LM selects entities by position in the prompt (first vs. last mentioned entity), and (3) a late phase where the LM selects the entity that is the correct answer. We show that the emergence of these three phases is causally determined by statistical properties of the training data. With small amounts of task-specific synthetic data, we observe only the first two phases and the model fails to learn the task; with large amounts, the model jumps directly from the frequency-based heuristic to solving the task correctly. Moreover, changing the entity frequency distribution from a naturally occurring Zipfian distribution (a small number of entities are very common and the vast majority are rare) to a uniform one weakens the frequency phase and speeds up learning of the task. Lastly, we show that the three phases of training dynamics from our controlled experiments appear in the open source model OLMo-2 32B. Together, our findings demonstrate that properties of pretraining data are causal drivers of heuristic learning and show that small-scale synthetic experiments can predict training dynamics at larger scales.",
+      "authors": [
+        "Yik Siu Chan",
+        "Jing Huang",
+        "Yanai Elazar",
+        "Atticus Geiger"
+      ],
+      "published": "2026-11-12T14:45:34Z",
+      "updated": "2026-11-12T14:45:34Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.16882v1",
+      "abs_url": "http://arxiv.org/abs/2611.16882v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 51,
+        "novelty": 85.4,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 62.3,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 85、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.17105v1",
+      "title": "Predicting Ethanol Drinking Status from Nonhuman Primate Liver Histology: A Proof of Concept for Parameter-efficient Fine-tuning in Few-Shot Vision-Language Modeling",
+      "abstract": "Combining vision-language models (VLMs) with parameter-efficient fine-tuning (PEFT) offers a promising approach to few-shot whole-slide image (WSI) classification in computational pathology. This study evaluates this approach for predicting ethanol drinking status from nonhuman primate liver histology. Adapters are evaluated against non-PEFT configurations on a subset of the Monkey Alcohol Tissue Research Resource (MATRR). All evaluated PEFT configurations achieve higher mean balanced accuracy than the non-PEFT baselines. For example, in the four-shot setting, attention-based multiple instance learning (ABMIL) alone achieves 43.5% mean balanced accuracy, compared with 78.1% after adding an adapter. Qualitative attention analysis shows that textual pathway adaptations produce localized attention heatmaps, while visual pathway adaptations produce more diffuse ones. A pathologist's review identified similar histological features across adaptations.",
+      "authors": [
+        "Amirmohammad Mohammadi",
+        "Rupak Khadka",
+        "Kathleen A. Grant",
+        "Mary Lauren Benton",
+        "Joshua Peeples"
+      ],
+      "published": "2026-11-12T17:02:27Z",
+      "updated": "2026-11-12T17:02:27Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.17105v1",
+      "abs_url": "http://arxiv.org/abs/2611.17105v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
         "quality": 60,
-        "novelty": 86.4,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 58.2,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 86、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.14323v1",
-      "title": "Auditing the Judge: Internal Signals for LLM Reasoning Assurance",
-      "abstract": "Language-model systems use self-judgment to decide which answers to release, review, or recompute. Because intervention is costly, an assurance score must rank errors well at the available budget, not merely over the full ranking. We compare the judge's continuous verdict-token score with a supervised correctness probe trained on attention-head activations from the same prompt. Exact identities link fixed-budget error recall to residual risk and show that AUROC averages recall over all budgets. Across three open 7-12B models on GSM8K and MATH, the probe finds 1.3-22.5 additional percentage points of errors at 5% review in all six model-dataset settings (median 7.4 points). At 10% routing, probe-guided allocation improves accuracy over equal-cost random allocation in both GSM8K experiments, but beats judge-guided routing only for the weaker judge. Cross-dataset transfer lowers probe AUROC for every model in both directions relative to target-domain training. Because dataset, weight precision, and generation budget change together, this measures a joint protocol shift rather than a dataset-only effect. Internal signals can improve supervised, in-domain budget allocation, but are not domain-general confidence estimators.",
-      "authors": [
-        "Mayank Gulati",
-        "Gerhard Wunder"
-      ],
-      "published": "2026-11-10T16:48:21Z",
-      "updated": "2026-11-10T16:48:21Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14323v1",
-      "abs_url": "http://arxiv.org/abs/2611.14323v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.45
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 45.0,
-        "quality": 72,
-        "novelty": 85.1,
+        "novelty": 89.6,
         "practical": 27,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 55.5,
+      "score": 59.7,
       "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 85、质量 72"
+        "命中主题：微调与对齐",
+        "优势：新颖 90、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.14209v1",
-      "title": "Breakdown of Autoregressive Multi-Step Reasoning Under Concentrated vs. Diffuse Attention Head Dropout",
-      "abstract": "During extended wakefulness, mammalian neocortical networks experience localized periods of transient neuronal silence termed off-states. Here, we examine how analogous spatiotemporally concentrated disruptions affect sequential reasoning in autoregressive Large Language Models (LLMs). Evaluating 250 paired derivations on the GSM8K benchmark across two 8B models (Qwen3-8B and LLaMA-3.1-8B-Instruct), we contrast clustered bursts of attention head masking against budget-matched diffuse i.i.d. dropout. Concentrated bursts induce substantial reasoning degradation: at onset parameter $\\mathcal{B}=0.10$ (scheduling $\\sim 5.7\\%$ of vulnerable head-token volume), Qwen3-8B accuracy drops from $91.2\\%$ under diffuse noise to $78.8\\%$ under burst dropout ($Δ= -12.4$ percentage points [pp], exact McNemar $p = 5.5 \\times 10^{-6}$), while LLaMA-3.1-8B-Instruct drops from $84.0\\%$ to $76.8\\%$ ($Δ= -7.2$ pp, $p = 0.0198$). Conversely, dispersing the identical cumulative budget uniformly across generation steps via stratified quintile matching yields substantially milder degradation (retaining $91.2\\%$ in Qwen and $84.0\\%$ in LLaMA). In an exploratory factorial dissociation ($N=100$), single-step dropout density is associated with an acute drop in a single schedule draw ($-10.0$ pp on Qwen, $p_{\\text{holm}} = 0.0425$), while multi-token continuity exhibits an inconclusive compounding trend ($-7.0$ pp, $p_{\\text{holm}} = 0.1892$). Error analysis reveals that Qwen failures reflect derivation errors within formatted responses (conditional accuracy drop of $-11.4$ pp), whereas in LLaMA $22.2\\%$ of discordant losses lack a final answer format line (conditional gap narrows to $-5.0$ pp). These findings demonstrate that autoregressive reasoning chains are particularly vulnerable to concentrated structural disruptions, providing empirical benchmarks for fault tolerance in transformer architectures.",
+      "paper_id": "2611.16856v1",
+      "title": "Sustainable Federated Fine-Tuning with LoRA: Environmental Impact and Performance Footprint",
+      "abstract": "Federated Learning (FL) with Parameter-Efficient Fine-Tuning (PEFT) enables efficient adaptation of Large Language Models (LLMs), yet its energy and carbon costs across hardware remain poorly understood. We evaluated federated Low-Rank Adaptation (LoRA) fine-tuning on NVIDIA A40, RTX 6000 Ada, and A100 GPUs using a $2^2$ full factorial design with 135M/360M models and 10/100 local steps. CodeCarbon tracked energy and estimated CO$_2$-equivalent emissions. Descriptive allocation of variation assigned 84.8-91.2% of energy and emissions variation to local steps within these ranges. On A40 and RTX 6000 Ada, configurations with fewer steps achieved comparable accuracy with roughly 6-8-fold lower energy consumption and higher accuracy per kWh. These findings support smaller local budgets for energy-efficient federated fine-tuning within the evaluated setting.",
       "authors": [
-        "Karol Struniawski"
+        "Pedro Augusto Londe Ribeiro",
+        "Rodrigo Moreira",
+        "Larissa Ferreira Rodrigues Moreira",
+        "Joberto S. B. Martins",
+        "Tereza C. Carvalho",
+        "Flávio de Oliveira Silva"
       ],
-      "published": "2026-11-10T15:29:57Z",
-      "updated": "2026-11-10T15:29:57Z",
+      "published": "2026-11-12T14:30:10Z",
+      "updated": "2026-11-12T14:30:10Z",
       "categories": [
-        "cs.AI",
-        "cs.CL"
+        "cs.LG",
+        "cs.NI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14209v1",
-      "abs_url": "http://arxiv.org/abs/2611.14209v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.16856v1",
+      "abs_url": "http://arxiv.org/abs/2611.16856v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 0.63
+        "post-training": 0.63,
+        "efficiency": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
         "quality": 51,
-        "novelty": 88.8,
-        "practical": 18,
-        "credibility": 28
+        "novelty": 89.6,
+        "practical": 45,
+        "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 55.5,
+      "score": 59.2,
       "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 89、匹配 63"
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：新颖 90、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.14504v1",
-      "title": "Emergent Biological Capabilities in a Foundation Model for Molecular Interactions",
-      "abstract": "Foundation models trained on large unlabeled corpora develop emergent capabilities, tasks that go beyond the training objective. We extend this paradigm to multimodal biology with Bonbon, a foundation model for molecular interactions trained on approximately 3.2 trillion tokens of paired protein-ligand sequences. From a single representation space, Bonbon exhibits three zero-shot emergent capabilities at hierarchical levels of resolution: functional (mechanism of action), residue (binding site localization, including orthosteric/allosteric discrimination), and bond (covalent versus non-covalent engagement). All three capabilities generalize to out-of-distribution complexes. Bonbon was trained on protein-ligand sequences alone, without any task-specific supervision and without structural coordinates. We conducted controlled scaling experiments across six model scales from 42M to 1.6B parameters; every capability evaluated shows a sharp jump at the largest scale on continuous metrics, even as pretraining loss decreases smoothly. This demonstrates that loss-based scaling laws alone are insufficient to predict when zero-shot emergent capabilities become available. The capabilities reported here emerge after training at a 1:2,000 parameter-to-token ratio to accommodate the sparsity of paired biological interaction data. The same frozen representations achieve state-of-the-art binding and affinity prediction at five orders of magnitude greater speed than co-folding methods. In prospective wet-lab validation across nine disease targets spanning seven protein families, Bonbon achieves a 61.5% dose-response hit rate on de novo compounds, yielding structurally novel molecules not previously reported to inhibit these proteins, including for out-of-distribution targets.",
+      "paper_id": "2611.17128v1",
+      "title": "Parameter-Efficient Conciseness Adaptation: Differentiable Length Control for Concise Clinical Reasoning in Smaller Language Models",
+      "abstract": "Smaller language models (SLMs) make it feasible to deploy clinical natural language processing where large proprietary models are too costly, and parameter-efficient fine-tuning allows them to be specialised on commodity hardware. One obstacle persists after training: on medical tasks these models answer at far greater length than the clinical question requires. In clinical decision support and point-of-care use, where time is short, such verbosity is hard to act on even when the underlying reasoning is sound. Existing length-control methods depend on preference optimisation, reward models, or proprietary teachers that undercut the accessibility making SLMs attractive. We introduce Parameter-Efficient Conciseness Adaptation (PECA), which adds a single differentiable conciseness term to the QLoRA supervised fine-tuning objective. Because the token count is discrete and non-differentiable, PECA instead raises the end-of-sequence probability once generation exceeds a token budget, a smooth signal optimised during ordinary training, with no preference data, no auxiliary model, and a single commodity GPU. On a 1.7-billion-parameter model fine-tuned on the medical-o1-reasoning-SFT corpus, PECA reduces mean response length by 72.8% while improving multiple-choice diagnostic accuracy from 40.8% to 44.0%. A sweep over the conciseness strength traces an interpretable accuracy-to-length frontier for balancing brevity and diagnostic completeness.",
       "authors": [
-        "Adi Mashiach"
+        "Tanzeel Abbas",
+        "Ahmad Kamran Malik",
+        "Nafees Qamar",
+        "Sana Liaqat"
       ],
-      "published": "2026-11-10T18:53:01Z",
-      "updated": "2026-11-10T18:53:01Z",
+      "published": "2026-11-12T17:21:12Z",
+      "updated": "2026-11-12T17:21:12Z",
       "categories": [
-        "cs.LG",
-        "q-bio.BM"
+        "cs.CL",
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14504v1",
-      "abs_url": "http://arxiv.org/abs/2611.14504v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.17128v1",
+      "abs_url": "http://arxiv.org/abs/2611.17128v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 50,
+        "novelty": 87.1,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.5,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.16502v1",
+      "title": "SignRot: LLM Quantization with Massive Outlier-Aware Sign-Adjusted Rotation",
+      "abstract": "While quantization compresses LLMs and accelerates inference, outlier activations impede efficient low-bit representation. In particular, massive outliers cause substantial performance degradation. Although rotation-based methods that rely on randomized Hadamard transforms for online inference aim to mitigate this, they can produce fragmented distributions with empty bins when a massive outlier dominates a token's activation. This fragmentation severely undermines uniform quantization performance. Moreover, massive outliers concentrate in the down-projection input, where the preceding nonlinearity requires the rotation to be applied at inference time. This constraint prevents training-based approaches such as SpinQuant from learning the online rotation at this position, as a learned dense matrix cannot use the Fast Walsh-Hadamard Transform and would require a full matrix multiplication during inference. To address this, we propose SignRot (Sign-adjusted Rotation), which identifies massive outlier channels and constructs a sign adjustment vector that unifies the signs of the corresponding Hadamard row, collapsing the bimodal distribution into a unimodal profile amenable to quantization. Since the aligned outlier shifts the activation mean away from zero, we pair SignRot with asymmetric activation quantization, whose zero-point absorbs this shift. As a lightweight, drop-in improvement compatible with any Hadamard-based quantization method, SignRot requires only a single calibration forward pass and adds only element-wise sign flips at inference, without an additional matrix multiplication. Applying SignRot to QuaRot achieves a WikiText2 perplexity of 5.88 and an average zero-shot reasoning accuracy of 72.73, surpassing SpinQuant on the LLaMA3-70B model. Code is available at https://github.com/HYU-ARK-Lab/SignRot.",
+      "authors": [
+        "Jaehun Gim",
+        "Jaewoo Kim",
+        "Gyuwan Kim",
+        "Seo Yeon Park"
+      ],
+      "published": "2026-11-12T09:05:14Z",
+      "updated": "2026-11-12T09:05:14Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.16502v1",
+      "abs_url": "http://arxiv.org/abs/2611.16502v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.18,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 34,
+        "novelty": 86.6,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 52.4,
+      "score_reasons": [
+        "命中主题：推理时扩展、压缩与高效推理",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.17097v1",
+      "title": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving",
+      "abstract": "Large language model (LLM) inference at datacenter scale is fundamentally bottlenecked by memory capacity and bandwidth limits. Because model weights are read-only and identical across instances, conventional architectures that replicate these parameters across the local DRAM of tens of thousands of accelerators incur massive capital expenditures, significant static power dissipation, and redundant memory-fetch energy. A recent proposal to use optical fiber loops as delay-line memory alleviates these issues, but its recirculating loop must hold the whole model: loop length grows with model size, slack is fixed when the ring is built, and the layouts that serve modern Mixture of Experts (MoE) models efficiently do not fit in it. We propose Optical Broadcast Memory (OBM), an open-ended hierarchical Tap-and-Amplify fiber architecture that generalizes and replaces the optical ring paradigm. A centralized memory server continuously broadcasts weights to distributed inference nodes that passively tap the data stream using receive-only co-packaged optics, delivering parameters directly to compute units without intermediate buffering. To overcome the limitations of continuous weight streaming, we use dynamically-sized slack to accommodate large and variable context lengths. We show how removing the restrictions of the optical ring allows OBM to efficiently serve MoE models. Evaluated at a datacenter scale of 80,000 accelerators, OBM eliminates petabytes of HBM while being competitive or better in throughput and energy per token than an HBM-based system.",
+      "authors": [
+        "Hannah Atmer",
+        "Yuan Yao",
+        "Thiemo Voigt",
+        "Stefanos Kaxiras"
+      ],
+      "published": "2026-11-12T16:58:07Z",
+      "updated": "2026-11-12T16:58:07Z",
+      "categories": [
+        "cs.AR",
+        "cs.DC",
+        "cs.ET",
+        "cs.NI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.17097v1",
+      "abs_url": "http://arxiv.org/abs/2611.17097v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "pretraining": 0.36,
-        "efficiency": 0.18
+        "serving": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 72,
-        "novelty": 86.5,
-        "practical": 18,
-        "credibility": 28
+        "quality": 51,
+        "novelty": 87.4,
+        "practical": 54,
+        "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 50.7,
+      "score": 49.9,
       "score_reasons": [
-        "命中主题：预训练与优化、压缩与高效推理",
-        "优势：新颖 86、质量 72"
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 87、实用 54"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.14491v1",
-      "title": "TimeSeek: Multi-Task and Multi-Domain Pretraining for Generalized Time Series Analytics",
-      "abstract": "Time series analytics has been widely applied across various domains. While existing time series foundation models (TSFMs) have demonstrated promising results, they still face two major challenges: 1) Most TSFMs mainly rely on stacking Transformer layers to increase parameter size, lacking the ability to adaptively model complex time series patterns from multi-domain data. 2) Current TSFMs are primarily pre-trained for specific tasks, e.g., forecasting or anomaly detection, and a few models support multiple tasks, but they fail to fully leverage task specificity and commonality, resulting in suboptimal performance. To address these challenges, we propose TimeSeek, a novel generalized time series analytics model that adaptively models time series patterns from multi-domain data and unifies multiple tasks in pre-training. Conceptually, TimeSeek is guided by selective information sharing under domain and task heterogeneity. From the perspective of multi-domain data, we propose a Multi-Domain Feature Extractor that adaptively captures temporal dependencies and channel correlations based on domain-specific characteristics, including progressive multi-scale modeling and adaptive slot channel modeling. From the perspective of the diversity of tasks, we propose multi-task collaborative training, which leverages task specificity and task commonality through task customization and cross-task training, effectively unifying multiple tasks in pre-training and better adapting to diverse downstream scenarios. After pre-training on large-scale time series data, TimeSeek achieves state-of-the-art performance in forecasting, anomaly detection, and classification tasks across both few-shot learning and zero-shot situations, together with favorable inference efficiency.",
+      "paper_id": "2611.16905v1",
+      "title": "Factored One-sided Adam-Moment for Practical and Scalable SOAP",
+      "abstract": "Second-order optimizers (e.g., Shampoo, SOAP) have emerged as compelling alternatives to Adam/AdamW and promise faster per-step convergence than AdamW in transformer training. However, they still remain costly in practice, and even SOAP still pays substantial optimizer-state memory and eigendecomposition overhead. We ask whether the benefits of SOAP can be retained at nearly the efficiency of AdamW. In this paper, we answer yes with a lightweight SOAP variant, Factored One-sided Adam-Moment (FOAM). The path to practical impact is twofold: first, FOAM employs input-only preconditioning, dropping the output-side Kronecker factor to reduce memory and remove one eigendecomposition. The Kronecker structure of the Hessian shows that this is exact for a diagonal output-side curvature and nearly lossless for a near-diagonal one, as we observe empirically. Second, FOAM replaces SOAP's dense rotated second moment with a factored Adam-moment estimator based on row-by-column statistics. Under the K-FAC Fisher assumption with a diagonal output curvature, this estimator exactly recovers SOAP's dense second moment, and we measure only a 15-20% K-FAC violation, with negligible effect on the update. Our empirical results support the claim that FOAM matches strong SOAP and Muon baselines in validation loss across scales of large language model (LLM) pre-training, uses half of SOAP's optimizer state, runs at Muon-class wall-clock time, and retains robustness across a three-fold learning-rate range. The results hold from 124M to 760M parameters, demonstrating that SOAP's gains need not require SOAP's cost. Code: https://github.com/naver-ai/foam",
       "authors": [
-        "Peng Chen",
-        "Yihang Wang",
-        "Zhongwen Rao",
-        "Yang Shu",
-        "Yuying Qiu",
-        "Yuxuan Chen",
-        "Lujia Pan",
-        "Bin Yang",
-        "Chenjuan Guo"
+        "Jaemyung Yu",
+        "Byeongho Heo",
+        "Sangdoo Yun",
+        "Dongyoon Han"
       ],
-      "published": "2026-11-10T18:49:26Z",
-      "updated": "2026-11-10T18:49:26Z",
+      "published": "2026-11-12T14:59:01Z",
+      "updated": "2026-11-12T14:59:01Z",
       "categories": [
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14491v1",
-      "abs_url": "http://arxiv.org/abs/2611.14491v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.16905v1",
+      "abs_url": "http://arxiv.org/abs/2611.16905v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.63
+        "pretraining": 0.36
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 30,
-        "novelty": 83.9,
-        "practical": 18,
+        "relevance": 36.0,
+        "quality": 59,
+        "novelty": 87.8,
+        "practical": 45,
         "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 49.9,
+      "score": 51.1,
       "score_reasons": [
         "命中主题：预训练与优化",
-        "优势：新颖 84、匹配 63"
+        "优势：新颖 88、质量 59"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.13831v1",
-      "title": "Ceci n'est pas une pipe -- Toward a Symbolic Solver for the Abstraction and Reasoning Corpus Using Evolutionary Computation",
-      "abstract": "The Abstraction and Reasoning Corpus (ARC) is a benchmark designed to assess the capability of Artificial Intelligence (AI) systems to generalize starting from a few samples, a task humans excel at. The ARC-AGI contests held since 2020 have been the focus of intense competition, with participants proposing approaches ranging from traditional symbolic AI to Transformer architectures. Despite a long history of successes, evolutionary algorithms (EAs) were notably absent from the approaches appearing in the main contest. As score-and-search program synthesis approaches, EAs suffer from issues related to choosing the proper representation in the Domain-Specific Language applied to the problem (for example, pixel-level or object-level), and distinguishing between two candidate solutions producing the same outputs. In this work, we present the first fully symbolic, evolutionary-based program synthesis approach submitted to the ARC-AGI-2 main contest. The main contributions are: evolving the grid parser and the output projector together with the program that transforms the grid, so that a task-specific language emerges during program synthesis; grounding the symbols the parser can extract in core knowledge theory from cognitive psychology; and an object-aware fitness that grades partially correct outputs beyond pixel-level discrepancies.",
+      "paper_id": "2611.17304v1",
+      "title": "Where LLM Agents Get Stuck Debugging Databases: Access More Than Reasoning",
+      "abstract": "Large language model (LLM) coding agents are increasingly asked not only to write code but to debug running systems from live runtime data. We report a field observation of one such agent (Claude Code) as it diagnosed eight database incidents in a production message-dispatch engine. In every incident whose root cause depended on runtime concurrency, the agent announced a cause, shipped a fix, and later walked it back, and each wrong guess cost a deploy-and-observe cycle. Mapping each incident to what the agent lacked, we find that access to production state was the most pervasive bottleneck. The missing access included live lock views, untruncated deadlock reports, read-only execution, and an explicit environment context. An access gap was present in all five concurrency-dependent incidents: alone in one, and in four combined with a reasoning error such as anchoring on an early cause, incomplete exploration of the configuration, or a misreading of the code's transaction semantics. The three incidents that did not depend on concurrency needed nothing beyond what the agent already had. Within the incidents, the agent's wrong hypotheses were consistent with the evidence it could see; they were not fabrications. We argue that the next step for production-debugging agents is a forensics layer that gives the agent the access it lacks inside existing security controls. Such a layer would combine a safe interrogation API, a lock-and-deadlock flight recorder, and a production replay harness.",
       "authors": [
-        "Luca Favole",
-        "Giorgio Mongardi",
-        "Giovanni Squillero",
-        "Alberto Tonda"
+        "Gustavo Pinto"
       ],
-      "published": "2026-11-10T09:57:01Z",
-      "updated": "2026-11-10T09:57:01Z",
+      "published": "2026-11-12T18:56:22Z",
+      "updated": "2026-11-12T18:56:22Z",
       "categories": [
-        "cs.AI"
+        "cs.SE"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.13831v1",
-      "abs_url": "http://arxiv.org/abs/2611.13831v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.17304v1",
+      "abs_url": "http://arxiv.org/abs/2611.17304v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -292,105 +525,18 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 39,
-        "novelty": 92.6,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 53.7,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 93、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.14122v1",
-      "title": "Hx2Dx: From Anamnesis to Diagnosis - A Multimodal Arena for Conversational Clinical Reasoning in LLMs",
-      "abstract": "Large language models (LLMs) achieve expert-level diagnostic accuracy in static evaluations, where the model receives a curated vignette or case report that already condenses the diagnostically relevant findings. Such evaluations measure inference over already selected evidence; the evaluations do not account for the inquiry used to obtain it. In clinical practice, however, diagnosis is an iterative process of inquiry. Clinicians take the patient's history, or anamnesis (Hx), through targeted questioning, examine the patient, and request and interpret tests, progressively narrowing the differential until they reach a final diagnosis (Dx). We introduce Hx2Dx ARENA, an interactive benchmark of 1'000 clinical cases from the New England Journal of Medicine (NEJM). Each case is a simulated encounter that proceeds from initial presentation through history taking and physical examination to diagnostic workup. We evaluate open- and closed-source LLMs under multiple configurations. Performance varies considerably across models in the interactive setting, and every model loses diagnostic accuracy relative to the static setting, where the full case is presented upfront. The ability to ask the right questions accounts for much of both the gap between models and the loss of accuracy: diagnosis improves as questions become more targeted and build a more complete clinical picture. LLMs thus reason well once the relevant data are available but remain limited in hypothesis-driven information gathering, in knowing what to ask in order to know. Closing this gap is a prerequisite for their safe integration into real-world diagnostic workflows.",
-      "authors": [
-        "Federico Ravenda",
-        "Mirko Cesarini",
-        "Daniele Montagnani",
-        "Volodymyr Karpenko",
-        "Antonietta Mira",
-        "Andrea Raballo"
-      ],
-      "published": "2026-11-10T14:09:33Z",
-      "updated": "2026-11-10T14:09:33Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14122v1",
-      "abs_url": "http://arxiv.org/abs/2611.14122v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.45
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 45.0,
-        "quality": 60,
-        "novelty": 84.0,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 51.2,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 84、质量 60"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.14382v1",
-      "title": "Cognitive Mapping of Learning by Thinking Mechanisms in Large Language Models",
-      "abstract": "Large language models (LLMs) increasingly exhibit capabilities that resemble human Learning by Thinking (LbT), the acquisition of new insight through internal processes such as explanation and reasoning, without new external input. A systematic account of the cognitive mechanisms behind these capabilities, and of their limits, remains underdeveloped. This paper proposes a Cognitive LbT Framework that maps four mechanisms (Reflective Reasoning, Synthetic Memory Formation, Internal Simulation, and Conceptual Self-Organization) onto computational processes in LLMs. Drawing on representative methods, including chain-of-thought prompting, self-consistency, self-reflection, Tree-of-Thoughts search, Self-Instruct, and self-taught reasoning, the analysis argues that selected methods can functionally approximate aspects of these mechanisms and can improve performance on some tasks without additional labeled examples, although this does not always constitute durable learning in model parameters. For example, Self-Instruct generated approximately 52,000 instructions from 175 seed tasks and reported a 33% absolute improvement on Super-NaturalInstructions (Y. Wang et al., 2023). The same mechanisms also produce characteristic failures, including hallucination diffusion, model collapse, concept drift, and high computational cost. These failures are not isolated technical defects but follow from four structural asymmetries between LLMs and human cognition: the identity of generator and monitor, closed learning loops without external grounding, symbolic rather than sensorimotor simulation, and the cost of inference-time computation. The framework yields testable propositions about when LbT in LLMs should succeed or fail and offers a structured basis for designing more reliable autonomous learning systems.",
-      "authors": [
-        "Dong Han",
-        "Jin Zhang",
-        "Kunyue Yang"
-      ],
-      "published": "2026-11-10T17:37:13Z",
-      "updated": "2026-11-10T17:37:13Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.14382v1",
-      "abs_url": "http://arxiv.org/abs/2611.14382v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.36
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 54,
-        "novelty": 87.0,
-        "practical": 36,
-        "credibility": 35
+        "quality": 34,
+        "novelty": 88.5,
+        "practical": 27,
+        "credibility": 28
       },
       "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 48.7,
+      "score": 51.9,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 87、质量 54"
+        "优势：新颖 88、匹配 63"
       ],
       "summary_zh": null
     }
