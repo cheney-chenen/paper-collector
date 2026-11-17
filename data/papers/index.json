@@ -51577,5 +51577,640 @@
       "优势：新颖 89、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2611.21216v1": {
+    "paper_id": "2611.21216v1",
+    "title": "MiSTiQ: MicroScaling Trellis Quantization for Extreme KV Cache Compression",
+    "abstract": "Modern large language models (LLMs) increasingly support longer contexts and serve more concurrent requests, increasing both sequence lengths and batch sizes. Both trends increase KV-cache size and memory traffic during inference. KV-cache quantization reduces these costs, with recent approaches using codebook-based vector quantization to achieve extremely low bit widths. However, hardware constraints limit codebook size, and most methods reconstruct the cache in higher-precision floating-point formats for attention, limiting the computational benefits of quantization. To address these limitations, we introduce MiSTiQ, a drop-in replacement for codebook-based vector quantizers that combines trellis-coded storage with microscaling (MX) formats for low-precision computation. We combine trellis quantization with beam search to encode the KV cache over large reconstruction spaces without large codebooks. To support MX computation, we derive MX-Hash functions that generate reconstruction values directly in the target MX element format. These functions use the scale-conditioned marginal distribution of block-normalized Gaussian inputs. On Llama3 and Qwen3, MiSTiQ achieves lower WikiText perplexity and higher GSM8K accuracy than the evaluated baselines across several block-scale formats at approximately 1.25 effective bits per element. With NVFP4, it also achieves the highest LongBench average on both models.",
+    "authors": [
+      "Ofir Gordon",
+      "Lior Dikstein",
+      "Paul Balanca",
+      "Idan Achituve",
+      "Douglas Orr",
+      "Hai Victor Habi"
+    ],
+    "published": "2026-11-16T15:07:41Z",
+    "updated": "2026-11-16T15:07:41Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21216v1",
+    "abs_url": "http://arxiv.org/abs/2611.21216v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.63,
+      "efficiency": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 56,
+      "novelty": 85.6,
+      "practical": 36,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 72.6,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：匹配 100、新颖 86"
+    ],
+    "summary_zh": null
+  },
+  "2611.21295v1": {
+    "paper_id": "2611.21295v1",
+    "title": "Deep Learning for Physicists: From Linear Regression to Reasoning Models",
+    "abstract": "These lecture notes are based on an introductory course on neural networks and deep learning that the author taught in the School of Mathematical Sciences at Queen Mary University of London in 2023/24 and 2024/25. The author, however, is a physicist, and it shows: wherever possible, ideas are explained with physical intuition rather than heavy formalism. Readers with a background in physics or mathematics who want a self-contained, introductory route into modern machine learning may therefore find these notes particularly friendly. The notes start from maximum likelihood, least squares, linear regression and (stochastic) gradient descent. They then cover neural networks, backpropagation, the vanishing gradient problem, batch and layer normalization, overfitting and regularization, adversarial examples, and the kernel method. The second half turns to natural language processing: word embeddings, recurrent networks and LSTMs, the attention mechanism and Transformers, and large language models, including scaling laws, the history of GPT, instruction tuning, reinforcement learning from human feedback, hallucination, alignment faking, chain-of-thought reasoning and test-time scaling. The emphasis on large language models reflects requests from the students. The notes are aimed at third- and fourth-year students in the UK system. Because the course was also taken by students from other departments, very little is assumed: even basic material such as matrix multiplication is explained from scratch, so readers familiar with it can safely skip such parts. No originality is claimed; the aim is a coherent, intuitive path through the material. Developments after spring 2025 are not covered, but the basic ideas emphasized here are unlikely to go out of date soon.",
+    "authors": [
+      "Masanori Hanada"
+    ],
+    "published": "2026-11-16T15:56:53Z",
+    "updated": "2026-11-16T15:56:53Z",
+    "categories": [
+      "cs.LG",
+      "hep-lat",
+      "hep-th",
+      "physics.comp-ph"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21295v1",
+    "abs_url": "http://arxiv.org/abs/2611.21295v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.54,
+      "reasoning": 1.0
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 100.0,
+      "quality": 54,
+      "novelty": 90.2,
+      "practical": 18,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 70.1,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、推理时扩展",
+      "优势：匹配 100、新颖 90"
+    ],
+    "summary_zh": null
+  },
+  "2611.21094v1": {
+    "paper_id": "2611.21094v1",
+    "title": "Conflict-Aware Multi-Teacher On-Policy Distillation in Aligned Action Spaces for Cross-Game Generalization",
+    "abstract": "Zero-shot cross-game generalization aims to consolidate accessible source-game experts into a single vision-language model (VLM) that controls unseen games from raw pixels without target-game parameter updates. While multi-teacher on-policy distillation (MOPD) mitigates offline exposure bias and single-game reinforcement learning (RL) overfitting, scaling it to autoregressive VLMs faces two bottlenecks. First, token-to-action misalignment from subword length bias distorts discrete action probabilities and uncertainty margins. Second, multi-teacher policy conflict arises as source teachers under incompatible dynamics issue contradictory closed-loop corrections, causing negative transfer. We propose CAMOPD (Conflict-Aware Multi-Teacher On-Policy Distillation), a post-training framework that resolves multi-teacher policy conflict within an aligned semantic action space. CAMOPD first uses complete-action alignment to normalize command completion likelihoods over each game's legal action set, forming a calibrated categorical policy that provides reliable uncertainty margins for selective on-policy retention and visual specialist probes that can be evaluated across source games. To resolve policy conflict without target-game data, conflict-aware multi-teacher consolidation cross-evaluates these specialists across source games to capture both visual identifiability and inter-teacher compatibility, upweighting compatible teachers while suppressing conflicting corrections. On GameWorld's temporal and directional transfer suites with Qwen3.5-4B, CAMOPD achieves 26/30 (86.7%) and 24/30 (80.0%) Task-1 zero-shot success on unseen GeoDash and Doodle Jump, outperforming prompting, weight-merging, and multi-task baselines.",
+    "authors": [
+      "Jing Yi",
+      "Cehao Yang",
+      "Hualei Zhang",
+      "Haitao Li"
+    ],
+    "published": "2026-11-16T13:40:17Z",
+    "updated": "2026-11-16T13:40:17Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21094v1",
+    "abs_url": "http://arxiv.org/abs/2611.21094v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 69,
+      "novelty": 88.7,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 61.0,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 89、质量 69"
+    ],
+    "summary_zh": null
+  },
+  "2611.21178v1": {
+    "paper_id": "2611.21178v1",
+    "title": "TRACK: Tool-Augmented Reasoning over Time Series for Fault Diagnosis in Power Management System",
+    "abstract": "Fault diagnosis in power management systems running multiple loads relies on experts manually inspecting current and voltage waveforms, which fails to scale across deployed units. We present TRACK, which pairs a time series encoder with a Small Language Model to produce structured, physics-grounded diagnostic reports, calling tools for exact, verifiable calculations. It operates on-device, keeping proprietary sensor data local and avoiding expensive API calls. We introduce a rubric-based framework that evaluates these reports by scoring structure, signal fidelity, physics reasoning, diagnosis, and actionability through per-criterion verdicts. On a 15-class multi-load simulated benchmark, TRACK achieves over 95% fault-category accuracy and generalizes to out-of-distribution faults, whereas the best encoder-probing baseline reaches only 58% accuracy.",
+    "authors": [
+      "Erkan Bayram",
+      "Debanjan Ghosh",
+      "Li Zhu",
+      "Sambarta Dasgupta"
+    ],
+    "published": "2026-11-16T14:39:13Z",
+    "updated": "2026-11-16T14:39:13Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL",
+      "eess.SY"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21178v1",
+    "abs_url": "http://arxiv.org/abs/2611.21178v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 61,
+      "novelty": 86.2,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 59,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 58.5,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 86、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.21208v1": {
+    "paper_id": "2611.21208v1",
+    "title": "Validating LLM-Based Essay Scorers: A Comparative Analysis in Critical Online Reasoning in Medical Education",
+    "abstract": "Automated essay scorers (AES) based on large language models (LLMs) promise human-level accuracy. However, training, fine-tuning, and evaluating LLMs for specific assessment tasks is costly. In particular, the question arises whether these AES should be trained for specific domains or whether models based on generic LLMs might be sufficient. Human annotations, by contrast, are often more valid but far more expensive. This study evaluates whether ensembles of AES systems based on general-purpose LLMs can approximate human ratings of medical-education writing tasks by leveraging encoded linguistic and conceptual knowledge. The goal is to assess whether general-purpose models are applicable for assisting or potentially replacing human annotation in this domain. We experiment with 11 AES systems and 8 different LLMs and evaluate 668 student responses to 12 tasks, using \\numprint{2076} evaluations by 7 human annotators. These ratings are aggregated to create consistent performance levels that can be used as target classes for classifiers trained on AES outputs. Our results show that learner classes based on human ratings can be accurately reconstructed using a linear SVM trained on a small set of AES features. A single classifier generalized well across tasks and domains, with reasoning and content features being most predictive. This suggests that out-of-the-box LLMs, even without domain-specific fine-tuning, can support automatic essay grading in medical education. While individual AES systems are insufficient alone, their combination approximates human evaluators, pointing to a reduced need for manual scoring or its supplementation with automated methods.",
+    "authors": [
+      "Daniel Baumartz",
+      "Alexander Mehler",
+      "Mevlüt Bagci",
+      "Maxim Konca"
+    ],
+    "published": "2026-11-16T15:01:38Z",
+    "updated": "2026-11-16T15:01:38Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21208v1",
+    "abs_url": "http://arxiv.org/abs/2611.21208v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.18,
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 60,
+      "novelty": 74.8,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 57.3,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 75、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.21215v1": {
+    "paper_id": "2611.21215v1",
+    "title": "Open-fMIND: A Large-Scale Open-Access fMRI Corpus for Pretraining Brain Foundation Models",
+    "abstract": "Self-supervised pretraining has transformed language and vision, but its application to functional MRI (fMRI) is constrained by data access. The largest standardized fMRI resources are governed by data use agreements and dominated by a small number of acquisition protocols, while the thousands of openly licensed datasets on OpenNeuro are individually small, heterogeneously organized, and unprocessed. We present the first release of Open-fMIND, a uniformly preprocessed, openly accessible corpus of parcellated fMRI timeseries from 322 OpenNeuro studies, comprising 11,379 subjects and 45,731 functional runs. Each run is preprocessed with fMRIPrep and parcellated under 52 atlases spanning 14 families, yielding a massive 2.4 million timeseries. Timeseries are released either denoised with our default pipeline (preproc) or as the fMRIPrep output with its confound files (quasiraw), with functional connectivity matrices, per-run provenance and motion metadata. Open-fMIND is intended as a pretraining resource for self-supervised brain representation learning. Pretraining on it yields downstream performance comparable to that obtained with UK Biobank.",
+    "authors": [
+      "Carlo Alberto Barbano",
+      "Giovanni Marraffini",
+      "Demian Wassermann"
+    ],
+    "published": "2026-11-16T15:07:27Z",
+    "updated": "2026-11-16T15:07:27Z",
+    "categories": [
+      "cs.LG",
+      "q-bio.NC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21215v1",
+    "abs_url": "http://arxiv.org/abs/2611.21215v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 51,
+      "novelty": 85.4,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.7,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 85、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.21529v1": {
+    "paper_id": "2611.21529v1",
+    "title": "Procedure without Judgment: What Small Language Models Learn under an Exact Verifier",
+    "abstract": "When an authorization policy blocks an agent's tool call, the audit log should name the facts that forced the decision and nothing more. For an executable policy over an enumerable context space this minimal sufficient reason can be computed exactly, so an explanation is scored against ground truth rather than a proxy for it. We use that exactness to ask what a model can learn from a verifier that has no error in it. The explainer sees one request and one decision, never the policy, and has thirty turns in which it may call the policy on altered requests and ask whether a candidate set of facts is sufficient. Frontier models find the exact reason about half the time with the tools alone, and one sentence telling them to shrink the answer lifts Haiku 4.5 from 58% to 75%. A 4B model fine-tuned on 2000 traces of the deletion algorithm reaches 92% on the policy it was trained on. Teacher kind is what moves this: at matched data size the algorithm-taught student leads the frontier-taught one in all three training seeds, and the two arms never overlap. What the student learns is a fixed schedule of sufficiency checks, and the schedule does not travel. On three public policies it never saw, its answers stay sufficient (94%) and stop being minimal (48%), while Haiku under the same sentence is exact on all 47 episodes. Reinforcement learning from the exact reward leaves held-out accuracy where it was and inverts the strategy, from probing the policy to spending the entire budget on sufficiency checks. The oracle made the effect of training legible, but it did not make training better.",
+    "authors": [
+      "Arunkumar V",
+      "Manoranjan Gandhudi",
+      "Gangadharan G. R.",
+      "Arun Prakash",
+      "S. Senthilkumar"
+    ],
+    "published": "2026-11-16T18:20:09Z",
+    "updated": "2026-11-16T18:20:09Z",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21529v1",
+    "abs_url": "http://arxiv.org/abs/2611.21529v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 54,
+      "novelty": 78.3,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.4,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 78、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.21441v1": {
+    "paper_id": "2611.21441v1",
+    "title": "Learning to Reason with Predictive Gains for Generative Recommendation",
+    "abstract": "Reasoning-enhanced generative recommendation (GR) has attracted increasing attention for leveraging the reasoning capabilities of large language models (LLMs) to improve next-item prediction. However, existing methods primarily optimize reasoning through Group Relative Policy Optimization (GRPO) with rule-based rewards determined by final recommendation performance, which faces two key limitations: (i) unmeasured predictive contributions within reasoning, where the predictive contributions of individual reasoning steps are not directly reflected in optimization signals, and (ii) weakly discriminative learning signals within groups, where different reasoning trajectories within the group often receive indistinguishable rewards, limiting effective policy optimization. In this paper, we propose GainReason, a simple yet effective training framework that optimizes reasoning through Predictive Gain (PG). Specifically, PG measures changes in target Semantic ID (SID) log-likelihood induced by individual reasoning sentences, providing contribution-aware and discriminative rewards. We further theoretically establish the alignment between expected PG and the recommendation ranking objective. Building on this signal, we develop PG-based Reasoning Optimization (PGRO) to optimize reasoning generation with sentence-level rewards, supported by a custom causal attention mechanism for efficient PG computation. Additionally, an auxiliary PG-based Reasoning Utilization (PGRU) task adaptively strengthens reasoning-conditioned prediction to complement PGRO. Extensive experiments on three public benchmarks demonstrate that GainReason consistently outperforms competitive baselines and achieves substantial performance gains from reasoning.",
+    "authors": [
+      "Zhuoyang Li",
+      "Teng Shi",
+      "Jiakai Tang",
+      "Weijie Yu",
+      "Guofu Xie",
+      "Xiao Zhang",
+      "Lei Kou",
+      "Yang Yu",
+      "Lei Shen",
+      "Xin Chen",
+      "Bing Wang",
+      "Xiaoyi Zeng",
+      "Jun Xu"
+    ],
+    "published": "2026-11-16T17:28:45Z",
+    "updated": "2026-11-16T17:28:45Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21441v1",
+    "abs_url": "http://arxiv.org/abs/2611.21441v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.36,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 58,
+      "novelty": 82.8,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.1,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 83、质量 58"
+    ],
+    "summary_zh": null
+  },
+  "2611.21003v1": {
+    "paper_id": "2611.21003v1",
+    "title": "K2-Horizon: A Frontier Fleet of Open Source Language Models",
+    "abstract": "We present K2-Horizon, a fleet of six fully open language models, from a 0.9B dense model to a 375B-A23B MoE, built for general-purpose reasoning and agentic work across math and science, software engineering, deep research, office automation, and beyond. The models lead or are competitive with strong open models of their size on agentic and coding benchmarks. On the modeling side, to strengthen reasoning, we introduce Mixture-of-Value Attention (MoVA), applying MoE to attention value projections, and softplus attention gating, a more flexible, theoretically motivated gate. Our 36B-A4B model uses both and nearly matches a 32B dense model trained on the same data, with one-seventh the active parameters. We also introduce Uno, lossless diffusion adapters that speed up decoding by up to 2.2x without a separate draft model. Our release follows the LLM360 definition of open source for transparency and reproducibility: the full development history, including intermediate checkpoints from every training stage, pre-training data, training logs, and all training, evaluation, and infrastructure code, notably our production-scale xLLM framework for dense and MoE training and the RL360 reinforcement-learning stack. Beyond the data itself, we release and document in detail every pipeline that built it, the part of model development that open releases most rarely disclose. These pipelines produced roughly 10T synthetic pre-training tokens, showing that synthetic data can be a major ingredient of pre-training at scale. Four of the models share one 22T-token pre-training corpus and recipe, revealing consistent scaling behavior and enabling controlled studies of scale and sparsity. All artifacts are available at https://ifm.ai/k2/",
+    "authors": [
+      "K2 Team",
+      "Zhengzhong Liu",
+      "Haonan Li",
+      "Xuezhe Ma",
+      "Alexander Moreno",
+      "Subham Sekhar Sahoo",
+      "Rupesh Kumar Srivastava",
+      "Mikhail Yurochkin",
+      "Hadi Abdine",
+      "Yash Akhauri",
+      "Adharsh Babu",
+      "David Bellamy",
+      "Jalaj Bhandari",
+      "Dani Bouch",
+      "Wail Bouhedja",
+      "Weili Cao",
+      "Ahmad Chamma",
+      "Po-Chun Chang",
+      "Junlin Chen",
+      "Lingjie Chen",
+      "Zhoujun Cheng",
+      "Kyle Chickering",
+      "Ryandito Diandaru",
+      "Evan Dufraisse",
+      "Chaitanya Dwivedi",
+      "Bilal El Bouardi",
+      "Desai Fan",
+      "Richard Fan",
+      "Chengqian Gao",
+      "Rifo Ahmad Genadi",
+      "Jonathan Geuter",
+      "Charles Guille-Escuret",
+      "Willis Guo",
+      "Dhawal Gupta",
+      "Seungwook Han",
+      "Tingxu Han",
+      "Shibo Hao",
+      "Besher Hassan",
+      "Guowei He",
+      "Ming Shan Hee",
+      "Joel Hestness",
+      "Yu Huang",
+      "Yuan Huang",
+      "Haolong Jia",
+      "Linghao Jin",
+      "Junu Kim",
+      "Lingjing Kong",
+      "Nurkhan Laiyk",
+      "Andrej Leban",
+      "Liqun Ma",
+      "John Maggs",
+      "Amr Mohamed",
+      "Mukhesh Narra",
+      "Omkar Pangarkar",
+      "Aldo Pareja",
+      "Khiem Pham",
+      "Varad Pimpalkhute",
+      "Nikhil Ranjan",
+      "Elizaveta Rebrova",
+      "Hector Ren",
+      "Shaurya Rohatgi",
+      "Guokan Shang",
+      "Jianshu She",
+      "Chufan Shi",
+      "Aaryamonvikram Singh",
+      "Daria Soboleva",
+      "Kartik Sreenivasan",
+      "Suqi Sun",
+      "Yuekai Sun",
+      "Bowen Tan",
+      "Liping Tang",
+      "Shengkun Tang",
+      "Muzi Tao",
+      "Mallikarjuna Tupakula",
+      "Micah Villmow",
+      "Hongyi Wang",
+      "Huijuan Wang",
+      "Renxi Wang",
+      "Yongxin Wang",
+      "Yuqi Wang",
+      "Zhenting Wang",
+      "Shicheng Wen",
+      "Yingquan Wu",
+      "Anze Xie",
+      "Andrew Xing",
+      "Matthew Yang",
+      "Shuanghai Yu",
+      "Kerem Zaman",
+      "Zenan Zhai",
+      "Hongli Zhan",
+      "Xuezhou Zhang",
+      "Anshun Asher Zheng",
+      "Zhe Zhou",
+      "Richard Zhuang",
+      "Eric P. Xing"
+    ],
+    "published": "2026-11-16T12:28:03Z",
+    "updated": "2026-11-16T12:28:03Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21003v1",
+    "abs_url": "http://arxiv.org/abs/2611.21003v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.36,
+      "reasoning": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 51,
+      "novelty": 81.0,
+      "practical": 32,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 46.5,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理时扩展、压缩与高效推理",
+      "优势：新颖 81、质量 51"
+    ],
+    "summary_zh": null
+  },
+  "2611.21538v1": {
+    "paper_id": "2611.21538v1",
+    "title": "Optimistic Verifiers Get Hacked: Reward Hacking Under an Exact Process Oracle",
+    "abstract": "Reinforcement learning from verifiable rewards inherits whatever its verifier gets wrong. Outside mathematics and code the verifier is a proxy, a rubric, a learned judge or a hand-written checker, and its distance from the true objective is never measured, so a rising reward cannot be told apart from a hack. We build a setting where the true reward is exactly computable at the process level: executable authorization policies over 124,416 contexts admit an oracle that lists every minimal sufficient reason for every decision. We compile these policies into exact process rewards, degrade the verifier along seven realistic axes (outcome-only, sufficiency, recall-only, extraction noise, coarse taxonomy, stale policy, LLM judge), and train against each while the exact verifier scores every rollout. Four phenotypes appear. Optimistic verifiers are hacked by padding: the sufficiency proxy ends at 0.940 while true faithfulness falls from 0.731 to 0.667 on 96 held-out episodes. Outcome-only verifiers saturate and stop teaching, noise dilutes, and ranking-preserving gaps do no harm. A model-free audit of the verifier, its selection error and gap sign, together with a short saturation pilot, anticipates which phenotype a run will produce. Across nine configurations spanning two frameworks, two model vendors, two adapter sizes, three precisions, two initialisations and two seeds, the phenotypes recur, sufficiency damage is positive in all 10 replication cells and beyond two standard errors in 7, and optimistic gaps remain the steeper branch. The damage magnitude does not replicate, and five pre-registered attempts to explain it are reported as they fell. We release the testbed, the training instrumentation, and 14 real public policies (Cedar, OPA, Gatekeeper) ported to executable oracles.",
+    "authors": [
+      "Arunkumar V",
+      "Manoranjan Gandhudi",
+      "Gangadharan G. R.",
+      "Arun Prakash",
+      "S. Senthilkumar"
+    ],
+    "published": "2026-11-16T18:25:42Z",
+    "updated": "2026-11-16T18:25:42Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21538v1",
+    "abs_url": "http://arxiv.org/abs/2611.21538v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 42,
+      "novelty": 78.3,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.2,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 78、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.21422v1": {
+    "paper_id": "2611.21422v1",
+    "title": "Rubric-Based AES with LLM Ensembles: Scoring of Student Responses in Critical Online Reasoning Using Ensembles of LLMs",
+    "abstract": "Grading student responses is costly and time-consuming. Moreover, human annotators are prone to bias, fatigue, and rater drift, which further limits grading reliability. Various methods have been employed to develop automated essay scoring (AES) systems to reduce these costs and address bias-related issues. These methods range from early text-feature-based systems to current machine-learning and transformer-based models. Specifically, large language models (LLMs) offer the potential to streamline the development of AES systems. However, they are subject to well-known limitations, such as hallucinations and prompt sensitivity. This creates a need to explore the potential of a mixed-methods approach that leverages the synergies among individual LLMs through ensemble formation. We evaluate the potential of ensembles of LLMs to match human-rater agreement when grading student responses in economics and medical education across 103 criteria. We use 631 German-language responses and corresponding human ratings by 2 to 5 annotators from a previously conducted assessment. We experiment with 523 rubric-based prompt configurations across 15 open-weight LLMs and assess their consistency with human raters using Krippendorff's alpha for inter-annotator agreement (IAA) and the Alternative Annotator Test (alt-test). Our results show that replacing one human rater with the best-performing LLM--prompt configuration maintains or improves IAA for 91 of the 103 criteria and that LLMs pass the alt-test for 90 criteria. Our findings suggest that current state-of-the-art LLMs can support AES of German responses in economics and medical education, reducing human workload and enabling faster processing, while validation against human ratings remains necessary.",
+    "authors": [
+      "Daniel Baumartz",
+      "Alexander Mehler",
+      "Patrick Schrottenbacher",
+      "Leon Hammerla",
+      "Sebastian Gombert"
+    ],
+    "published": "2026-11-16T17:12:36Z",
+    "updated": "2026-11-16T17:12:36Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21422v1",
+    "abs_url": "http://arxiv.org/abs/2611.21422v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.45
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 45.0,
+      "quality": 60,
+      "novelty": 74.8,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 50.7,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 75、质量 60"
+    ],
+    "summary_zh": null
+  },
+  "2611.21129v1": {
+    "paper_id": "2611.21129v1",
+    "title": "Linglong Agent Service: A Runtime for Centralized Agent Reasoning and Distributed Execution",
+    "abstract": "LLM agents can use remote tools and cloud sandboxes, but integrating reasoning, session state, and heterogeneous execution sites remains a runtime design problem. We present Linglong Agent Service (agentsvc), a self-hosted HTTP service and embeddable Python runtime that treats execution site as a configurable dimension alongside model, tools, and context. A parent service retains inference orchestration, tool descriptions, and conversation history; each inference request selects one child environment for file, shell, terminal, and MCP operations. Direct HTTP and child-initiated WebSocket tunnels carry the same application interfaces, including portable request context and centrally managed updates. The normal core path requires no third-party Python packages, with an optional Windows pseudo-terminal dependency. We further present online_debugger as the process-scale special case of execution-site separation: an instrumented program submits exception evidence, executes session-scoped inspection tools inside the incident process, and resumes the same diagnostic session. Its default prompt requires failing-then-passing reproduction evidence for source changes, while runtime patch activation and failed-call recovery remain unimplemented. We explain the design through constrained expected-utility reasoning, compare concrete mechanisms with Hermes Agent, Pi, Codex, and Claude Code, and report implementation and regression-test evidence. The current evidence establishes executable contracts, not performance advantages, repair accuracy, or production recovery. The source code is open source under the MIT license at https://github.com/mz24cn/agents.",
+    "authors": [
+      "Hua Zhang",
+      "Min Jiang"
+    ],
+    "published": "2026-11-16T14:07:45Z",
+    "updated": "2026-11-16T14:07:45Z",
+    "categories": [
+      "cs.RO",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.21129v1",
+    "abs_url": "http://arxiv.org/abs/2611.21129v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 22,
+      "novelty": 88.5,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.6,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
