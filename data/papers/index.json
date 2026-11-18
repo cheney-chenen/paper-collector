@@ -52212,5 +52212,539 @@
       "优势：新颖 88、匹配 63"
     ],
     "summary_zh": null
+  },
+  "2611.22728v1": {
+    "paper_id": "2611.22728v1",
+    "title": "LoopZip: Visual Token Compression for Efficient Looped Vision-Language Models",
+    "abstract": "Looped vision-language models (VLMs) deepen computation by reusing shared layers, approaching larger models' capabilities with fewer parameters and easing the storage and deployment burden of stacking independent layers. However, repeatedly processing long visual sequences still incurs substantial compute and GPU memory costs. Visual token compression reduces these costs by shortening sequences. Existing methods mainly select original tokens directly or combine selection with aggregation. In looped models, the former may overlook changing token importance across calls and discard information needed later; the latter lack joint consideration of output changes across calls, limiting information preservation. We propose LoopZip, a training-free visual token compression algorithm addressing both issues. Visual aggregation builds a compact candidate pool before the looped backbone, and cross-invocation selection averages instruction attention from the first two existing calls of the same shared attention layer to retain tokens needed by both states. Weight-tied value correction then jointly fits shared visual-value adjustments to both pre-selection layer outputs, reducing output deviations across states. To validate LoopZip's effectiveness, we conduct extensive experiments covering two open-source looped VLMs, eleven benchmarks, and three pruning ratios. On LoopVL-1B, LoopZip retains 97.16% of the original model's performance at 50% pruning ratio and exceeds the strongest baseline by 5.36% at 87.5% pruning ratio. Across Hugging Face Transformers, vLLM, and SGLang, LoopVL-1B with LoopZip reduces peak allocated GPU memory by 58.36%-58.98% and achieves 2.01-2.47x end-to-end speedups over the original model.",
+    "authors": [
+      "Weizhong Huang",
+      "Zhicheng Liu",
+      "Yan Zhang",
+      "Fei Chao",
+      "Xiawu Zheng",
+      "Liujuan Cao"
+    ],
+    "published": "2026-11-17T13:01:13Z",
+    "updated": "2026-11-17T13:01:13Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.22728v1",
+    "abs_url": "http://arxiv.org/abs/2611.22728v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.18,
+      "efficiency": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 78,
+      "novelty": 82.4,
+      "practical": 77,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 68.5,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：新颖 82、质量 78"
+    ],
+    "summary_zh": null
+  },
+  "2611.23229v1": {
+    "paper_id": "2611.23229v1",
+    "title": "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching",
+    "abstract": "Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, which leads to overfitting and the catastrophic forgetting of the tails of the data distribution. To prevent this collapse, we introduce Ambient SFT, a principled framework for leveraging imperfect predictions to augment the fine-tuning set. In our method, a \"frozen\" version of the pre-trained model serves as a noisy teacher that the fine-tuned model must match at a coarse level. In particular, we require that the high-temperature versions of the conditional distributions produced by the post-training model should match the high-temperature versions of the pre-training ones. The temperature hyperparameter controls the level of trust in the pre-trained model, with the limit $T\\to \\infty$ reverting back to regular SFT and $T=1$ to knowledge distillation. We demonstrate that our approach outperforms standard SFT across domain adaptation, instruction-tuning, and reasoning, leading for up to $21\\%$ average relative improvement to standard SFT.",
+    "authors": [
+      "Giannis Daras",
+      "Marios Papachristou",
+      "Adam Klivans",
+      "Antonio Torralba",
+      "Constantinos Daskalakis"
+    ],
+    "published": "2026-11-17T18:59:37Z",
+    "updated": "2026-11-17T18:59:37Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23229v1",
+    "abs_url": "http://arxiv.org/abs/2611.23229v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.18,
+      "post-training": 0.81,
+      "reasoning": 0.18,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 60,
+      "novelty": 89.1,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 66.2,
+    "score_reasons": [
+      "命中主题：预训练与优化、微调与对齐、推理时扩展、压缩与高效推理",
+      "优势：新颖 89、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2611.22842v1": {
+    "paper_id": "2611.22842v1",
+    "title": "SilverSpoon-KD: A General-Purpose Toolkit for Knowledge Distillation",
+    "abstract": "Knowledge distillation transfers deep learning representations from a teacher model to a student model, typically reducing model size or inference cost. However, knowledge distillation tooling has not kept pace with the breadth of research methods: existing toolkits typically support only a limited subset of techniques and use cases. We present SilverSpoon-KD, an open-source PyTorch toolkit that unifies different distillation paradigms and architectural relationships across workloads and applications behind a single API. Moreover, SilverSpoon-KD offers the first general-purpose blockwise knowledge distillation implementation with unique scalability features. We validate its versatility across vision, masked language model, and causal language models on tasks spanning homogeneous, heterogeneous, and quantization distillation across paradigms. We also evaluate SilverSpoon-KD by comparing its performance, including throughput and GPU memory usage, with existing toolkits. Despite extensive support for convenience, metric calculation, and tracking, we have found SilverSpoon-KD's performance to be on par with or better than existing toolkits.",
+    "authors": [
+      "Xaver R. Davey",
+      "David Broman"
+    ],
+    "published": "2026-11-17T14:21:47Z",
+    "updated": "2026-11-17T14:21:47Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.22842v1",
+    "abs_url": "http://arxiv.org/abs/2611.22842v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.18,
+      "efficiency": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 43,
+      "novelty": 87.9,
+      "practical": 63,
+      "credibility": 35
+    },
+    "confidence": 43,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 65.4,
+    "score_reasons": [
+      "命中主题：推理系统、压缩与高效推理",
+      "优势：新颖 88、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2611.23010v1": {
+    "paper_id": "2611.23010v1",
+    "title": "PhysScope: Agentic Multimodal Physics Reasoning with Grounded Visual Memory",
+    "abstract": "Vision-language models (VLMs) can correctly interpret physics diagrams yet apply constraints outside the states or conditions in which they hold, causing premise errors to propagate through subsequent calculations. We introduce PhysScope, an inference-time visual harness that supports self-correction of these scope mismatches without updating model weights. PhysScope enables the model to link physical scopes directly to its visual observations and explicitly constructs derived views to support reasoning. The harness imposes explicit constraints on state distinctions, conditions, and physical scopes during model reasoning, and checks agent-proposed revisions against sources and scopes. Accepted revisions invalidate registered dependents, thereby maintaining scope-aware working memory. On PhysAlign, PhysScope achieves higher solving scores than direct solving across all six evaluated VLMs. With Gemini-3.8-flash, it outperforms Canvas-CoT by 9.34 percentage points and substantially improves solving accuracy on the out-of-distribution (OOD) PhysUniBench benchmark. Ablation studies support explicit scope management and dependency maintenance as design principles for multimodal physics reasoning agents.",
+    "authors": [
+      "Haoyang Liu",
+      "Kecheng Liang",
+      "Xinyu Li",
+      "Weixing Chen",
+      "Yang Liu"
+    ],
+    "published": "2026-11-17T16:22:21Z",
+    "updated": "2026-11-17T16:22:21Z",
+    "categories": [
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23010v1",
+    "abs_url": "http://arxiv.org/abs/2611.23010v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 78,
+      "novelty": 87.2,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 67,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 64.0,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 87、质量 78"
+    ],
+    "summary_zh": null
+  },
+  "2611.23124v1": {
+    "paper_id": "2611.23124v1",
+    "title": "Get Hint-Augmented GRPO Done Right Through Activation Steering",
+    "abstract": "GRPO has become the dominant reinforcement learning method for eliciting reasoning capability in LLMs using verifiable rewards. However, it suffers from a fundamental failure mode: when a training question exceeds the base model's current capability, all generated responses fail and receive zero reward, yielding no gradient signal and stalling further capability expansion. An emerging class of GRPO extensions, termed Hint-Augmented GRPO (HA-GRPO), adds a \"hint\" to the context to reduce the difficulty of the question, thereby producing a usable gradient signal. Nevertheless, existing HA-GRPO methods share a key issue: no hint is available at inference time to append to the question, creating a training-inference context mismatch that leads to inconsistent performance gains. In this work, we reinterpret the function of hinting -- not as reducing question difficulty, but as steering model behavior -- and propose ASH (Activation Steering for Hinting), a novel HA-GRPO method built on this view. During training, the model is presented with both hinted and plain questions, while a trainable steering vector is optimized to widen the margins between the model's generation probabilities for responses to the hinted version relative to the plain version, thereby capturing the question-agnostic component of the behavioral shift induced by the hint. During inference, the trained steering vector is directly injected into the model's activation, reproducing the hint-conditioned behavior without requiring any hint in the context. Experiments with four LLMs (Qwen3-1.7B/4B-Base, Llama-3.2-1B/3B-Instruct) show that ASH consistently improves pass@$k$ on competition-level mathematics benchmarks (AMC, OlympiadBench, AIME24, AIME25) and out-of-distribution benchmarks (Minerva, GPQA-Diamond). Notably, it improves average pass@8 of Qwen3-1.7B-Base and Qwen3-4B-Base by \\textbf{2.60}\\% and \\textbf{2.21}\\%.",
+    "authors": [
+      "Khiem Le",
+      "Ting Hua",
+      "Nitesh V. Chawla"
+    ],
+    "published": "2026-11-17T17:43:28Z",
+    "updated": "2026-11-17T17:43:28Z",
+    "categories": [
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23124v1",
+    "abs_url": "http://arxiv.org/abs/2611.23124v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "reasoning": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 72,
+      "novelty": 83.0,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.8,
+    "score_reasons": [
+      "命中主题：微调与对齐、推理时扩展",
+      "优势：新颖 83、质量 72"
+    ],
+    "summary_zh": null
+  },
+  "2611.22838v1": {
+    "paper_id": "2611.22838v1",
+    "title": "Better Rankers, Worse Retrievers: The Hidden Cost of RL Post-Training in Generative Recommendation",
+    "abstract": "Generative recommenders decode the semantic ID of a user's next item with a language model, and post-training them with reinforcement learning (RL) after supervised fine-tuning (SFT) has become standard practice. The gains are mostly reported on the first ten results, yet in deployment such models hand hundreds of candidates to a downstream ranker or reward model. We show that RL post-training has a hidden cost: it improves accuracy at the top of the list (hit@K for small K) but, on all five datasets we study, lowers the recall of the candidate list (hit@K for K in the hundreds). The model becomes a better ranker and a worse retriever. Controlled experiments trace the loss to the negative advantages that RL assigns to the candidates it samples, the rollout. The root cause is that only one next item is logged per user, so RL treats every other candidate as wrong. Yet these candidates are the model's most plausible alternatives, and often the next items of other users with similar histories. Penalising them pushes down exactly what similar users choose next, and these items drop out of those users' candidate lists. This diagnosis points directly to a remedy: out-of-rollout anchoring, a single additional loss term that preserves the SFT model's ordering of the items outside the rollout. It keeps the gain at the top and restores recall to the SFT level on all five datasets, and it is effective under other RL configurations as well. To our knowledge, this is the first systematic study of this recall loss: we measure it, identify its cause, and show that, once the cause is known, a simple remedy suffices.",
+    "authors": [
+      "Yuheng Chen",
+      "Fan Zhang",
+      "Yixuan Xu",
+      "Chao Yang",
+      "Yang Xiang",
+      "Can Yang"
+    ],
+    "published": "2026-11-17T14:19:22Z",
+    "updated": "2026-11-17T14:19:22Z",
+    "categories": [
+      "cs.IR",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.22838v1",
+    "abs_url": "http://arxiv.org/abs/2611.22838v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.81
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 81.0,
+      "quality": 40,
+      "novelty": 87.1,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.6,
+    "score_reasons": [
+      "命中主题：微调与对齐",
+      "优势：新颖 87、匹配 81"
+    ],
+    "summary_zh": null
+  },
+  "2611.22580v1": {
+    "paper_id": "2611.22580v1",
+    "title": "AfriNORM: An Evaluation Benchmark for Normative Reasoning of LLMs Across African Cultures",
+    "abstract": "Large language models (LLMs) are increasingly deployed across various sectors. However, current evaluation benchmarks are insufficient to assess the applicability of these models in local African contexts, as most focus on linguistic fluency (grammar/translation) rather than cultural competence. The few existing benchmarks that measure general knowledge or social conventions do not capture the African deontic modality, i.e., the strict norms and taboos that govern diverse social interactions. In this paper, we introduce AfriNORM, a scenario-based, multiple-choice question dataset designed to measure and diagnose the normative reasoning limitations of LLMs when applied to African sociocultural contexts. We introduce two metrics: a Universal Commonsense Bias Score (UCBS) to quantify commonsense bias in LLM and a Distractor Bias Score (DBS) to quantify an LLM's limited understanding of African cultural norms. We also conduct a case study on the Yorùbá language, identifying confusion gaps in two closed-source LLMs, \"Gemini 2.0 Flash\" and \"GPT-5\", and one open-source LLM, \"Llama 3.1 8B Instruct\" when prompted in English versus Yorùbá. While their accuracy in English is high, their performance in Yorùbá is much lower, attributable to cultural confusion rather than simple bias, indicating that the models exhibit semantic confusion when reasoning about norms in Yorùbá.",
+    "authors": [
+      "Ahmad Samuel Gali",
+      "Tadesse Destaw Belay",
+      "Idris Abdulmumin",
+      "Seid Muhie Yimam",
+      "Shamsuddeen Hassan Muhammad"
+    ],
+    "published": "2026-11-17T11:04:36Z",
+    "updated": "2026-11-17T11:04:36Z",
+    "categories": [
+      "cs.CL"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.22580v1",
+    "abs_url": "http://arxiv.org/abs/2611.22580v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 68,
+      "novelty": 87.5,
+      "practical": 18,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 60.5,
+    "score_reasons": [
+      "命中主题：推理时扩展",
+      "优势：新颖 88、质量 68"
+    ],
+    "summary_zh": null
+  },
+  "2611.23053v1": {
+    "paper_id": "2611.23053v1",
+    "title": "SPICE: Sparse Parameter Gossip for LLM Pretraining",
+    "abstract": "Pretraining language models across geographically distributed resources requires communication-efficient methods that operate under limited and variable internet bandwidth. Decentralized training replaces global collectives with peer exchanges, but full-model messages make larger peer neighborhoods costly. We introduce SPICE, which combines sparse parameter gossip with error feedback through corrected parameter values that remain directly interpretable as peer neighborhoods change. These sparse exchanges make broader neighborhoods affordable, achieving better training quality with less communication than the evaluated dense decentralized baselines. As the replica count grows, SPICEincreases the number of peers contacted while keeping individual messages sparse, limiting the quality degradation observed with dense gossip. Under bandwidth constraints, SPICE achieves higher training throughput than DDP and dense gossip, while sustaining throughput during transient link slowdowns.",
+    "authors": [
+      "Pietro Cagnasso",
+      "Daniele Kopyshevskiy",
+      "Edouard Oyallon",
+      "Eugene Belilovsky"
+    ],
+    "published": "2026-11-17T16:47:17Z",
+    "updated": "2026-11-17T16:47:17Z",
+    "categories": [
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23053v1",
+    "abs_url": "http://arxiv.org/abs/2611.23053v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63,
+      "serving": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 52,
+      "novelty": 87.6,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 59.1,
+    "score_reasons": [
+      "命中主题：预训练与优化、推理系统",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.23035v1": {
+    "paper_id": "2611.23035v1",
+    "title": "Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels",
+    "abstract": "In the global attention layers of Gemma 4 31B, the value is the normalized key projection, and the key is the value scaled by a fixed weight, with rotary position encoding on one quarter of its dimensions. The Gemma 4 report states that this design reduces the global KV cache by up to 37.5%, but the open serving engines that we checked still store a full key and a full value: 1,024 values per KV head and token. We store one 640-value row instead, exact in real arithmetic, and an unchanged paged attention kernel reads it through two overlapping strided views as its key cache and its value cache. In a vLLM prototype with the 16-bit 31B model, the outputs are bit-identical to an emulation of the same arithmetic on the stock cache, 2 of 432 final answers differ from the stock engine (within its run-to-run noise), and the steady decode KV memory per request falls by a factor of 1.34 to 1.40 at 32K to 64K tokens. On a prefill/decode pair of two A100 GPUs with NIXL transfer and CPU offload, a decode engine with a full 15 GiB pool ran 1.38 times the stock decode tokens per step for 16K-token prompts (repeated to 0.06%) and 1.24 times for 8K-token prompts; a model of the vLLM block pool predicted both ratios to within 1% (the engine was 0.7% to 0.9% higher) and matched the change between them. The eager decode throughput rose by 1.30 and 1.11 times, and on this path the compact engine gave the same output tokens as the emulation for 8 prompts at batch 1. The run-time prototype makes an eager step 4% to 9% slower at equal batch, and the method does not yet stack with an 8-bit KV cache at the default scale.",
+    "authors": [
+      "Kushagra Bainsla"
+    ],
+    "published": "2026-11-17T16:36:28Z",
+    "updated": "2026-11-17T16:36:28Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL",
+      "cs.DC"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23035v1",
+    "abs_url": "http://arxiv.org/abs/2611.23035v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "serving": 0.54
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 54.0,
+      "quality": 42,
+      "novelty": 81.7,
+      "practical": 54,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 52.5,
+    "score_reasons": [
+      "命中主题：推理系统",
+      "优势：新颖 82、匹配 54"
+    ],
+    "summary_zh": null
+  },
+  "2611.23228v1": {
+    "paper_id": "2611.23228v1",
+    "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+    "abstract": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. The reason is that recurrent layers combine all past frames into a shared state, so expiring old frames normally requires re-running the entire window through the model. We observe that the recurrent update is affine in the state with input-dependent coefficients, so the effect of each frame can be captured as a transformation that composes associatively. We present Spool, a training-free framework that caches per-frame state transformations and composes them efficiently as the window advances, removing expired frames from each recurrent layer's state without replaying frames through the backbone. Removal is exact within each layer; as with key-value eviction in attention, expired frames can retain residual influence through the cached inputs computed by earlier layers. We design a dedicated data structure and GPU kernels to achieve low caching and composition overhead. Across five open-source hybrid VLMs and four video reasoning benchmarks, Spool achieves the lowest p95 time-to-first-token in all 20 model-benchmark tests, reducing it by a geometric mean of $6.6\\times$ over the faster of two recent vLLM baselines, while improving accuracy by 2.3 percentage points on average.",
+    "authors": [
+      "Rui Ning",
+      "Om Chabra",
+      "Hari Balakrishnan"
+    ],
+    "published": "2026-11-17T18:59:27Z",
+    "updated": "2026-11-17T18:59:27Z",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23228v1",
+    "abs_url": "http://arxiv.org/abs/2611.23228v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "reasoning": 0.18,
+      "serving": 0.36
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 36.0,
+      "quality": 52,
+      "novelty": 84.5,
+      "practical": 45,
+      "credibility": 35
+    },
+    "confidence": 51,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 48.7,
+    "score_reasons": [
+      "命中主题：推理时扩展、推理系统",
+      "优势：新颖 84、质量 52"
+    ],
+    "summary_zh": null
+  },
+  "2611.23205v1": {
+    "paper_id": "2611.23205v1",
+    "title": "Fine-Tuning Gemma 4 Edge Models for MATLAB Signal-Processing Code with SFT and QLoRA on a Laptop iGPU",
+    "abstract": "Small language models that run on a laptop are attractive for writing signal-processing code offline, but they make systematic errors on digital signal processing (DSP) conventions. We apply supervised fine-tuning (SFT) to the Gemma 4 edge models E2B and E4B with 66 checked examples covering 11 signal-processing MATLAB subtasks, using low-rank adaptation (LoRA) and quantized LoRA (QLoRA) on the integrated GPU (iGPU) of a laptop, and deploy the 8-bit integer (int8) models with the adapters through OpenVINO. On held-out variants scored by deterministic checkers, the pass rate rises from 18/66 to 37/66 (LoRA) and 37/66 (QLoRA) for E2B and from 32/66 to 47/66 for E4B (QLoRA). Reading all 159 failing programs shows that the adapters remove most errors of convention, such as the sign of a lag, units and array shapes, but few errors in building signals and noise. Applied at run time, the adapter costs 17-19% of the generation speed.",
+    "authors": [
+      "Mehmet Altan Toksöz"
+    ],
+    "published": "2026-11-17T18:47:37Z",
+    "updated": "2026-11-17T18:47:37Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI",
+      "cs.SE",
+      "eess.SP"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23205v1",
+    "abs_url": "http://arxiv.org/abs/2611.23205v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "post-training": 0.63,
+      "efficiency": 0.18
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 42,
+      "novelty": 88.6,
+      "practical": 36,
+      "credibility": 28
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 55.0,
+    "score_reasons": [
+      "命中主题：微调与对齐、压缩与高效推理",
+      "优势：新颖 89、匹配 63"
+    ],
+    "summary_zh": null
+  },
+  "2611.23197v1": {
+    "paper_id": "2611.23197v1",
+    "title": "Structure--Residual Inductive Biases for Language Model Pretraining",
+    "abstract": "Next-token prediction is relied upon to learn both predictive behavior and internal representations. We ask whether representation structure itself should be an explicit inductive bias. Motivated by the two-part coding view of Kolmogorov complexity, we study a structure--residual principle in which a representation separates structure from realization detail. We instantiate this principle in two complementary ways. Boundary Bottleneck Concept (BBC) routes information from token segments through boundary carriers while preserving local autoregressive computation. Continuous Concept (CC) regularizes representation geometry and induces a spectral decomposition into low-frequency structure and high-frequency residual. We derive coding bounds for both views and show that multiplicity-corrected boundary attention becomes exact as the within-segment path energy vanishes. Empirically, BBC and CC exhibit strikingly different depth preferences: BBC works best in early layers, whereas CC is most effective in later layers. At 300M training tokens, combining BBC and CC improves NLL by 1.44\\% on GPT-2 Medium. These gains persist with training runs up to 20B tokens. Representation diagnostics show that BBC increases the relative predictive importance of boundary states, while CC reduces spectral residual energy. Together, these results suggest that structure--residual biases can improve language-model pretraining beyond next-token prediction. Code: https://github.com/haihuang-ml/structure-residual",
+    "authors": [
+      "Hai Huang",
+      "Bartosz Żuk",
+      "Rassul Magauin",
+      "Jiaxin Huang",
+      "Xue Liu"
+    ],
+    "published": "2026-11-17T18:38:27Z",
+    "updated": "2026-11-17T18:38:27Z",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ],
+    "pdf_url": "https://arxiv.org/pdf/2611.23197v1",
+    "abs_url": "http://arxiv.org/abs/2611.23197v1",
+    "source": "arXiv",
+    "venue": null,
+    "code_url": null,
+    "cited_by_count": null,
+    "topic_scores": {
+      "pretraining": 0.63
+    },
+    "semantic_score": null,
+    "personal_score": null,
+    "score_breakdown": {
+      "relevance": 63.0,
+      "quality": 38,
+      "novelty": 88.3,
+      "practical": 27,
+      "credibility": 35
+    },
+    "confidence": 35,
+    "risk_zh": null,
+    "llm_scores": {},
+    "score": 53.7,
+    "score_reasons": [
+      "命中主题：预训练与优化",
+      "优势：新颖 88、匹配 63"
+    ],
+    "summary_zh": null
   }
 }
