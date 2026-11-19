@@ -1,165 +1,75 @@
 {
-  "date": "2026-11-18",
-  "generated_at": "2026-11-18T07:50:21.084570+00:00",
+  "date": "2026-11-19",
+  "generated_at": "2026-11-19T07:46:11.152415+00:00",
   "candidate_count": 180,
   "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2611.22728v1",
-      "title": "LoopZip: Visual Token Compression for Efficient Looped Vision-Language Models",
-      "abstract": "Looped vision-language models (VLMs) deepen computation by reusing shared layers, approaching larger models' capabilities with fewer parameters and easing the storage and deployment burden of stacking independent layers. However, repeatedly processing long visual sequences still incurs substantial compute and GPU memory costs. Visual token compression reduces these costs by shortening sequences. Existing methods mainly select original tokens directly or combine selection with aggregation. In looped models, the former may overlook changing token importance across calls and discard information needed later; the latter lack joint consideration of output changes across calls, limiting information preservation. We propose LoopZip, a training-free visual token compression algorithm addressing both issues. Visual aggregation builds a compact candidate pool before the looped backbone, and cross-invocation selection averages instruction attention from the first two existing calls of the same shared attention layer to retain tokens needed by both states. Weight-tied value correction then jointly fits shared visual-value adjustments to both pre-selection layer outputs, reducing output deviations across states. To validate LoopZip's effectiveness, we conduct extensive experiments covering two open-source looped VLMs, eleven benchmarks, and three pruning ratios. On LoopVL-1B, LoopZip retains 97.16% of the original model's performance at 50% pruning ratio and exceeds the strongest baseline by 5.36% at 87.5% pruning ratio. Across Hugging Face Transformers, vLLM, and SGLang, LoopVL-1B with LoopZip reduces peak allocated GPU memory by 58.36%-58.98% and achieves 2.01-2.47x end-to-end speedups over the original model.",
+      "paper_id": "2611.24301v1",
+      "title": "LoopCache: Accelerating Long-Context Self-Speculative Decoding for Looped Transformers",
+      "abstract": "Looped Transformers achieve large effective depth with compact models by repeatedly applying a weight-shared block across R recurrent steps, each maintaining a loop-specific key-value (KV) cache. To accelerate sequential loop execution, recent wave-style self-speculative methods like WaveFront Decoding (WFD) and LoopSpec pipeline draft and target tokens across loops in a single step. However, they face two critical limitations. First, they draft only at fixed loops and ignore intermediate prediction changes, wasting computation on stale trajectories. Second, batching tokens from different loops loads up to Rx the KV cache per step, severely amplifying memory traffic in long-context scenarios. To address these challenges, we propose LoopCache, an efficient self-speculative decoding framework for long-context Looped Transformers. Based on the correlation between prediction switches and output confidence, LoopCache introduces confidence-guided dynamic draft updating to refine drafts in flight across all intermediate loops. Furthermore, LoopCache employs a cyclic loop KV cache strategy that rotates through loop-specific KV caches, restricting per-step KV traffic to a single loop while batching tokens at the nearest matching cycle for lossless verification. By also selectively retaining independent KV caches for a few loop-sensitive shallow layers, LoopCache improves acceptance rates with negligible overhead. Experiments show that LoopCache achieves average 10.25x and 14.56x speedup over WFD and LoopSpec.",
       "authors": [
-        "Weizhong Huang",
-        "Zhicheng Liu",
-        "Yan Zhang",
-        "Fei Chao",
-        "Xiawu Zheng",
-        "Liujuan Cao"
+        "Zizhuo Fu",
+        "Haochen Huang",
+        "Shengxuan Qiu",
+        "Linye Wei",
+        "Ziyu Tang",
+        "Runsheng Wang",
+        "Meng Li"
       ],
-      "published": "2026-11-17T13:01:13Z",
-      "updated": "2026-11-17T13:01:13Z",
+      "published": "2026-11-18T12:11:43Z",
+      "updated": "2026-11-18T12:11:43Z",
       "categories": [
-        "cs.CV",
+        "cs.CL",
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.22728v1",
-      "abs_url": "http://arxiv.org/abs/2611.22728v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24301v1",
+      "abs_url": "http://arxiv.org/abs/2611.24301v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "serving": 0.18,
-        "efficiency": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 78,
-        "novelty": 82.4,
-        "practical": 77,
-        "credibility": 35
-      },
-      "confidence": 67,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 68.5,
-      "score_reasons": [
-        "命中主题：推理系统、压缩与高效推理",
-        "优势：新颖 82、质量 78"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.23229v1",
-      "title": "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching",
-      "abstract": "Collecting large-scale, diverse, and high-quality post-training datasets for autoregressive language models is challenging. Consequently, Supervised Fine-Tuning (SFT) is typically applied to datasets significantly smaller than those used for pre-training, which leads to overfitting and the catastrophic forgetting of the tails of the data distribution. To prevent this collapse, we introduce Ambient SFT, a principled framework for leveraging imperfect predictions to augment the fine-tuning set. In our method, a \"frozen\" version of the pre-trained model serves as a noisy teacher that the fine-tuned model must match at a coarse level. In particular, we require that the high-temperature versions of the conditional distributions produced by the post-training model should match the high-temperature versions of the pre-training ones. The temperature hyperparameter controls the level of trust in the pre-trained model, with the limit $T\\to \\infty$ reverting back to regular SFT and $T=1$ to knowledge distillation. We demonstrate that our approach outperforms standard SFT across domain adaptation, instruction-tuning, and reasoning, leading for up to $21\\%$ average relative improvement to standard SFT.",
-      "authors": [
-        "Giannis Daras",
-        "Marios Papachristou",
-        "Adam Klivans",
-        "Antonio Torralba",
-        "Constantinos Daskalakis"
-      ],
-      "published": "2026-11-17T18:59:37Z",
-      "updated": "2026-11-17T18:59:37Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CL"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23229v1",
-      "abs_url": "http://arxiv.org/abs/2611.23229v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.18,
-        "post-training": 0.81,
-        "reasoning": 0.18,
-        "efficiency": 0.18
+        "serving": 0.81
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 81.0,
-        "quality": 60,
-        "novelty": 89.1,
-        "practical": 27,
+        "quality": 48,
+        "novelty": 85.1,
+        "practical": 59,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 66.2,
+      "score": 65.8,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐、推理时扩展、压缩与高效推理",
-        "优势：新颖 89、匹配 81"
+        "命中主题：推理系统",
+        "优势：新颖 85、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.22842v1",
-      "title": "SilverSpoon-KD: A General-Purpose Toolkit for Knowledge Distillation",
-      "abstract": "Knowledge distillation transfers deep learning representations from a teacher model to a student model, typically reducing model size or inference cost. However, knowledge distillation tooling has not kept pace with the breadth of research methods: existing toolkits typically support only a limited subset of techniques and use cases. We present SilverSpoon-KD, an open-source PyTorch toolkit that unifies different distillation paradigms and architectural relationships across workloads and applications behind a single API. Moreover, SilverSpoon-KD offers the first general-purpose blockwise knowledge distillation implementation with unique scalability features. We validate its versatility across vision, masked language model, and causal language models on tasks spanning homogeneous, heterogeneous, and quantization distillation across paradigms. We also evaluate SilverSpoon-KD by comparing its performance, including throughput and GPU memory usage, with existing toolkits. Despite extensive support for convenience, metric calculation, and tracking, we have found SilverSpoon-KD's performance to be on par with or better than existing toolkits.",
+      "paper_id": "2611.24846v1",
+      "title": "Atomic MathReasoner: Instance-Level Composition of Atomic Reasoning Skills for Mathematical LLMs",
+      "abstract": "Most existing approaches enhance mathematical reasoning in large language models (LLMs) as a monolithic capability, despite the fact that different mathematical problems require different reasoning skills. Recent work has explored a more fine-grained perspective by decomposing mathematical reasoning into atomic skills and developing specialized modules for individual capabilities. However, how to effectively utilize these atomic abilities remains underexplored. To address this challenge, we propose Atomic MathReasoner (AMR), an instance-level framework for composing atomic reasoning skills. AMR first trains a library of capability-specific LoRA experts and performs gradient-free optimization over held-out validation subsets to discover a diverse set of low-loss composition prototypes. It evaluates the preference of each prototype using the token-level negative log-likelihood of reference solutions, filters ambiguous assignments through a confidence margin, and distills the resulting pseudo-labels into a lightweight router. During inference, the router selects an appropriate composition prototype for each problem, enabling problem-specific utilization of atomic skills without costly online optimization. Experiments on the AtomicMath benchmark across general and mathematics-specialized LLMs demonstrate consistent improvements. On Qwen2.5-Math-Instruct-7B, AMR increases average field accuracy from 64.4% to 68.1% at Level 1 and from 59.3% to 63.7% at Level 2, while improving average logical reasoning performance from 39.4% to 46.8%. These results demonstrate that effectively composing specialized atomic skills provides a promising approach to strengthening mathematical reasoning in LLMs.",
       "authors": [
-        "Xaver R. Davey",
-        "David Broman"
+        "Jiashu Li",
+        "Tianyu Gao",
+        "Qinglong Liu",
+        "Jinping Wang",
+        "Ye Wei",
+        "Zhiqiang Gao"
       ],
-      "published": "2026-11-17T14:21:47Z",
-      "updated": "2026-11-17T14:21:47Z",
+      "published": "2026-11-18T18:08:08Z",
+      "updated": "2026-11-18T18:08:08Z",
       "categories": [
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.22842v1",
-      "abs_url": "http://arxiv.org/abs/2611.22842v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "serving": 0.18,
-        "efficiency": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 43,
-        "novelty": 87.9,
-        "practical": 63,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 65.4,
-      "score_reasons": [
-        "命中主题：推理系统、压缩与高效推理",
-        "优势：新颖 88、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.23010v1",
-      "title": "PhysScope: Agentic Multimodal Physics Reasoning with Grounded Visual Memory",
-      "abstract": "Vision-language models (VLMs) can correctly interpret physics diagrams yet apply constraints outside the states or conditions in which they hold, causing premise errors to propagate through subsequent calculations. We introduce PhysScope, an inference-time visual harness that supports self-correction of these scope mismatches without updating model weights. PhysScope enables the model to link physical scopes directly to its visual observations and explicitly constructs derived views to support reasoning. The harness imposes explicit constraints on state distinctions, conditions, and physical scopes during model reasoning, and checks agent-proposed revisions against sources and scopes. Accepted revisions invalidate registered dependents, thereby maintaining scope-aware working memory. On PhysAlign, PhysScope achieves higher solving scores than direct solving across all six evaluated VLMs. With Gemini-3.8-flash, it outperforms Canvas-CoT by 9.34 percentage points and substantially improves solving accuracy on the out-of-distribution (OOD) PhysUniBench benchmark. Ablation studies support explicit scope management and dependency maintenance as design principles for multimodal physics reasoning agents.",
-      "authors": [
-        "Haoyang Liu",
-        "Kecheng Liang",
-        "Xinyu Li",
-        "Weixing Chen",
-        "Yang Liu"
-      ],
-      "published": "2026-11-17T16:22:21Z",
-      "updated": "2026-11-17T16:22:21Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23010v1",
-      "abs_url": "http://arxiv.org/abs/2611.23010v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24846v1",
+      "abs_url": "http://arxiv.org/abs/2611.24846v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -171,128 +81,146 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 78,
-        "novelty": 87.2,
+        "quality": 69,
+        "novelty": 84.6,
         "practical": 27,
         "credibility": 35
       },
-      "confidence": 67,
+      "confidence": 59,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 64.0,
+      "score": 61.3,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 87、质量 78"
+        "优势：新颖 85、质量 69"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.23124v1",
-      "title": "Get Hint-Augmented GRPO Done Right Through Activation Steering",
-      "abstract": "GRPO has become the dominant reinforcement learning method for eliciting reasoning capability in LLMs using verifiable rewards. However, it suffers from a fundamental failure mode: when a training question exceeds the base model's current capability, all generated responses fail and receive zero reward, yielding no gradient signal and stalling further capability expansion. An emerging class of GRPO extensions, termed Hint-Augmented GRPO (HA-GRPO), adds a \"hint\" to the context to reduce the difficulty of the question, thereby producing a usable gradient signal. Nevertheless, existing HA-GRPO methods share a key issue: no hint is available at inference time to append to the question, creating a training-inference context mismatch that leads to inconsistent performance gains. In this work, we reinterpret the function of hinting -- not as reducing question difficulty, but as steering model behavior -- and propose ASH (Activation Steering for Hinting), a novel HA-GRPO method built on this view. During training, the model is presented with both hinted and plain questions, while a trainable steering vector is optimized to widen the margins between the model's generation probabilities for responses to the hinted version relative to the plain version, thereby capturing the question-agnostic component of the behavioral shift induced by the hint. During inference, the trained steering vector is directly injected into the model's activation, reproducing the hint-conditioned behavior without requiring any hint in the context. Experiments with four LLMs (Qwen3-1.7B/4B-Base, Llama-3.2-1B/3B-Instruct) show that ASH consistently improves pass@$k$ on competition-level mathematics benchmarks (AMC, OlympiadBench, AIME24, AIME25) and out-of-distribution benchmarks (Minerva, GPQA-Diamond). Notably, it improves average pass@8 of Qwen3-1.7B-Base and Qwen3-4B-Base by \\textbf{2.60}\\% and \\textbf{2.21}\\%.",
+      "paper_id": "2611.24214v1",
+      "title": "Towards Reliable Scaling Laws for Tabular Foundation Models",
+      "abstract": "Scaling laws are widely used to predict foundation model performance and guide compute allocation. However, tabular foundation models (TFMs) differ from conventional foundation models in that they are pretrained on virtually unlimited synthetic data from configurable distributions, while ultimately being evaluated on real-world datasets. We investigate whether scaling laws for TabPFNv2-style models reliably extrapolate to larger compute budgets and generalize across evaluation settings. Our analysis reveals differences between synthetic and real-world scaling behavior and shows that accurately fitting a scaling law does not necessarily yield reliable prescriptions on unseen datasets. In particular, selecting configurations using too few evaluation datasets leads to systematically over-optimistic performance estimates. We further demonstrate that compute-optimal scaling requires expanding the range of synthetic pretraining dataset sizes alongside model size and training compute. Increasing the maximum numbers of rows and features sampled during pretraining improves performance and produces more predictable scaling trends. These insights guide the training of more efficient TabPFNv2-like models, using the open-source training pipeline of nanoTabPFN.",
       "authors": [
-        "Khiem Le",
-        "Ting Hua",
-        "Nitesh V. Chawla"
+        "Johannes Hog",
+        "Neeratyoy Mallik",
+        "Steven Adriaensen",
+        "Jan Hendrik Metzen",
+        "Tom Viering",
+        "Danny Stoll",
+        "Frank Hutter"
       ],
-      "published": "2026-11-17T17:43:28Z",
-      "updated": "2026-11-17T17:43:28Z",
+      "published": "2026-11-18T10:52:48Z",
+      "updated": "2026-11-18T10:52:48Z",
       "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23124v1",
-      "abs_url": "http://arxiv.org/abs/2611.23124v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.63,
-        "reasoning": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 72,
-        "novelty": 83.0,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 60.8,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展",
-        "优势：新颖 83、质量 72"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.22838v1",
-      "title": "Better Rankers, Worse Retrievers: The Hidden Cost of RL Post-Training in Generative Recommendation",
-      "abstract": "Generative recommenders decode the semantic ID of a user's next item with a language model, and post-training them with reinforcement learning (RL) after supervised fine-tuning (SFT) has become standard practice. The gains are mostly reported on the first ten results, yet in deployment such models hand hundreds of candidates to a downstream ranker or reward model. We show that RL post-training has a hidden cost: it improves accuracy at the top of the list (hit@K for small K) but, on all five datasets we study, lowers the recall of the candidate list (hit@K for K in the hundreds). The model becomes a better ranker and a worse retriever. Controlled experiments trace the loss to the negative advantages that RL assigns to the candidates it samples, the rollout. The root cause is that only one next item is logged per user, so RL treats every other candidate as wrong. Yet these candidates are the model's most plausible alternatives, and often the next items of other users with similar histories. Penalising them pushes down exactly what similar users choose next, and these items drop out of those users' candidate lists. This diagnosis points directly to a remedy: out-of-rollout anchoring, a single additional loss term that preserves the SFT model's ordering of the items outside the rollout. It keeps the gain at the top and restores recall to the SFT level on all five datasets, and it is effective under other RL configurations as well. To our knowledge, this is the first systematic study of this recall loss: we measure it, identify its cause, and show that, once the cause is known, a simple remedy suffices.",
-      "authors": [
-        "Yuheng Chen",
-        "Fan Zhang",
-        "Yixuan Xu",
-        "Chao Yang",
-        "Yang Xiang",
-        "Can Yang"
-      ],
-      "published": "2026-11-17T14:19:22Z",
-      "updated": "2026-11-17T14:19:22Z",
-      "categories": [
-        "cs.IR",
+        "cs.LG",
         "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.22838v1",
-      "abs_url": "http://arxiv.org/abs/2611.22838v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24214v1",
+      "abs_url": "http://arxiv.org/abs/2611.24214v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "post-training": 0.81
+        "pretraining": 0.81
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 81.0,
         "quality": 40,
-        "novelty": 87.1,
+        "novelty": 87.4,
         "practical": 27,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 60.6,
+      "score": 60.7,
       "score_reasons": [
-        "命中主题：微调与对齐",
+        "命中主题：预训练与优化",
         "优势：新颖 87、匹配 81"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.22580v1",
-      "title": "AfriNORM: An Evaluation Benchmark for Normative Reasoning of LLMs Across African Cultures",
-      "abstract": "Large language models (LLMs) are increasingly deployed across various sectors. However, current evaluation benchmarks are insufficient to assess the applicability of these models in local African contexts, as most focus on linguistic fluency (grammar/translation) rather than cultural competence. The few existing benchmarks that measure general knowledge or social conventions do not capture the African deontic modality, i.e., the strict norms and taboos that govern diverse social interactions. In this paper, we introduce AfriNORM, a scenario-based, multiple-choice question dataset designed to measure and diagnose the normative reasoning limitations of LLMs when applied to African sociocultural contexts. We introduce two metrics: a Universal Commonsense Bias Score (UCBS) to quantify commonsense bias in LLM and a Distractor Bias Score (DBS) to quantify an LLM's limited understanding of African cultural norms. We also conduct a case study on the Yorùbá language, identifying confusion gaps in two closed-source LLMs, \"Gemini 2.0 Flash\" and \"GPT-5\", and one open-source LLM, \"Llama 3.1 8B Instruct\" when prompted in English versus Yorùbá. While their accuracy in English is high, their performance in Yorùbá is much lower, attributable to cultural confusion rather than simple bias, indicating that the models exhibit semantic confusion when reasoning about norms in Yorùbá.",
+      "paper_id": "2611.24496v1",
+      "title": "Harvesting Expert-Parallel Bubbles for Fine-Tuning",
+      "abstract": "GPUs are expensive, yet latency-critical large language model (LLM) inference leaves part of them idle. Colocation reclaims this capacity by running best-effort work, such as fine-tuning, alongside serving. Many leading LLMs now use a Mixture-of-Experts (MoE) architecture, which adds a new source of idle time. Under expert parallelism, MoE experts are spread across GPUs, and because the router sends uneven numbers of tokens to each GPU, lightly loaded GPUs wait for the most loaded one. Even after applying load balancing solutions, such bubbles still take 8--13% of prefill time. We present BubbleTea, the first colocation system that leverages expert-parallel bubbles for fine-tuning. Unlike existing colocation systems, which make one scheduling decision for all GPUs per forward pass, BubbleTea predicts each GPU's bubble at every layer from the router's token assignment, and fills it with short chunks of fine-tuning work that reuse the weights already loaded for serving. We also introduce compiler passes that automatically derive these chunks from the served LLM as-is, without porting each model architecture to a separate training engine. Our evaluation on three MoE models, served on four A100 GPUs, shows that fine-tuning throughput with BubbleTea is 1.9--6.2$\\times$ faster than with LLMStation, a state-of-the-art colocation system. BubbleTea keeps p90 inference latency within 10% of serving alone in 50 of 63 workloads, compared to 44 for LLMStation. On bursty production traces, BubbleTea trains 3.3$\\times$ faster than LLMStation and 14$\\times$ faster than a stock trainer colocated under CUDA MPS, with p90 inference latency staying within 7% of serving alone.",
       "authors": [
-        "Ahmad Samuel Gali",
-        "Tadesse Destaw Belay",
-        "Idris Abdulmumin",
-        "Seid Muhie Yimam",
-        "Shamsuddeen Hassan Muhammad"
+        "Oana Balmau",
+        "Saurav Banka",
+        "Jiaxuan Chen",
+        "Anne-Marie Kermarrec",
+        "Ramya Narasimha Prabhu",
+        "Rafael Pires",
+        "Mathis Randl",
+        "Martijn de Vos"
       ],
-      "published": "2026-11-17T11:04:36Z",
-      "updated": "2026-11-17T11:04:36Z",
+      "published": "2026-11-18T14:24:23Z",
+      "updated": "2026-11-18T14:24:23Z",
       "categories": [
-        "cs.CL"
+        "cs.OS",
+        "cs.AI",
+        "cs.DC"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.22580v1",
-      "abs_url": "http://arxiv.org/abs/2611.22580v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24496v1",
+      "abs_url": "http://arxiv.org/abs/2611.24496v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "post-training": 0.63,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 54,
+        "novelty": 82.9,
+        "practical": 54,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.9,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理系统",
+        "优势：新颖 83、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.24719v1",
+      "title": "DRIFT: Detachable Reasoning for Runtime-Flexible and Efficient End-to-End Driving",
+      "abstract": "The integration of vision-language models (VLMs) into end-to-end (E2E) autonomous driving has demonstrated strong potential by providing scene description and reasoning capabilities. However, VLMs are computationally expensive, and switching language reasoning on and off at runtime without hurting closed-loop performance has not been demonstrated, which hinders practical adoption. To address these issues, we propose DRIFT, an E2E autonomous driving framework that integrates a lightweight language model (LM) for visual question answering and action commentary. By efficiently projecting intermediate driving representations into the language embedding space, we demonstrate that a compact LM (<150M parameters) can achieve strong scene description and action commentary. Furthermore, we introduce a runtime-flexible planning module that is trained on surrogate reasoning features distilled from the LM and can be conditioned on either the LM or the surrogate reasoning features at inference. This design enables bypassing the LM entirely when required by deployment constraints, without sacrificing driving performance. With only 255M parameters, DRIFT reaches up to a Driving Score (DS) of 97.03 and a Success Rate of 89.39% (mean over three runs) on Bench2Drive by interleaving its LM and surrogate reasoning at a chosen reasoning rate. This is on par with the strongest non-language models while being far more compact than existing VLM-based models. DRIFT further achieves competitive results on the real-world NAVSIM and AlpaSim benchmarks at significantly lower computational cost than existing VLM-based approaches. Project page: https://drift-e2e.github.io/",
+      "authors": [
+        "Emad Aghajanzadeh",
+        "Bethany Anne Wong",
+        "Leonhard Kunze",
+        "Moritz Thoma",
+        "Maximilian Forstenhäusler",
+        "Nael Fasfous",
+        "Manoj Rohit Vemparala",
+        "Pierpaolo Mori",
+        "Christos Anagnostopoulos",
+        "Daniel Mueller-Gritschneder",
+        "Ulf Schlichtmann"
+      ],
+      "published": "2026-11-18T16:40:13Z",
+      "updated": "2026-11-18T16:40:13Z",
+      "categories": [
+        "cs.CV",
+        "cs.CL",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.24719v1",
+      "abs_url": "http://arxiv.org/abs/2611.24719v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -304,214 +232,264 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 68,
-        "novelty": 87.5,
-        "practical": 18,
+        "quality": 59,
+        "novelty": 85.5,
+        "practical": 36,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 60.5,
+      "score": 59.7,
       "score_reasons": [
         "命中主题：推理时扩展",
-        "优势：新颖 88、质量 68"
+        "优势：新颖 86、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.23053v1",
-      "title": "SPICE: Sparse Parameter Gossip for LLM Pretraining",
-      "abstract": "Pretraining language models across geographically distributed resources requires communication-efficient methods that operate under limited and variable internet bandwidth. Decentralized training replaces global collectives with peer exchanges, but full-model messages make larger peer neighborhoods costly. We introduce SPICE, which combines sparse parameter gossip with error feedback through corrected parameter values that remain directly interpretable as peer neighborhoods change. These sparse exchanges make broader neighborhoods affordable, achieving better training quality with less communication than the evaluated dense decentralized baselines. As the replica count grows, SPICEincreases the number of peers contacted while keeping individual messages sparse, limiting the quality degradation observed with dense gossip. Under bandwidth constraints, SPICE achieves higher training throughput than DDP and dense gossip, while sustaining throughput during transient link slowdowns.",
+      "paper_id": "2611.24648v1",
+      "title": "Zonotopic Analysis of Quantization Error in Neural Networks",
+      "abstract": "Quantized neural networks achieve computational efficiency by reducing precision, but bounding their quantization error remains a challenge due to discrete rounding and clamping operations. We present a zonotope-based abstract interpretation framework for quantized ReLU feed-forward network verification, introducing a unified round-clamp abstract transformer that jointly handles both operations. We extend this framework to constrained zonotopes, which add linear constraints to tighten bounds, and derive sound quantization error representations. We establish soundness and affine-strip optimality of the round-clamp abstract transformer, as well as convex-hull optimality of its complete constrained formulation. On the ACAS Xu benchmarks, our constrained zonotope method reduces average error-bound widths by approximately 70-85% and runtimes by 65-80% compared to QEBVerif's symbolic DRA propagation at the two smallest tested perturbation radii (r=3 and r=6). These improvements are not uniform across bitwidths, and symbolic DRA achieves tighter bounds at larger radii. Our plain zonotope method delivers competitive sound bounds nearly 300 times faster on average.",
       "authors": [
-        "Pietro Cagnasso",
-        "Daniele Kopyshevskiy",
-        "Edouard Oyallon",
-        "Eugene Belilovsky"
+        "Robert Debbas",
+        "Éric Goubault",
+        "Sylvie Putot"
       ],
-      "published": "2026-11-17T16:47:17Z",
-      "updated": "2026-11-17T16:47:17Z",
+      "published": "2026-11-18T15:52:07Z",
+      "updated": "2026-11-18T15:52:07Z",
       "categories": [
-        "cs.DC"
+        "cs.LG",
+        "cs.LO"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23053v1",
-      "abs_url": "http://arxiv.org/abs/2611.23053v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24648v1",
+      "abs_url": "http://arxiv.org/abs/2611.24648v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.63,
-        "serving": 0.18
+        "efficiency": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 52,
-        "novelty": 87.6,
-        "practical": 45,
+        "quality": 63,
+        "novelty": 87.1,
+        "practical": 18,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
       "score": 59.1,
       "score_reasons": [
-        "命中主题：预训练与优化、推理系统",
+        "命中主题：压缩与高效推理",
+        "优势：新颖 87、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.24891v1",
+      "title": "Cap-and-Track: Optimizing LLM Inference Request Dispatch Across Shifting Capacity",
+      "abstract": "A fixed dispatch rate for LLM inference becomes stale as serving fleets resize and request sizes change. Generative output length is unknown at admission, and shared provider pools can lose capacity. We present Cap-and-Track, a design for asynchronous inference across provider capacity and internal GPUs. Meta's traffic shaper implements Cap-and-Track for post and live-video understanding. Refusals signal the backend's current admission ceiling. Durable priority queues hold excess work outside execution, including refused requests for retry. Cap is a fail-fast admission check at the saturated resource that refuses work before a long wait. Using only those refusals, the Track dispatcher probes upward and backs off. It follows the ceiling without output-length prediction or a fleet-level rate to retune. In a concurrent same-traffic production A/B, the shaper ran per-replica Cap plus Track. It served a classifier on 43% fewer H100s than its queued, fixed-rate precursor, though lower-priority work waited longer at backfill peaks. In steady-capacity real-engine replay, Track ran within 1% of the goodput of a fixed rate tuned above measured capacity, with about a quarter of that rate's refusal share. The shaper carries more than 300 million online requests and hundreds of terabytes of media a day. During a backfill, it handled 1.1 billion requests in its busiest 24 hours. Lessons include keeping queues inside inference engines just long enough to fill batches, steering dispatch by capacity refusals alone, keeping dispatch stateful, and sizing fleets by how long low-priority work can wait.",
+      "authors": [
+        "Benjamin Novotny",
+        "Doug Szeto",
+        "Chang Wang",
+        "Shicheng Chen",
+        "George Zhihua Yuan",
+        "Bob Kamma",
+        "Michael Ge",
+        "John Xin Zhou",
+        "Andrea Olgiati"
+      ],
+      "published": "2026-11-18T18:34:10Z",
+      "updated": "2026-11-18T18:34:10Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.24891v1",
+      "abs_url": "http://arxiv.org/abs/2611.24891v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 54,
+        "novelty": 87.8,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.8,
+      "score_reasons": [
+        "命中主题：推理系统",
         "优势：新颖 88、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.23035v1",
-      "title": "Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels",
-      "abstract": "In the global attention layers of Gemma 4 31B, the value is the normalized key projection, and the key is the value scaled by a fixed weight, with rotary position encoding on one quarter of its dimensions. The Gemma 4 report states that this design reduces the global KV cache by up to 37.5%, but the open serving engines that we checked still store a full key and a full value: 1,024 values per KV head and token. We store one 640-value row instead, exact in real arithmetic, and an unchanged paged attention kernel reads it through two overlapping strided views as its key cache and its value cache. In a vLLM prototype with the 16-bit 31B model, the outputs are bit-identical to an emulation of the same arithmetic on the stock cache, 2 of 432 final answers differ from the stock engine (within its run-to-run noise), and the steady decode KV memory per request falls by a factor of 1.34 to 1.40 at 32K to 64K tokens. On a prefill/decode pair of two A100 GPUs with NIXL transfer and CPU offload, a decode engine with a full 15 GiB pool ran 1.38 times the stock decode tokens per step for 16K-token prompts (repeated to 0.06%) and 1.24 times for 8K-token prompts; a model of the vLLM block pool predicted both ratios to within 1% (the engine was 0.7% to 0.9% higher) and matched the change between them. The eager decode throughput rose by 1.30 and 1.11 times, and on this path the compact engine gave the same output tokens as the emulation for 8 prompts at batch 1. The run-time prototype makes an eager step 4% to 9% slower at equal batch, and the method does not yet stack with an 8-bit KV cache at the default scale.",
+      "paper_id": "2611.24552v1",
+      "title": "NaviGATE: Noise-Aware Dual-View Generation for Multimodal Knowledge Graph Reasoning",
+      "abstract": "Multimodal knowledge graph reasoning (MKGR) aims to infer missing facts by jointly exploiting relational structures, textual descriptions, and visual evidence. Existing embedding-based methods effectively capture graph topology, but their fixed multimodal representations are less effective for query-specific fine-grained semantic reasoning, while generation-based methods are vulnerable to noisy retrieval and may produce invalid entities. To address these challenges, we propose NaviGATE, a noise-aware generative framework for MKGR. NaviGATE first aligns graph-derived structural representations with textual semantics, then performs structure-aware internal knowledge activation by fine-tuning the multimodal language model with multimodal entity summaries and injected structural tokens. In the noise-aware dual-view instruction tuning stage, NaviGATE jointly optimizes retrieval-free and retrieval-aware views: reliable retrieved candidates are reinforced through contrastive logit sharpening, while misleading candidates are suppressed through parametric consistency distillation. In inference, structure-constrained decoding restricts generation to valid entities in the target knowledge graph. Experiments on standard benchmarks show that NaviGATE consistently outperforms strong unimodal, multimodal, and generation-based baselines, and remains robust under noisy retrieval scenarios.",
       "authors": [
-        "Kushagra Bainsla"
+        "Jie Peng",
+        "Yongxue Shan",
+        "Yongfu Zha",
+        "Cui Miao",
+        "Xiaodong Wang"
       ],
-      "published": "2026-11-17T16:36:28Z",
-      "updated": "2026-11-17T16:36:28Z",
+      "published": "2026-11-18T14:53:42Z",
+      "updated": "2026-11-18T14:53:42Z",
       "categories": [
-        "cs.LG",
-        "cs.CL",
-        "cs.DC"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23035v1",
-      "abs_url": "http://arxiv.org/abs/2611.23035v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24552v1",
+      "abs_url": "http://arxiv.org/abs/2611.24552v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "serving": 0.54
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 54.0,
-        "quality": 42,
-        "novelty": 81.7,
-        "practical": 54,
-        "credibility": 28
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 52.5,
-      "score_reasons": [
-        "命中主题：推理系统",
-        "优势：新颖 82、匹配 54"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.23228v1",
-      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
-      "abstract": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. The reason is that recurrent layers combine all past frames into a shared state, so expiring old frames normally requires re-running the entire window through the model. We observe that the recurrent update is affine in the state with input-dependent coefficients, so the effect of each frame can be captured as a transformation that composes associatively. We present Spool, a training-free framework that caches per-frame state transformations and composes them efficiently as the window advances, removing expired frames from each recurrent layer's state without replaying frames through the backbone. Removal is exact within each layer; as with key-value eviction in attention, expired frames can retain residual influence through the cached inputs computed by earlier layers. We design a dedicated data structure and GPU kernels to achieve low caching and composition overhead. Across five open-source hybrid VLMs and four video reasoning benchmarks, Spool achieves the lowest p95 time-to-first-token in all 20 model-benchmark tests, reducing it by a geometric mean of $6.6\\times$ over the faster of two recent vLLM baselines, while improving accuracy by 2.3 percentage points on average.",
-      "authors": [
-        "Rui Ning",
-        "Om Chabra",
-        "Hari Balakrishnan"
-      ],
-      "published": "2026-11-17T18:59:27Z",
-      "updated": "2026-11-17T18:59:27Z",
-      "categories": [
-        "cs.CV",
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23228v1",
-      "abs_url": "http://arxiv.org/abs/2611.23228v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.18,
-        "serving": 0.36
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 52,
-        "novelty": 84.5,
-        "practical": 45,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 48.7,
-      "score_reasons": [
-        "命中主题：推理时扩展、推理系统",
-        "优势：新颖 84、质量 52"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.23205v1",
-      "title": "Fine-Tuning Gemma 4 Edge Models for MATLAB Signal-Processing Code with SFT and QLoRA on a Laptop iGPU",
-      "abstract": "Small language models that run on a laptop are attractive for writing signal-processing code offline, but they make systematic errors on digital signal processing (DSP) conventions. We apply supervised fine-tuning (SFT) to the Gemma 4 edge models E2B and E4B with 66 checked examples covering 11 signal-processing MATLAB subtasks, using low-rank adaptation (LoRA) and quantized LoRA (QLoRA) on the integrated GPU (iGPU) of a laptop, and deploy the 8-bit integer (int8) models with the adapters through OpenVINO. On held-out variants scored by deterministic checkers, the pass rate rises from 18/66 to 37/66 (LoRA) and 37/66 (QLoRA) for E2B and from 32/66 to 47/66 for E4B (QLoRA). Reading all 159 failing programs shows that the adapters remove most errors of convention, such as the sign of a lag, units and array shapes, but few errors in building signals and noise. Applied at run time, the adapter costs 17-19% of the generation speed.",
-      "authors": [
-        "Mehmet Altan Toksöz"
-      ],
-      "published": "2026-11-17T18:47:37Z",
-      "updated": "2026-11-17T18:47:37Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.SE",
-        "eess.SP"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23205v1",
-      "abs_url": "http://arxiv.org/abs/2611.23205v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.63,
+        "post-training": 0.36,
+        "reasoning": 0.63,
         "efficiency": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 42,
-        "novelty": 88.6,
-        "practical": 36,
-        "credibility": 28
+        "quality": 58,
+        "novelty": 87.0,
+        "practical": 18,
+        "credibility": 35
       },
-      "confidence": 35,
+      "confidence": 67,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 55.0,
+      "score": 57.8,
       "score_reasons": [
-        "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 89、匹配 63"
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：新颖 87、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.23197v1",
-      "title": "Structure--Residual Inductive Biases for Language Model Pretraining",
-      "abstract": "Next-token prediction is relied upon to learn both predictive behavior and internal representations. We ask whether representation structure itself should be an explicit inductive bias. Motivated by the two-part coding view of Kolmogorov complexity, we study a structure--residual principle in which a representation separates structure from realization detail. We instantiate this principle in two complementary ways. Boundary Bottleneck Concept (BBC) routes information from token segments through boundary carriers while preserving local autoregressive computation. Continuous Concept (CC) regularizes representation geometry and induces a spectral decomposition into low-frequency structure and high-frequency residual. We derive coding bounds for both views and show that multiplicity-corrected boundary attention becomes exact as the within-segment path energy vanishes. Empirically, BBC and CC exhibit strikingly different depth preferences: BBC works best in early layers, whereas CC is most effective in later layers. At 300M training tokens, combining BBC and CC improves NLL by 1.44\\% on GPT-2 Medium. These gains persist with training runs up to 20B tokens. Representation diagnostics show that BBC increases the relative predictive importance of boundary states, while CC reduces spectral residual energy. Together, these results suggest that structure--residual biases can improve language-model pretraining beyond next-token prediction. Code: https://github.com/haihuang-ml/structure-residual",
+      "paper_id": "2611.24619v1",
+      "title": "GateWatch: Low-Overhead LLM Monitoring with Boolean Circuits",
+      "abstract": "As large language models (LLMs) and LLM-based agents are increasingly deployed, monitoring their behavior becomes important for detecting unsafe or unintended actions. Activation probes offer an efficient approach, but existing methods face trade-offs between accuracy, interpretability, and computational overhead. Probes on raw activations lack interpretable inputs, whereas sparse autoencoder (SAE) probes use interpretable features but often rely on additive classifiers and large SAE encoders, limiting interpretability and increasing memory overhead. We introduce GateWatch, a compact, interpretable classifier that expresses its entire decision rule as an explicit Boolean logic over a small number of binarized SAE features. We explore three approaches to constructing these circuits under a specified gate budget. For efficient deployment, GateWatchServe computes only selected SAE features, enables streaming of their binary values across layers during inference, and evaluates multiple GateWatch classifiers in parallel using compact lookup tables. Across 24 tasks on Gemma-2-9B, GateWatch achieves 80.49% mean test accuracy using only 3.8 SAE features and 3.5 logic gates per probe on average, just 1.17 percentage points below full 16K-feature SAE probes, while matching or outperforming them on 10 tasks and reducing probe memory by 99.98%. Inside vLLM, 1,000 concurrent multi-layer, multi-token GateWatch classifiers retain 97-98% of baseline throughput and 99.8% of KV-cache capacity.",
       "authors": [
-        "Hai Huang",
-        "Bartosz Żuk",
-        "Rassul Magauin",
-        "Jiaxin Huang",
-        "Xue Liu"
+        "Firas Spanioli",
+        "Yaniv David"
       ],
-      "published": "2026-11-17T18:38:27Z",
-      "updated": "2026-11-17T18:38:27Z",
+      "published": "2026-11-18T15:37:04Z",
+      "updated": "2026-11-18T15:37:04Z",
       "categories": [
-        "cs.CL",
-        "cs.AI"
+        "cs.AI",
+        "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.23197v1",
-      "abs_url": "http://arxiv.org/abs/2611.23197v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.24619v1",
+      "abs_url": "http://arxiv.org/abs/2611.24619v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 69,
+        "novelty": 84.2,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 53.1,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 84、质量 69"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.24437v1",
+      "title": "Dissecting an Unexplored SASS Control-Code Field: Barrier Exemption and Programmable Warp Priority",
+      "abstract": "Every instruction in NVIDIA's native GPU ISA (SASS) carries a control code that guides hardware scheduling, and prior work has decoded its known fields to optimize GPU kernels. However, one control-code field remains unexplored: it appears over 500000 times in NVIDIA's closed-source libraries such as cuBLAS and cuDNN, yet nvcc never emits it when compiling user programs. This paper presents the first systematic study of this control-code field across GPU architectures from Volta to Blackwell. Using instruction-level microbenchmarks, we show that the field controls two independent hardware mechanisms: barrier exemption (EXEMPT), which allows instructions blocked by a pending barrier to issue early during the barrier wait, and programmable warp priority (START, TILE, and END), which moves warps across three priority levels in the hardware scheduler. We identify the conditions under which each mechanism improves GPU kernel performance and implement a post-compilation binary optimizer that places these marks directly in compiled binaries without modifying source code or the compiler. Evaluated across six GPUs spanning four architectures, our optimizations speed up representative kernels by up to 31.9%, and the optimizer accelerates production kernels in llama.cpp and vLLM by up to 5.4% and end-to-end LLM inference by up to 3.6%.",
+      "authors": [
+        "Ziwen Wang",
+        "Qi Luo",
+        "Kunlin Li",
+        "Changxi Liu",
+        "Dongsheng Wang",
+        "Yun Chen"
+      ],
+      "published": "2026-11-18T13:53:40Z",
+      "updated": "2026-11-18T13:53:40Z",
+      "categories": [
+        "cs.AR",
+        "cs.DC",
+        "cs.PF"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.24437v1",
+      "abs_url": "http://arxiv.org/abs/2611.24437v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.18,
+        "serving": 0.36
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 56,
+        "novelty": 84.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 47.9,
+      "score_reasons": [
+        "命中主题：预训练与优化、推理系统",
+        "优势：新颖 84、质量 56"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.24379v1",
+      "title": "MoE-Context: Show the Model Only What It Needs",
+      "abstract": "AI agents read their whole history at every step. People do not work like that: we keep what the moment needs and hold the rest as a rough note we can recall. MoE-Context applies this to language models. The context is split into blocks. Before each step a fast yes or no pass decides which blocks the step needs; the rest stay as one-line notes that can be brought back, and nothing is deleted. In the version we build, one model makes this decision and then answers, over a single key-value cache where hidden blocks are masked rather than removed. On a laptop with Qwen3-1.7B and a synthetic lookup task, showing only the needed block raises accuracy from 93 to 119 of 120, and a masked block is as hidden as a deleted one. The model's own picking is the weak part. A supervised linear probe written into spare output rows lifts its accuracy from 80 to 110 of 120, but simple keyword search picks perfectly on this task, and the probe does not transfer to a second task. We report these results openly, along with two cheap usage patterns that block switching enables: undoing a failed attempt and running subagents without a new context.",
+      "authors": [
+        "Vedant Navale"
+      ],
+      "published": "2026-11-18T13:08:14Z",
+      "updated": "2026-11-18T13:08:14Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.24379v1",
+      "abs_url": "http://arxiv.org/abs/2611.24379v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -523,18 +501,62 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 38,
-        "novelty": 88.3,
-        "practical": 27,
-        "credibility": 35
+        "quality": 54,
+        "novelty": 85.7,
+        "practical": 18,
+        "credibility": 28
       },
       "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 53.7,
+      "score": 55.8,
       "score_reasons": [
         "命中主题：预训练与优化",
-        "优势：新颖 88、匹配 63"
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.24699v1",
+      "title": "When Does Continual Pre-Training Help? A Controlled Study of Dialectal Adaptation for Québec French",
+      "abstract": "Continual pre-training (CPT) is widely used to adapt pretrained language models to dialectal and non-standard language varieties, yet it remains unclear when this additional training is necessary, what drives its benefits, and whether aggregate evaluation scores adequately capture its effects. In this paper, we present a controlled study of CPT for Québec French language understanding across nine LLMs spanning different families and scales. Using a budget-matched protocol of 30M tokens per experiment, our results show that the benefit of CPT depends strongly on the starting model's existing competence in the target variety. When CPT is beneficial, the improvements are driven more by corpus composition than by data volume, with literary text accounting for most of the gain. Paired Québec and standard French evaluations further show that CPT primarily improves expression comprehension rather than grammatical competence, and that corpus register determines which regional expressions are acquired. These gains also involve capability-specific trade-offs, including declines in reading comprehension that aggregate scores can conceal. Overall, these findings show that CPT for dialectal adaptation should not be treated as a uniformly beneficial default. Instead, adaptation strategies should begin with a careful assessment of the base model's existing competence, accompanied by source-level data analysis and task-level evaluation.",
+      "authors": [
+        "Eeham Khan",
+        "Richard Khoury",
+        "Leila Kosseim"
+      ],
+      "published": "2026-11-18T16:26:03Z",
+      "updated": "2026-11-18T16:26:03Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.24699v1",
+      "abs_url": "http://arxiv.org/abs/2611.24699v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 47,
+        "novelty": 83.9,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.4,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 84、匹配 63"
       ],
       "summary_zh": null
     }
