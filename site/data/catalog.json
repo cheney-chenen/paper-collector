@@ -1,7 +1,541 @@
 {
   "date": "全部历史",
-  "selected_count": 1140,
+  "selected_count": 1152,
   "papers": [
+    {
+      "paper_id": "2611.26627v1",
+      "title": "RL Post-Training in Diffusion Transformers Is Activation Steering",
+      "abstract": "Reinforcement learning (RL) post-training substantially improves the visual quality, text rendering, and compositional accuracy of diffusion transformers. Because capabilities such as rendering requested text or composing multiple objects are inherently prompt-dependent, a natural hypothesis is that improving them requires learning complex, input-dependent transformations. To isolate how much of these gains an input-independent shift explains, we probe each RL-tuned model with a deliberately simple parameterization: a fixed set of steering vectors added to the block outputs of the frozen base model. On SD3.5-M, these vectors hold 65x fewer parameters than the RL-tuned LoRA (0.29M against 18.8M). We fit them to match the velocity predictions of public RL-tuned checkpoints, with no reward in the objective. Although the vectors are identical for every prompt, token, and sampling seed, they recover 90.0-96.3% of the reward gains of six RL-tuned image models, and 89.8% and 111.9% on two RL-tuned video models. Initialized at zero and trained with online RL, the vectors alone exceed the reward gains of weight-based RL on text rendering (OCR) and human preference (PickScore) on SD3.5-M. A constant shift thus suffices for most of the gain of policy-gradient RL post-training: without new input-dependent transformations, it steers the pretrained generator toward what it can already compute.",
+      "authors": [
+        "Tuna Han Salih Meral",
+        "Kaan Oktay",
+        "Alec Helbling",
+        "Atakan Kara",
+        "Duen Horng Chau",
+        "Pinar Yanardag"
+      ],
+      "published": "2026-11-19T18:59:53Z",
+      "updated": "2026-11-19T18:59:53Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26627v1",
+      "abs_url": "http://arxiv.org/abs/2611.26627v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 54,
+        "novelty": 86.1,
+        "practical": 32,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 58.1,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 86、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26592v1",
+      "title": "Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning",
+      "abstract": "Self-consistency certification treats repeated sampling from a language model as sequential evidence accumulation and stops when an anytime-valid e-process crosses a threshold, guaranteeing finite-sample Type I error control by Ville's inequality. Prior constructions assume sampled rollouts are conditionally independent. We show this assumption fails in practice: reasoning streams are positively correlated through shared reasoning prefixes or across-prompt heterogeneity, changing not merely certificate efficiency but the hypothesis certified. Modeling dependence via a per-unit latent state (the random-effects / intraclass-correlation structure) induces exchangeable, equi-correlated increments with correlation $ρ$. Correlation splits the single null into a realized null about the drawn belief and a population null about average model behavior, which coincide only when $ρ=0$. We show: (i) the standard betting e-process remains anytime-valid for the realized null, not the population null; (ii) read as a population-null test, a suitable mixture has asymptotic crossing probability at least $π=P(μ(Z)>0)$, potentially exceeding nominal $ε$; (iii) the within-unit mean's effective sample size saturates at $1/ρ$, so extra within-unit rollouts cannot restore population validity; and (iv) a prompt-level e-process restores population validity, with optimal allocation at one rollout per prompt under a pure rollout budget. Simulations and Claude Haiku 4.5 rollouts confirm this regime dependence: on GSM8K ($\\hatρ=0.435$, $\\hatθ=+0.96$) the gap is dormant, whereas on AIME ($\\hatρ=0.480$, $\\hatθ=-0.15$) the single-unit rule crosses on 24% of prompts at nominal $ε=0.05$, while the prompt-level procedure declines (0.00). This correctness result identifies which reliability claim an anytime-valid certificate actually supports under dependence.",
+      "authors": [
+        "Terence D. Agbeyegbe",
+        "Toneukarin G. Agbeyegbe"
+      ],
+      "published": "2026-11-19T18:47:51Z",
+      "updated": "2026-11-19T18:47:51Z",
+      "categories": [
+        "stat.ME",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26592v1",
+      "abs_url": "http://arxiv.org/abs/2611.26592v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 54,
+        "novelty": 84.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 69.9,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：匹配 100、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26584v1",
+      "title": "Represented but misread: Post-training changes how language models read out what they represent",
+      "abstract": "Does post-training change what a language model represents, or how this representation is read out into an answer? We compared linear probes with the models' own answers, analyzed with signal detection theory, in six open-weight base models and their post-trained versions. For judgments of whether German texts were written by a human or an AI, probes and word n-gram classifiers separated the classes well, but the answers did not and often ordered the texts inversely. Post-training lowered the sensitivity of the answers on average ($Δd' = -0.34$ across model families; -0.29 across three prompts). It also changed the use of a stated base rate: Base models shifted their log-odds by less than the stated change in prior odds, most post-trained models by more. In two models with stage-wise checkpoints, the change occurred during supervised fine-tuning, model stitching implicated the early layers, and from mid-depth on internal states at positions after the text, not those of the text, transferred the change between checkpoints. Our corpora cannot be shared, so we add a case reproducible from public data, the truth of negated statements. Here, post-training acted in the opposite direction: Probes decoded truth at or near ceiling in every model, the answers of several base models did not use it, and post-training repaired them; by mid-depth the repair resided at the positions after the statement; below it, the representation of the statement contributed, strongly in one of four models. In a training study, adding 2,000 correctly labeled authorship judgments of news texts to otherwise identical fine-tuning data improved the answers on our newspaper and textbook corpora and inverted them on the chats, where they followed a news-trained probe of the base model. Post-training thus changed how a judgment is read out of what a model represents, and a small training signal can set its direction.",
+      "authors": [
+        "Jochen Laubrock"
+      ],
+      "published": "2026-11-19T18:43:56Z",
+      "updated": "2026-11-19T18:43:56Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26584v1",
+      "abs_url": "http://arxiv.org/abs/2611.26584v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 50,
+        "novelty": 85.6,
+        "practical": 18,
+        "credibility": 28
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 61.4,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 86、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26510v1",
+      "title": "AutoMaster: Autonomous Post-Training by Making the Same Model a Better Teacher",
+      "abstract": "Task success alone does not specify which behaviors post-training should reinforce. Even successful teacher trajectories can contain unsupported assumptions, unproductive repetition, or superficial verification. We propose Skill-FT (Skill-Guided Fine-Tuning), which uses natural-language skills to suppress undesirable habits and elicit underrepresented effective behaviors during teacher rollouts, then fine-tunes a target model on the resulting trajectories. We introduce AutoMaster, an autonomous post-training system in which an LLM agent develops these interventions through trajectory analysis, skill design, data selection, and feedback from rollouts and target-model evaluation. Across Terminal, Search, and software engineering tasks with 4B and 9B target models, AutoMaster improves mean performance over Vanilla SFT on successful unguided teacher trajectories by 1.42-8.99 percentage points, with the teacher, task pool, training set size, and SFT recipe held fixed. Together with the ablations and trajectory analyses, these results suggest that behavioral shaping can make a fixed model a more effective teacher. We further find that retaining skill instructions during SFT yields higher mean performance than removing them across all six settings, despite their absence at evaluation and identical supervised outputs. These findings suggest that preserving skill context as part of a training demonstration can support better behavioral internalization.",
+      "authors": [
+        "Guoxin Chen",
+        "Shuang Sun",
+        "Fanzhe Meng",
+        "Xinyu Tang",
+        "Ruihua Song",
+        "Wayne Xin Zhao"
+      ],
+      "published": "2026-11-19T17:57:59Z",
+      "updated": "2026-11-19T17:57:59Z",
+      "categories": [
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26510v1",
+      "abs_url": "http://arxiv.org/abs/2611.26510v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 59,
+        "novelty": 84.1,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.2,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 84、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26509v1",
+      "title": "GLiDE: A Fast, Calibrated Decision Model Distilled from Reasoning Teachers",
+      "abstract": "Decision models enable fast, confidence-aware decisions by scoring candidate answers in a single forward pass, without generating text or intermediate reasoning. Yet reasoning can substantially improve decision quality, raising the question of whether its benefits can be retained without the cost of generating it. We investigate this question with \\textbf{GLiDE}, a family of decision models spanning 0.4B to 27B parameters. Building on Qwen hybrid language models, GLiDE enables bidirectional interactions between the context, question, and candidate answers by removing causal masking from full-attention layers. To transfer reasoning capabilities into single-pass inference, we combine soft-target distillation from multiple teachers, including a reasoning model, with progressive post-training on diverse decision tasks. We further explore parameter-free recurrent depth to increase inference-time computation without generating tokens. Across five model sizes, GLiDE lies on the performance--parameter Pareto frontier of the Hugging Face \\DI{}, with each model outperforming evaluated alternatives of equal or smaller size. \\dmtwo{} (27B) achieves a hidden-set score of 71.52, with an expected calibration error of 2.0\\% and a median latency of 92.9\\,ms on a single GPU. Further checkpoint averaging and parameter-free recurrent depth yield GLiDE~27B, which reaches 73.37 with an expected calibration error of 2.1\\%.",
+      "authors": [
+        "Sahibzada Allahyar",
+        "Julia White",
+        "Dhruv Atreja",
+        "George Hurn-Maloney",
+        "Urchade Zaratiana"
+      ],
+      "published": "2026-11-19T17:56:44Z",
+      "updated": "2026-11-19T17:56:44Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26509v1",
+      "abs_url": "http://arxiv.org/abs/2611.26509v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.81,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 60,
+        "novelty": 87.0,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 67.8,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展、压缩与高效推理",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26437v1",
+      "title": "Asuka-FM: A System-Architectural Co-Design Framework for Efficient Text-to-Image Pretraining on Consumer Hardware",
+      "abstract": "Frontier text-to-image (T2I) foundation models predominantly rely on multi-billion parameter Diffusion Transformers (DiTs) pretrained across massive compute clusters, creating an accessibility barrier for academic laboratories. When training DiTs from scratch on single consumer GPUs (e.g., an NVIDIA RTX 4090 with 24\\,GB VRAM), practitioners encounter three primary bottlenecks: quadratic attention sequence costs, Just-In-Time (JIT) compilation graph breaks induced by variable aspect-ratio bucketing, and an autoencoder throughput wall where frozen Variational Autoencoder (VAE) operations dominate step latency. In this work, we introduce \\textbf{Asuka-FM}, an end-to-end system and architectural framework demonstrating that competitive dual-stream DiTs ($\\sim$206M parameters) can be pretrained from scratch on a single consumer GPU in $\\sim$160 GPU hours for under \\$55. Asuka-FM integrates four core designs: (i) an AdaLN-free dual-stream DiT backbone reducing parameter count; (ii) structured sequence sparsification via Sparse-Dense Residual Fusion (SPRINT) to cut attention FLOPs by over 50\\%; (iii) continuous aspect-normalized Rotary Position Embeddings (RoPE) coupled with shifted square crop training, guaranteeing static tensor shapes while unlocking zero-shot virtual camera control; and (iv) a pixel adaptation phase utilizing a lightweight (10M parameter) Patch Detailer Head operating under velocity regression ($v$-prediction). Evaluated on open-domain benchmarks without benchmark-specific fine-tuning, Asuka-FM achieves GenEval 0.588 / DPG 78.96 scores at 256px and GenEval 0.609 / DPG 78.51 scores at 512px, setting a new Pareto-optimal efficiency standard for democratic foundation modeling.",
+      "authors": [
+        "Víctor Rodrigo González",
+        "Pablo M. Olmos",
+        "Ignacio Peis",
+        "Alejandro Lancho"
+      ],
+      "published": "2026-11-19T17:12:34Z",
+      "updated": "2026-11-19T17:12:34Z",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26437v1",
+      "abs_url": "http://arxiv.org/abs/2611.26437v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.45,
+        "post-training": 0.18,
+        "serving": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 45.0,
+        "quality": 60,
+        "novelty": 90.0,
+        "practical": 63,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 56.9,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理系统",
+        "优势：新颖 90、实用 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26435v1",
+      "title": "Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the Request Queue",
+      "abstract": "LLM agents run long, multi-turn programs whose contexts grow at every step, and serving them is limited by KV cache capacity. To alleviate this limitation, systems use context compression techniques, which typically wait until the KV cache crosses a large threshold and then summarize large spans of history at once, either in the background while the agent progresses or on the critical path. These summarizations can be done using the same model running on the same engine, or using the same or a different model running on extra hardware. When running on the same engine, summarization competes with the requests being served for both compute and memory capacity. To maximize the cost-effectiveness of summarization, this paper presents a new serving system called {\\em Aggron}. Aggron summarizes agentic requests at every turn and selectively summarizes only certain parts of the KV cache. As a result, Aggron retains accuracy and keeps summarization requests lightweight. Moreover, Aggron launches summarization requests from a separate {\\em Summarization Queue} while the corresponding agentic request whose KV cache we want to compress is stalled in the main request queue due to head-of-line stalls. The Summarization queue utilizes compute and memory capacity left over by the head-of-line stalls in the main queue. Further, to maximize efficiency, the server issues summarizations only when it predicts that they can complete before the corresponding agentic request will finally execute. In our evaluation, we compare Aggron to state-of-the-art asynchronous summarization. At high load, Aggron reduces P99 program latency by $27$--$31\\%$, and raises throughput by $1.34$--$1.40\\times$.",
+      "authors": [
+        "Rishabh Ravi",
+        "Tony Hong",
+        "Chen Wang",
+        "Yue Zhu",
+        "Mengmei Ye",
+        "Hubertus Franke",
+        "Fan Lai",
+        "Josep Torrellas"
+      ],
+      "published": "2026-11-19T17:09:37Z",
+      "updated": "2026-11-19T17:09:37Z",
+      "categories": [
+        "cs.DC",
+        "cs.AR"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26435v1",
+      "abs_url": "http://arxiv.org/abs/2611.26435v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.81,
+        "efficiency": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 38,
+        "novelty": 84.5,
+        "practical": 63,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 63.5,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 84、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26413v1",
+      "title": "Sequential Anytime Valid Tests for Efficient Inference-Time Alignment",
+      "abstract": "Inference-time alignment methods, such as Best-of-N (BoN), improve language model outputs by generating multiple candidates per prompt and selecting among them using a reward model. Much of this cost is wasted: a fixed budget is applied to every prompt, although the computation required by prompts varies widely. Adaptive methods halt once sampled answers appear settled, but their thresholds are tuned heuristics with no statistical control over early-stopping errors. We instead seek an anytime-valid stopping rule that takes an error tolerance $α$ as input and halts only once an answer is certified to hold a majority ($θ_a > 1/2$) under the generator's distribution. We aggregate candidates by final answer with a reward-weighted self-consistency (RWSC) score and treat stopping as a sequential test over the resulting clusters. Applying Wald's sequential probability ratio test to these clusters yields SPRT-RWSC, which performs well empirically, but its guarantee fails because the leading answer shifts during sampling, and the run is continuously monitored. Our main contribution, e-RWSC, replaces Wald's test with a betting supermartingale (an e-process) for every answer the policy produces, bounding the probability of ever certifying a non-dominant answer by $α$, uniformly over time and across all answers. The RWSC scores drive the bets, so they affect only how quickly a dominant answer $a^\\star$ is certified, not validity; certification takes $O(\\log(1/α)/d_{\\mathrm{KL}}(θ_{a^\\star}\\|1/2))$ samples. Experiments across several language models, datasets, and reward models confirm the predicted $1/d_{\\mathrm{KL}}$ scaling of cost and show that accuracy improves over baselines at substantially lower token cost.",
+      "authors": [
+        "Vishesh Kumar Singh",
+        "Sayak Ray Chowdhury"
+      ],
+      "published": "2026-11-19T17:00:42Z",
+      "updated": "2026-11-19T17:00:42Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26413v1",
+      "abs_url": "http://arxiv.org/abs/2611.26413v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 84.0,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.3,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 84、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26075v1",
+      "title": "Understanding MoE Decisions Beyond Gradients",
+      "abstract": "Understanding a language model's decision requires knowing how its internal computations affect its preference between answers. Gradient-based methods estimate this influence by predicting the effect of changing those computations. In mixture-of-experts (MoE) models, replacing one expert can change which experts later layers select. Those switches can alter the answer scores in ways that derivatives do not capture. We introduce a predictor that uses the model's own expert outputs and selection rules to estimate these extra effects, then adds them to a second-order prediction. Across questions from three benchmarks, our method reduces the error in predicting answer-score changes by 60\\% on Qwen3.6 and 47\\% on Gemma4, relative to a multistep baseline using gradients and second derivatives.",
+      "authors": [
+        "Zhen Xu",
+        "Zitao Zhang",
+        "Kevin Zhao",
+        "Xuefeng Liu"
+      ],
+      "published": "2026-11-19T13:16:58Z",
+      "updated": "2026-11-19T13:16:58Z",
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26075v1",
+      "abs_url": "http://arxiv.org/abs/2611.26075v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 64,
+        "novelty": 86.4,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.3,
+      "score_reasons": [
+        "命中主题：预训练与优化",
+        "优势：新颖 86、质量 64"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26059v1",
+      "title": "Complete-SVD: A Functional Norm Approach to Low-Rank LLM Compression",
+      "abstract": "Post-training low-rank compression of neural networks must not only approximate the original weights but also preserve the model's input-output behavior. Recent output-aware methods measure the compression error beyond the compressed layer, at the model output, weighting logit changes by the observed next token or by the model's predicted probabilities. We propose Complete-SVD, a method for large language models that minimizes the $L_2$ distance between the logits of the original and compressed models, weighting all logit changes equally. Linearizing the network around the original weights, together with a Kronecker-factored approximation, reduces this objective to a weighted SVD with a closed-form solution. Its output-side factor is intractable to compute; we estimate it without bias from random probes, at a cost of $K$ backward passes per sequence, independent of vocabulary size and sequence length. At matched settings with uniform ranks and WikiText-2 calibration, Complete-SVD achieves the lowest C4 and PTB perplexity in every setting, and at ratio 0.7 under LEMS rank allocation. Replacing the $L_2$ distance by the Kullback-Leibler divergence (KL-SVD), with the same estimation framework, lowers calibration perplexity in most settings and raises downstream accuracy, but raises cross-corpus perplexity. Complete-SVD also improves IFEval instruction-following accuracy over the strongest prior output-aware methods throughout.",
+      "authors": [
+        "Alper Kalle",
+        "Theo Rudkiewicz",
+        "Mohamed-Oumar Ouerfelli",
+        "Mohamed Tamaazousti"
+      ],
+      "published": "2026-11-19T13:04:57Z",
+      "updated": "2026-11-19T13:04:57Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26059v1",
+      "abs_url": "http://arxiv.org/abs/2611.26059v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "efficiency": 1.0
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 100.0,
+        "quality": 30,
+        "novelty": 85.1,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.7,
+      "score_reasons": [
+        "命中主题：微调与对齐、压缩与高效推理",
+        "优势：匹配 100、新颖 85"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26024v1",
+      "title": "ForeSeek: Foresight-Driven Reasoning for Long-Form Video Understanding",
+      "abstract": "Long-form video understanding, as a fundamental yet crucial vision task, is being revolutionized by multimodal large language model (MLLM)-based video agents. However, the retrieval-driven nature inherent to these agents creates a significant bottleneck, forcing them to reactively fetch clips based on local saliency without a global temporal plan. To address this, we present ForeSeek, a foresight-driven video agent that transforms long-video reasoning from reactive retrieval into predictive exploration. Rather than blindly probing the timeline, ForeSeek forms visually grounded expectations over unseen temporal regions, verifies them through targeted observations, and continuously refines its search based on emerging evidence, where failed expectations serve as informative signals for principled backtracking. Furthermore, we develop a two-stage training framework that equips MLLMs with foresight-guided reasoning and efficient decision making. Extensive experiments on five long-video benchmarks demonstrate that ForeSeek consistently improves the efficiency--accuracy trade-off of long-video reasoning, achieving competitive or superior accuracy while observing $2.5$--$4.4\\times$ fewer frames than the strongest search-based agent. Code is available at https://github.com/harry0021/ForeSeek",
+      "authors": [
+        "Yuchen Sun",
+        "Siyuan Cheng",
+        "Shi-Zhe Chen",
+        "Yixin Qin",
+        "Jinwen Luo",
+        "Zheng Wei"
+      ],
+      "published": "2026-11-19T12:37:52Z",
+      "updated": "2026-11-19T12:37:52Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26024v1",
+      "abs_url": "http://arxiv.org/abs/2611.26024v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 60,
+        "novelty": 84.0,
+        "practical": 36,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.7,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：新颖 84、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.26020v1",
+      "title": "FrontierReplay: Split-Free Exact Prefix Caching for Hybrid Language Models",
+      "abstract": "Hybrid language models combine self-attention with recurrent layers whose in-place state updates restrict prefix reuse to exact saved positions. Saving states on a coarse grid wastes reusable prefixes, whereas existing fine-grained exact caches must cut the prefill forward pass at each mid-prompt checkpoint, adding scheduler steps that outweigh the reuse gains under load. We observe that across multi-turn chat, agent loops, document question answering, and tree search, prefix reuse almost always ends at structural boundaries predictable in advance, such as turn ends and known branch points. We present FrontierReplay, a prefix caching system that materializes exact checkpoints at these boundaries without cutting the prefill. While the forward pass runs uncut, FrontierReplay logs a short window of recurrent-layer inputs and invokes a cross-layer, state-only replay kernel to build the target state 6-37x cheaper per token than full recomputation without host synchronization. A frontier-aware retention policy prioritizes active anchors and proven branches while lending dead checkpoint slots to the attention KV cache. Across diverse hybrid architectures, model scales, and workloads, FrontierReplay delivers clear gains over existing exact caches, lowering median time to first token (TTFT) by 16-89% (up to 8.9x), raising 80% service-level objective (SLO) capacity by up to 1.73x, and improving goodput by up to 4.26x (3.67x at larger scales). Compared with approximate replay methods, FrontierReplay delivers up to 1.54x higher goodput while preserving exact task accuracy, avoiding the up to 17% accuracy drop suffered by approximation on long contexts.",
+      "authors": [
+        "Zekun Wang",
+        "Yizhuo Wang"
+      ],
+      "published": "2026-11-19T12:34:25Z",
+      "updated": "2026-11-19T12:34:25Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.26020v1",
+      "abs_url": "http://arxiv.org/abs/2611.26020v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 54,
+        "novelty": 82.4,
+        "practical": 41,
+        "credibility": 35
+      },
+      "confidence": 35,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 65.1,
+      "score_reasons": [
+        "命中主题：推理系统",
+        "优势：新颖 82、匹配 81"
+      ],
+      "summary_zh": null
+    },
     {
       "paper_id": "2611.24891v1",
       "title": "Cap-and-Track: Optimizing LLM Inference Request Dispatch Across Shifting Capacity",
