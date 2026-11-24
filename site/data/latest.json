@@ -1,400 +1,69 @@
 {
-  "date": "2026-11-23",
-  "generated_at": "2026-11-23T08:00:09.735399+00:00",
+  "date": "2026-11-24",
+  "generated_at": "2026-11-24T10:15:29.387154+00:00",
   "candidate_count": 180,
   "selected_count": 12,
   "papers": [
     {
-      "paper_id": "2611.27810v1",
-      "title": "SLP-Bench: Evaluating and Improving Acoustic Claims of Reasoning Audio Language Models on Clinical Speech",
-      "abstract": "Audio language models (ALMs) can answer clinical questions from speech, outperforming baselines built on handcrafted acoustic features. Reasoning ALMs generate a chain of thought that refers to properties of the speaker's voice before predicting. Each statement the model makes about the voice needs to be checked against clinicians' perceptual ratings of the same recording. On clinical speech, existing evaluations score only the final answer. We introduce Speech Language Pathologist Bench (SLP-Bench), a benchmark grading each acoustic claim in the chain of thought against clinicians' perceptual ratings of the same recording. It covers five clinician-rated datasets and 25 perceptual dimensions, and assesses claims for factuality, stability under resampling, and consistency across reworded and different questions. Across ten open-weight reasoning ALMs evaluated zero-shot, claim balanced accuracy ranges from 0.52 to 0.58, claims change under resampling and rewording, and the most consistent models are not the most factual. Fine-tuning a 7B ALM with GRPO on a reward for claims that agree with clinicians raises its claim balanced accuracy from 0.54 to 0.60 and its mean kappa from 0.39 to 0.61, while preserving answer accuracy on per-dimension questions. SLP-Bench is available upon request, subject to approval by the providers of each dataset.",
+      "paper_id": "2611.31166v1",
+      "title": "Precision-Aware Learning Rate Transfer Across Block Count in LLM Post-Training",
+      "abstract": "The post-training of pretrained large language models, including supervised finetuning (SFT), direct preference optimization (DPO), and reinforcement learning with verifiable reward (RLVR), is very sensitive to the learning rate, and tuning it through grid search is costly in both computation and memory. In this work, we propose \\textbf{TipSweep}, a method to transfer the learning rate across the number of trainable transformer blocks. To do so efficiently, we search for the best learning rate by training only the last $k_0$ blocks (in our experiments, typically $k_0=1$), and provide scaling rules that predict the optimal learning rate when training any set of $k$ blocks, including when $k=L$ (the full transformer). Across experiments with models ranging from 1 to 7 billion parameters, we observe that the optimal learning rate follows precision-dependent scaling rules: the optimal rate scales approximately as $k^{-1}$ with float32 (FP32) master weights, but as $k^{-1/2}$ when updates are applied directly to bfloat16 (BF16) weights without a master copy. We explain both rules using an analytical model that accounts for update rounding, under assumptions supported by profiling experiments. Finally, we develop two prototypes of the learning rate search for a 6.7-billion-parameter model. The first fits the search on a single consumer GPU with 16 GiB of memory. The second speeds up the search on a high-end GPU by evaluating all candidate learning rates in a single pass over the data, so that a five-candidate search takes about half the GPU hours of one full-depth ($k=L$) run.",
       "authors": [
-        "Côme Hosxe",
-        "Rachid Riad",
-        "Quentin Spinat"
+        "Nan Chen",
+        "Soledad Villar",
+        "Soufiane Hayou"
       ],
-      "published": "2026-11-20T16:36:57Z",
-      "updated": "2026-11-20T16:36:57Z",
-      "categories": [
-        "cs.AI",
-        "cs.CL",
-        "cs.LG",
-        "cs.SD"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27810v1",
-      "abs_url": "http://arxiv.org/abs/2611.27810v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.36,
-        "reasoning": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 87,
-        "novelty": 88.5,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 75,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 73.2,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展",
-        "优势：新颖 88、质量 87"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27722v1",
-      "title": "Beyond Math, Code, and Logic: Do Reasoning Models Transfer to Scientific Argumentation?",
-      "abstract": "Scientific discourse depends on argumentative reasoning: identifying claims, evaluating evidence, and constructing coherent responses. While recent advances in reasoning-capable language models have demonstrated strong performance on mathematical, coding, and logical benchmarks, their ability to engage in scientific argumentation remains unclear. We present the first systematic evaluation of language models across seven tasks spanning argument mining, rebuttal generation, and discourse-level reasoning using research papers, peer reviews, and grant proposals. Our study reveals that even frontier models with strong general reasoning skills struggle with domain-specific argumentative tasks, highlighting a fundamental capability gap. To address this, we introduce a training framework that explicitly scaffolds the argumentative reasoning process in language models, substantially improving their competence in scientific discourse. The resulting compact models approach or exceed the performance of much larger proprietary systems and generalize to unseen conversational settings, demonstrating reasoning transfer beyond task-specific supervision. These findings underscore that effective scientific argumentation is not an emergent property of scale, but requires explicit reasoning-aware training, and they point toward practical pathways for building AI systems that can contribute meaningfully to scientific discourse.",
-      "authors": [
-        "Buse Sibel Korkmaz",
-        "Antonio del Rio Chanona"
-      ],
-      "published": "2026-11-20T15:24:08Z",
-      "updated": "2026-11-20T15:24:08Z",
+      "published": "2026-11-23T18:27:57Z",
+      "updated": "2026-11-23T18:27:57Z",
       "categories": [
         "cs.LG",
         "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27722v1",
-      "abs_url": "http://arxiv.org/abs/2611.27722v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.31166v1",
+      "abs_url": "http://arxiv.org/abs/2611.31166v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "reasoning": 1.0
+        "post-training": 1.0
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 100.0,
-        "quality": 31,
-        "novelty": 84.9,
-        "practical": 18,
+        "quality": 51,
+        "novelty": 84.1,
+        "practical": 54,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 64.0,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：匹配 100、新颖 85"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27765v1",
-      "title": "Weave: Routing-Adaptive Runtime Warp Scheduling for MoE Megakernels",
-      "abstract": "The Mixture-of-Experts (MoE) architecture is widely used in mainstream large language models. Under expert parallelism (EP), state-of-the-art systems fuse each MoE layer into a persistent megakernel for high performance. By the nature of EP, each GPU's communication and computation volumes vary with the routing result. However, prior work either fixes how GPU resources are divided between communication and computation at compile time (e.g., MegaMoE), or adapts to runtime dynamism only at coarse-grained SM granularity (e.g., mKernel), dedicating whole SMs to communication and leaving their Tensor Cores idle. At the finer warp granularity within each SM, static warp schedules can neither match routing-dependent loads nor prevent warps from idling while waiting for inputs or after finishing their assigned work. Therefore, we propose Weave, an MoE megakernel with three key designs. First, a spatial schedule allocates resources between communication and computation at both SM and warp granularities to match each GPU's load. Second, a temporal schedule switches warp roles as execution progresses, enlisting all warps at the start and end of a layer and selectively handing output scatter to idle communication warps. Third, a fused cost model jointly selects both schedules per GPU at launch from runtime routing statistics. Across all evaluated platforms, Weave outperforms the strongest baselines: under EP8 over DeepGEMM-MegaMoE, it speeds up the MoE layer by 1.30x geomean and up to 1.97x on SM103, and by 1.24x geomean and up to 1.72x on SM90; under EP16 on CDNA3, it beats the fastest official RCCL+AITER baseline by 1.44x geomean (up to 2.87x; 1.67x over vLLM).",
-      "authors": [
-        "Ziyu Huang",
-        "Yangjie Zhou",
-        "Chenhao Zhu",
-        "Hongzhe Yan",
-        "Tianwei Qiao",
-        "Sicheng He",
-        "Zihan Liu",
-        "Peng Yu",
-        "Shulai Zhang",
-        "Xingxun Tang",
-        "Xinhao Luo",
-        "Minyi Guo",
-        "Xiu Lin",
-        "Yinghao Yu",
-        "Guodong Yang",
-        "Liping Zhang",
-        "Shixuan Sun",
-        "Qingyun Chen",
-        "Jingwen Leng"
-      ],
-      "published": "2026-11-20T15:55:34Z",
-      "updated": "2026-11-20T15:55:34Z",
-      "categories": [
-        "cs.DC"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27765v1",
-      "abs_url": "http://arxiv.org/abs/2611.27765v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.63,
-        "serving": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 69,
-        "novelty": 85.3,
-        "practical": 50,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 63.8,
-      "score_reasons": [
-        "命中主题：预训练与优化、推理系统",
-        "优势：新颖 85、质量 69"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27596v1",
-      "title": "Isonomy: Isolating Every Request from Timing Side Channels at Nearly Full-Sharing Throughput in Multi-Instance LLM Prefill",
-      "abstract": "Many long prompts share a prefix, and reusing its cached keys and values saves prefill computation. A cache hit, however, makes the first token arrive earlier and can reveal that another request used the same prefix, so providers share the cache only within an account. Under least privilege, even permission to send and pay for requests should not expose other requests' prompts in the same account. This matters because agents send unreviewed requests carrying private data, resellers pool users behind one account, and creden-tials can be stolen. Isonomy therefore isolates each request by default and lets requests opt into explicit sharing groups. Rather than give up reuse, it keeps one cache shared across accounts and hides only hits on prefixes cached outside a request's group. We target deployments where clients cannot observe one another's load, because there it suffices to hide these hits in the request's own timing. On three commercial APIs, our listeners could not distinguish added prefill work from a short request beyond measurement noise. Built on vLLM, Isonomy's gateway applies the deployment's routing rule to load and visible cache entries only, which yields the instance where the request would run if hidden hits missed. On that instance, the prediction mode estimates when the first token would be ready from the queue and the visible prefix, and gates its release. The execution mode instead reserves the work a hidden hit skips and fills it with other requests' prompts where possible. In direct-probe tests on two, four, and eight instances with every request isolated, both modes kept the upper bound on a probe's advantage within measure-ment noise at both prefix lengths. At saturation, the prediction mode retains 0.98 of unprotected sharing's throughput on two workloads with account labels, whereas isolation by account retains 0.95, or 0.80 where more reuse crosses accounts.",
-      "authors": [
-        "Bowen Sun",
-        "Chaowei Xiao"
-      ],
-      "published": "2026-11-20T13:26:04Z",
-      "updated": "2026-11-20T13:26:04Z",
-      "categories": [
-        "cs.DC",
-        "cs.CR"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27596v1",
-      "abs_url": "http://arxiv.org/abs/2611.27596v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "serving": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 46,
-        "novelty": 85.8,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 62.0,
-      "score_reasons": [
-        "命中主题：推理系统",
-        "优势：新颖 86、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27578v1",
-      "title": "PRISM: Validation-Free Online Batch Selection for LLM Fine-Tuning via Preconditioned Conic Ghost Matching",
-      "abstract": "Online batch selection lowers the cost of fine-tuning large language models (LLMs) by replacing each candidate batch with a smaller informative subset. Existing selectors typically depend on a held-out validation or proxy set, or else rely on Euclidean facility-location objectives over unpreconditioned gradients whose diameter-shifted similarities are distorted by heavy-tailed gradient norms and cross-layer anisotropy. We introduce PRISM (Preconditioned Ray-Isotropic Submodular Matching), a validation-free online batch selector that aligns candidate gradients in a factored second-moment metric and casts subset construction as conic facility location over positive ray projections. Computing the required pairwise geometry through factored preconditioned ghost inner products avoids materializing per-example parameter gradients, while the conic objective remains normalized, nonnegative, and monotone submodular---guaranteeing a $(1-1/e)$ greedy approximation whose additive error scales with total batch gradient energy rather than the worst-case outlier diameter. Assigning each candidate to its best-aligned selected ray induces closed-form radial projection weights that automatically shrink orthogonal or noisy examples toward zero. We derive a nonconvex convergence bound showing that optimization error is governed directly by the conic representation cost. Across four LLM fine-tuning configurations spanning 1.5B to 8B parameters, PRISM outperforms full-batch training, Euclidean facility location, and zeroth-order selectors, and rivals or surpasses validation-guided baselines without held-out data.",
-      "authors": [
-        "Lin Tang",
-        "Wei Zhang",
-        "Jing Li",
-        "Hongyu Chen",
-        "Ming Zhao",
-        "Yuxuan Wang"
-      ],
-      "published": "2026-11-20T13:13:37Z",
-      "updated": "2026-11-20T13:13:37Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27578v1",
-      "abs_url": "http://arxiv.org/abs/2611.27578v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 68,
-        "novelty": 87.8,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 61.5,
+      "score": 72.9,
       "score_reasons": [
         "命中主题：微调与对齐",
-        "优势：新颖 88、质量 68"
+        "优势：匹配 100、新颖 84"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.27326v1",
-      "title": "Reasoning in Fewer Tokens: Concept-Normalized Multilingual Scratchpads and Reversible Model-Adaptive Reasoning Codes",
-      "abstract": "Chain-of-thought prompting significantly improves the reasoning capabilities of large language models (LLMs) but incurs high inference costs due to lengthy autoregressive decoding. While previous efficiency approaches reduce costs by discarding tokens or utilizing continuous latent representations, these lossy methods fundamentally sacrifice interpretability and auditability. In this work, we introduce a novel compression framework for intermediate reasoning. We apply Byte-Pair Encoding (BPE) to reasoning corpora to learn a compressed vocabulary of Private Use Area (PUA) tokens, each representing frequent semantic spans. After expanding the LLM's vocabulary, we fine-tune the model via strictly 1:1, our method is lossless. We evaluate our approach on Llama-3.1-8B, Qwen2.5-14B, and Qwen2.5-32B across four diverse benchmarks. Our method reduces total generated tokens by 14.7% on average with reasoning trace lengths dropping by up to 27.1%, while incurring a negligible average accuracy cost of 1.6 percentage points. Crucially, this approach is orthogonal to existing lossy methods, allowing practitioners to stack lossless and irreversible compression techniques. We demonstrate that a compressed intermediate language provides a highly efficient computational resource that accelerates inference while fully preserving the transparency of LLM reasoning.",
+      "paper_id": "2611.31089v1",
+      "title": "Orthogonally Mixed Sign Coding with Progressive Residual Refinement for Transformer Weight Compression",
+      "abstract": "LLM quantization reduces storage but often degrades predictive fidelity at low bit rates. We propose a training-free, CDF-free, Gaussian-CLT-motivated progressive residual-sign quantization framework that uses randomized orthogonal mixing to promote Gaussian-like residual distributions and improve sign based reconstruction of Transformer weights. Each stage independently normalizes residuals and analytically calibrates reconstruction, progressively recovering quantization errors. The framework enables flexible storage-fidelity trade-offs without learned codebooks, empirical CDFs, or trellis optimization. We evaluate GPT-2 Large and Llama-3-8B across attention and MLP projections. At five residual stages, joint quantization preserves near-baseline predictive fidelity, achieving perplexities of 32.16 and 12.73, compared with full-precision values of 29.89 and 11.07, respectively. Ablations further demonstrate that orthogonal mixing substantially improves reconstruction over identity-based sign coding, while activation-aware scaling improves output fidelity and reduced-precision statistics lower storage overhead with negligible perplexity degradation. Comparisons with conventional quantizers establish the method's progressive fidelity recovery and characterize its storage-quality and runtime trade-offs. These results demonstrate the effectiveness of orthogonally mixed residual-sign coding for flexible, training-free Transformer weight compression.",
       "authors": [
-        "Rabimba Karanjai",
-        "Suryabhan Singh Hada",
-        "Hemanth Hegadehalli Madhavarao",
-        "Qun Gu",
-        "Libin N. George",
-        "Wenhuan Sun",
-        "Neha Monga",
-        "Richard Williamson",
-        "Prakhar Mehrotra"
+        "Anindya Roy Chowdhury",
+        "Atanu Barai",
+        "Nandakishore Santhi"
       ],
-      "published": "2026-11-20T09:06:19Z",
-      "updated": "2026-11-20T09:06:19Z",
+      "published": "2026-11-23T17:36:37Z",
+      "updated": "2026-11-23T17:36:37Z",
       "categories": [
-        "cs.CL",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27326v1",
-      "abs_url": "http://arxiv.org/abs/2611.27326v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.63,
-        "efficiency": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 60,
-        "novelty": 86.6,
-        "practical": 45,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 61.1,
-      "score_reasons": [
-        "命中主题：推理时扩展、压缩与高效推理",
-        "优势：新颖 87、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27915v1",
-      "title": "StereoVLM: Binocular Vision-Language Models for Metric 3D Spatial Reasoning",
-      "abstract": "Vision-language models (VLMs) exhibit strong semantic understanding but remain limited in their ability to reason about metric 3D space in the physical world. Existing VLMs typically infer 3D scene structure from one or more images without known camera calibration or cross-view geometric constraints. This makes metric 3D inference inherently ambiguous and leaves it unclear whether their spatial predictions are grounded in visual evidence or driven primarily by semantic priors. In contrast, calibrated stereo provides explicit cross-view geometry that resolves this ambiguity and offers a more reliable foundation for metric 3D perception and geometric generalization. We investigate how VLMs can learn transferable 3D representations directly from calibrated binocular observations. To this end, we introduce StereoVLM, the first geometry-aware binocular VLM for metric 3D spatial reasoning. StereoVLM follows a hierarchical learning paradigm spanning from cross-view correspondence and disparity estimation to calibration-conditioned metric depth perception and semantic spatial reasoning. We further find that disparity supervision generalizes substantially better than direct binocular depth supervision on unseen environments. To evaluate these capabilities, we introduce Stereo3D-Bench, a comprehensive benchmark across three levels, from point-level geometry to object-level spatial reasoning. StereoVLM-8B achieves 95.17% depth accuracy ($δ_1$) and a 66.98 average object-level score on Stereo3D-Bench. Intervention results further indicate that the model's performance on Stereo3D-Bench benefits from valid cross-view geometry and cannot be explained solely by additional visual tokens or semantic priors. Hierarchical geometric supervision also yields average gains of 3.54 points across five spatial benchmarks and 4.3 percentage points in RoboCasa manipulation success.",
-      "authors": [
-        "Chi Yan",
-        "Guoyang Zhao",
-        "Wentao Yuan",
-        "Yixiao Ge",
-        "Yanning Zhou",
-        "Dan Xu"
-      ],
-      "published": "2026-11-20T17:52:02Z",
-      "updated": "2026-11-20T17:52:02Z",
-      "categories": [
-        "cs.CV",
         "cs.AI",
-        "cs.RO"
+        "cs.IR"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27915v1",
-      "abs_url": "http://arxiv.org/abs/2611.27915v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 72,
-        "novelty": 82.3,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 60.7,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 82、质量 72"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27443v1",
-      "title": "Learning When to Ask: Advisor-Aware Post-Training for SLM Agents",
-      "abstract": "Small language models (SLMs) are increasingly attractive for cheap, high-throughput agentic deployment, but they remain weak at multi-step reasoning and tool use that long-horizon tasks demand. We study how to post-train an SLM to seek advice from a stronger model and act on that advice itself, following an advisor-executor pattern. Out of the box, this pattern fails across open- and closed-source small-model families: wiring an SLM to an advisor is a harness-design matter that is not enough on its own. A post-training recipe is needed to teach the model when to ask, in a cost-aware fashion, and how to follow advice across steps. Our method, ADAPT (ADvisor-Aware Post-Training), is a multi-stage recipe that instills this behavior, learning entirely from the policy's own rollouts supervised by the environment's outcome, with no learned reward model or human annotation. Across three domains, compared to an untrained harness baseline, ADAPT improves success rate in embodied text reasoning (TextWorld) from 24.5% to 77.3%, code generation (LiveCodeBench) from 21.8% to 56.0%, and deep web search (GAIA) from 17.5% to 49.3%, while querying the advisor sparingly (~1.0-2.1 calls per task). On the two long-horizon domains it closes 70-85% of the gap to an oracle that perfectly times when to ask for advice, and on code generation it exceeds that oracle. The gains persist when the advisor is replaced by one unseen in training, showing that the learned help-seeking policy is robust to a changing advisor rather than tied to the one it was trained with.",
-      "authors": [
-        "Aasheesh Singh",
-        "Vishal Vaddina"
-      ],
-      "published": "2026-11-20T10:39:02Z",
-      "updated": "2026-11-20T10:39:02Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27443v1",
-      "abs_url": "http://arxiv.org/abs/2611.27443v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.63,
-        "reasoning": 0.18,
-        "serving": 0.18
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 63,
-        "novelty": 85.1,
-        "practical": 36,
-        "credibility": 35
-      },
-      "confidence": 43,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 60.7,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展、推理系统",
-        "优势：新颖 85、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.27424v1",
-      "title": "Jagged Robustness: Uneven Safety Transfer and Emerging Vulnerabilities under LLM Quantization",
-      "abstract": "Quantization enables efficient inference in language models through model parameter compression. This work audits the impact of quantization on capability and safety domains including model safeguards, instruction-following, ethics and bias. Through benchmarks, we find that model safeguards and bias can degrade under quantization, while other capabilities such as truthfulness remain more stable in Qwen3-4B. We define this uneven transfer of LLM capabilities under quantization as Jagged Robustness. We find multiple factors driving Jagged Robustness: task complexity, evaluation method and generation coherence. Moreover, we verify the degradation of model safeguards by observing increased compliance with unsafe requests under quantization, and demonstrate universal adversarial suffix attacks that are benign for the full model but jailbreak quantized models. The findings indicate that it is risky to assume that the performance and robustness can transfer evenly across different capability domains from full models to quantized models.",
-      "authors": [
-        "Ramneek Agnihotri",
-        "Yingte Xu",
-        "Hans Vath"
-      ],
-      "published": "2026-11-20T10:24:25Z",
-      "updated": "2026-11-20T10:24:25Z",
-      "categories": [
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27424v1",
-      "abs_url": "http://arxiv.org/abs/2611.27424v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.31089v1",
+      "abs_url": "http://arxiv.org/abs/2611.31089v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -406,39 +75,394 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 81.0,
-        "quality": 35,
-        "novelty": 89.0,
-        "practical": 36,
+        "quality": 81,
+        "novelty": 87.0,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 70.5,
+      "score_reasons": [
+        "命中主题：压缩与高效推理",
+        "优势：新颖 87、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.30965v1",
+      "title": "Beyond Self-Consistency: Recursive Self-Improvement at Test Time",
+      "abstract": "Large language models (LLMs) that continue improving after deployment (e.g., recursive self-improvement) offer a promising path toward general intelligence. Current test-time methods pursue this goal on unlabeled questions, primarily relying on self-consistency: they generate independent solutions and use majority voting to select an answer or construct training targets. This leaves earlier reasoning unused at inference and can reinforce an incorrect majority during training. Humans instead build on earlier attempts to preserve useful reasoning, correct mistakes and improve their problem-solving strategies. Following this principle, we propose Test-Time Recursive Self-Improvement (TT-RSI), a label-free framework for improving LLMs at test time through two mutually reinforcing components: (1) In-Context RSI repeatedly re-solves each question using the full previous solution as a reference, letting the model decide whether and how to use it so that inference compute builds on earlier reasoning. (2) In-Weight RSI distills successive refinements into the model's weights, enabling progress beyond an initially wrong majority and theoretically bringing the first attempt toward the model's infinite-step refinement limit. The updated model answers better and refines more effectively, generating stronger references for subsequent training. Extensive experiments show that TT-RSI improves average accuracy by +13.89% over the base model and outperforms the strongest self-consistency-based method by +4.79% under the same test-time scaling budget.",
+      "authors": [
+        "Jianyu Wu",
+        "Yizhou Wang",
+        "Encheng Su",
+        "Jinouwen Zhang",
+        "Pengze Li",
+        "Lintao Wang",
+        "Chen Tang",
+        "Aoran Wang",
+        "Wanli Ouyang",
+        "Shixiang Tang"
+      ],
+      "published": "2026-11-23T16:33:00Z",
+      "updated": "2026-11-23T16:33:00Z",
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.30965v1",
+      "abs_url": "http://arxiv.org/abs/2611.30965v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.99
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 99.0,
+        "quality": 56,
+        "novelty": 84.1,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 70.1,
+      "score_reasons": [
+        "命中主题：推理时扩展",
+        "优势：匹配 99、新颖 84"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.31105v1",
+      "title": "LiveLoRA: Exact KV Cache Migration Across LoRA Updates for LLM Agents",
+      "abstract": "Updating an LLM adapter should not require replaying the full interaction history of every active session. Yet reusing key-value (KV) cache entries computed under an earlier version mixes model versions, while full-history re-prefill becomes increasingly costly as histories and session fleets grow. We introduce LiveLora, a model-runtime co-design for exact final-block KV cache migration. Frozen lower decoder blocks and fixed K/V adapter down-projections preserve each token's base projections and low-rank coordinates across adapter versions. The runtime reconstructs candidate K/V, reevaluates the latest token through the final block, and commits the adapter, cache, and next-token logits together. We prove continuation equivalence to full-history re-prefill in exact arithmetic under the stated model assumptions. On Qwen2.5-3B-Instruct, median paired publication speedups over full-history re-prefill average $68.98\\times$ across five runs for 32 active sessions with 8K tokens each. Serving benchmarks show approximately 4.8% decoding overhead relative to native cached decoding. Compared with retained-boundary replay, compact retention gives a $3.42\\times$ reduction in additional session storage at 8K, with similar measured publication-plus-decoding cost. LiveLora allows persistent LLM agents to adopt new adapter versions without replaying their full interaction histories.",
+      "authors": [
+        "Tianyi Huang",
+        "Samuel Xu",
+        "Ivy Gu",
+        "Nathan Huang",
+        "Siqi Zhang"
+      ],
+      "published": "2026-11-23T17:43:16Z",
+      "updated": "2026-11-23T17:43:16Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.31105v1",
+      "abs_url": "http://arxiv.org/abs/2611.31105v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "serving": 0.63,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 81,
+        "novelty": 87.6,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.8,
+      "score_reasons": [
+        "命中主题：推理系统、压缩与高效推理",
+        "优势：新颖 88、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.31240v1",
+      "title": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
+      "abstract": "Reasoning vision-language-action (VLA) models for autonomous driving use chain-of-thought (CoT) reasoning to guide action generation, but incur substantial memory and computational costs. We study structured pruning for these models, focusing on preserving both scene understanding and trajectory prediction. Our analysis of Taylor importance in Alpamayo-1.5-10B shows that reasoning and trajectory objectives assign different importance to the same vision-language model (VLM) structures. In the action expert, MLP channels exhibit more stable importance rankings across denoising steps than query heads, and a small fraction of channels accounts for most of the measured importance. Based on these findings, we propose MoOP, which combines importance ranks from both objectives for VLM pruning and aggregates stepwise importance to select a fixed subset of expert MLP channels. At 24.0% total parameter reduction, VLM-only pruning with MoOP performs comparably to or slightly better than the strongest baselines in driving, while retaining 94.0% of the dense model's LingoQA score, far above all other methods. At a higher reduction of 30.0%, MoOP degrades much less than every other method, as it is the only one whose reasoning does not collapse. Removing 93.75% of expert MLP channels increases total parameter reduction to 39.4%, with nearly unchanged open-loop errors relative to VLM-only pruning and competitive closed-loop performance. The resulting model achieves a 1.37x end-to-end inference speedup and 36.6% lower peak memory than the dense model, without post-pruning fine-tuning.",
+      "authors": [
+        "Seongchan Kim",
+        "Soowon Son",
+        "Sangoh Kim",
+        "Hyunah Ko",
+        "Eunbeen Hong",
+        "Hyunkoo Lee",
+        "Sanghyun Lee",
+        "WonJun Moon",
+        "Kihong Kim",
+        "Dongyeon Son",
+        "Woongchan Nam",
+        "Seungryong Kim"
+      ],
+      "published": "2026-11-23T18:59:52Z",
+      "updated": "2026-11-23T18:59:52Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.RO"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.31240v1",
+      "abs_url": "http://arxiv.org/abs/2611.31240v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.18,
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 72,
+        "novelty": 82.4,
+        "practical": 68,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 66.0,
+      "score_reasons": [
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 82、质量 72"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.30672v1",
+      "title": "Uncovering Hidden Behaviours in Language Models via Limited-Parameter Finetuning",
+      "abstract": "Large language models can have behaviours which only arise in hard-to-anticipate contexts. These hidden behaviours pose a challenge to alignment audits, which seek to uncover problematic model behaviour but are limited by the scenarios the auditor can anticipate. To address this challenge, we explore limited-parameter finetuning (LPF) on examples of a target behaviour. While training 3-25% of LoRA parameters, LPF reveals whether the model has a hidden behaviour, even when standard behavioural evaluations cannot. LPF succeeds on a suite of model organisms with hidden behaviours (8-14B parameters), and also surfaces naturally occurring hidden behaviours in open-weight models (27-35B parameters). LPF can thus distinguish between models which appear behaviourally identical to an auditor, and does not require the context in which the hidden behaviour surfaces. LPF provides a novel affordance that may be useful for auditing frontier AI models. However, we do not evaluate LPF against baselines in a realistic auditing setting, so further work is needed to determine its practicality.",
+      "authors": [
+        "Boyd Kane",
+        "Jo J. Jiao",
+        "Elizabeth Donoway",
+        "Bryce Woodworth",
+        "Alex Cloud",
+        "Alexander M. Turner"
+      ],
+      "published": "2026-11-23T13:28:32Z",
+      "updated": "2026-11-23T13:28:32Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.30672v1",
+      "abs_url": "http://arxiv.org/abs/2611.30672v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.81
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 81.0,
+        "quality": 60,
+        "novelty": 85.3,
+        "practical": 18,
+        "credibility": 35
+      },
+      "confidence": 51,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 64.7,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 85、匹配 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.31215v1",
+      "title": "Seeking in Space: Benchmarking Purposeful Active Exploration of Vision-Language Models for Spatial Reasoning",
+      "abstract": "Humans explore unfamiliar spaces with purpose, deciding where to look until they have gathered the evidence a spatial question requires. However, can vision-language models (VLMs), which reason increasingly well over curated images and videos, also seek in space when the evidence is not handed to them? We present ActSpace-Bench, a benchmark of 994 questions across 234 exploration episodes in 72 real-scanned indoor scenes, where a model starts from a single view, navigates real captured frames, and must gather evidence before answering. To assess whether such exploration is purposeful, we introduce a controlled evaluation protocol that fixes each model as the reasoner and compares its own exploration against a same-budget random walk and an oracle route, separating evidence seeking from spatial reasoning. Every question is verified to require exploration and answered from 3D annotations, masked-evidence questions test whether models know when to abstain, and over 95% of sampled questions are confirmed correct by human verification. Evaluations of 23 proprietary, open-weight, and spatially specialized VLMs reveal that the strongest models do seek evidence with purpose but lose much of it to limited memory, whereas weaker and specialized models explore no better than a random walk or fail to reason over the evidence they are given, pointing to memory and evidence-grounded reasoning as the next targets for active spatial intelligence.",
+      "authors": [
+        "Xiwei Liu",
+        "Yulong Li",
+        "Xuhui Li",
+        "Xinlin Zhuang",
+        "Zhixiang Lu",
+        "Haolin Yang",
+        "Jianxu Chen",
+        "Yifan Lu",
+        "Zhiran Zhang",
+        "Yutong Xie"
+      ],
+      "published": "2026-11-23T18:55:44Z",
+      "updated": "2026-11-23T18:55:44Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.31215v1",
+      "abs_url": "http://arxiv.org/abs/2611.31215v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "reasoning": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 63,
+        "novelty": 84.4,
+        "practical": 27,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 60.6,
+      "score": 59.6,
       "score_reasons": [
-        "命中主题：压缩与高效推理",
-        "优势：新颖 89、匹配 81"
+        "命中主题：推理时扩展",
+        "优势：新颖 84、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.27973v1",
-      "title": "MemOnce: A Scalable Memory Architecture for Large Language Models",
-      "abstract": "Deploying large language models (LLMs) in long-horizon and continual interactions requires maintaining reusable memory states for future inference, posing challenges for existing architectures. Standard Transformers accumulate layer-wise, token-level KV caches, incurring linear GPU memory growth and quadratic computational complexity as the context expands. In contrast, linear-time architectures compress history into fixed-size states, but struggle to retain fine-grained details. We introduce MemOnce, a foundation architecture that learns scalable memory states for language models. MemOnce is based on two core designs: (a) Memory encoder-decoder: it caches only a small subset of final-layer hidden states as compact memory representations and dynamically decodes them back into KV caches for attention layers; (b) Memory sparse attention: for each continual input, MemOnce adaptively retrieves relevant memory representations, with the sparse indices computed only once across layers. Coupling these two designs enables efficient on-the-fly memory loading and KV cache decoding, drastically reducing the GPU memory footprint and achieving linear-time complexity. We conduct extensive experiments to show that MemOnce outperforms Transformers and other architectures across varying model sizes, context lengths, and training paradigms (pretraining and post-training adaptation). In particular, adapting Qwen3.5-4B with MemOnce reduces memory state cache by 1313$\\times$ and prefill latency by 6.9$\\times$ at 1M context, and improves throughput by 3.5$\\times$ and overall memory performance by +5.77%. Finally, MemOnce generalizes zero-shot to downstream representation tasks, achieving competitive results against specialized models.",
+      "paper_id": "2611.31129v1",
+      "title": "FATCAT: Fault Injection Attacks Targeting Chip-level Alignment",
+      "abstract": "Model alignment is the primary safety and security mechanism for enforcing refusal of malicious prompts in modern foundation models; yet, existing adversarial evaluations implicitly assume underlying hardware integrity. In this paper, we present FATCAT, the first physical fault-injection attacks capable of eliminating refusal in modern large language and vision-language models. Specifically, we present a non-invasive electromagnetic (EM) fault injection attack targeting GPU-accelerated Systems-on-Chip with physical access, requiring neither software execution privileges nor model-layer access. By leveraging an autonomous Radio Frequency (RF) side-channel trigger to synchronize EM faults to the prompt prefill phase, the attack corrupts safety-critical memory transactions across off-chip LPDDR5 DRAM and on-chip LPDDR physical interfaces without crashing the system while preserving model coherence. Evaluated on an NVIDIA Jetson Orin Nano and AGX Thor running Llama 3.2 1B and Gemma 3 1B, localized physical faults reliably force models to fulfill restricted requests, demonstrating that model-level alignment provides no robust security guarantees without hardware-level fault tolerance. Finally, we demonstrate the physical-world consequences of this vulnerability on an active 6-DoF robotic manipulator controlled by a SmolVLA vision-language-action policy. Our attack silently corrupts the model forcing the arm into abrupt, hazardous lunges; in two instances the robotic arm attempted to pinch the paper author -- proving that hardware faults can directly translate into real physical harm.",
       "authors": [
-        "Chang Nie",
-        "Chaoyou Fu",
-        "Songlin Liu",
-        "Yiqing Hu",
-        "Caifeng Shan"
+        "Peter Horvath",
+        "Ilia Shumailov",
+        "Zhuoran Liu",
+        "Lukasz Chmielewski",
+        "Lejla Batina"
       ],
-      "published": "2026-11-20T18:51:29Z",
-      "updated": "2026-11-20T18:51:29Z",
+      "published": "2026-11-23T18:01:58Z",
+      "updated": "2026-11-23T18:01:58Z",
       "categories": [
-        "cs.CL"
+        "cs.CR",
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27973v1",
-      "abs_url": "http://arxiv.org/abs/2611.27973v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.31129v1",
+      "abs_url": "http://arxiv.org/abs/2611.31129v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "post-training": 0.63
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 63.0,
+        "quality": 51,
+        "novelty": 91.9,
+        "practical": 45,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 59.6,
+      "score_reasons": [
+        "命中主题：微调与对齐",
+        "优势：新颖 92、匹配 63"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.30662v1",
+      "title": "WeMM-Ecom: Advancing Multimodal Content Understanding for WeChat E-Commerce",
+      "abstract": "We present WeMM-Ecom, a family of multimodal large language models that deliver frontier e-commerce capabilities while achieving state-of-the-art general-purpose performance at their respective scales. The family spans five sizes, from a 0.8B dense model to a 35B mixture-of-experts model with 3B active parameters. Our training pipeline begins with two-stage continued pre-training that progressively raises the proportion of e-commerce data within a diverse multimodal data mixture, followed by hybrid-thinking post-training that combines on-policy distillation and reinforcement learning to support both non-thinking and thinking modes. For evaluation, we construct a comprehensive suite of 28 e-commerce benchmarks (23 in-house and five open-source) covering eight business scenarios and complement it with 64 public general-purpose benchmarks. On the e-commerce suite, WeMM-Ecom-35B-A3B surpasses substantially larger open-source flagship models, including Qwen3.8-Flash-Next, HY4, and DeepSeek-V4.1-Flash. On the general-purpose suite, every WeMM-Ecom model surpasses its similarly sized Qwen3.5 counterpart, with the lightweight variants (e.g., WeMM-Ecom-2B) showing clear advantages over leading lightweight models such as Qwen3.5-2B, MiniCPM-V-4.7-1B, and LFM3-VL-2B. Beyond benchmarks, WeMM-Ecom now powers hundreds of production use cases in WeChat, including catalog management, multimodal product search, and livestream commerce, serving billion-scale requests per day. We publicly release all model weights and detail our data curation, training recipe, and benchmark construction to facilitate future work on domain-specialized multimodal models. We have released the model weights and code to facilitate future research at https://github.com/Tencent/WeMM-Ecom.",
+      "authors": [
+        "Binhui Xie",
+        "Jinmin Li",
+        "Haomiao Tang",
+        "Guangting Wang",
+        "Song Jin",
+        "Jianwei Zhu",
+        "Fengyun Rao",
+        "Jing Lyu"
+      ],
+      "published": "2026-11-23T13:22:22Z",
+      "updated": "2026-11-23T13:22:22Z",
+      "categories": [
+        "cs.AI",
+        "cs.CV"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.30662v1",
+      "abs_url": "http://arxiv.org/abs/2611.30662v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.36,
+        "post-training": 0.18,
+        "efficiency": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 51,
+        "novelty": 83.5,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 43,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 46.4,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、压缩与高效推理",
+        "优势：新颖 84、质量 51"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.31117v1",
+      "title": "Self-Upgrading Embodied Agents",
+      "abstract": "An embodied agent built on a language model goes to work with the weights it was given and keeps them for life. To get better, it needs more training, or reflection, memory, search or prompts that cost every step and are lost when the task changes. Editing weights by reasoning, weight-space programming, could end this, but has stayed with models that only reason or relied on a far larger commercial model. We introduce the self-upgrading embodied agent, to our knowledge the first that learns from its own experience by upgrading its own weights on the job, between its tasks, with no training, no gradient, no reward model, no second model, no test-time scaling and no harness or prompt engineering. By day a 27B agent works in a household environment. At night it reads its record, finds many of its steps wasted on replies that reach the token limit before any action, traces the habit to one direction in its hidden states, and rewrites one tensor of its weights. An agent that rewrites itself must first never break itself, so it is its own examiner: it tests every change against its unchanged self on practice tasks and keeps only what holds. When an edit holds, the next day it is a better agent, at the same cost per step: over thousands of held-out episodes, 48 fresh seeds a task, its one kept edit makes it complete significantly more tasks, in fewer steps, with fewer wasted and fewer tokens. This self-improvement is multi-round, stable and continual: through the nights that follow, the upgrade holds, without collapse. Of four sizes of its family, only the 27B agent does this. From here on, an embodied agent need not keep training and inference apart: as it works, it gathers its own experience and upgrades itself, with no separate pre-training or post-training and no human intervention. We believe this opens lifelong continual learning for robots: stable, continual, recursive self-improvement.",
+      "authors": [
+        "Jiajun Fan",
+        "Neil He",
+        "Qinglong Zheng",
+        "Changyi Yang",
+        "Tong Wei",
+        "Andy Mao",
+        "Zetian Li",
+        "Chaoran Cheng",
+        "Hui Ren",
+        "Ruihan Guo",
+        "Xianrui Zhong",
+        "Xizheng Yu",
+        "Jingyuan Li",
+        "Xi Zhu",
+        "Kaiqu Liang",
+        "Chang Xu",
+        "Zun Qian",
+        "Zidi Xiong",
+        "Yuezhu Zhao",
+        "Xu Huang",
+        "Ge Liu"
+      ],
+      "published": "2026-11-23T17:53:12Z",
+      "updated": "2026-11-23T17:53:12Z",
+      "categories": [
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.31117v1",
+      "abs_url": "http://arxiv.org/abs/2611.31117v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -446,48 +470,65 @@
       "topic_scores": {
         "pretraining": 0.18,
         "post-training": 0.18,
-        "serving": 0.36
+        "reasoning": 0.36
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 60,
-        "novelty": 84.8,
-        "practical": 72,
+        "quality": 34,
+        "novelty": 84.5,
+        "practical": 36,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 53.7,
+      "score": 43.0,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐、推理系统",
-        "优势：新颖 85、实用 72"
+        "命中主题：预训练与优化、微调与对齐、推理时扩展",
+        "优势：新颖 84、匹配 36"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.27601v1",
-      "title": "PromptTTSD: Controllable Text to Spoken Dialogue Synthesis with Open-Ended Text Descriptions",
-      "abstract": "Spoken dialogue synthesis aims to generate multi-turn conversational speech from dialogue scripts while maintaining speaker consistency and contextual appropriateness. However, existing models largely lack fine-grained controllability, which is critical for capturing the dynamic, context-dependent style shifts in natural conversations. While prompt-based TTS has enabled such control for single-speaker speech, existing datasets heavily rely on predefined tags, which fundamentally limits their capacity to capture open-ended styles. To address this gap, we propose a scalable pipeline for extracting conversational speech from multi-narrator audiobooks, featuring an improved two-stage alignment algorithm to preserve dialogue continuity, paired with LLM-based extraction of style descriptions directly from narrative text. We release PromptDialog, a large-scale multi-speaker conversational speech dataset comprising 8,383 hours of Chinese speech and 120 hours of English speech, with open-ended style descriptions for 79% of utterances. We further introduce PromptTTSD, a spoken dialogue synthesis model built via a prompt-aware fine-tuning strategy that integrates style prompts into text-speech interleaved sequences. PromptTTSD is an open-source spoken dialogue synthesis model that supports both zero-shot voice cloning and natural language style control. Experiments demonstrate that PromptTTSD not only maintains strong fundamental synthesis capabilities but also achieves competitive open-ended style control compared with proprietary models, and substantially improves contextual appropriateness in multi-turn dialogues.",
+      "paper_id": "2611.31002v1",
+      "title": "RoboUniverse-10K: Toward the Scaling Era of Agentic Robotics via Real-to-Sim Environments",
+      "abstract": "Agentic Robotics, in which foundation models act as coding agents to control robots through executable programs, has emerged as a compelling paradigm for embodied intelligence. Yet unlike software engineering, where massive executable environments power post-training, robotics remains constrained by small, manual benchmarks and in-distribution evaluation. To bridge this gap, we introduce RoboUniverse-10K, 10,807 interactive, resettable, and verifiable physics environments built from real-world videos via an automated Real2Sim and quality assurance pipeline. Each runs in an isolated, Harbor-compatible harness that hides privileged states and grading logic to mirror real-world sensing. From the same pipeline, we hold out 500 unseen tasks to establish RoboUniverse-Verified, an expert-verified zero-shot benchmark. Evaluating 11 closed- and open-source models reveals a huge gap: frontier models reach 85.8\\% success, while open-source baselines lag at 2.6\\% to 10.0\\%, bottlenecked by low-level grasping, deformable-object manipulation, and post-contact physical control. Finally, we collect about 17K multi-turn trajectories totaling 0.79B tokens with GPT-6 Astra and perform full-parameter supervised fine-tuning on Qwen3.6-35B-A3B, yielding RoboUniverse-35B-A3B. Our model achieves substantial zero-shot gains on RoboUniverse-Verified, lifting the success rate from 0.8\\% to 21.2\\%, while achieving zero-shot task completions across LIBERO-MAX, RoboCasa, RoboTwin 2.0, and a real Franka arm. We open-source the RL-ready environments and model to lay the foundation for large-scale reinforcement learning in Agentic Robotics.",
       "authors": [
-        "Sulong Yang",
-        "Zhi Zeng",
-        "Xiupeng Wu",
-        "Juewen Hu",
-        "Pring Wong",
-        "Shuwu Zhang",
-        "Shuo Chen"
+        "Jinkun Liu",
+        "Yingze Wang",
+        "Situ Wang",
+        "Deyao Hong",
+        "Mingju Gao",
+        "Wenyi Li",
+        "Yizhe Chi",
+        "Youjie Zheng",
+        "Kaisen Yang",
+        "Xiangyang Wang",
+        "Bingxiang He",
+        "Yuxin Zuo",
+        "Boyuan Chen",
+        "Yue Chen",
+        "Cheng Qian",
+        "Tianxing Chen",
+        "Huichi Zhou",
+        "Huaxiu Yao",
+        "Hao Tang",
+        "Hao Zhou",
+        "Ya-Qin Zhang",
+        "Calvin Xiao",
+        "Tiga Altman",
+        "Huan-ang Gao"
       ],
-      "published": "2026-11-20T13:29:30Z",
-      "updated": "2026-11-20T13:29:30Z",
+      "published": "2026-11-23T16:53:57Z",
+      "updated": "2026-11-23T16:53:57Z",
       "categories": [
-        "cs.SD",
-        "cs.AI"
+        "cs.RO",
+        "cs.CL"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27601v1",
-      "abs_url": "http://arxiv.org/abs/2611.27601v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.31002v1",
+      "abs_url": "http://arxiv.org/abs/2611.31002v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
@@ -499,60 +540,61 @@
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 68,
-        "novelty": 84.9,
-        "practical": 27,
+        "quality": 60,
+        "novelty": 87.3,
+        "practical": 18,
         "credibility": 35
       },
       "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 51.1,
+      "score": 48.4,
       "score_reasons": [
         "命中主题：微调与对齐",
-        "优势：新颖 85、质量 68"
+        "优势：新颖 87、质量 60"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.27652v1",
-      "title": "Auditing Post-Training Unlearning in Diffusion Language Models using Sparse Autoencoders",
-      "abstract": "Machine unlearning is an approach to privacy protection: it aims to remove the influence of designated data while preserving the model's behavior on information that should be retained. While a growing body of work investigates this objective in autoregressive large language models, machine unlearning remains underexplored in diffusion language models (DLMs). DLMs generate text through iterative denoising, exposing partially masked states whose internal representations change throughout the generation process. This raises a DLM-specific question: can selective forgetting improve by identifying forget-data-associated features and adapting their suppression across denoising stages? We conduct a controlled investigation of this question in LLaDA-8B-Instruct. To evaluate the unlearning of knowledge plausibly encoded during pre-training, we use WMDP as our forget-domain benchmark. Using top-k sparse autoencoders and denoising-state replay, we compare static and stage-adaptive feature suppression. We find substantial shifts in forget-data-associated features across denoising stages, but tracking these dynamics alone does not reliably improve the forget-retain trade-off at the evaluated operating points. Together, our study provides an initial empirical foundation for developing and evaluating machine unlearning as a post-training privacy mechanism in DLMs.",
+      "paper_id": "2611.31065v1",
+      "title": "Decoupling Solving from Abstention: Single-Rollout Conformal Risk Control for Hard-Budget LLM Reasoning",
+      "abstract": "Hard token budgets often interrupt LLM reasoning before an answer is produced. Forcing reasoning to terminate recovers correct solutions but also increases confident errors, creating a joint challenge of solving within budget and deciding when to abstain. Existing remedies are costly or lack guarantees: supervised fine-tuning offers no error control, penalizing wrong answers during reinforcement learning (RL) can suppress exploration, and multi-sample conformal methods multiply inference cost. We propose Tail-CRC, a single-rollout framework that separates candidate generation from submission control. We first adapt the solver to budget forcing with pure binary correctness rewards; after freezing it, we apply conformal risk control to upper-tail token surprise in the answer span. Each rollout yields both an answer and an uncertainty score from token log probabilities, enabling finite-sample control of expected wrong submissions under exchangeability and recalibration across risk targets or domains without retraining. We show that wrong-answer penalties create failure-only comparisons in group-relative RL, derive an exploration-starvation boundary, and identify length-induced ranking reversals and single-token spike sensitivity in answer scores. Across Qwen3.5-4B and Qwen3-8B, 50 RL updates on 400 problems improve correct-submission rates by 15.0--29.6 points on DAPO and 4.3--12.8 points on out-of-domain Omni-MATH over inference-only budget forcing, while reducing generation cost by 3.5--12.6\\%. On 8B Omni-MATH, target-domain calibration cuts wrong submissions from 30.3\\% to 5.8\\% at 4K and from 41.8\\% to 6.5\\% at 8K. At 4K, generation is 2.05$\\times$ faster for 4B and 2.23$\\times$ faster for 8B than unforced 8K decoding in local amortized batch time. Tail-CRC thus enables reliable, efficient budgeted reasoning from a single rollout.",
       "authors": [
-        "Yunha Seo",
-        "Changhoon Kim"
+        "Qianyi Chen",
+        "Bo Li"
       ],
-      "published": "2026-11-20T14:17:08Z",
-      "updated": "2026-11-20T14:17:08Z",
+      "published": "2026-11-23T17:21:32Z",
+      "updated": "2026-11-23T17:21:32Z",
       "categories": [
-        "cs.CL"
+        "cs.AI",
+        "stat.ME"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.27652v1",
-      "abs_url": "http://arxiv.org/abs/2611.27652v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.31065v1",
+      "abs_url": "http://arxiv.org/abs/2611.31065v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.18,
-        "post-training": 0.63
+        "post-training": 0.18,
+        "reasoning": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 63.0,
-        "quality": 44,
-        "novelty": 83.1,
-        "practical": 27,
+        "quality": 54,
+        "novelty": 84.1,
+        "practical": 36,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 54.4,
+      "score": 58.2,
       "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐",
-        "优势：新颖 83、匹配 63"
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 84、匹配 63"
       ],
       "summary_zh": null
     }
