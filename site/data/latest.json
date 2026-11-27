@@ -1,567 +1,436 @@
 {
-  "date": "2026-11-26",
-  "generated_at": "2026-11-26T08:45:23.572909+00:00",
-  "candidate_count": 180,
-  "selected_count": 12,
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T08:55:44.416066+00:00",
+  "candidate_count": 168,
+  "selected_count": 7,
   "papers": [
     {
-      "paper_id": "2611.34276v1",
-      "title": "Scaling Looped MoE Language Models under Matched Budgets: Information Flow and Parameter Allocation",
-      "abstract": "Looped Transformers decouple computational depth from parameter count, and prior studies have demonstrated promising performance gains with increased computation. However, systematic design principles for configuring these models under strict iso-parameter and iso-FLOP constraints remain scarce. We contribute to this direction by improving information flow in looped models and systematically studying loop parameter configurations. Specifically, we refine this information flow via gated inner-loop state updates and a cross-stage residual connection. Building on this design, controlled studies identify a configuration combining a single-pass Core depth of 25%-35% of the total unrolled depth with reallocating saved parameters into extra routed experts per layer, improving performance at zero extra compute while preserving compatibility with existing training infrastructure. Evaluated after 1T pre-training tokens, our 69B MLA and 51B KDA Mixture-of-Experts models outperform budget-matched non-recurrent baselines by an average of 1.16 and 2.29 percentage points across four benchmarks, respectively. Further reproduction experiments on a common backbone with a 200B-token training budget show that our method achieves lower perplexity than other looped methods. Code for these reproduction experiments is available at https://github.com/lxi01766/Scaling-Looped-MoE-Language-Models-under-Matched-Budgets-Information-Flow-and-Parameter-Allocation.",
+      "paper_id": "2611.34270v1",
+      "title": "LLM-coupled interpretable tool wear monitoring with multi-evidence reasoning in CNC machining",
+      "abstract": "Interpretable tool wear assessment in CNC machining is challenging. Existing diagnostic models have high accuracy but provide limited guidance for tool replacement. This study proposes a two layer framework combining deep learning wear classification and LLM assisted reasoning. The first layer uses PCA Loading feature selection and optimized GRU to recognize three wear states, achieving 98.38 percent macro F1 score on the PHM2010 dataset. The second layer uses LLMs to generate natural language reports and replacement suggestions from classification results and feature trends. Engineer evaluation shows the reports outperform rule templates. Cross dataset tests on NASA milling data support the generalizability of this framework.",
       "authors": [
-        "Shipeng Bai",
-        "Jiayu Qin",
-        "Hong Liu",
-        "Xili Wang",
-        "Jianchao Tan",
-        "Jiacheng Li",
-        "He Zhang",
-        "Yifan Lu",
-        "Jiaqi Zhang",
-        "Kefeng Zhang",
-        "Yuchen Xie",
-        "Xunliang Cai"
+        "Yuntong Chen",
+        "Yingqi Li",
+        "Qiwen Shen",
+        "Guobin Zhao",
+        "Xitian Tian",
+        "Lijiang Huang"
       ],
-      "published": "2026-11-25T12:35:09Z",
-      "updated": "2026-11-25T12:35:09Z",
+      "published": "2026-11-25T12:32:30Z",
+      "updated": "2026-11-25T12:32:30Z",
       "categories": [
-        "cs.LG"
+        "cs.LG",
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34276v1",
-      "abs_url": "http://arxiv.org/abs/2611.34276v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.34270v1",
+      "abs_url": "http://arxiv.org/abs/2611.34270v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.81
+        "reasoning": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 99,
-        "novelty": 85.3,
-        "practical": 27,
+        "relevance": 63.0,
+        "quality": 44,
+        "novelty": 89.9,
+        "practical": 18,
         "credibility": 35
       },
-      "confidence": 75,
+      "confidence": 51,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 75.9,
+      "score": 54.6,
       "score_reasons": [
-        "命中主题：预训练与优化",
-        "优势：质量 99、新颖 85"
+        "命中主题：推理时扩展",
+        "优势：新颖 90、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.34928v1",
-      "title": "Diverse Alternative Reasoning Traces for Hard Math Problems",
-      "abstract": "Post-training large language models (LLMs) for mathematical reasoning often relies on accepted traces whose final answers pass a verifier. For hard math problems, however, such traces can be rare under independent Monte Carlo (MC) sampling. To address this, we propose Diverse Alternative Reasoning Traces (DART), a trace-mining method that starts from a rejected trace, decomposes it into reasoning steps, and ranks them by position-weighted uncertainty. It then generates deliberately distinct alternative candidates for highly ranked steps using reference-answer guidance and a meta-thought before completing the resulting traces. On greedy-unsolved DeepMath-103K problems, DART recovers 37% more problems than MC sampling at a matched number of generated traces. Its estimated generation cost per recovered problem is nearly identical, while its cost per accepted trace is 30% lower. Post-training Llama-3.1-8B-Instruct on traces mined by DART achieves the highest point estimate in five of six evaluations across MATH-500 and AIME benchmarks. These results demonstrate that revisiting rejected traces with DART can expand problem coverage and provide effective post-training data.",
+      "paper_id": "2611.34575v1",
+      "title": "Sage-Med: Scaling Medical Multimodal Intelligence",
+      "abstract": "Establishing effective scaling laws for medical multimodal large language models (MLLMs) remains a persistent and fundamental challenge. Our systematic evaluation shows that existing medical MLLMs tend to underperform frontier general-purpose MLLMs across a range of medical tasks, while scaling model size primarily improves text capabilities rather than multimodal perception, and enabling reasoning modes fails to close this visual gap. To investigate how medical multimodal intelligence scales in practice, we introduce Sage-Med-Preview, a 35B-parameter medical multimodal model with 3B activated parameters, built by combining stage-specific curation over 322.7 million candidate records with a progressive training curriculum spanning medical pretraining, staged supervised fine-tuning, and adaptive reinforcement learning. Across this curriculum, progressive supervised refinement and adaptive reinforcement learning yield consistent stage-wise gains, substantially advancing both specialized visual understanding and medical language capabilities. Evaluated against 77 competing models across 238 clinical tasks spanning 61 public and 13 private multi-center benchmarks in more than 40 modalities, Sage-Med-Preview achieves an average score of 58.26% on the 31 public multimodal benchmarks. It outperforms the state-of-the-art open-source medical model Hulu-Med-235B-A22B at 50.99% and the general scientific model Intern-S2-Preview at 52.24%, and approaches the advanced proprietary model GPT-6.2-Sol across multiple tasks such as comprehensive multimodal understanding, report generation, and visual grounding. Although substantial challenges remain in complex medical reasoning and multi-step clinical workflows, this report provides empirical evidence, actionable data and training recipes, and a rigorous benchmark toward scalable clinical multimodal intelligence.",
       "authors": [
-        "Lukas Aichberger",
-        "Adam Golinski",
-        "Arno Blaas",
-        "Arwen Bradley",
-        "Jacob Springer",
-        "Mehrdad Farajtabar",
-        "Michael Kirchhof",
-        "Sinead Williamson"
+        "Sage-Med Team",
+        ":",
+        "Ming Hu",
+        "Cheng Tang",
+        "Wei Li",
+        "Rongbin Li",
+        "Feilong Tang",
+        "Junru Hu",
+        "Hongze Zhu",
+        "Qiujuan Yan",
+        "Huanze Tang",
+        "Shaocong Wei",
+        "Siyuan Yan",
+        "Min Cen",
+        "Zhongxing Xu",
+        "Zhonghua Wang",
+        "Lie Ju",
+        "Zhen Yu",
+        "Wenjie Li",
+        "Shiyan Su",
+        "Jing Hao",
+        "Jingyong Liang",
+        "Diping Song",
+        "Fang Yan",
+        "Chenglong Ma",
+        "Junzhi Ning",
+        "Haochen Xue",
+        "Zanting Ye",
+        "Chenrun Wang",
+        "Jinjie Wei",
+        "Yi Xin",
+        "Jianghan Shen",
+        "Siqi Luo",
+        "Jiyao Liu",
+        "Huidong Xie",
+        "Jun Zhao",
+        "Rulin Zhou",
+        "Longquan Jiang",
+        "Ziyan Huang",
+        "Ying Chen",
+        "Hanxiao Zhang",
+        "Junyang Wu",
+        "Mouxiao Bian",
+        "Jiashi Lin",
+        "Chenyu Wang",
+        "Qi Qin",
+        "Jie Huang",
+        "Yiling Zhou",
+        "Jiawei Chen",
+        "Kefan Wang",
+        "Jingjing Hua",
+        "Yaoyu Liu",
+        "Huihui Xu",
+        "Tianbin Li",
+        "Jin Ye",
+        "Ziyang Chen",
+        "Shujian Gao",
+        "Zilin Lu",
+        "Jiangtao Yan",
+        "Changkai Ji",
+        "Wenhao Tang",
+        "Xinyi Zeng",
+        "Yuxing Chen",
+        "Hongwei Yang",
+        "Rongzhao Zhang",
+        "Jinru Ding",
+        "Yingcheng Wu",
+        "Zhenfei Yin",
+        "Jinzhe Li",
+        "Lu Lu",
+        "Yun Zhong",
+        "Zhishan Lin",
+        "Bingli Wang",
+        "Xiaohan Ren",
+        "Jianmin Qian",
+        "Penghao Zhao",
+        "Zhongbo Tian",
+        "Zhenbang Zhou",
+        "Peiling Dai",
+        "Mengjing Zhao",
+        "Jingyu Zheng",
+        "Pinan Liu",
+        "Shiwei Li",
+        "Victoria Mar",
+        "Cristina Vico-Alonso",
+        "Qiang Wu",
+        "Xianming Liu",
+        "Lingtong Huang",
+        "Dili Song",
+        "Minghui Zhang",
+        "Wenlong Zhang",
+        "Qipeng Guo",
+        "Yuqiang Li",
+        "Nanqing Dong",
+        "Yun Gu",
+        "Qi Duan",
+        "Hongliang Ren",
+        "Hongming Shan",
+        "Yin Xie",
+        "Xiang An",
+        "Benyou Wang",
+        "Yueming Su",
+        "Yefeng Zheng",
+        "Zongyuan Ge",
+        "Chun-Mei Feng",
+        "Jie Xu",
+        "Yu Qiao",
+        "Junjun He",
+        "Yirong Chen"
       ],
-      "published": "2026-11-25T18:59:11Z",
-      "updated": "2026-11-25T18:59:11Z",
+      "published": "2026-11-25T15:39:45Z",
+      "updated": "2026-11-25T15:39:45Z",
       "categories": [
-        "cs.CL",
-        "cs.AI",
+        "cs.CV",
+        "cs.AI"
+      ],
+      "pdf_url": "https://arxiv.org/pdf/2611.34575v1",
+      "abs_url": "http://arxiv.org/abs/2611.34575v1",
+      "source": "arXiv",
+      "venue": null,
+      "code_url": null,
+      "cited_by_count": null,
+      "topic_scores": {
+        "pretraining": 0.36,
+        "post-training": 0.18,
+        "reasoning": 0.18
+      },
+      "semantic_score": null,
+      "personal_score": null,
+      "score_breakdown": {
+        "relevance": 36.0,
+        "quality": 81,
+        "novelty": 82.1,
+        "practical": 27,
+        "credibility": 35
+      },
+      "confidence": 59,
+      "risk_zh": null,
+      "llm_scores": {},
+      "score": 54.1,
+      "score_reasons": [
+        "命中主题：预训练与优化、微调与对齐、推理时扩展",
+        "优势：新颖 82、质量 81"
+      ],
+      "summary_zh": null
+    },
+    {
+      "paper_id": "2611.34848v1",
+      "title": "Put the World Back: Timestamps Matter in Time Series Reasoning",
+      "abstract": "Large language models (LLMs) are increasingly applied to time series reasoning. However, current evaluations often give models events in chronological order and already matched to the time series. This makes it unclear whether models use timestamps to connect events with observations or simply take shortcuts. To expose this ambiguity, we reformulate time series reasoning from a world-to-series projection perspective, viewing timestamps as explicit indices that connect numerical observations and external events to shared world states. We identify three structures that timestamps can make explicit: temporal causal structure, time semantics, and event-series alignment. Building on this perspective, we develop a diagnostic protocol that distinguishes timestamp-grounded reasoning from correlational shortcuts, a distinction that accuracy-based benchmarks cannot make. Controlled interventions on 310 questions from two tasks show that high accuracy can persist when timestamps are replaced by relative offsets or removed, while breaking event-series alignment induces systematic failures. When context is pre-aligned, models barely need timestamps. When order is missing, they use dates to recall world knowledge. Without dates, they rely on correlational shortcuts and rarely notice incorrect timestamps. These findings show that high accuracy on pre-aligned, ordered inputs does not establish that a model uses timestamps to synchronize observations with the world. We release our code, model outputs, and trajectory labels at https://github.com/tingrui-huang/timestamps-matter.",
+      "authors": [
+        "Tingrui Huang",
+        "Yuanyuan Deng",
+        "Qingren Yao",
+        "Joaquin Vanschoren",
+        "Mykola Pechenizkiy",
+        "Songgaojun Deng"
+      ],
+      "published": "2026-11-25T18:23:07Z",
+      "updated": "2026-11-25T18:23:07Z",
+      "categories": [
         "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34928v1",
-      "abs_url": "http://arxiv.org/abs/2611.34928v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.34848v1",
+      "abs_url": "http://arxiv.org/abs/2611.34848v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "post-training": 0.18,
-        "reasoning": 0.81
+        "reasoning": 0.63
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 63,
-        "novelty": 87.3,
-        "practical": 27,
+        "relevance": 63.0,
+        "quality": 35,
+        "novelty": 86.9,
+        "practical": 18,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 66.7,
+      "score": 51.7,
       "score_reasons": [
         "命中主题：微调与对齐、推理时扩展",
-        "优势：新颖 87、匹配 81"
+        "优势：新颖 87、匹配 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.34681v1",
-      "title": "Find the Clue, Not the Scene: Rethinking Reasoning for Entity Recognition in Vision-Language Models",
-      "abstract": "Answering a knowledge-based visual question requires first recognizing the entity in the image and then recalling knowledge about it. Thinking vision-language models (VLMs) reason for thousands of tokens before answering, yet it remains underexplored how well such thinking VLMs perform each of these two steps. We therefore analyze thinking VLMs on this task and make two key observations. (1) Recognition is the bottleneck, since 76.3% of errors across four models on ViQuAE stem from misrecognizing the entity, and 84.9% of these failures are resolved once the entity name is provided in the question. (2) Recognition is driven by entity-recall clues rather than by general descriptions of the image. An entity-recall clue is a distinctive visual detail that helps the model recall the entity, such as keys, a traditional attribute of Saint Peter. Based on these findings, we propose ClueRL, a reinforcement learning approach that extends Group Relative Policy Optimization (GRPO) with an advantage localized to the entity-recall clue in the thinking trace. Rather than injecting new entity knowledge, ClueRL changes how VLMs think: it leads them to attend more closely to visual details and spot these clues, helping them use the knowledge they already have. Consequently, it outperforms both GRPO and a perception-reward baseline on three entity recognition benchmarks. Moreover, this clue-seeking behavior generalizes beyond entity recognition, the only task used for training. Since recognition is the bottleneck, the gains carry over to knowledge-based visual question answering. They even extend to general multimodal reasoning, raising Qwen3.5-4B by 4.4 and 4.0 points on the ScienceQA and MMMU subsets of MMStar, respectively.",
+      "paper_id": "2611.34440v1",
+      "title": "vSFT: Learning to Verbally Tune Agents at Test Time",
+      "abstract": "Large language model agents are increasingly improved via agentic reinforcement learning, which can be on-policy but suffers from expensive rollouts and sparse rewards, limiting its application at test time. In this paper, we present a verbally Supervised Fine-Tuning (vSFT) framework that enables the conjunction of dense feedback in natural language and weight updates at test time. Specifically, our vSFT forms a closed loop between an agent and a supervisor via a hypernetwork, in which the supervisor generates verbal supervision from the agent's failed trajectories, and the hypernetwork converts that supervision into low-rank weight updates to tune the agent. We validate that this test-time in-parameter evolving process outperforms both its in-context counterparts and prevalent reinforcement learning methods. In particular, our vSFT using Qwen3-4B outperforms GRPO and Reflexion by 8.7% and 13.9% in success rate on ALFWorld, and by 4.8% and 18.2% on WebShop, respectively. We believe that learning how to adapt a model, rather than an adapted model, offers a promising path towards more capable agents that improve themselves.",
       "authors": [
-        "Kyungmin Min",
-        "Soyeon Kim",
-        "Junseok Kim",
-        "Kyomin Jung"
+        "Qishuai Wen",
+        "Rui Chen",
+        "Haiwen Li",
+        "Zhiyuan Huang",
+        "Qiwen Gu",
+        "Bingjie Gao",
+        "Geng Li",
+        "Jing Tang",
+        "Xiangxiang Chu",
+        "Chun-Guang Li"
       ],
-      "published": "2026-11-25T16:44:26Z",
-      "updated": "2026-11-25T16:44:26Z",
+      "published": "2026-11-25T14:22:22Z",
+      "updated": "2026-11-25T14:22:22Z",
       "categories": [
-        "cs.CV",
-        "cs.AI"
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34681v1",
-      "abs_url": "http://arxiv.org/abs/2611.34681v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.18,
-        "reasoning": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 81,
-        "novelty": 85.3,
-        "practical": 18,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 63.6,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展",
-        "优势：新颖 85、质量 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.34545v1",
-      "title": "Recalling the Past to Answer the Present: Context-Aware Multi-Evidence Reasoning for Streaming Video Question Answering",
-      "abstract": "Vision-language models (VLMs) have achieved remarkable progress in video understanding, yet existing video question answering (VQA) benchmarks mainly evaluate models in offline settings. Real-world streaming scenarios instead require models to answer context-dependent queries by retrieving and reasoning over evidence distributed across the video history. We introduce StreamRecall, a benchmark for context-aware Multi evidence reasoning in streaming video QA. StreamRecall requires models to retrieve, associate, and reason over temporally scattered evidence to answer queries at the appropriate moment. It contains 4,983 questions over 462 videos, with context-aligned query times and fine-grained temporal evidence annotations. We further propose the Evidence Utilization Cascade to diagnose model reasoning through evidence localization, grounding, chain completion, and answer derivation. To enable efficient long-term streaming reasoning, we present EviStream, a training-free causal visual memory mechanism that preserves reasoning-critical evidence under a fixed KV budget. Experiments reveal substantial gaps between current VLMs and realistic streaming requirements, establishing StreamRecall as a foundation for developing evidence-aware streaming video intelligence.",
-      "authors": [
-        "Cui Yakun",
-        "Tiantian Geng",
-        "Huixiang Kong",
-        "Xingqun Qi",
-        "Sirui Han",
-        "Yike Guo"
-      ],
-      "published": "2026-11-25T15:24:02Z",
-      "updated": "2026-11-25T15:24:02Z",
-      "categories": [
-        "cs.CV",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34545v1",
-      "abs_url": "http://arxiv.org/abs/2611.34545v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "reasoning": 0.63
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 61,
-        "novelty": 83.8,
-        "practical": 36,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 60.0,
-      "score_reasons": [
-        "命中主题：推理时扩展",
-        "优势：新颖 84、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.34864v1",
-      "title": "RePace: Reasoning about Demonstration Speedup for Faster Vision-Language-Action Policies",
-      "abstract": "Since vision-language-action (VLA) policies can inherit the slow pace of human demonstrations, accelerating these demonstrations before fine-tuning can lead to faster VLA policies without an additional speed-selection module at deployment. Several offline speedup methods have focused on identifying segments that require less precision and assigning predefined speedup factors to the segments. However, even within a single segment, a speedup factor suitable for steady motion may be too high when precise alignment is required. To this end, this paper presents RePace, an offline reasoning framework that determines how much to accelerate each part of a demonstration. For the same recorded movement, RePace measures how much each candidate speedup factor shortens the sequence and compares the resulting observation-action pairs used for training. Given the task instruction, a pretrained language model uses the visual context and original motion of successive windows to interpret these candidate retiming effects and select a speedup profile for the complete episode. Experimental results demonstrate that RePace outperforms the baselines in overall task execution efficiency on both LIBERO and RoboCasa-Kitchen. On all three tasks with a gripper-equipped Franka Research 3 arm, RePace matches or exceeds the acceleration baselines in success rate and completes successful trials faster.",
-      "authors": [
-        "Insup Lee",
-        "Hojin Jeon",
-        "Sunguk Shin",
-        "Seoungbin Bae",
-        "Taekwan Kim",
-        "Jinwoo Shin",
-        "Dongsu Han"
-      ],
-      "published": "2026-11-25T18:30:43Z",
-      "updated": "2026-11-25T18:30:43Z",
-      "categories": [
-        "cs.RO",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34864v1",
-      "abs_url": "http://arxiv.org/abs/2611.34864v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.34440v1",
+      "abs_url": "http://arxiv.org/abs/2611.34440v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
         "post-training": 0.36,
-        "reasoning": 0.63
+        "efficiency": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
-        "quality": 62,
-        "novelty": 87.9,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 67,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 59.9,
-      "score_reasons": [
-        "命中主题：微调与对齐、推理时扩展",
-        "优势：新颖 88、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.34858v1",
-      "title": "From Prediction to Decision: Decision-Focused Fine-Tuning of Autoregressive Tabular Transformers for Cost-Sensitive Financial Events",
-      "abstract": "Autoregressive transformers trained on tokenized tabular event streams are a simple and strong baseline for predicting financial events such as fraud. Yet institutions do not act on probabilities; they act on decisions whose consequences are asymmetric and heteroscedastic: the cost of a missed high-value fraud and that of a wrongly declined small purchase are not the same. The standard bridge is post-hoc Bayes-optimal thresholding of calibrated probabilities under a cost matrix. We ask whether fine-tuning the model to the decision objective can do better. We fine-tune the same pretrained model so that its restricted softmax over label tokens (already a distribution over business actions) maximizes expected utility under an institution-specified, amount-scaled cost matrix. Because the reward is a known function of (action, outcome, amount) and the outcome is observed in the data, the expected-utility objective and its gradient are available in closed form. This is example-dependent cost-sensitive learning whose per-example loss is linear in the predicted probability, with no sampling, critics, or advantage estimation. A KL anchor to the pretrained model and an auxiliary language-modeling term preserve calibration and the generative event model. A sampled, group-normalized (GRPO-style) variant provides the extension point to trajectory-level rewards.",
-      "authors": [
-        "Ashkan Golgoon",
-        "Giacomo Domeniconi",
-        "Samuel Atkins",
-        "Sergio Servantez",
-        "Zain Khandwala"
-      ],
-      "published": "2026-11-25T18:27:48Z",
-      "updated": "2026-11-25T18:27:48Z",
-      "categories": [
-        "cs.LG",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34858v1",
-      "abs_url": "http://arxiv.org/abs/2611.34858v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 31,
-        "novelty": 88.5,
-        "practical": 27,
+        "relevance": 36.0,
+        "quality": 63,
+        "novelty": 85.5,
+        "practical": 18,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 58.5,
-      "score_reasons": [
-        "命中主题：微调与对齐",
-        "优势：新颖 88、匹配 81"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.34667v1",
-      "title": "Learning to Be Truncated: Preparing LLM Checkpoints for SVD Compression",
-      "abstract": "Compression based on singular value decomposition (SVD) often requires subsequent fine-tuning or weight correction to mitigate performance degradation. Budget-specific optimization must be repeated for different compression ratios. We introduce LLift, which prepares a pretrained model for SVD compression across ratios without further fine-tuning. LLift fine-tunes a low-rank approximation at a single ratio using the original model as a teacher. We merge the learned updates into the original weights while preserving the complementary components excluded from the training forward pass. We apply SVD to the prepared model's target matrices and reuse the decompositions at different truncation ranks. On LLaMA-7B, we demonstrate accuracy gains across three compression ratios using a single prepared model. The gains extend across model families, model sizes, and SVD compression operators. We analyze gradients and an early training update to provide local evidence that updates learned at one ratio can benefit compression at other ratios. These results show that LLift can improve compression across deployment budgets without fine-tuning each compressed model separately.",
-      "authors": [
-        "Chenyue Fang",
-        "Danila Mishin",
-        "Babak Falsafi"
-      ],
-      "published": "2026-11-25T16:35:40Z",
-      "updated": "2026-11-25T16:35:40Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34667v1",
-      "abs_url": "http://arxiv.org/abs/2611.34667v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "post-training": 0.18,
-        "efficiency": 0.81
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 81.0,
-        "quality": 26,
-        "novelty": 85.0,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 35,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 56.6,
+      "score": 48.9,
       "score_reasons": [
         "命中主题：微调与对齐、压缩与高效推理",
-        "优势：新颖 85、匹配 81"
+        "优势：新颖 86、质量 63"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.34292v1",
-      "title": "WebVibe: Multimodal Interactive Website Generation via Reverse Synthesis and Visual Self-Distillation",
-      "abstract": "Although multimodal large language models translate single screenshots into static HTML, generating interactive functional websites from design specifications still struggles with multi-page routing and stateful widget transitions. Examining existing training pipelines reveals two bottlenecks: (1) in forward data synthesis (X -> Y), writing the specification X before code execution leaves unimplemented or altered requirements in X as supervision noise; and (2) in reinforcement learning, scalar rewards discard the rich state transitions observed during replay. Based on these findings, we introduce WebVibe and Interactive-SDPO to train InteractiveCoder. WebVibe reverses synthesis into Y -> X by verifying cross-page and in-page interactions in the browser before deriving multimodal inputs from replay-confirmed states to build the 31,542-site WebVibe-32K corpus with reusable execution contracts. Interactive-SDPO then conditions a weight-sharing self-teacher on the replay trace and a 2x2 state-transition montage to provide token-level supervision at zero inference-time overhead. On the public Vision2Web L2, one-shot InteractiveCoder-9B nearly 3x its base model's functional score (20.2 to 55.2 FS) and matches a 1T-parameter coding agent in a single pass with 111x fewer total parameters and 78x fewer tokens. On our WebVibeBench, InteractiveCoder-4B and 9B further outperform all evaluated baselines by over 23 points.",
+      "paper_id": "2611.34935v1",
+      "title": "Can image generation help visual reasoning? An empirical study",
+      "abstract": "Language models think in words; then multimodal models might think in images. We test whether a generated helper improves the answer to a visual question. A model describes the helper it needs and then answers using the original and generated images together. Across 13 vision-language model and generator pairs, generation lowers mean accuracy by 3.7 percentage points, with declines on nine of ten tasks. Two unified models, BAGEL and Janus-Pro-7B, each lose accuracy on eight tasks. On VSTAR, adding a generated image to the same planning hint lowers accuracy by 10.47 points. Repeated image edits yield different outcomes across tasks. ChartQAPro and MathVista stay below their no-generation baselines, while ERQA gains three points after ten edits.",
       "authors": [
-        "Tianxiang Jiang",
-        "Sheng Xia",
-        "Yilin Long",
-        "Kanghui Tian",
-        "Linquan Wu",
-        "Yongheng Zhang",
-        "Daixian Liu",
-        "Di Yin",
-        "Yi Wang",
-        "Yu Qiao",
-        "Qinglong Zhang"
+        "Xueyang Yu",
+        "Yifan Jing",
+        "Taiming Lu",
+        "Linrong Cai",
+        "Zhipeng Cai",
+        "Yunyang Xiong",
+        "Gabriel Sarch",
+        "Zhuang Liu"
       ],
-      "published": "2026-11-25T12:46:28Z",
-      "updated": "2026-11-25T12:46:28Z",
+      "published": "2026-11-25T18:59:31Z",
+      "updated": "2026-11-25T18:59:31Z",
       "categories": [
-        "cs.CV",
-        "cs.AI"
+        "cs.LG",
+        "cs.CL",
+        "cs.CV"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34292v1",
-      "abs_url": "http://arxiv.org/abs/2611.34292v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.34935v1",
+      "abs_url": "http://arxiv.org/abs/2611.34935v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "efficiency": 0.45
+        "reasoning": 0.45
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 45.0,
-        "quality": 69,
-        "novelty": 87.9,
-        "practical": 32,
-        "credibility": 35
-      },
-      "confidence": 59,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 55.7,
-      "score_reasons": [
-        "命中主题：压缩与高效推理",
-        "优势：新颖 88、质量 69"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.34492v1",
-      "title": "FlyingStart: Learned Cross-Token Warm Starts for Fixed-Point Decoding in Recurrent-Depth Language Models",
-      "abstract": "Recurrent-depth language models generate each token by iterating a shared block of layers until its hidden state converges. Inference methods for these models decide when to stop the iteration, yet every token still starts from random noise and pays the full cost of converging. We show that where the iteration starts is a second, independent lever. A token's fixed point is predictable from the state at which the previous token stopped, after a learned change of coordinates, and we introduce FlyingStart, a linear warm start that is fitted in closed form on the frozen model and costs under 5% of one loop. The iteration and its stopping rule are unchanged, so the exit criterion certifies the same distance to the fixed point from any start: a better start removes loops at unchanged accuracy. On Huginn-0125, FlyingStart matches the accuracy of the strongest training-free baseline with 14--19% fewer decoding layers, raises batched throughput by 16--18% in two serving engines, and adds a further 10--14% on top of self-speculative decoding. A contraction analysis predicts the number of loops saved on all four models we study, including one where the prediction was recorded before any evaluation, and token by token on Huginn, and it identifies when a warm start pays off: the saving grows with the number of loops a model needs to converge.",
-      "authors": [
-        "Runguo Li",
-        "Dezhen Lu",
-        "Zixiang Ni"
-      ],
-      "published": "2026-11-25T14:51:50Z",
-      "updated": "2026-11-25T14:51:50Z",
-      "categories": [
-        "cs.CL",
-        "cs.LG"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34492v1",
-      "abs_url": "http://arxiv.org/abs/2611.34492v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "serving": 0.36
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 51,
-        "novelty": 86.7,
-        "practical": 45,
+        "quality": 47,
+        "novelty": 87.2,
+        "practical": 18,
         "credibility": 35
       },
       "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 48.8,
+      "score": 48.3,
       "score_reasons": [
-        "命中主题：推理系统",
-        "优势：新颖 87、质量 51"
+        "命中主题：推理时扩展",
+        "优势：新颖 87、质量 47"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.34923v1",
-      "title": "Mixture-of-Loops Transformer",
-      "abstract": "Looped Transformers boost expressivity by reusing shared layers across loops, yet at the cost of efficiency. Pushing their expressivity-efficiency frontier requires rethinking the core mechanism connecting adjacent loops: What should be passed as a Transformer loops? We introduce Mixture-of-Loops Transformer (MoLT), whose Mixture-of-Loops Attention (MoLA) uses keys and values (KV) as memory for selective reuse across depths and loops. Under loop residual, MoLT-R retains the residual stream and reads local KV across loops for expressivity. Under loop KV, MoLT-KV instead restarts from embeddings and reads current-loop local KV with preceding-loop memory KV at earlier positions for efficiency. MoLT-KV eliminates same-position cross-loop dependence and, paired with loop forcing for parallel training, unlocks single-traversal Mixture-of-Loops (MoL) decoding beyond the training loop horizon. To balance efficiency and quality, we introduce U-shaped MoLT (U-MoLT), which separates memory construction from prediction readout and skips unused decoder traversals without changing predictions. In 400B-token pretraining, U-MoLT outperforms OLMo3 across 700M/1.5B dense and 3B MoE models, achieving 1.7x validation cross-entropy (CE) token efficiency at 700M while improving 3B MoE 10-domain perplexity by 0.75 and 10-task accuracy by 2.1 percentage points. In 100B-token continued pretraining of Qwen3.5-0.8B-Base, our U-MoLT adaptation lowers CE on all 11 domains over the matched baseline with 1.4x mean token efficiency. At inference, U-MoLT with MoL-Hybrid-2 matches non-looped OLMo3 latency at 996.6 vs. 1,000.6 ms on S-size (~113M) models. Code is available at https://github.com/hustvl/MoLT",
+      "paper_id": "2611.34635v1",
+      "title": "ZeroHero: Training Small Language Agents from Scratch",
+      "abstract": "Large pretrained language models provide capable policies for interactive tasks, but how much model capacity is necessary for a specialized language agent? We introduce ZeroHero, a framework for training small language agents (SLAs) from scratch. In each environment, a large language model acts as the expert, and we collect its successful trajectories. We pretrain each SLA, which has fewer than 50 million parameters, to predict the expert's responses given the interaction history. We then post-train the agent on its own interactions using proximal policy optimization (PPO). During post-training, reasoning alignment supplements environment rewards with expert supervision on the language the agent generates alongside its actions. We evaluate the agents in three multistep environments where acting requires both understanding and generating language. In Crafter, agents interpret textual observations and generate reasoning before acting. In WebShop, they translate shopping instructions into search queries. In Alfworld-Dialogue, they ask clarifying questions and use the answers to guide household actions. The agents approach expert performance on WebShop and surpass their respective demonstration experts on Crafter training rollouts and held-out Alfworld-Dialogue tasks. An interactive demo is available at https://zoyav.github.io/-ZoyaV-zerohero-demo.",
       "authors": [
-        "Lianghui Zhu",
-        "Shijie Wang",
-        "Xinggang Wang",
-        "Jinze Bai",
-        "Bo Wang",
-        "Xiang Bai"
+        "Nikita Sorokin",
+        "Zoya Volovikova",
+        "Alexey Skrynnik",
+        "Aleksandr Panov"
       ],
-      "published": "2026-11-25T18:58:53Z",
-      "updated": "2026-11-25T18:58:53Z",
+      "published": "2026-11-25T16:20:13Z",
+      "updated": "2026-11-25T16:20:13Z",
       "categories": [
-        "cs.LG",
-        "cs.CL"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34923v1",
-      "abs_url": "http://arxiv.org/abs/2611.34923v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.34635v1",
+      "abs_url": "http://arxiv.org/abs/2611.34635v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "pretraining": 0.36
+        "post-training": 0.36,
+        "reasoning": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
         "relevance": 36.0,
-        "quality": 60,
-        "novelty": 85.3,
-        "practical": 59,
+        "quality": 47,
+        "novelty": 85.7,
+        "practical": 18,
         "credibility": 35
       },
-      "confidence": 51,
+      "confidence": 43,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 52.4,
+      "score": 44.7,
       "score_reasons": [
-        "命中主题：预训练与优化",
-        "优势：新颖 85、质量 60"
+        "命中主题：微调与对齐、推理时扩展",
+        "优势：新颖 86、质量 47"
       ],
       "summary_zh": null
     },
     {
-      "paper_id": "2611.34402v1",
-      "title": "Any-Rate: Half-Bit Multi-Precision LLM Quantization with Coded Bit-Planes",
-      "abstract": "Nested multi-precision quantization derives multiple precisions from a single checkpoint by reading only the leading bits of each weight, which makes it attractive for on-device deployment under varying memory and energy budgets. However, existing methods offer only integer bits, leaving large accuracy gaps between adjacent precisions and severe degradation at 2 bits. To address this, we propose Any-Rate, which serves 2-8 bits from one checkpoint, in half-bit steps over 2-4 bits. Any-Rate restricts some bit-planes to extended Hamming codewords in 8-weight blocks (0.5 bits per weight), shares one LUT per row across precisions, and encodes all precisions jointly with a separate target for each, reducing the loss from sharing bit-planes. Across four LLMs, Any-Rate achieves state-of-the-art accuracy among multi-precision methods at 2 and 3 bits, keeping 69% of FP16 accuracy at 2 bits, and is within one point of the best at 4 bits. It decodes about as fast as existing kernels, and an LPDDR energy model estimates up to 27% less energy at equal accuracy. Code is available at https://github.com/hoonki2002/Any-Rate.",
+      "paper_id": "2611.34612v1",
+      "title": "Do We Really Need an LLM for Weight-Space Programming? A Deterministic Forward-Only Paradigm and Its Capability Boundaries",
+      "abstract": "Recent work on Weight-Space Programming uses LLMs to edit neural weights with forward passes only, conflating LLM scripting with the underlying algebra of forward-only editing. We show that for core structured editing regimes, an LLM optimizer is unnecessary, and introduce Forward Weight-Space Programming (FWSP): a deterministic pipeline combining probing, localization, stratified operators (O1-O4), automatic blind routing (83.3% vs. 33.3% for a 27B LLM with the same tool library), and paired verification with zero additional per-token computation. For reasoning LLMs, we propose Protected FisherGate, a closed-form covariance-whitened readout edit orthogonal to normal-reasoning states: on DeepSeek-R1-0528-8B, a single frozen math-calibrated patch achieves 84.2% HumanEval pass@1 (1K budget; 75.4 +/- 9.4% across 3/5 Stage-4-passing subsets), beating 512-token-reserved budget forcing by +14.6 pp (-23.4% tokens) while transferring across HF-to-vLLM backends on full GSM8K and MATH-500. Across five modalities and thirteen models (50K to 27B dense and FP8 MoE), we further prove and verify two operator boundaries, subspace entanglement and frozen representation span, where FWSP-localized LoRA bridges forward-only and gradient adaptation.",
       "authors": [
-        "Hoonki Lee",
-        "Haechan Shin",
-        "Hyuntaek Jung",
-        "Yeonu Choi",
-        "Sangyeob Kim"
+        "Lin Yao"
       ],
-      "published": "2026-11-25T14:01:05Z",
-      "updated": "2026-11-25T14:01:05Z",
+      "published": "2026-11-25T16:01:05Z",
+      "updated": "2026-11-25T16:01:05Z",
       "categories": [
-        "cs.LG",
-        "cs.AR",
-        "cs.CL"
+        "cs.AI"
       ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34402v1",
-      "abs_url": "http://arxiv.org/abs/2611.34402v1",
+      "pdf_url": "https://arxiv.org/pdf/2611.34612v1",
+      "abs_url": "http://arxiv.org/abs/2611.34612v1",
       "source": "arXiv",
       "venue": null,
       "code_url": null,
       "cited_by_count": null,
       "topic_scores": {
-        "efficiency": 0.63
+        "pretraining": 0.36,
+        "reasoning": 0.18,
+        "serving": 0.18
       },
       "semantic_score": null,
       "personal_score": null,
       "score_breakdown": {
-        "relevance": 63.0,
+        "relevance": 36.0,
         "quality": 42,
-        "novelty": 87.5,
-        "practical": 27,
-        "credibility": 35
+        "novelty": 90.5,
+        "practical": 18,
+        "credibility": 28
       },
       "confidence": 35,
       "risk_zh": null,
       "llm_scores": {},
-      "score": 54.6,
+      "score": 43.4,
       "score_reasons": [
-        "命中主题：压缩与高效推理",
-        "优势：新颖 88、匹配 63"
-      ],
-      "summary_zh": null
-    },
-    {
-      "paper_id": "2611.34831v1",
-      "title": "Repairing the Trustworthiness of Distilled Language Models",
-      "abstract": "Knowledge distillation enables the deployment of large language models through smaller student models, but the compression process can introduce regressions in trustworthiness even when downstream performance is preserved. Repairing such failures is challenging because the original distillation corpus is often unavailable, while direct preference optimization may alter capabilities inherited from the teacher. We propose a targeted repair framework based on the proximal Bregman response function (PBRF) that addresses both limitations. We estimate the curvature required for PBRF using a surrogate proxy dataset, removing dependence on the original transfer corpus, and extend the framework to preference-based supervision through an odds-ratio objective. This enables the use of preferred and dispreferred response pairs while constraining changes to the distilled model. Our results show that the proposed approach improves targeted trustworthiness behaviors for both pre-training and post-training models while largely preserving downstream performance, providing a practical alternative to re-distillation or unconstrained preference optimization. Our experiment results show that across different distilled models, the trustworthy regression can be improved by up to 8% with less than 1% decrement in perplexity.",
-      "authors": [
-        "Kumar Shubham",
-        "Devendra Vyas",
-        "Vidushi Agarwal",
-        "Jayin Khanna",
-        "Prathosh AP"
-      ],
-      "published": "2026-11-25T18:12:20Z",
-      "updated": "2026-11-25T18:12:20Z",
-      "categories": [
-        "cs.CL",
-        "cs.AI"
-      ],
-      "pdf_url": "https://arxiv.org/pdf/2611.34831v1",
-      "abs_url": "http://arxiv.org/abs/2611.34831v1",
-      "source": "arXiv",
-      "venue": null,
-      "code_url": null,
-      "cited_by_count": null,
-      "topic_scores": {
-        "pretraining": 0.18,
-        "post-training": 0.36,
-        "efficiency": 0.36
-      },
-      "semantic_score": null,
-      "personal_score": null,
-      "score_breakdown": {
-        "relevance": 36.0,
-        "quality": 60,
-        "novelty": 85.0,
-        "practical": 27,
-        "credibility": 35
-      },
-      "confidence": 51,
-      "risk_zh": null,
-      "llm_scores": {},
-      "score": 49.0,
-      "score_reasons": [
-        "命中主题：预训练与优化、微调与对齐、压缩与高效推理",
-        "优势：新颖 85、质量 60"
+        "命中主题：预训练与优化、推理时扩展、推理系统",
+        "优势：新颖 90、质量 42"
       ],
       "summary_zh": null
     }
